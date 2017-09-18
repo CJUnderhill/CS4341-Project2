@@ -16,6 +16,8 @@ class Board:
     def print_board(self):
         for key,value in self.board.items():
             print(key,value.color)
+
+
                 
 
 
