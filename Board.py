@@ -18,7 +18,7 @@ class Board:
             print(key,value.color)
 
 
-                
+
 
 
 class Board_Cell:
