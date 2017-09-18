@@ -3,6 +3,7 @@
 from Agent import *
 
 
+
 def main():
     #groupname = input("What is the name of this player?: ")
     our_groupname = "ourgroup"
