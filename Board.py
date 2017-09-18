@@ -16,18 +16,22 @@ class Board:
     def print_board(self):
         for key,value in self.board.items():
             print(key,value.color)
-
-
-
+    def copy(self):
+        new_board = Board()
+        for i in new_board.columns_pos:
+            for j in new_board.rows_pos:
+                new_board.board[i+j] = self.board[i+j]
+        return new_board
 
 
 class Board_Cell:
-    def __init__(self,column,row):
+    def __init__(self,column,row,is_empty = True,color = "empty",checker = None):
         if self.check_valid(column,row):
             self.column = column
             self.row = row
-            self.is_empty = True
-            self.color = "empty"
+            self.is_empty = is_empty
+            self.color = color
+            self.checker = checker
         else:
             print("invalid input(s), leaving constructor")
 
@@ -45,6 +49,10 @@ class Board_Cell:
                 self.color = self.checker.color
             else:
                 print("cannot play on this cell, it is occupied by color: ",self.color)
+
+    def copy(self):
+        new_cell = Board_Cell(self.column,self.row,self.is_empty,self.color,self.checker)
+        return new_cell 
                 
     def cell_status(self):
         if self.is_empty:
