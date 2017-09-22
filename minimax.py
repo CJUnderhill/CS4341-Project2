@@ -8,62 +8,57 @@ isTie: checks if board is filled and no winner has been determined. True if tie.
 isVictory: checks if board has a winner. True if winner has emerged.
 placeStone: plays stone on board
 """
-
-#from minimax import Minimax
 from random import choice
 from copy import deepcopy
 from itertools import chain
 
 
-"""
-Class outlining the Minimax algorithm, which attempts to minimize the possible loss in a worst-case scenario.
-The algorithm assumes that the first place is maximizing their chance of winning, and the opponent is trying
-	to minimize the first player's chance of winning.
-"""
-
-
 class Minimax:
+    """
+    Class outlining the Minimax algorithm, which attempts to minimize the possible loss in a worst-case scenario.
+    The algorithm assumes that the first place is maximizing their chance of winning, and the opponent is trying
+        to minimize the first player's chance of winning.
+    """
+
     VIC_SCORE = 2**32
 
-    """
-    Finds the filled spots on the board.
-    @param: board   The board to read.
-    @returns:   A list containing all the filled spaces on the board.
-    """
-
     def filledSpots(self, board):
+        """
+        Finds the filled spots on the board.
+        @param: board   The board to read.
+        @returns:   A list containing all the filled spaces on the board.
+        """
         # i: current position being evaluated on the board
         return list(chain.from_iterable(board.filledSpaces(board.board, i) for i in [1, -1]))
 
-    """
-    Finds the empty neighbors on the board.
-    @param: board           The board to read.
-    @param: filled_spots    A list of filled spots on the board.
-    @returns:   A list containing all the empty neighbors on the board.
-    """
-
     def emptyNeighbors(self, board, filled_spots):
+        """
+        Finds the empty neighbors on the board.
+        @param: board           The board to read.
+        @param: filled_spots    A list of filled spots on the board.
+        @returns:   A list containing all the empty neighbors on the board.
+        """
         # i: current position being evaluated on the board
         # 1: radius being evaluated
         return list(chain.from_iterable(board.emptyNeighbors(board.board, i, 1) for i in filled_spots))
 
-    """
-    Improves the runtime and memory usage of the traditional Minimax algorithm by systematically eliminating
-    	nodes we can prove do not need to be evaluated.
-    @param:	self	A Minimax object
-    @param:	board	The Board object
-    @param:	depth	Max depth to explore before ending recursion
-    @param:	alpha	Max score that Max player is tracking
-    @param:	beta	Min score that Min player is tracking
-    @param:	player	The current player making a move
-    @returns:	Tuple containing determined score and next move
-	"""
-
     def abPruning(self, board, depth, alpha, beta, player):
+        """
+        Improves the runtime and memory usage of the traditional Minimax algorithm by systematically eliminating
+            nodes we can prove do not need to be evaluated.
+        @param:	self	A Minimax object
+        @param:	board	The Board object
+        @param:	depth	Max depth to explore before ending recursion
+        @param:	alpha	Max score that Max player is tracking
+        @param:	beta	Min score that Min player is tracking
+        @param:	player	The current player making a move
+        @returns:	Tuple containing determined score and next move
+        """
+
         """
         Get map from board
         TODO: Get filled_spaces and empty_neighbors from board
-                """
+        """
         filled_spots = self.filledSpots(board)
         empty_neighbors = self.emptyNeighbors(board, filled_spots)
 
