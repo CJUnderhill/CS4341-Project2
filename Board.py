@@ -8,6 +8,8 @@ class Board:
         self.columns_pos = ["A", "B", "C", "D", "E", "F",
                             "G", "H", "I", "J", "K", "L", "M", "N", "O"]
         self.board = OrderedDict()
+        self.number_empty_cells = 15*15
+        self.number_filled_cells = 0
         for i in self.columns_pos:
             for j in self.rows_pos:
                 new_board_cell = Board_Cell(i, j)
@@ -15,7 +17,9 @@ class Board:
 
     def make_move(self, column_pos, row_pos, color, second_move=False):
         self.board[column_pos +
-                   row_pos].play_on_cell(Checker(color), second_move=second_move)
+                   row_pos].play_on_cell(color, second_move1=second_move)
+        self.number_filled_cells+=1
+        self.number_empty_cells-=1
 
     def check_cell(self, column_pos, row_pos):
         return self.board[column_pos + row_pos].cell_status()
@@ -23,44 +27,48 @@ class Board:
     def print_board(self):
         for key, value in self.board.items():
             print(key, value.color)
+    def board_status(self):
+        print("number of filled cells: ",self.number_filled_cells)
 
     def copy(self):
         new_board = Board()
         for i in new_board.columns_pos:
             for j in new_board.rows_pos:
-                new_board.board[i + j] = self.board[i + j]
+                new_board.board[i + j] = self.board[i + j].copy()
+        new_board.number_filled_cells = self.number_filled_cells
+        new_board.number_empty_cells = self.number_empty_cells
         return new_board
 
 
 class Board_Cell:
-    def __init__(self, column, row, is_empty=True, color="empty", checker=None):
+    def __init__(self, column, row, is_empty=True, color="empty"):
         if self.check_valid(column, row):
             self.column = column
             self.row = row
             self.is_empty = is_empty
             self.color = color
-            self.checker = checker
+            #self.checker = checker
         else:
             print("invalid input(s), leaving constructor")
 
-    def play_on_cell(self, checker, second_move=False):
-        if isinstance(checker, Checker):
+    def play_on_cell(self, color, second_move1=False):
+        if isinstance(color, str):
             if self.is_empty:
                 self.is_empty = False
-                self.checker = checker
-                self.color = self.checker.color
-                print("played on this cell: ", self.column + self.row)
+                #self.checker = checker
+                self.color = color
+                #print("played on this cell: ", self.column + self.row)
             elif (not self.is_empty) and second_move == True:
                 print("second move of the game, overwrites the move of the first player")
                 self.is_empty = False
-                self.checker = checker
-                self.color = self.checker.color
+                #self.checker = checker
+                self.color = color
             else:
                 print("cannot play on this cell, it is occupied by color: ", self.color)
 
     def copy(self):
         new_cell = Board_Cell(self.column, self.row,
-                              self.is_empty, self.color, self.checker)
+                              self.is_empty, self.color)
         return new_cell
 
     def cell_status(self):
@@ -69,7 +77,7 @@ class Board_Cell:
             return "empty"
         else:
             print("cell is occupied by one checker of color: ", self.checker.color)
-            return self.checker.color
+            return self.color
 
     def check_valid(self, column, row):
         if isinstance(column, str) and isinstance(row, str):
@@ -89,7 +97,7 @@ class Board_Cell:
             print("error, constructor expects 2 strings")
             return False
 
-
+'''
 class Checker:
     def __init__(self, color):
         if self.check_valid(color):
@@ -108,7 +116,7 @@ class Checker:
             print("invalid color, expecting white/black")
             return False
 
-
+'''
 def is_integer(s):
     try:
         int(s)

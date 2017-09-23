@@ -1,6 +1,6 @@
 from Board import *
 
-
+'''
 class Tree:
     def __init__(self, board, color):
         self.initial_board = board
@@ -16,8 +16,8 @@ class Tree:
 
     def calculate_move(self):
         print("")
-
-
+'''
+#d= 0
 class Node:
     def __init__(self, board, color):
         self.board = board
@@ -35,6 +35,7 @@ class Node:
         elif (another_node.color != self.color) and dev == True:
             self.children.append(another_node)
             self.children[-1].calculate_possible_children()
+            self.children[-1].board.board_status()
         else:
             print("cant add child with the same color")
 
@@ -42,9 +43,22 @@ class Node:
         child_board = self.board.copy()
         keys = []
         end = False
-        for key, value in self.board:
+        c = 0
+        for key, value in self.board.board.items():
+            #print(value)
             if value.color == "empty" and (key not in keys):
+                c+=1
                 keys.append(key)
-                child_board.board[key] = value
+                child_board.make_move(key[0],key[1:],self.o_color)
                 new_child = Node(child_board, self.o_color)
                 self.add_child(new_child, True)
+                print()
+        if(c != 0):
+            #d+=1
+            print("board is full",d)
+
+b1 = Board()
+b1.make_move("A","5","white")
+#b1.print_board()
+n1 = Node(b1,"white")
+n1.calculate_possible_children()
