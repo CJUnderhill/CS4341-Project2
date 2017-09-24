@@ -10,16 +10,40 @@ class Board:
         self.board = OrderedDict()
         self.number_empty_cells = 15*15
         self.number_filled_cells = 0
+        self.number_black_moves = 0
+        self.number_white_moves = 0
+        self.color_turn = "white"
         for i in self.columns_pos:
             for j in self.rows_pos:
                 new_board_cell = Board_Cell(i, j)
                 self.board[i + j] = new_board_cell
 
     def make_move(self, column_pos, row_pos, color, second_move=False):
+        if color == "white":
+            self.number_white_moves+=1
+            self.color_turn = "black"
+        elif color == "black":
+            self.number_black_moves+=1
+            self.color_turn = "white"
+        else:
+            print("error unrecognized color")
+            return
         self.board[column_pos +
                    row_pos].play_on_cell(color, second_move1=second_move)
         self.number_filled_cells+=1
         self.number_empty_cells-=1
+
+
+
+    def get_children(self):
+        children = []
+        for key, value in self.board.items():
+            if value.color == "empty":
+                child_board = self.copy()
+                child_board.make_move(key[0],key[1:],self.o_color)
+                children.append(child_board)
+        return children
+
 
     def check_cell(self, column_pos, row_pos):
         return self.board[column_pos + row_pos].cell_status()
@@ -29,6 +53,9 @@ class Board:
             print(key, value.color)
     def board_status(self):
         print("number of filled cells: ",self.number_filled_cells)
+    def get_player_turn(self):
+        return self.color_turn
+
 
     def copy(self):
         new_board = Board()
