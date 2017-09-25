@@ -8,26 +8,35 @@ class Board:
         self.columns_pos = ["A", "B", "C", "D", "E", "F",
                             "G", "H", "I", "J", "K", "L", "M", "N", "O"]
         self.board = OrderedDict()
-        self.number_empty_cells = 15*15
+        self.width = 15
+        self.height = 15
+        self.color_turn = "white"
+
+        self.number_total_cells = self.width*self.height
+        self.number_empty_cells = self.width*self.height
         self.number_filled_cells = 0
         self.number_black_moves = 0
         self.number_white_moves = 0
-        self.color_turn = "white"
+        self.length_to_win = 5
+
         for i in self.columns_pos:
             for j in self.rows_pos:
                 new_board_cell = Board_Cell(i, j)
                 self.board[i + j] = new_board_cell
 
     def make_move(self, column_pos, row_pos, color, second_move=False):
-        if color == "white":
-            self.number_white_moves+=1
-            self.color_turn = "black"
-        elif color == "black":
-            self.number_black_moves+=1
-            self.color_turn = "white"
+        if color in ["white","black"]:
+            if color == "white" and self.color_turn == "white":
+                self.number_white_moves+=1
+                self.color_turn = "black"
+            elif color == "black" and self.color_turn == "black":
+                self.number_black_moves+=1
+                self.color_turn = "white"
+            else:
+                print("not this color's turn ")
+                return
         else:
-            print("error unrecognized color")
-            return
+            print("invalid color")
         self.board[column_pos +
                    row_pos].play_on_cell(color, second_move1=second_move)
         self.number_filled_cells+=1
@@ -47,6 +56,66 @@ class Board:
 
     def check_cell(self, column_pos, row_pos):
         return self.board[column_pos + row_pos].cell_status()
+    def get_cell(self,column_index,row_index):
+        return self.board[self.columns_pos[column_index]+self.rows_pos[row_index]]
+    def is_full(self):
+        if self.number_filled_cells >= self.number_total_cells:
+            return True
+        else:
+            return False
+
+
+    def check_terminal_state(self):
+        if self.is_full():
+            return True
+
+        #board = self.board
+
+        for x in range(self.width):
+            for y in range(self.height):
+                if self.get_cell(x,y).color != "empty":
+
+                    # Are these boundaries computed right??
+                    x_fits_on_board = ( x + self.length_to_win < self.width )
+                    y_fits_on_board = ( y + self.length_to_win < self.height )
+                    diagf_fits_on_board = ( x + self.length_to_win < self.width ) and ( y + self.length_to_win < self.height )
+                    diagb_fits_on_board = ( x + self.length_to_win < self.width ) and ( y - self.length_to_win > 0 )
+
+                    # Generate lists of pieces on board
+                    if x_fits_on_board:
+                        x_set = list(set([self.get_cell(x + delta,y) for delta in range(self.length_to_win)]))
+                    else:
+                        x_set = []
+
+                    if y_fits_on_board:
+                        y_set = list(set([self.get_cell(x,y + delta) for delta in range(self.length_to_win)]))
+                    else:
+                        y_set = []
+
+                    if diagf_fits_on_board:
+                        diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(self.length_to_win)]))
+                    else:
+                        diagf_set = []
+
+                    if diagb_fits_on_board:
+                        diagb_set = list(set([self.get_cell(x + delta,y - delta) for delta in range(self.length_to_win)]))
+                    else:
+                        diagb_set = []
+
+                    # Now check the responses
+
+                    if ((len(x_set) == 1)):
+                        return True
+
+                    if ((len(y_set) == 1)):
+                        return True
+
+                    if ((len(diagf_set) == 1)):
+                        return True
+
+                    if ((len(diagb_set) == 1)):
+                        return True
+        return False
 
     def print_board(self):
         for key, value in self.board.items():
