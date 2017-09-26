@@ -71,8 +71,17 @@ class Board:
 
     def check_cell(self, column_pos, row_pos):
         return self.board[column_pos + row_pos].cell_status()
+    def cell_exists(self,column_index,row_index):
+        if 1 <= column_index <=15 and 1<= row_index <= 15:
+            return True
+        else:
+            return False
     def get_cell(self,column_index,row_index):
-        return self.board[self.columns_pos[column_index]+self.rows_pos[row_index]]
+        if self.cell_exists(column_index,row_index):
+            return self.board[self.columns_pos[column_index-1]+self.rows_pos[row_index-1]]
+        else:
+            print("requested cell doesn't exist, boundaries out of board")
+            return
     def is_full(self):
         if self.number_filled_cells >= self.number_total_cells:
             return True
@@ -83,8 +92,8 @@ class Board:
     def check_terminal_state(self):
 
         #board = self.board
-        for x in range(self.width):
-            for y in range(self.height):
+        for x in range(1,self.width+1):
+            for y in range(1,self.height+1):
                 win = False
                 if self.get_cell(x,y).color != "empty":
                     this_color = self.get_cell(x,y).color
@@ -105,7 +114,10 @@ class Board:
                             if this_color != x_set[i].color:
                                 win = False
                     if win:
-                        return this_color
+                        if this_color == self.our_color:
+                            return 100
+                        else:
+                            return -100
 
 
                     if y_fits_on_board:
@@ -116,7 +128,10 @@ class Board:
                             if this_color != y_set[i].color:
                                 win = False
                     if win:
-                        return this_color
+                        if this_color == self.our_color:
+                            return 100
+                        else:
+                            return -100
 
                     if diagf_fits_on_board:
                         diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(self.length_to_win)]))
@@ -126,7 +141,10 @@ class Board:
                             if this_color != diagf_set[i].color:
                                 win = False
                     if win:
-                        return this_color
+                        if this_color == self.our_color:
+                            return 100
+                        else:
+                            return -100
 
 
 
@@ -138,7 +156,10 @@ class Board:
                             if this_color != diagb_set[i].color:
                                 win = False
                     if win:
-                        return this_color
+                        if this_color == self.our_color:
+                            return 100
+                        else:
+                            return -100
                     #print("win: ",win)
 
         if self.is_full():
@@ -281,8 +302,8 @@ def is_integer(s):
         return True
     except ValueError:
         pass
-'''
-b1 = Board("white")
+
+b1 = Board("black")
 
 b1.make_move("A","1")
 b1.make_move("A","2")
@@ -308,9 +329,9 @@ b1.make_move("F","6")
 
 
 b1.print_board()
-
+b1.board["A2"].color
 print(b1.check_terminal_state())
 #c = b1.get_children()
 #c[-1].print_board()
 b1.board_status()
-'''
+
