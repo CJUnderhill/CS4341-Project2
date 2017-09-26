@@ -209,3 +209,6 @@ def topMoves(board, limit):
     print(map(lambda x, y: (-x, y), top_list))
     # return map(lambda (x, y): (-x, y), top_list)
     return map(lambda x, y: (-x, y), top_list)
+
+def evaluationFunction(board):
+    return topMoves(board, 1)
