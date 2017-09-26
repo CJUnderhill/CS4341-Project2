@@ -9,9 +9,10 @@ import time
 # Team name
 groupname = "AgentSmith"
 
+
 def main():
     # Have our Agent class do all of the following:
-    
+
     # Poll for the .go file with our groupname
     move = pollForTurn()
     if (move == None):
