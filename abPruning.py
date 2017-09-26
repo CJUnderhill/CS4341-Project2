@@ -2,9 +2,11 @@
 import math
 import time
 
+minimax_time = 9
+
 def checkCutOff(startTime):
     currentTime = time.time()
-    if currentTime - startTime >= 9:
+    if currentTime - startTime >= minimax_time:
         return True
     else:
         return False
@@ -26,7 +28,7 @@ def minimumValue(state, alpha, beta, startTime):
     if GomokuBoard.terminalState(state):
         return GomokuBoard.terminalEval(state)
     if checkCutOff(startTime):
-        return evaluationFunctino(state)
+        return evaluationFunction(GomokuBoard, 1)[0]
     value = -math.inf
     for child in GomokuBoard.children(state):
         value = min(value, maximumValue(child, alpha, beta, startTime))
@@ -38,6 +40,9 @@ def minimumValue(state, alpha, beta, startTime):
 def minimaxABPruning(gameBoard, startTime):
     startTime = time.time()
     player = gameBoard.to_move(gameBoard.currentState())
+    # Make second move
+    if (GomokuBoard(state).secondMove()):
+        #replace piece
     # Call minVal?
     best_val = -math.inf
     beta = math.inf
