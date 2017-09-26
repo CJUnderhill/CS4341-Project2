@@ -8,6 +8,9 @@
 import glob
 import os
 import time
+import Board
+import abPruning
+import FileIO
 
 # Team name
 groupname = "AgentSmith"
@@ -20,6 +23,7 @@ def main():
     move = pollForTurn()
     if (move == None):
         # End game
+        return
     else:
         # Store & make move
         Board.makeMove(move)

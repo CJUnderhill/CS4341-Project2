@@ -34,7 +34,7 @@ def readMoveFile(move_file="move_file"):
     # Check for empty file
     if line is None:
         # Make first move in the center of the board
-        return Move(team_name, "H", 8)
+        return Move("AgentSmith", "H", 8)
     
     # Split the line read from the file
     line_parts = line.split()
@@ -58,7 +58,7 @@ def writeMoveFile(move, move_file="move_file"):
         move_fid.write("\n")
         move_fid.flush()
 
-    return os.stat(move_file_name).st_mtime
+    return os.stat(move_file).st_mtime
 
 # void -> Boolean:
 # @return - True if the end_game file was found, False otherwise
