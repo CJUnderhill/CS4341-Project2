@@ -1,4 +1,5 @@
 from collections import OrderedDict
+import random
 
 
 class Board:
@@ -26,10 +27,11 @@ class Board:
                 new_board_cell = Board_Cell(i, j)
                 self.board[i + j] = new_board_cell
 
-    def make_move(self, column_pos, row_pos, second_move=False):
+    def make_move(self, column_pos, row_pos, color = "sample",second_move=False):
         #print("making move")
         #self.board_status()
-        color = self.color_turn
+        if color == "sample":   
+            color = self.color_turn
         if color in ["white","black"]:
             if color == "white" and self.color_turn == "white":
                 self.number_white_moves+=1
@@ -38,8 +40,12 @@ class Board:
                 self.number_black_moves+=1
                 #self.color_turn = "white"
             else:
-                print("not this color's turn ")
-                return
+                print("normally not this color's turn ")
+                if color == "white":
+                    self.number_white_moves+=1
+                else:
+                    self.number_black_moves+=1
+                #return
         else:
             print("invalid color")
         self.board[column_pos +
@@ -77,9 +83,9 @@ class Board:
     def check_terminal_state(self):
 
         #board = self.board
-
         for x in range(self.width):
             for y in range(self.height):
+                win = False
                 if self.get_cell(x,y).color != "empty":
                     this_color = self.get_cell(x,y).color
                     #print("here")
@@ -90,38 +96,50 @@ class Board:
                     diagb_fits_on_board = ( x + self.length_to_win < self.width ) and ( y - self.length_to_win > 0 )
 
                     # Generate lists of pieces on board
+                    c = 0
                     if x_fits_on_board:
                         x_set = list(set([self.get_cell(x + delta,y) for delta in range(self.length_to_win)]))
+                        win = True
                         for i in range(len(x_set)):
+                            #print("i: ",x_set[i].color)
                             if this_color != x_set[i].color:
-                                return False
+                                win = False
+                    if win:
                         return this_color
 
 
                     if y_fits_on_board:
                         y_set = list(set([self.get_cell(x,y + delta) for delta in range(self.length_to_win)]))
+                        win = True
                         for i in range(len(y_set)):
+                            #print("i: ",y_set[i].color)
                             if this_color != y_set[i].color:
-                                return False
+                                win = False
+                    if win:
                         return this_color
 
                     if diagf_fits_on_board:
                         diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(self.length_to_win)]))
+                        win = True
                         for i in range(len(diagf_set)):
+                            #print("i: ",diagf_set[i].color)
                             if this_color != diagf_set[i].color:
-                                return False
+                                win = False
+                    if win:
                         return this_color
+
 
 
                     if diagb_fits_on_board:
                         diagb_set = list(set([self.get_cell(x + delta,y - delta) for delta in range(self.length_to_win)]))
+                        win = True
                         for i in range(len(diagb_set)):
+                            #print("i: ",diagb_set[i].color)
                             if this_color != diagb_set[i].color:
-                                return False
+                                win = False
+                    if win:
                         return this_color
-
-
-                    # Now check the responses
+                    #print("win: ",win)
 
         if self.is_full():
             print("board is full")
@@ -130,17 +148,24 @@ class Board:
         return False
 
     def print_board(self):
-        for i in [" "] + self.columns_pos:
-            print(i,end = "     ")
+        for i in ["  "] + self.columns_pos:
+            print(i,end = "  ")
         print("")
         for j in self.rows_pos:
             if int(j) < 10:
                 end1 = "  "
             else:
                 end1 = " "
-            print(j," ",end=end1)
+            print(j,"",end=end1)
             for k in self.columns_pos:
-                print(self.board[k+j].color,end = " ")
+                color = self.board[k+j].color
+                if color == "white":
+                    symbol = "X"
+                elif color == "black":
+                    symbol = "O"
+                else:
+                    symbol = "_"
+                print(symbol + " ",end = " ")
             print("")
                 
         
@@ -256,14 +281,36 @@ def is_integer(s):
         return True
     except ValueError:
         pass
-
+'''
 b1 = Board("white")
+
 b1.make_move("A","1")
+b1.make_move("A","2")
+
+b1.make_move("A","3")
+
+b1.make_move("A","4")
+
+b1.make_move("A","5")
+
+b1.make_move("B","2")
+b1.make_move("C","3")
+b1.make_move("D","4")
+b1.make_move("D","5")
+
+b1.make_move("D","6")
+
+b1.make_move("D","7")
+b1.make_move("D","8")
+
+b1.make_move("E","5")
+b1.make_move("F","6")
 
 
 b1.print_board()
+
 print(b1.check_terminal_state())
-c = b1.get_children()
-for i in c:
-    i.print_board()
+#c = b1.get_children()
+#c[-1].print_board()
 b1.board_status()
+'''
