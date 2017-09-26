@@ -204,5 +204,8 @@ def topMoves(board, limit):
     for x in range(limit):
         top_list.append(top_queue.get())
 
+    print(top_queue)
+    print(top_list)
+    print(map(lambda x, y: (-x, y), top_list))
     # return map(lambda (x, y): (-x, y), top_list)
     return map(lambda x, y: (-x, y), top_list)
