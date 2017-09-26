@@ -198,7 +198,8 @@ def topMoves(board, limit):
     top_queue = Queue.PriorityQueue()
 
     # For each piece on the board
-    for n in board.black + board.white:
+    # TODO: This should be all I need
+    for n in board.get_filled_coordinates():
 
         # For each potential connect space within range
         for m in attackArea(n, board.connect):
