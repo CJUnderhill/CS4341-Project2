@@ -1,6 +1,9 @@
 # CS 4341 Project 2
 # Last updated: 9/26/2017
 # Chad Underhill, Daniel Kim, Spyridon Antonatos
+#
+# Usage:
+#       Contains the class setup for the Gomoku board
 from collections import OrderedDict
 
 
