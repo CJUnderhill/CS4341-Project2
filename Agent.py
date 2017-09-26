@@ -1,3 +1,6 @@
+# CS 4341 Project 2
+# Last updated: 9/26/2017
+# Chad Underhill, Daniel Kim, Spyridon Antonatos
 from Board import *
 
 
