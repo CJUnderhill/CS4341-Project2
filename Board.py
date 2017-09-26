@@ -58,7 +58,7 @@ class Board:
         for key, value in self.board.items():
             if value.color == "empty":
                 child_board = self.copy()
-                child_board.make_move(key[0],key[1:],self.o_color)
+                child_board.make_move(key[0],key[1:])
                 children.append(child_board)
         return children
 
@@ -159,7 +159,7 @@ class Board:
 
 
     def copy(self):
-        new_board = Board()
+        new_board = Board(self.our_color)
         for i in new_board.columns_pos:
             for j in new_board.rows_pos:
                 new_board.board[i + j] = self.board[i + j].copy()
@@ -259,15 +259,11 @@ def is_integer(s):
 
 b1 = Board("white")
 b1.make_move("A","1")
-b1.make_move("A","2")
-b1.make_move("B","1")
-b1.make_move("A","3")
-b1.make_move("C","1")
-b1.make_move("C","5")
-b1.make_move("D","1")
-b1.make_move("D","10")
-b1.make_move("E","1")
+
 
 b1.print_board()
 print(b1.check_terminal_state())
+c = b1.get_children()
+for i in c:
+    i.print_board()
 b1.board_status()
