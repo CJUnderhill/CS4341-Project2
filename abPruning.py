@@ -39,7 +39,7 @@ def minimumValue(state, alpha, beta, startTime):
     if Board.terminalState(state):
         return Board.terminalEval(state)
     if checkCutOff(startTime):
-        return evaluationFunction(Board, 1)[0]
+        return Evaluation.evaluationFunction(Board, 1)[0]
     value = -math.inf
     for child in Board.children(state):
         value = min(value, maximumValue(child, alpha, beta, startTime))

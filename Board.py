@@ -21,6 +21,7 @@ class Board:
         self.number_black_moves = 0
         self.number_white_moves = 0
         self.length_to_win = 5
+        self.connect = 5
 
         for i in self.columns_pos:
             for j in self.rows_pos:
