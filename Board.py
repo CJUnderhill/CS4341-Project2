@@ -2,7 +2,7 @@ from collections import OrderedDict
 
 
 class Board:
-    def __init__(self):
+    def __init__(self,our_color):
         self.rows_pos = ["1", "2", "3", "4", "5", "6", "7",
                          "8", "9", "10", "11", "12", "13", "14", "15"]
         self.columns_pos = ["A", "B", "C", "D", "E", "F",
@@ -11,6 +11,8 @@ class Board:
         self.width = 15
         self.height = 15
         self.color_turn = "white"
+        self.color_next_turn = "black"
+        self.our_color = our_color
 
         self.number_total_cells = self.width*self.height
         self.number_empty_cells = self.width*self.height
@@ -24,14 +26,17 @@ class Board:
                 new_board_cell = Board_Cell(i, j)
                 self.board[i + j] = new_board_cell
 
-    def make_move(self, column_pos, row_pos, color, second_move=False):
+    def make_move(self, column_pos, row_pos, second_move=False):
+        #print("making move")
+        #self.board_status()
+        color = self.color_turn
         if color in ["white","black"]:
             if color == "white" and self.color_turn == "white":
                 self.number_white_moves+=1
-                self.color_turn = "black"
+                #self.color_turn = "black"
             elif color == "black" and self.color_turn == "black":
                 self.number_black_moves+=1
-                self.color_turn = "white"
+                #self.color_turn = "white"
             else:
                 print("not this color's turn ")
                 return
@@ -41,6 +46,10 @@ class Board:
                    row_pos].play_on_cell(color, second_move1=second_move)
         self.number_filled_cells+=1
         self.number_empty_cells-=1
+        self.color_turn , self.color_next_turn = self.color_next_turn, self.color_turn 
+        #self.board_status()
+        #print("end making move")
+ 
 
 
 
@@ -66,15 +75,14 @@ class Board:
 
 
     def check_terminal_state(self):
-        if self.is_full():
-            return True
 
         #board = self.board
 
         for x in range(self.width):
             for y in range(self.height):
                 if self.get_cell(x,y).color != "empty":
-
+                    this_color = self.get_cell(x,y).color
+                    #print("here")
                     # Are these boundaries computed right??
                     x_fits_on_board = ( x + self.length_to_win < self.width )
                     y_fits_on_board = ( y + self.length_to_win < self.height )
@@ -84,44 +92,68 @@ class Board:
                     # Generate lists of pieces on board
                     if x_fits_on_board:
                         x_set = list(set([self.get_cell(x + delta,y) for delta in range(self.length_to_win)]))
-                    else:
-                        x_set = []
+                        for i in range(len(x_set)):
+                            if this_color != x_set[i].color:
+                                return False
+                        return this_color
+
 
                     if y_fits_on_board:
                         y_set = list(set([self.get_cell(x,y + delta) for delta in range(self.length_to_win)]))
-                    else:
-                        y_set = []
+                        for i in range(len(y_set)):
+                            if this_color != y_set[i].color:
+                                return False
+                        return this_color
 
                     if diagf_fits_on_board:
                         diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(self.length_to_win)]))
-                    else:
-                        diagf_set = []
+                        for i in range(len(diagf_set)):
+                            if this_color != diagf_set[i].color:
+                                return False
+                        return this_color
+
 
                     if diagb_fits_on_board:
                         diagb_set = list(set([self.get_cell(x + delta,y - delta) for delta in range(self.length_to_win)]))
-                    else:
-                        diagb_set = []
+                        for i in range(len(diagb_set)):
+                            if this_color != diagb_set[i].color:
+                                return False
+                        return this_color
+
 
                     # Now check the responses
 
-                    if ((len(x_set) == 1)):
-                        return True
+        if self.is_full():
+            print("board is full")
+            return "tie"
 
-                    if ((len(y_set) == 1)):
-                        return True
-
-                    if ((len(diagf_set) == 1)):
-                        return True
-
-                    if ((len(diagb_set) == 1)):
-                        return True
         return False
 
     def print_board(self):
-        for key, value in self.board.items():
-            print(key, value.color)
+        for i in [" "] + self.columns_pos:
+            print(i,end = "     ")
+        print("")
+        for j in self.rows_pos:
+            if int(j) < 10:
+                end1 = "  "
+            else:
+                end1 = " "
+            print(j," ",end=end1)
+            for k in self.columns_pos:
+                print(self.board[k+j].color,end = " ")
+            print("")
+                
+        
+        #for key, value in self.board.items():
+        #    print(key, value.color)
     def board_status(self):
         print("number of filled cells: ",self.number_filled_cells)
+        print("number of empty cells: ",self.number_empty_cells)
+        print("number of white-filled cells: ",self.number_white_moves)
+        print("number of black cells: ",self.number_black_moves)
+        print("color of this player's turn: ",self.color_turn)
+
+
     def get_player_turn(self):
         return self.color_turn
 
@@ -133,6 +165,11 @@ class Board:
                 new_board.board[i + j] = self.board[i + j].copy()
         new_board.number_filled_cells = self.number_filled_cells
         new_board.number_empty_cells = self.number_empty_cells
+        new_board.number_filled_cells = self.number_filled_cells 
+        new_board.number_black_moves = self.number_black_moves 
+        new_board.number_white_moves = self.number_white_moves
+        new_board.color_turn = self.color_turn
+        new_board.color_next_turn = self.color_next_turn
         return new_board
 
 
@@ -219,3 +256,18 @@ def is_integer(s):
         return True
     except ValueError:
         pass
+
+b1 = Board("white")
+b1.make_move("A","1")
+b1.make_move("A","2")
+b1.make_move("B","1")
+b1.make_move("A","3")
+b1.make_move("C","1")
+b1.make_move("C","5")
+b1.make_move("D","1")
+b1.make_move("D","10")
+b1.make_move("E","1")
+
+b1.print_board()
+print(b1.check_terminal_state())
+b1.board_status()
