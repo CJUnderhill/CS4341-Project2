@@ -4,42 +4,35 @@
 # For polling .go file
 import glob
 import os
-# Testing
 import time
 
-team_name = "AgentSmith"
+# Team name
+groupname = "AgentSmith"
 
 def main():
     # Have our Agent class do all of the following:
     
     # Poll for the .go file with our groupname
-    # Read the move file
-    # Store the move
-    # Make a move - only different thing (call ab pruning, then make our move)
+    move = pollForTurn()
+    if (move == None):
+        # End game
+    else:
+        # Store & make move
+        Board.makeMove(move)
+        best_state = abPruning(currentBoard)
     # Overwrite to the move file
+    writeMoveFile(best_state_move)
     # Repeat
-    pass
 
 
-def pollForTurn(team_go=(team_name + ".go")):
-    testTime = time.time()
-    remOpp = False
-    print(testTime)
+def pollForTurn(team_go=(groupname + ".go")):
     go_files = glob.glob("*.go")
     while(len(go_files) == 1):
         go_files = glob.glob("*.go")
-        # TESTING
-        currTime = time.time()
-        if currTime - testTime > 3 and not remOpp:
-            print(currTime)
-            os.remove("Opponent.go")
-            print("Removed")
-            open(team_go, 'w')
-            print("Added")
-            remOpp = True
-        # END TESTING
         if os.path.basename(go_files[0]) == team_go:
-            # Make a move using minimax, ab pruning, eval function
-            print("Move")
-            break
-    return "move" # Return move made for storing
+            if checkEndGameFile():
+                # End game
+                break
+            else:
+                return readMoveFile()
+    return None
