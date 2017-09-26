@@ -1,5 +1,7 @@
-""" Developed by: Chad Underhill on 9/19/2017 """
-""" Based on the theory described here: http://www.renju.nu/wp-content/uploads/sites/46/2016/09/Go-Moku.pdf """
+# CS 4341 Project 2
+# Last updated: 9/26/2017
+# Chad Underhill, Daniel Kim, Spyridon Antonatos
+# Based on the theory described here: http://www.renju.nu/wp-content/uploads/sites/46/2016/09/Go-Moku.pdf
 """
 Functionality we need from Board:
 size: the size of the board (x or y, should be square)
@@ -204,5 +206,12 @@ def topMoves(board, limit):
     for x in range(limit):
         top_list.append(top_queue.get())
 
+    print(top_queue)
+    print(top_list)
+    print(map(lambda x, y: (-x, y), top_list))
     # return map(lambda (x, y): (-x, y), top_list)
     return map(lambda x, y: (-x, y), top_list)
+
+
+def evaluationFunction(board):
+    return topMoves(board, 1)

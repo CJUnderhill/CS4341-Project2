@@ -1,10 +1,15 @@
+# CS 4341 Project 2
+# Last updated: 9/26/2017
+# Chad Underhill, Daniel Kim, Spyridon Antonatos
+#
+# Usage:
+#       Contains the class setup for the agent playing Gomoku
 from Board import *
 
 
 class Agent:
     def __init__(self, name, color):
         self.name = name
-        self.board = Board()
         if color in ["white", "black"]:
             self.color = color
             if self.color == "white":
@@ -13,8 +18,7 @@ class Agent:
                 self.o_color = "white"
         else:
             print("invalid color, expected white/black")
-            # Note from Chad: Init should never be used to return anything!
-            #return False
+        self.board = Board(color)
         print("create new agent; color: ", color, ",name: ", name)
 
     def read_move(self, moveline, groupname):
