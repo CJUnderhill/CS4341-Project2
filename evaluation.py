@@ -96,7 +96,7 @@ def evalFunction(board, position, mode):
             not_color = board.get_player_turn()
             color = "white"
 
-    print("Color: " + color)
+    #print("Color: " + color)
 
     # Evaluate all neighboring nodes of current position
     for pair in opts:
@@ -169,7 +169,7 @@ def evaluatePosition(board, position):
     if board.cell_exists(x, y):
         result = evalFunction(board, position, True) + \
             evalFunction(board, position, False)
-        print("RESULT: " + str(result))
+        #print("RESULT: " + str(result))
         return result
     else:
         return 0
@@ -233,7 +233,7 @@ def topMoves(board, limit):
         print(str(record))
 
     # return map(lambda (x, y): (-x, y), top_list)
-    return top_list
+    return top_list[0]
 
 
 def evaluationFunction(board):

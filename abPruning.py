@@ -39,8 +39,9 @@ def maximumValue(state, alpha, beta, m):
             return float(result)
     if checkCutOff(minimax_nodes):
         print("in eval max")
-        Evaluation.evaluationFunction(state)
-        return 1.0
+        eval = Evaluation.evaluationFunction(state)
+        print("max " + str(eval))
+        return eval
     minimax_nodes += 1
     # state.print_board()
     value = -math.inf
@@ -65,8 +66,9 @@ def minimumValue(state, alpha, beta, m):
             return float(result)
     if checkCutOff(minimax_nodes):
         print("in eval min")
-        Evaluation.evaluationFunction(state)
-        return 1.0
+        eval = Evaluation.evaluationFunction(state)
+        print("min " + str(eval))
+        return eval
     minimax_nodes += 1
     # state.print_board()
     value = math.inf
