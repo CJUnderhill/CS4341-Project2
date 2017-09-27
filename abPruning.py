@@ -14,19 +14,23 @@ MAX_NODES = 20
 minimax_nodes = 0
 
 # Checks depth to see if minimax_depth has been reached
+
+
 def checkCutOff(current):
     global minimax_nodes
     if current >= MAX_NODES:
-        #print(current)
+        # print(current)
         return True
     else:
         print(minimax_nodes)
         return False
 
 # "Max" in the minimax algorithm
+
+
 def maximumValue(state, alpha, beta, m):
     global minimax_nodes
-    
+
     result = state.check_terminal_state()
     if result:
         if result == "tie":
@@ -35,10 +39,10 @@ def maximumValue(state, alpha, beta, m):
             return float(result)
     if checkCutOff(minimax_nodes):
         #print("in eval max")
-        #Evaluation.evaluationFunction(state)
+        # Evaluation.evaluationFunction(state)
         return 1.0
     minimax_nodes += 1
-    #state.print_board()
+    # state.print_board()
     value = -math.inf
     for child in state.get_children():
         #minimax_nodes += 1
@@ -49,6 +53,8 @@ def maximumValue(state, alpha, beta, m):
     return value
 
 # "Min" in the minimax algorithm
+
+
 def minimumValue(state, alpha, beta, m):
     global minimax_nodes
     result = state.check_terminal_state()
@@ -59,10 +65,10 @@ def minimumValue(state, alpha, beta, m):
             return float(result)
     if checkCutOff(minimax_nodes):
         #print("in eval min")
-        #Evaluation.evaluationFunction(state)
+        # Evaluation.evaluationFunction(state)
         return 1.0
     minimax_nodes += 1
-    #state.print_board()
+    # state.print_board()
     value = math.inf
     for child in state.get_children():
         #minimax_nodes += 1
@@ -73,12 +79,14 @@ def minimumValue(state, alpha, beta, m):
     return value
 
 # Alpha-beta pruning algorithm
+
+
 def minimaxABPruning(gameBoard):
     player = gameBoard.color_turn
     # Make second move
     if (gameBoard.number_filled_cells == 1 and
-        gameBoard.board["H8"].color == gameBoard.color_next_turn):
-        #replace piece
+            gameBoard.board["H8"].color == gameBoard.color_next_turn):
+        # replace piece
         return
     best_val = -math.inf
     beta = math.inf
@@ -91,35 +99,36 @@ def minimaxABPruning(gameBoard):
             best = child
     return best
 
+
 # TESTING
 b1 = Board.Board("black")
 
-##b1.make_move("A","1")
-##b1.make_move("A","2")
+# b1.make_move("A","1")
+# b1.make_move("A","2")
 ##
-##b1.make_move("A","3")
+# b1.make_move("A","3")
 ##
-##b1.make_move("A","4")
+# b1.make_move("A","4")
 ##
-##b1.make_move("A","5")
+# b1.make_move("A","5")
 ##
-##b1.make_move("B","2")
-##b1.make_move("C","3")
-##b1.make_move("D","4")
-##b1.make_move("D","5")
+# b1.make_move("B","2")
+# b1.make_move("C","3")
+# b1.make_move("D","4")
+# b1.make_move("D","5")
 ##
-##b1.make_move("D","6")
+# b1.make_move("D","6")
 ##
-##b1.make_move("D","7")
-##b1.make_move("D","8")
+# b1.make_move("D","7")
+# b1.make_move("D","8")
 ##
-##b1.make_move("E","5")
-##b1.make_move("F","6")
+# b1.make_move("E","5")
+# b1.make_move("F","6")
 
 for i in range(15):
-    b1.make_move("A", str(i+1))
+    b1.make_move("A", str(i + 1))
 for i in range(15):
-    b1.make_move("F", str(i+1))
+    b1.make_move("F", str(i + 1))
 b1.make_move("B", "3")
 b1.make_move("B", "2")
 b1.make_move("B", "4")
@@ -128,31 +137,31 @@ b1.make_move("B", "5")
 b1.make_move("M", "3")
 b1.make_move("B", "6")
 b1.make_move("B", "9")
-##for i in range(15):
+# for i in range(15):
 ##    b1.make_move("B", str(i+1))
-##for i in range(15):
+# for i in range(15):
 ##    b1.make_move("F", str(i+1))
-##for i in range(15):
+# for i in range(15):
 ##    b1.make_move("C", str(i+1))
-##for i in range(15):
+# for i in range(15):
 ##    b1.make_move("G", str(i+1))
-##for i in range(15):
+# for i in range(15):
 ##    b1.make_move("D", str(i+1))
-##for i in range(15):
+# for i in range(15):
 ##    b1.make_move("K", str(i+1))
-##for i in range(15):
+# for i in range(15):
 ##    b1.make_move("I", str(i+1))
-##for i in range(15):
+# for i in range(15):
 ##    b1.make_move("L", str(i+1))
-##for i in range(15):
+# for i in range(15):
 ##    b1.make_move("J", str(i+1))
-##for i in range(15):
+# for i in range(15):
 ##    b1.make_move("M", str(i+1))
-##for i in range(15):
+# for i in range(15):
 ##    b1.make_move("H", str(i+1))
-##for i in range(15):
+# for i in range(15):
 ##    b1.make_move("N", str(i+1))
-##for i in range(12):
+# for i in range(12):
 ##    b1.make_move("O", str(i+1))
 b1.print_board()
 b2 = minimaxABPruning(b1)
