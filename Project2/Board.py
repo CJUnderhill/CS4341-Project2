@@ -1,3 +1,6 @@
+#!python
+#cython: language_level=3, boundscheck=False
+
 from collections import OrderedDict
 import time
 #import math
@@ -20,8 +23,9 @@ class Board:
         self.number_filled_cells = 0
         self.number_black_moves = 0
         self.number_white_moves = 0
-        self.length_to_win = 5
-
+        self.connect = 5
+        self.last_move = ("0","0")
+	
         for i in self.columns_pos:
             for j in self.rows_pos:
                 new_board_cell = Board_Cell(i, j)
@@ -54,13 +58,15 @@ class Board:
         self.number_empty_cells-=1
         self.color_turn , self.color_next_turn = self.color_next_turn, self.color_turn 
         #self.print_board()
+        self.last_move = (column_pos,row_pos)
         t = self.check_terminal_move(self.columns_pos.index(column_pos)+1,self.rows_pos.index(row_pos)+1)
-        print("t:",t)
+        #print("t:",t)
         return t
         #self.board_status()
         #print("end making move")
  
-
+    def get_last_move(self,team_name):
+        return self.last_move
 
 
     def get_children(self):
