@@ -78,31 +78,24 @@ def evalFunction(board, position, mode):
     @param:     mode        Positional strategy. True if "attack", false if "defend".
     @returns:   The importance/strategic value of the position.
     """
-    (y0, x0) = position
+    (x0, y0) = position
     evaluation = 0
     opts = ((1, 0), (0, 1), (1, 1), (1, -1))
 
     # Determine how we're weighing the evaluation (for attack or defend)
-    color = board.get_player_turn()
-
-    if color is "white":
+    color = board.our_color
+    if color == "white":
         not_color = "black"
-        if not mode:
-            not_color = board.get_player_turn()
-            color = "black"
     else:
         not_color = "white"
-        if not mode:
-            not_color = board.get_player_turn()
-            color = "white"
 
-    #print("Color: " + color)
+    #print("Color: " + color + ", Not Color: " + not_color)
 
     # Evaluate all neighboring nodes of current position
     for pair in opts:
 
         # Establish the position and instantiate the pathlist
-        (y1, x1) = pair
+        (x1, y1) = pair
         pathlist = ["."]
 
         for j in (1, -1):
@@ -146,13 +139,13 @@ def evalFunction(board, position, mode):
                         evaluation += 5**consec
                 else:
                     if mode:
-                        evaluation += 100**9
+                        evaluation += 100000
+                        print(color + " " + str(mode))
                     else:
-                        evaluation += 100**8
+                        evaluation += 1000
                 #print("evaluation: " + str(evaluation))
 
     return evaluation
-
 
 def evaluatePosition(board, position):
     """
@@ -184,16 +177,16 @@ def attackArea(initPair, connect):
     """
     area = []
     opts = ((1, 0), (0, 1), (1, 1), (1, -1))
-    (y, x) = initPair
+    (x, y) = initPair
 
     for pair in opts:
-        (y1, x1) = pair
+        (x1, y1) = pair
 
         for s in (1, -1):
             for i in range(1, connect):
-                y2 = y + y1 * i * s
                 x2 = x + x1 * i * s
-                area.append((y2, x2))
+                y2 = y + y1 * i * s
+                area.append((x2, y2))
 
     return area
 
@@ -211,6 +204,10 @@ def topMoves(board, limit):
 
     # For each piece on the board
     # TODO: This should be all I need
+
+    board.print_board()
+    print(board.get_filled_coordinates())
+
     for n in board.get_filled_coordinates():
 
         # For each potential connect space within range
@@ -219,15 +216,20 @@ def topMoves(board, limit):
             (x, y) = m
 
             # If the connect space is on the board, add to list of potential spots
-            if board.cell_exists(x, y):
+            if board.cell_exists(x, y) and m not in board.get_filled_coordinates():
                 spots.add(m)
+
+    trackingList = []
 
     # Evaluate potential of each spot, and add to queue
     for p in spots:
         top_queue.put((evaluatePosition(board, p) * (-1), p))
+        trackingList.append(str((evaluatePosition(board, p) * (-1), p)))
 
     for z in range(limit):
         top_list.append(top_queue.get())
+
+    print("Queue: " + str(trackingList))
 
     for record in top_list:
         print(str(record))

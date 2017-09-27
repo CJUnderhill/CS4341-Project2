@@ -102,7 +102,7 @@ def minimaxABPruning(gameBoard):
     return best
 
 
-# TESTING
+'''# TESTING
 b1 = Board.Board("black")
 
 # b1.make_move("A","1")
@@ -168,4 +168,25 @@ b1.make_move("B", "9")
 b1.print_board()
 b2 = minimaxABPruning(b1)
 print(b2)
+b2.print_board()
+'''
+
+b1 = Board.Board("white")
+for i in range(15):
+    b1.make_move("A", str(i+1))
+for i in range(15):
+    b1.make_move("F", str(i+1))
+b1.make_move("B", "3")
+b1.make_move("B", "2")
+b1.make_move("B", "4")
+b1.make_move("B", "8")
+b1.make_move("B", "5")
+b1.make_move("M", "3")
+b1.make_move("B", "6")
+b1.make_move("B", "9")
+#b1.make_move("B", "10")
+#b1.make_move("B", "7")
+b1.print_board()
+print(b1.get_filled_coordinates())
+b2 = minimaxABPruning(b1)
 b2.print_board()
