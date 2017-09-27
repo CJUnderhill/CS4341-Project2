@@ -3,12 +3,12 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
-        "name": "Boardcpython",
+        "name": "Board",
         "sources": [
-            "Boardcpython.pyx"
+            "Board.pyx"
         ]
     },
-    "module_name": "Boardcpython"
+    "module_name": "Board"
 }
 END: Cython Metadata */
 
@@ -522,8 +522,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__Boardcpython
-#define __PYX_HAVE_API__Boardcpython
+#define __PYX_HAVE__Board
+#define __PYX_HAVE_API__Board
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -727,7 +727,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "Boardcpython.pyx",
+  "Board.pyx",
 };
 
 /*--- Type declarations ---*/
@@ -1014,6 +1014,14 @@ static CYTHON_INLINE int __Pyx_ListComp_Append(PyObject* list, PyObject* x) {
 #define __Pyx_ListComp_Append(L,x) PyList_Append(L,x)
 #endif
 
+/* PyIntBinop.proto */
+#if !CYTHON_COMPILING_IN_PYPY
+static PyObject* __Pyx_PyInt_SubtractCObj(PyObject *op1, PyObject *op2, long intval, int inplace);
+#else
+#define __Pyx_PyInt_SubtractCObj(op1, op2, intval, inplace)\
+    (inplace ? PyNumber_InPlaceSubtract(op1, op2) : PyNumber_Subtract(op1, op2))
+#endif
+
 /* PyThreadStateGet.proto */
 #if CYTHON_FAST_THREAD_STATE
 #define __Pyx_PyThreadState_declare  PyThreadState *__pyx_tstate;
@@ -1197,11 +1205,11 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
-/* Module declarations from 'Boardcpython' */
-#define __Pyx_MODULE_NAME "Boardcpython"
-int __pyx_module_is_main_Boardcpython = 0;
+/* Module declarations from 'Board' */
+#define __Pyx_MODULE_NAME "Board"
+int __pyx_module_is_main_Board = 0;
 
-/* Implementation of 'Boardcpython' */
+/* Implementation of 'Board' */
 static PyObject *__pyx_builtin_print;
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
@@ -1236,6 +1244,7 @@ static const char __pyx_k_i[] = "i";
 static const char __pyx_k_j[] = "j";
 static const char __pyx_k_k[] = "k";
 static const char __pyx_k_s[] = "s";
+static const char __pyx_k_t[] = "t";
 static const char __pyx_k_x[] = "x";
 static const char __pyx_k_y[] = "y";
 static const char __pyx_k_10[] = "10";
@@ -1244,11 +1253,14 @@ static const char __pyx_k_12[] = "12";
 static const char __pyx_k_13[] = "13";
 static const char __pyx_k_14[] = "14";
 static const char __pyx_k_15[] = "15";
-static const char __pyx_k_A2[] = "A2";
-static const char __pyx_k__6[] = "  ";
+static const char __pyx_k__5[] = "   ";
+static const char __pyx_k__6[] = " ";
 static const char __pyx_k__7[] = "";
-static const char __pyx_k__9[] = " ";
-static const char __pyx_k_b1[] = "b1";
+static const char __pyx_k__9[] = "  ";
+static const char __pyx_k_c1[] = "c1";
+static const char __pyx_k_c2[] = "c2";
+static const char __pyx_k_c3[] = "c3";
+static const char __pyx_k_c4[] = "c4";
 static const char __pyx_k__10[] = "_";
 static const char __pyx_k_doc[] = "__doc__";
 static const char __pyx_k_end[] = "end";
@@ -1264,6 +1276,8 @@ static const char __pyx_k_row1[] = "row1";
 static const char __pyx_k_self[] = "self";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_time[] = "time";
+static const char __pyx_k_xlow[] = "xlow";
+static const char __pyx_k_ylow[] = "ylow";
 static const char __pyx_k_Board[] = "Board";
 static const char __pyx_k_black[] = "black";
 static const char __pyx_k_board[] = "board";
@@ -1274,12 +1288,15 @@ static const char __pyx_k_index[] = "index";
 static const char __pyx_k_items[] = "items";
 static const char __pyx_k_print[] = "print";
 static const char __pyx_k_range[] = "range";
-static const char __pyx_k_start[] = "start";
+static const char __pyx_k_turns[] = "turns";
 static const char __pyx_k_value[] = "value";
 static const char __pyx_k_white[] = "white";
 static const char __pyx_k_width[] = "width";
 static const char __pyx_k_x_set[] = "x_set";
+static const char __pyx_k_xhigh[] = "xhigh";
 static const char __pyx_k_y_set[] = "y_set";
+static const char __pyx_k_yhigh[] = "yhigh";
+static const char __pyx_k_ylist[] = "ylist";
 static const char __pyx_k_column[] = "column";
 static const char __pyx_k_coords[] = "coords";
 static const char __pyx_k_height[] = "height";
@@ -1288,6 +1305,7 @@ static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_sample[] = "sample";
 static const char __pyx_k_symbol[] = "symbol";
 static const char __pyx_k_checker[] = "checker";
+static const char __pyx_k_connect[] = "connect";
 static const char __pyx_k_is_full[] = "is_full";
 static const char __pyx_k_prepare[] = "__prepare__";
 static const char __pyx_k_row_pos[] = "row_pos";
@@ -1297,6 +1315,11 @@ static const char __pyx_k_is_empty[] = "is_empty";
 static const char __pyx_k_new_cell[] = "new_cell";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_rows_pos[] = "rows_pos";
+static const char __pyx_k_Board_pyx[] = "Board.pyx";
+static const char __pyx_k_diag1xlow[] = "diag1xlow";
+static const char __pyx_k_diag1ylow[] = "diag1ylow";
+static const char __pyx_k_diag2xlow[] = "diag2xlow";
+static const char __pyx_k_diag2ylow[] = "diag2ylow";
 static const char __pyx_k_diagb_set[] = "diagb_set";
 static const char __pyx_k_diagf_set[] = "diagf_set";
 static const char __pyx_k_make_move[] = "make_move";
@@ -1310,6 +1333,10 @@ static const char __pyx_k_ValueError[] = "ValueError";
 static const char __pyx_k_check_cell[] = "check_cell";
 static const char __pyx_k_color_turn[] = "color_turn";
 static const char __pyx_k_column_pos[] = "column_pos";
+static const char __pyx_k_diag1xhigh[] = "diag1xhigh";
+static const char __pyx_k_diag1yhigh[] = "diag1yhigh";
+static const char __pyx_k_diag2xhigh[] = "diag2xhigh";
+static const char __pyx_k_diag2yhigh[] = "diag2yhigh";
 static const char __pyx_k_is_integer[] = "is_integer";
 static const char __pyx_k_this_color[] = "this_color";
 static const char __pyx_k_OrderedDict[] = "OrderedDict";
@@ -1322,7 +1349,6 @@ static const char __pyx_k_columns_pos[] = "columns_pos";
 static const char __pyx_k_print_board[] = "print_board";
 static const char __pyx_k_second_move[] = "second_move";
 static const char __pyx_k_Board___init[] = "Board.__init__";
-static const char __pyx_k_Boardcpython[] = "Boardcpython";
 static const char __pyx_k_board_status[] = "board_status";
 static const char __pyx_k_column_index[] = "column_index";
 static const char __pyx_k_get_children[] = "get_children";
@@ -1342,7 +1368,6 @@ static const char __pyx_k_get_player_turn[] = "get_player_turn";
 static const char __pyx_k_x_fits_on_board[] = "x_fits_on_board";
 static const char __pyx_k_y_fits_on_board[] = "y_fits_on_board";
 static const char __pyx_k_Board_check_cell[] = "Board.check_cell";
-static const char __pyx_k_Boardcpython_pyx[] = "Boardcpython.pyx";
 static const char __pyx_k_Board_Cell___init[] = "Board_Cell.__init__";
 static const char __pyx_k_Board_cell_exists[] = "Board.cell_exists";
 static const char __pyx_k_Board_print_board[] = "Board.print_board";
@@ -1353,6 +1378,7 @@ static const char __pyx_k_number_black_moves[] = "number_black_moves";
 static const char __pyx_k_number_empty_cells[] = "number_empty_cells";
 static const char __pyx_k_number_total_cells[] = "number_total_cells";
 static const char __pyx_k_number_white_moves[] = "number_white_moves";
+static const char __pyx_k_check_terminal_move[] = "check_terminal_move";
 static const char __pyx_k_diagb_fits_on_board[] = "diagb_fits_on_board";
 static const char __pyx_k_diagf_fits_on_board[] = "diagf_fits_on_board";
 static const char __pyx_k_number_filled_cells[] = "number_filled_cells";
@@ -1365,11 +1391,11 @@ static const char __pyx_k_Board_Cell_check_valid[] = "Board_Cell.check_valid";
 static const char __pyx_k_get_filled_coordinates[] = "get_filled_coordinates";
 static const char __pyx_k_number_of_filled_cells[] = "number of filled cells: ";
 static const char __pyx_k_Board_Cell_play_on_cell[] = "Board_Cell.play_on_cell";
+static const char __pyx_k_Board_check_terminal_move[] = "Board.check_terminal_move";
 static const char __pyx_k_Board_check_terminal_state[] = "Board.check_terminal_state";
 static const char __pyx_k_color_of_this_player_s_turn[] = "color of this player's turn: ";
 static const char __pyx_k_Board_get_filled_coordinates[] = "Board.get_filled_coordinates";
 static const char __pyx_k_number_of_white_filled_cells[] = "number of white-filled cells: ";
-static const char __pyx_k_normally_not_this_color_s_turn[] = "normally not this color's turn ";
 static const char __pyx_k_cell_is_occupied_by_one_checker[] = "cell is occupied by one checker of color: ";
 static const char __pyx_k_error_expects_numeric_string_as[] = "error, expects numeric string as row";
 static const char __pyx_k_cannot_play_on_this_cell_it_is_o[] = "cannot play on this cell, it is occupied by color: ";
@@ -1394,7 +1420,6 @@ static PyObject *__pyx_kp_u_7;
 static PyObject *__pyx_kp_u_8;
 static PyObject *__pyx_kp_u_9;
 static PyObject *__pyx_n_u_A;
-static PyObject *__pyx_n_u_A2;
 static PyObject *__pyx_n_u_B;
 static PyObject *__pyx_n_s_Board;
 static PyObject *__pyx_n_s_Board_Cell;
@@ -1407,6 +1432,7 @@ static PyObject *__pyx_n_s_Board___init;
 static PyObject *__pyx_n_s_Board_board_status;
 static PyObject *__pyx_n_s_Board_cell_exists;
 static PyObject *__pyx_n_s_Board_check_cell;
+static PyObject *__pyx_n_s_Board_check_terminal_move;
 static PyObject *__pyx_n_s_Board_check_terminal_state;
 static PyObject *__pyx_n_s_Board_copy;
 static PyObject *__pyx_n_s_Board_get_cell;
@@ -1416,8 +1442,7 @@ static PyObject *__pyx_n_s_Board_get_player_turn;
 static PyObject *__pyx_n_s_Board_is_full;
 static PyObject *__pyx_n_s_Board_make_move;
 static PyObject *__pyx_n_s_Board_print_board;
-static PyObject *__pyx_n_s_Boardcpython;
-static PyObject *__pyx_kp_s_Boardcpython_pyx;
+static PyObject *__pyx_kp_s_Board_pyx;
 static PyObject *__pyx_n_u_C;
 static PyObject *__pyx_n_u_D;
 static PyObject *__pyx_n_u_E;
@@ -1435,22 +1460,27 @@ static PyObject *__pyx_n_s_OrderedDict;
 static PyObject *__pyx_n_s_ValueError;
 static PyObject *__pyx_n_u_X;
 static PyObject *__pyx_n_u__10;
+static PyObject *__pyx_kp_u__5;
 static PyObject *__pyx_kp_u__6;
 static PyObject *__pyx_kp_u__7;
 static PyObject *__pyx_kp_u__9;
 static PyObject *__pyx_n_s_a;
-static PyObject *__pyx_n_s_b1;
 static PyObject *__pyx_n_u_black;
 static PyObject *__pyx_n_s_board;
 static PyObject *__pyx_kp_u_board_is_full;
 static PyObject *__pyx_n_s_board_status;
 static PyObject *__pyx_n_s_c;
+static PyObject *__pyx_n_s_c1;
+static PyObject *__pyx_n_s_c2;
+static PyObject *__pyx_n_s_c3;
+static PyObject *__pyx_n_s_c4;
 static PyObject *__pyx_kp_u_cannot_play_on_this_cell_it_is_o;
 static PyObject *__pyx_n_s_cell_exists;
 static PyObject *__pyx_kp_u_cell_is_empty;
 static PyObject *__pyx_kp_u_cell_is_occupied_by_one_checker;
 static PyObject *__pyx_n_s_cell_status;
 static PyObject *__pyx_n_s_check_cell;
+static PyObject *__pyx_n_s_check_terminal_move;
 static PyObject *__pyx_n_s_check_terminal_state;
 static PyObject *__pyx_n_s_check_valid;
 static PyObject *__pyx_n_s_checker;
@@ -1466,9 +1496,18 @@ static PyObject *__pyx_n_s_column;
 static PyObject *__pyx_n_s_column_index;
 static PyObject *__pyx_n_s_column_pos;
 static PyObject *__pyx_n_s_columns_pos;
+static PyObject *__pyx_n_s_connect;
 static PyObject *__pyx_n_s_coords;
 static PyObject *__pyx_n_s_copy;
 static PyObject *__pyx_n_s_delta;
+static PyObject *__pyx_n_s_diag1xhigh;
+static PyObject *__pyx_n_s_diag1xlow;
+static PyObject *__pyx_n_s_diag1yhigh;
+static PyObject *__pyx_n_s_diag1ylow;
+static PyObject *__pyx_n_s_diag2xhigh;
+static PyObject *__pyx_n_s_diag2xlow;
+static PyObject *__pyx_n_s_diag2yhigh;
+static PyObject *__pyx_n_s_diag2ylow;
 static PyObject *__pyx_n_s_diagb_fits_on_board;
 static PyObject *__pyx_n_s_diagb_set;
 static PyObject *__pyx_n_s_diagf_fits_on_board;
@@ -1506,7 +1545,6 @@ static PyObject *__pyx_n_s_module;
 static PyObject *__pyx_n_s_new_board;
 static PyObject *__pyx_n_s_new_board_cell;
 static PyObject *__pyx_n_s_new_cell;
-static PyObject *__pyx_kp_u_normally_not_this_color_s_turn;
 static PyObject *__pyx_n_s_number_black_moves;
 static PyObject *__pyx_n_s_number_empty_cells;
 static PyObject *__pyx_n_s_number_filled_cells;
@@ -1535,12 +1573,13 @@ static PyObject *__pyx_n_s_second_move;
 static PyObject *__pyx_n_s_second_move1;
 static PyObject *__pyx_kp_u_second_move_of_the_game_overwrit;
 static PyObject *__pyx_n_s_self;
-static PyObject *__pyx_n_s_start;
 static PyObject *__pyx_n_s_symbol;
+static PyObject *__pyx_n_s_t;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_this_color;
 static PyObject *__pyx_n_u_tie;
 static PyObject *__pyx_n_s_time;
+static PyObject *__pyx_n_s_turns;
 static PyObject *__pyx_n_s_value;
 static PyObject *__pyx_n_u_white;
 static PyObject *__pyx_n_s_width;
@@ -1548,40 +1587,46 @@ static PyObject *__pyx_n_s_win;
 static PyObject *__pyx_n_s_x;
 static PyObject *__pyx_n_s_x_fits_on_board;
 static PyObject *__pyx_n_s_x_set;
+static PyObject *__pyx_n_s_xhigh;
+static PyObject *__pyx_n_s_xlow;
 static PyObject *__pyx_n_s_y;
 static PyObject *__pyx_n_s_y_fits_on_board;
 static PyObject *__pyx_n_s_y_set;
-static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_our_color); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_pos, PyObject *__pyx_v_row_pos, PyObject *__pyx_v_color, PyObject *__pyx_v_second_move); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_5Board_6check_cell(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_pos, PyObject *__pyx_v_row_pos); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_5Board_8cell_exists(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_column_index, PyObject *__pyx_v_row_index); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_index, PyObject *__pyx_v_row_index); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_5Board_14is_full(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_5Board_20board_status(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_5Board_22get_player_turn(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_10Board_Cell___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column, PyObject *__pyx_v_row, PyObject *__pyx_v_is_empty, PyObject *__pyx_v_color); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_2play_on_cell(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_color, PyObject *__pyx_v_second_move1); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_4copy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_6cell_status(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_column, PyObject *__pyx_v_row); /* proto */
-static PyObject *__pyx_pf_12Boardcpython_is_integer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_s); /* proto */
+static PyObject *__pyx_n_s_yhigh;
+static PyObject *__pyx_n_s_ylist;
+static PyObject *__pyx_n_s_ylow;
+static PyObject *__pyx_pf_5Board_5Board___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_our_color); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_2make_move(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_pos, PyObject *__pyx_v_row_pos, PyObject *__pyx_v_color, PyObject *__pyx_v_second_move); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_4get_children(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_6check_cell(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_pos, PyObject *__pyx_v_row_pos); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_8cell_exists(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_column_index, PyObject *__pyx_v_row_index); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_10get_cell(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_index, PyObject *__pyx_v_row_index); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_12get_filled_coordinates(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_14is_full(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_16check_terminal_state(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_18check_terminal_move(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_index, PyObject *__pyx_v_row_index); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_20print_board(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_22board_status(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_24get_player_turn(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5Board_5Board_26copy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5Board_10Board_Cell___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column, PyObject *__pyx_v_row, PyObject *__pyx_v_is_empty, PyObject *__pyx_v_color); /* proto */
+static PyObject *__pyx_pf_5Board_10Board_Cell_2play_on_cell(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_color, PyObject *__pyx_v_second_move1); /* proto */
+static PyObject *__pyx_pf_5Board_10Board_Cell_4copy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5Board_10Board_Cell_6cell_status(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_5Board_10Board_Cell_8check_valid(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_column, PyObject *__pyx_v_row); /* proto */
+static PyObject *__pyx_pf_5Board_is_integer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_s); /* proto */
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_1;
+static PyObject *__pyx_int_4;
 static PyObject *__pyx_int_5;
 static PyObject *__pyx_int_10;
 static PyObject *__pyx_int_15;
 static PyObject *__pyx_int_100;
 static PyObject *__pyx_int_neg_100;
 static PyObject *__pyx_tuple_;
-static PyObject *__pyx_slice__3;
-static PyObject *__pyx_tuple__2;
+static PyObject *__pyx_slice__2;
+static PyObject *__pyx_tuple__3;
 static PyObject *__pyx_tuple__4;
-static PyObject *__pyx_tuple__5;
 static PyObject *__pyx_tuple__8;
 static PyObject *__pyx_tuple__11;
 static PyObject *__pyx_tuple__12;
@@ -1606,27 +1651,13 @@ static PyObject *__pyx_tuple__41;
 static PyObject *__pyx_tuple__43;
 static PyObject *__pyx_tuple__45;
 static PyObject *__pyx_tuple__47;
-static PyObject *__pyx_tuple__48;
+static PyObject *__pyx_tuple__49;
 static PyObject *__pyx_tuple__50;
-static PyObject *__pyx_tuple__51;
+static PyObject *__pyx_tuple__52;
 static PyObject *__pyx_tuple__53;
 static PyObject *__pyx_tuple__55;
 static PyObject *__pyx_tuple__57;
 static PyObject *__pyx_tuple__59;
-static PyObject *__pyx_tuple__60;
-static PyObject *__pyx_tuple__61;
-static PyObject *__pyx_tuple__62;
-static PyObject *__pyx_tuple__63;
-static PyObject *__pyx_tuple__64;
-static PyObject *__pyx_tuple__65;
-static PyObject *__pyx_tuple__66;
-static PyObject *__pyx_tuple__67;
-static PyObject *__pyx_tuple__68;
-static PyObject *__pyx_tuple__69;
-static PyObject *__pyx_tuple__70;
-static PyObject *__pyx_tuple__71;
-static PyObject *__pyx_tuple__72;
-static PyObject *__pyx_tuple__73;
 static PyObject *__pyx_codeobj__19;
 static PyObject *__pyx_codeobj__21;
 static PyObject *__pyx_codeobj__24;
@@ -1641,13 +1672,14 @@ static PyObject *__pyx_codeobj__40;
 static PyObject *__pyx_codeobj__42;
 static PyObject *__pyx_codeobj__44;
 static PyObject *__pyx_codeobj__46;
-static PyObject *__pyx_codeobj__49;
-static PyObject *__pyx_codeobj__52;
+static PyObject *__pyx_codeobj__48;
+static PyObject *__pyx_codeobj__51;
 static PyObject *__pyx_codeobj__54;
 static PyObject *__pyx_codeobj__56;
 static PyObject *__pyx_codeobj__58;
+static PyObject *__pyx_codeobj__60;
 
-/* "Boardcpython.pyx":9
+/* "Board.pyx":8
  * 
  * class Board:
  *     def __init__(self,our_color):             # <<<<<<<<<<<<<<
@@ -1656,9 +1688,9 @@ static PyObject *__pyx_codeobj__58;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_1__init__ = {"__init__", (PyCFunction)__pyx_pw_12Boardcpython_5Board_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5Board_5Board_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_1__init__ = {"__init__", (PyCFunction)__pyx_pw_5Board_5Board_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5Board_5Board_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_our_color = 0;
   PyObject *__pyx_r = 0;
@@ -1687,11 +1719,11 @@ static PyObject *__pyx_pw_12Boardcpython_5Board_1__init__(PyObject *__pyx_self, 
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_our_color)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 9, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 8, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 9, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 8, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -1704,20 +1736,20 @@ static PyObject *__pyx_pw_12Boardcpython_5Board_1__init__(PyObject *__pyx_self, 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 9, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 8, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("Boardcpython.Board.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12Boardcpython_5Board___init__(__pyx_self, __pyx_v_self, __pyx_v_our_color);
+  __pyx_r = __pyx_pf_5Board_5Board___init__(__pyx_self, __pyx_v_self, __pyx_v_our_color);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_our_color) {
+static PyObject *__pyx_pf_5Board_5Board___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_our_color) {
   PyObject *__pyx_v_i = NULL;
   PyObject *__pyx_v_j = NULL;
   PyObject *__pyx_v_new_board_cell = NULL;
@@ -1736,14 +1768,14 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
   PyObject *__pyx_t_11 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "Boardcpython.pyx":10
+  /* "Board.pyx":9
  * class Board:
  *     def __init__(self,our_color):
  *         self.rows_pos = ["1", "2", "3", "4", "5", "6", "7",             # <<<<<<<<<<<<<<
  *                          "8", "9", "10", "11", "12", "13", "14", "15"]
  *         self.columns_pos = ["A", "B", "C", "D", "E", "F",
  */
-  __pyx_t_1 = PyList_New(15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_kp_u_1);
   __Pyx_GIVEREF(__pyx_kp_u_1);
@@ -1790,17 +1822,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
   __Pyx_INCREF(__pyx_kp_u_15);
   __Pyx_GIVEREF(__pyx_kp_u_15);
   PyList_SET_ITEM(__pyx_t_1, 14, __pyx_kp_u_15);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_rows_pos, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_rows_pos, __pyx_t_1) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":12
+  /* "Board.pyx":11
  *         self.rows_pos = ["1", "2", "3", "4", "5", "6", "7",
  *                          "8", "9", "10", "11", "12", "13", "14", "15"]
  *         self.columns_pos = ["A", "B", "C", "D", "E", "F",             # <<<<<<<<<<<<<<
  *                             "G", "H", "I", "J", "K", "L", "M", "N", "O"]
  *         self.board = OrderedDict()
  */
-  __pyx_t_1 = PyList_New(15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(15); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_u_A);
   __Pyx_GIVEREF(__pyx_n_u_A);
@@ -1847,17 +1879,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
   __Pyx_INCREF(__pyx_n_u_O);
   __Pyx_GIVEREF(__pyx_n_u_O);
   PyList_SET_ITEM(__pyx_t_1, 14, __pyx_n_u_O);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos, __pyx_t_1) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":14
+  /* "Board.pyx":13
  *         self.columns_pos = ["A", "B", "C", "D", "E", "F",
  *                             "G", "H", "I", "J", "K", "L", "M", "N", "O"]
  *         self.board = OrderedDict()             # <<<<<<<<<<<<<<
  *         self.width = 15
  *         self.height = 15
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_OrderedDict); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_OrderedDict); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -1870,136 +1902,154 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_board, __pyx_t_1) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_board, __pyx_t_1) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":15
+  /* "Board.pyx":14
  *                             "G", "H", "I", "J", "K", "L", "M", "N", "O"]
  *         self.board = OrderedDict()
  *         self.width = 15             # <<<<<<<<<<<<<<
  *         self.height = 15
  *         self.color_turn = "white"
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_width, __pyx_int_15) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_width, __pyx_int_15) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":16
+  /* "Board.pyx":15
  *         self.board = OrderedDict()
  *         self.width = 15
  *         self.height = 15             # <<<<<<<<<<<<<<
  *         self.color_turn = "white"
  *         self.color_next_turn = "black"
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_height, __pyx_int_15) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_height, __pyx_int_15) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":17
+  /* "Board.pyx":16
  *         self.width = 15
  *         self.height = 15
  *         self.color_turn = "white"             # <<<<<<<<<<<<<<
  *         self.color_next_turn = "black"
  *         self.our_color = our_color
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_color_turn, __pyx_n_u_white) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_color_turn, __pyx_n_u_white) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":18
+  /* "Board.pyx":17
  *         self.height = 15
  *         self.color_turn = "white"
  *         self.color_next_turn = "black"             # <<<<<<<<<<<<<<
  *         self.our_color = our_color
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_color_next_turn, __pyx_n_u_black) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_color_next_turn, __pyx_n_u_black) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":19
+  /* "Board.pyx":18
  *         self.color_turn = "white"
  *         self.color_next_turn = "black"
  *         self.our_color = our_color             # <<<<<<<<<<<<<<
  * 
  *         self.number_total_cells = self.width*self.height
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_our_color, __pyx_v_our_color) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_our_color, __pyx_v_our_color) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":21
+  /* "Board.pyx":20
  *         self.our_color = our_color
  * 
  *         self.number_total_cells = self.width*self.height             # <<<<<<<<<<<<<<
  *         self.number_empty_cells = self.width*self.height
  *         self.number_filled_cells = 0
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_width); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_width); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_height); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_height); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyNumber_Multiply(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Multiply(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_total_cells, __pyx_t_3) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_total_cells, __pyx_t_3) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "Boardcpython.pyx":22
+  /* "Board.pyx":21
  * 
  *         self.number_total_cells = self.width*self.height
  *         self.number_empty_cells = self.width*self.height             # <<<<<<<<<<<<<<
  *         self.number_filled_cells = 0
  *         self.number_black_moves = 0
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_width); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_width); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_height); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_height); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyNumber_Multiply(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Multiply(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_empty_cells, __pyx_t_1) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_empty_cells, __pyx_t_1) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":23
+  /* "Board.pyx":22
  *         self.number_total_cells = self.width*self.height
  *         self.number_empty_cells = self.width*self.height
  *         self.number_filled_cells = 0             # <<<<<<<<<<<<<<
  *         self.number_black_moves = 0
  *         self.number_white_moves = 0
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells, __pyx_int_0) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells, __pyx_int_0) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":24
+  /* "Board.pyx":23
  *         self.number_empty_cells = self.width*self.height
  *         self.number_filled_cells = 0
  *         self.number_black_moves = 0             # <<<<<<<<<<<<<<
  *         self.number_white_moves = 0
- *         self.length_to_win = 5
+ *         self.connect = 5
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_black_moves, __pyx_int_0) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_black_moves, __pyx_int_0) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":25
+  /* "Board.pyx":24
  *         self.number_filled_cells = 0
  *         self.number_black_moves = 0
  *         self.number_white_moves = 0             # <<<<<<<<<<<<<<
+ *         self.connect = 5
  *         self.length_to_win = 5
- * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_white_moves, __pyx_int_0) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_white_moves, __pyx_int_0) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":26
+  /* "Board.pyx":25
  *         self.number_black_moves = 0
  *         self.number_white_moves = 0
+ *         self.connect = 5             # <<<<<<<<<<<<<<
+ *         self.length_to_win = 5
+ *         self.turns = 0
+ */
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_connect, __pyx_int_5) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+
+  /* "Board.pyx":26
+ *         self.number_white_moves = 0
+ *         self.connect = 5
  *         self.length_to_win = 5             # <<<<<<<<<<<<<<
- * 
+ *         self.turns = 0
  *         for i in self.columns_pos:
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win, __pyx_int_5) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":28
+  /* "Board.pyx":27
+ *         self.connect = 5
  *         self.length_to_win = 5
- * 
+ *         self.turns = 0             # <<<<<<<<<<<<<<
+ *         for i in self.columns_pos:
+ *             for j in self.rows_pos:
+ */
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_turns, __pyx_int_0) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+
+  /* "Board.pyx":28
+ *         self.length_to_win = 5
+ *         self.turns = 0
  *         for i in self.columns_pos:             # <<<<<<<<<<<<<<
  *             for j in self.rows_pos:
  *                 new_board_cell = Board_Cell(i, j)
@@ -2049,8 +2099,8 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "Boardcpython.pyx":29
- * 
+    /* "Board.pyx":29
+ *         self.turns = 0
  *         for i in self.columns_pos:
  *             for j in self.rows_pos:             # <<<<<<<<<<<<<<
  *                 new_board_cell = Board_Cell(i, j)
@@ -2101,7 +2151,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "Boardcpython.pyx":30
+      /* "Board.pyx":30
  *         for i in self.columns_pos:
  *             for j in self.rows_pos:
  *                 new_board_cell = Board_Cell(i, j)             # <<<<<<<<<<<<<<
@@ -2158,7 +2208,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
       __Pyx_XDECREF_SET(__pyx_v_new_board_cell, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "Boardcpython.pyx":31
+      /* "Board.pyx":31
  *             for j in self.rows_pos:
  *                 new_board_cell = Board_Cell(i, j)
  *                 self.board[i + j] = new_board_cell             # <<<<<<<<<<<<<<
@@ -2173,8 +2223,8 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "Boardcpython.pyx":29
- * 
+      /* "Board.pyx":29
+ *         self.turns = 0
  *         for i in self.columns_pos:
  *             for j in self.rows_pos:             # <<<<<<<<<<<<<<
  *                 new_board_cell = Board_Cell(i, j)
@@ -2183,9 +2233,9 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "Boardcpython.pyx":28
+    /* "Board.pyx":28
  *         self.length_to_win = 5
- * 
+ *         self.turns = 0
  *         for i in self.columns_pos:             # <<<<<<<<<<<<<<
  *             for j in self.rows_pos:
  *                 new_board_cell = Board_Cell(i, j)
@@ -2193,7 +2243,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":9
+  /* "Board.pyx":8
  * 
  * class Board:
  *     def __init__(self,our_color):             # <<<<<<<<<<<<<<
@@ -2211,7 +2261,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("Boardcpython.Board.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_i);
@@ -2222,7 +2272,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":33
+/* "Board.pyx":33
  *                 self.board[i + j] = new_board_cell
  * 
  *     def make_move(self, column_pos, row_pos, color = "sample",second_move=False):             # <<<<<<<<<<<<<<
@@ -2231,9 +2281,9 @@ static PyObject *__pyx_pf_12Boardcpython_5Board___init__(CYTHON_UNUSED PyObject 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_3make_move(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_3make_move = {"make_move", (PyCFunction)__pyx_pw_12Boardcpython_5Board_3make_move, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_3make_move(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5Board_5Board_3make_move(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_3make_move = {"make_move", (PyCFunction)__pyx_pw_5Board_5Board_3make_move, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5Board_5Board_3make_move(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_column_pos = 0;
   PyObject *__pyx_v_row_pos = 0;
@@ -2320,18 +2370,20 @@ static PyObject *__pyx_pw_12Boardcpython_5Board_3make_move(PyObject *__pyx_self,
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("make_move", 0, 3, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 33, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("Boardcpython.Board.make_move", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.make_move", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12Boardcpython_5Board_2make_move(__pyx_self, __pyx_v_self, __pyx_v_column_pos, __pyx_v_row_pos, __pyx_v_color, __pyx_v_second_move);
+  __pyx_r = __pyx_pf_5Board_5Board_2make_move(__pyx_self, __pyx_v_self, __pyx_v_column_pos, __pyx_v_row_pos, __pyx_v_color, __pyx_v_second_move);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_pos, PyObject *__pyx_v_row_pos, PyObject *__pyx_v_color, PyObject *__pyx_v_second_move) {
+static PyObject *__pyx_pf_5Board_5Board_2make_move(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_pos, PyObject *__pyx_v_row_pos, PyObject *__pyx_v_color, PyObject *__pyx_v_second_move) {
+  PyObject *__pyx_v_a = NULL;
+  PyObject *__pyx_v_t = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -2340,10 +2392,14 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
   PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  PyObject *__pyx_t_8 = NULL;
+  PyObject *__pyx_t_9 = NULL;
+  int __pyx_t_10;
   __Pyx_RefNannySetupContext("make_move", 0);
   __Pyx_INCREF(__pyx_v_color);
 
-  /* "Boardcpython.pyx":36
+  /* "Board.pyx":36
  *         #print("making move")
  *         #self.board_status()
  *         if color == "sample":             # <<<<<<<<<<<<<<
@@ -2353,7 +2409,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
   __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_color, __pyx_n_u_sample, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 36, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "Boardcpython.pyx":37
+    /* "Board.pyx":37
  *         #self.board_status()
  *         if color == "sample":
  *             color = self.color_turn             # <<<<<<<<<<<<<<
@@ -2365,7 +2421,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
     __Pyx_DECREF_SET(__pyx_v_color, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "Boardcpython.pyx":36
+    /* "Board.pyx":36
  *         #print("making move")
  *         #self.board_status()
  *         if color == "sample":             # <<<<<<<<<<<<<<
@@ -2374,7 +2430,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "Boardcpython.pyx":38
+  /* "Board.pyx":38
  *         if color == "sample":
  *             color = self.color_turn
  *         if color in ["white","black"]:             # <<<<<<<<<<<<<<
@@ -2396,7 +2452,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
   __pyx_t_3 = (__pyx_t_1 != 0);
   if (__pyx_t_3) {
 
-    /* "Boardcpython.pyx":39
+    /* "Board.pyx":39
  *             color = self.color_turn
  *         if color in ["white","black"]:
  *             if color == "white" and self.color_turn == "white":             # <<<<<<<<<<<<<<
@@ -2417,7 +2473,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
     __pyx_L8_bool_binop_done:;
     if (__pyx_t_3) {
 
-      /* "Boardcpython.pyx":40
+      /* "Board.pyx":40
  *         if color in ["white","black"]:
  *             if color == "white" and self.color_turn == "white":
  *                 self.number_white_moves+=1             # <<<<<<<<<<<<<<
@@ -2432,7 +2488,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
       if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_white_moves, __pyx_t_4) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "Boardcpython.pyx":39
+      /* "Board.pyx":39
  *             color = self.color_turn
  *         if color in ["white","black"]:
  *             if color == "white" and self.color_turn == "white":             # <<<<<<<<<<<<<<
@@ -2442,7 +2498,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
       goto __pyx_L7;
     }
 
-    /* "Boardcpython.pyx":42
+    /* "Board.pyx":42
  *                 self.number_white_moves+=1
  *                 #self.color_turn = "black"
  *             elif color == "black" and self.color_turn == "black":             # <<<<<<<<<<<<<<
@@ -2463,7 +2519,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
     __pyx_L10_bool_binop_done:;
     if (__pyx_t_3) {
 
-      /* "Boardcpython.pyx":43
+      /* "Board.pyx":43
  *                 #self.color_turn = "black"
  *             elif color == "black" and self.color_turn == "black":
  *                 self.number_black_moves+=1             # <<<<<<<<<<<<<<
@@ -2478,7 +2534,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
       if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_black_moves, __pyx_t_2) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "Boardcpython.pyx":42
+      /* "Board.pyx":42
  *                 self.number_white_moves+=1
  *                 #self.color_turn = "black"
  *             elif color == "black" and self.color_turn == "black":             # <<<<<<<<<<<<<<
@@ -2488,30 +2544,19 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
       goto __pyx_L7;
     }
 
-    /* "Boardcpython.pyx":46
- *                 #self.color_turn = "white"
+    /* "Board.pyx":47
  *             else:
- *                 print("normally not this color's turn ")             # <<<<<<<<<<<<<<
- *                 if color == "white":
- *                     self.number_white_moves+=1
- */
-    /*else*/ {
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-      /* "Boardcpython.pyx":47
- *             else:
- *                 print("normally not this color's turn ")
+ *                 #print("normally not this color's turn ")
  *                 if color == "white":             # <<<<<<<<<<<<<<
  *                     self.number_white_moves+=1
  *                 else:
  */
+    /*else*/ {
       __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_v_color, __pyx_n_u_white, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 47, __pyx_L1_error)
       if (__pyx_t_3) {
 
-        /* "Boardcpython.pyx":48
- *                 print("normally not this color's turn ")
+        /* "Board.pyx":48
+ *                 #print("normally not this color's turn ")
  *                 if color == "white":
  *                     self.number_white_moves+=1             # <<<<<<<<<<<<<<
  *                 else:
@@ -2525,9 +2570,9 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
         if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_white_moves, __pyx_t_4) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "Boardcpython.pyx":47
+        /* "Board.pyx":47
  *             else:
- *                 print("normally not this color's turn ")
+ *                 #print("normally not this color's turn ")
  *                 if color == "white":             # <<<<<<<<<<<<<<
  *                     self.number_white_moves+=1
  *                 else:
@@ -2535,7 +2580,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
         goto __pyx_L12;
       }
 
-      /* "Boardcpython.pyx":50
+      /* "Board.pyx":50
  *                     self.number_white_moves+=1
  *                 else:
  *                     self.number_black_moves+=1             # <<<<<<<<<<<<<<
@@ -2555,7 +2600,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
     }
     __pyx_L7:;
 
-    /* "Boardcpython.pyx":38
+    /* "Board.pyx":38
  *         if color == "sample":
  *             color = self.color_turn
  *         if color in ["white","black"]:             # <<<<<<<<<<<<<<
@@ -2565,113 +2610,111 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
     goto __pyx_L4;
   }
 
-  /* "Boardcpython.pyx":53
+  /* "Board.pyx":53
  *                 #return
  *         else:
  *             print("invalid color")             # <<<<<<<<<<<<<<
- *         self.board[column_pos +
- *                    row_pos].play_on_cell(color, second_move1=second_move)
+ *         a = self.board[column_pos + row_pos].play_on_cell(color, second_move1=second_move)
+ *         if a != 1:
  */
   /*else*/ {
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple_, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_L4:;
 
-  /* "Boardcpython.pyx":54
+  /* "Board.pyx":54
  *         else:
  *             print("invalid color")
- *         self.board[column_pos +             # <<<<<<<<<<<<<<
- *                    row_pos].play_on_cell(color, second_move1=second_move)
- *         self.number_filled_cells+=1
+ *         a = self.board[column_pos + row_pos].play_on_cell(color, second_move1=second_move)             # <<<<<<<<<<<<<<
+ *         if a != 1:
+ *             self.number_filled_cells+=1
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-
-  /* "Boardcpython.pyx":55
- *             print("invalid color")
- *         self.board[column_pos +
- *                    row_pos].play_on_cell(color, second_move1=second_move)             # <<<<<<<<<<<<<<
- *         self.number_filled_cells+=1
- *         self.number_empty_cells-=1
- */
   __pyx_t_4 = PyNumber_Add(__pyx_v_column_pos, __pyx_v_row_pos); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-
-  /* "Boardcpython.pyx":54
- *         else:
- *             print("invalid color")
- *         self.board[column_pos +             # <<<<<<<<<<<<<<
- *                    row_pos].play_on_cell(color, second_move1=second_move)
- *         self.number_filled_cells+=1
- */
   __pyx_t_5 = PyObject_GetItem(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-  /* "Boardcpython.pyx":55
- *             print("invalid color")
- *         self.board[column_pos +
- *                    row_pos].play_on_cell(color, second_move1=second_move)             # <<<<<<<<<<<<<<
- *         self.number_filled_cells+=1
- *         self.number_empty_cells-=1
- */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_play_on_cell); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_play_on_cell); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_v_color);
   __Pyx_GIVEREF(__pyx_v_color);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_color);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_second_move1, __pyx_v_second_move) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_second_move1, __pyx_v_second_move) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_v_a = __pyx_t_6;
+  __pyx_t_6 = 0;
 
-  /* "Boardcpython.pyx":56
- *         self.board[column_pos +
- *                    row_pos].play_on_cell(color, second_move1=second_move)
- *         self.number_filled_cells+=1             # <<<<<<<<<<<<<<
- *         self.number_empty_cells-=1
+  /* "Board.pyx":55
+ *             print("invalid color")
+ *         a = self.board[column_pos + row_pos].play_on_cell(color, second_move1=second_move)
+ *         if a != 1:             # <<<<<<<<<<<<<<
+ *             self.number_filled_cells+=1
+ *             self.number_empty_cells-=1
+ */
+  __pyx_t_6 = PyObject_RichCompare(__pyx_v_a, __pyx_int_1, Py_NE); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  if (__pyx_t_3) {
+
+    /* "Board.pyx":56
+ *         a = self.board[column_pos + row_pos].play_on_cell(color, second_move1=second_move)
+ *         if a != 1:
+ *             self.number_filled_cells+=1             # <<<<<<<<<<<<<<
+ *             self.number_empty_cells-=1
  *         self.color_turn , self.color_next_turn = self.color_next_turn, self.color_turn
  */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_t_6, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells, __pyx_t_2) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_t_6, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 56, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells, __pyx_t_2) < 0) __PYX_ERR(0, 56, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":57
- *                    row_pos].play_on_cell(color, second_move1=second_move)
- *         self.number_filled_cells+=1
- *         self.number_empty_cells-=1             # <<<<<<<<<<<<<<
+    /* "Board.pyx":57
+ *         if a != 1:
+ *             self.number_filled_cells+=1
+ *             self.number_empty_cells-=1             # <<<<<<<<<<<<<<
  *         self.color_turn , self.color_next_turn = self.color_next_turn, self.color_turn
- *         #self.board_status()
+ *         #self.print_board()
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_empty_cells); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyInt_SubtractObjC(__pyx_t_2, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 57, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_empty_cells, __pyx_t_6) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_empty_cells); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 57, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_6 = __Pyx_PyInt_SubtractObjC(__pyx_t_2, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 57, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_number_empty_cells, __pyx_t_6) < 0) __PYX_ERR(0, 57, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "Boardcpython.pyx":58
- *         self.number_filled_cells+=1
- *         self.number_empty_cells-=1
+    /* "Board.pyx":55
+ *             print("invalid color")
+ *         a = self.board[column_pos + row_pos].play_on_cell(color, second_move1=second_move)
+ *         if a != 1:             # <<<<<<<<<<<<<<
+ *             self.number_filled_cells+=1
+ *             self.number_empty_cells-=1
+ */
+  }
+
+  /* "Board.pyx":58
+ *             self.number_filled_cells+=1
+ *             self.number_empty_cells-=1
  *         self.color_turn , self.color_next_turn = self.color_next_turn, self.color_turn             # <<<<<<<<<<<<<<
- *         #self.board_status()
- *         #print("end making move")
+ *         #self.print_board()
+ *         self.turns+=1
  */
   __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color_next_turn); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
@@ -2682,7 +2725,197 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_color_next_turn, __pyx_t_2) < 0) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":33
+  /* "Board.pyx":60
+ *         self.color_turn , self.color_next_turn = self.color_next_turn, self.color_turn
+ *         #self.print_board()
+ *         self.turns+=1             # <<<<<<<<<<<<<<
+ *         t = self.check_terminal_move(self.columns_pos.index(column_pos)+1,self.rows_pos.index(row_pos)+1)
+ *         #print("t:",t)
+ */
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_turns); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_turns, __pyx_t_6) < 0) __PYX_ERR(0, 60, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+
+  /* "Board.pyx":61
+ *         #self.print_board()
+ *         self.turns+=1
+ *         t = self.check_terminal_move(self.columns_pos.index(column_pos)+1,self.rows_pos.index(row_pos)+1)             # <<<<<<<<<<<<<<
+ *         #print("t:",t)
+ *         return t
+ */
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_check_terminal_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_index); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_7);
+    if (likely(__pyx_t_4)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+      __Pyx_INCREF(__pyx_t_4);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_7, function);
+    }
+  }
+  if (!__pyx_t_4) {
+    __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_v_column_pos); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+  } else {
+    #if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(__pyx_t_7)) {
+      PyObject *__pyx_temp[2] = {__pyx_t_4, __pyx_v_column_pos};
+      __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_GOTREF(__pyx_t_5);
+    } else
+    #endif
+    #if CYTHON_FAST_PYCCALL
+    if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
+      PyObject *__pyx_temp[2] = {__pyx_t_4, __pyx_v_column_pos};
+      __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __Pyx_GOTREF(__pyx_t_5);
+    } else
+    #endif
+    {
+      __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 61, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_4); __pyx_t_4 = NULL;
+      __Pyx_INCREF(__pyx_v_column_pos);
+      __Pyx_GIVEREF(__pyx_v_column_pos);
+      PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_v_column_pos);
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    }
+  }
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyInt_AddObjC(__pyx_t_5, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_rows_pos); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __pyx_t_8 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_8)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_8);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
+    }
+  }
+  if (!__pyx_t_8) {
+    __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_row_pos); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+  } else {
+    #if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(__pyx_t_4)) {
+      PyObject *__pyx_temp[2] = {__pyx_t_8, __pyx_v_row_pos};
+      __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_GOTREF(__pyx_t_5);
+    } else
+    #endif
+    #if CYTHON_FAST_PYCCALL
+    if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
+      PyObject *__pyx_temp[2] = {__pyx_t_8, __pyx_v_row_pos};
+      __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __Pyx_GOTREF(__pyx_t_5);
+    } else
+    #endif
+    {
+      __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 61, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_9);
+      __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_8); __pyx_t_8 = NULL;
+      __Pyx_INCREF(__pyx_v_row_pos);
+      __Pyx_GIVEREF(__pyx_v_row_pos);
+      PyTuple_SET_ITEM(__pyx_t_9, 0+1, __pyx_v_row_pos);
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_9, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    }
+  }
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_t_5, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = NULL;
+  __pyx_t_10 = 0;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_5)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_5);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __pyx_t_10 = 1;
+    }
+  }
+  #if CYTHON_FAST_PYCALL
+  if (PyFunction_Check(__pyx_t_2)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_7, __pyx_t_4};
+    __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  } else
+  #endif
+  #if CYTHON_FAST_PYCCALL
+  if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_7, __pyx_t_4};
+    __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  } else
+  #endif
+  {
+    __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    if (__pyx_t_5) {
+      __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_5); __pyx_t_5 = NULL;
+    }
+    __Pyx_GIVEREF(__pyx_t_7);
+    PyTuple_SET_ITEM(__pyx_t_9, 0+__pyx_t_10, __pyx_t_7);
+    __Pyx_GIVEREF(__pyx_t_4);
+    PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_10, __pyx_t_4);
+    __pyx_t_7 = 0;
+    __pyx_t_4 = 0;
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_9, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_v_t = __pyx_t_6;
+  __pyx_t_6 = 0;
+
+  /* "Board.pyx":63
+ *         t = self.check_terminal_move(self.columns_pos.index(column_pos)+1,self.rows_pos.index(row_pos)+1)
+ *         #print("t:",t)
+ *         return t             # <<<<<<<<<<<<<<
+ *         #self.board_status()
+ *         #print("end making move")
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(__pyx_v_t);
+  __pyx_r = __pyx_v_t;
+  goto __pyx_L0;
+
+  /* "Board.pyx":33
  *                 self.board[i + j] = new_board_cell
  * 
  *     def make_move(self, column_pos, row_pos, color = "sample",second_move=False):             # <<<<<<<<<<<<<<
@@ -2691,23 +2924,26 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
  */
 
   /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("Boardcpython.Board.make_move", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_XDECREF(__pyx_t_9);
+  __Pyx_AddTraceback("Board.Board.make_move", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_a);
+  __Pyx_XDECREF(__pyx_v_t);
   __Pyx_XDECREF(__pyx_v_color);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":65
+/* "Board.pyx":68
  * 
  * 
  *     def get_children(self):             # <<<<<<<<<<<<<<
@@ -2716,20 +2952,20 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_2make_move(CYTHON_UNUSED PyObjec
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_5get_children(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_5get_children = {"get_children", (PyCFunction)__pyx_pw_12Boardcpython_5Board_5get_children, METH_O, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_5get_children(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5Board_5Board_5get_children(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_5get_children = {"get_children", (PyCFunction)__pyx_pw_5Board_5Board_5get_children, METH_O, 0};
+static PyObject *__pyx_pw_5Board_5Board_5get_children(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("get_children (wrapper)", 0);
-  __pyx_r = __pyx_pf_12Boardcpython_5Board_4get_children(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5Board_5Board_4get_children(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_5Board_5Board_4get_children(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_children = NULL;
   PyObject *__pyx_v_key = NULL;
   PyObject *__pyx_v_value = NULL;
@@ -2751,19 +2987,19 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
   int __pyx_t_13;
   __Pyx_RefNannySetupContext("get_children", 0);
 
-  /* "Boardcpython.pyx":66
+  /* "Board.pyx":69
  * 
  *     def get_children(self):
  *         children = []             # <<<<<<<<<<<<<<
  *         for key, value in self.board.items():
  *             if value.color == "empty":
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_children = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":67
+  /* "Board.pyx":70
  *     def get_children(self):
  *         children = []
  *         for key, value in self.board.items():             # <<<<<<<<<<<<<<
@@ -2771,13 +3007,13 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
  *                 child_board = self.copy()
  */
   __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (unlikely(__pyx_t_5 == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
-    __PYX_ERR(0, 67, __pyx_L1_error)
+    __PYX_ERR(0, 70, __pyx_L1_error)
   }
-  __pyx_t_6 = __Pyx_dict_iterator(__pyx_t_5, 0, __pyx_n_s_items, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_dict_iterator(__pyx_t_5, 0, __pyx_n_s_items, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_XDECREF(__pyx_t_1);
@@ -2786,7 +3022,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, &__pyx_t_6, &__pyx_t_5, NULL, __pyx_t_4);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 67, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 70, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_XDECREF_SET(__pyx_v_key, __pyx_t_6);
@@ -2794,27 +3030,27 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
     __Pyx_XDECREF_SET(__pyx_v_value, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "Boardcpython.pyx":68
+    /* "Board.pyx":71
  *         children = []
  *         for key, value in self.board.items():
  *             if value.color == "empty":             # <<<<<<<<<<<<<<
  *                 child_board = self.copy()
  *                 child_board.make_move(key[0],key[1:])
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_value, __pyx_n_s_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_value, __pyx_n_s_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_t_5, __pyx_n_u_empty, Py_EQ)); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_8 = (__Pyx_PyUnicode_Equals(__pyx_t_5, __pyx_n_u_empty, Py_EQ)); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 71, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (__pyx_t_8) {
 
-      /* "Boardcpython.pyx":69
+      /* "Board.pyx":72
  *         for key, value in self.board.items():
  *             if value.color == "empty":
  *                 child_board = self.copy()             # <<<<<<<<<<<<<<
  *                 child_board.make_move(key[0],key[1:])
  *                 children.append(child_board)
  */
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_copy); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 69, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_copy); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 72, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_9 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
@@ -2827,28 +3063,28 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
         }
       }
       if (__pyx_t_9) {
-        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 69, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       } else {
-        __pyx_t_5 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 69, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 72, __pyx_L1_error)
       }
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_XDECREF_SET(__pyx_v_child_board, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "Boardcpython.pyx":70
+      /* "Board.pyx":73
  *             if value.color == "empty":
  *                 child_board = self.copy()
  *                 child_board.make_move(key[0],key[1:])             # <<<<<<<<<<<<<<
  *                 children.append(child_board)
  *         return children
  */
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_child_board, __pyx_n_s_make_move); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 70, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_child_board, __pyx_n_s_make_move); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 73, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_9 = __Pyx_GetItemInt(__pyx_v_key, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 70, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_GetItemInt(__pyx_v_key, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 73, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_10 = __Pyx_PyObject_GetSlice(__pyx_v_key, 1, 0, NULL, NULL, &__pyx_slice__3, 1, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 70, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetSlice(__pyx_v_key, 1, 0, NULL, NULL, &__pyx_slice__2, 1, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 73, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __pyx_t_11 = NULL;
       __pyx_t_7 = 0;
@@ -2865,7 +3101,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_6)) {
         PyObject *__pyx_temp[3] = {__pyx_t_11, __pyx_t_9, __pyx_t_10};
-        __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -2875,7 +3111,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
         PyObject *__pyx_temp[3] = {__pyx_t_11, __pyx_t_9, __pyx_t_10};
-        __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -2883,7 +3119,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
       } else
       #endif
       {
-        __pyx_t_12 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 70, __pyx_L1_error)
+        __pyx_t_12 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 73, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         if (__pyx_t_11) {
           __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_11); __pyx_t_11 = NULL;
@@ -2894,23 +3130,23 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
         PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_7, __pyx_t_10);
         __pyx_t_9 = 0;
         __pyx_t_10 = 0;
-        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_12, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 70, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_12, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       }
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "Boardcpython.pyx":71
+      /* "Board.pyx":74
  *                 child_board = self.copy()
  *                 child_board.make_move(key[0],key[1:])
  *                 children.append(child_board)             # <<<<<<<<<<<<<<
  *         return children
  * 
  */
-      __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_children, __pyx_v_child_board); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 71, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_children, __pyx_v_child_board); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 74, __pyx_L1_error)
 
-      /* "Boardcpython.pyx":68
+      /* "Board.pyx":71
  *         children = []
  *         for key, value in self.board.items():
  *             if value.color == "empty":             # <<<<<<<<<<<<<<
@@ -2921,7 +3157,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":72
+  /* "Board.pyx":75
  *                 child_board.make_move(key[0],key[1:])
  *                 children.append(child_board)
  *         return children             # <<<<<<<<<<<<<<
@@ -2933,7 +3169,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
   __pyx_r = __pyx_v_children;
   goto __pyx_L0;
 
-  /* "Boardcpython.pyx":65
+  /* "Board.pyx":68
  * 
  * 
  *     def get_children(self):             # <<<<<<<<<<<<<<
@@ -2950,7 +3186,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_11);
   __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_AddTraceback("Boardcpython.Board.get_children", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.get_children", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_children);
@@ -2962,7 +3198,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":75
+/* "Board.pyx":78
  * 
  * 
  *     def check_cell(self, column_pos, row_pos):             # <<<<<<<<<<<<<<
@@ -2971,9 +3207,9 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_4get_children(CYTHON_UNUSED PyOb
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_7check_cell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_7check_cell = {"check_cell", (PyCFunction)__pyx_pw_12Boardcpython_5Board_7check_cell, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_7check_cell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5Board_5Board_7check_cell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_7check_cell = {"check_cell", (PyCFunction)__pyx_pw_5Board_5Board_7check_cell, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5Board_5Board_7check_cell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_column_pos = 0;
   PyObject *__pyx_v_row_pos = 0;
@@ -3005,17 +3241,17 @@ static PyObject *__pyx_pw_12Boardcpython_5Board_7check_cell(PyObject *__pyx_self
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_column_pos)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("check_cell", 1, 3, 3, 1); __PYX_ERR(0, 75, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("check_cell", 1, 3, 3, 1); __PYX_ERR(0, 78, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_row_pos)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("check_cell", 1, 3, 3, 2); __PYX_ERR(0, 75, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("check_cell", 1, 3, 3, 2); __PYX_ERR(0, 78, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "check_cell") < 0)) __PYX_ERR(0, 75, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "check_cell") < 0)) __PYX_ERR(0, 78, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -3030,20 +3266,20 @@ static PyObject *__pyx_pw_12Boardcpython_5Board_7check_cell(PyObject *__pyx_self
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("check_cell", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 75, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("check_cell", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 78, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("Boardcpython.Board.check_cell", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.check_cell", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12Boardcpython_5Board_6check_cell(__pyx_self, __pyx_v_self, __pyx_v_column_pos, __pyx_v_row_pos);
+  __pyx_r = __pyx_pf_5Board_5Board_6check_cell(__pyx_self, __pyx_v_self, __pyx_v_column_pos, __pyx_v_row_pos);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board_6check_cell(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_pos, PyObject *__pyx_v_row_pos) {
+static PyObject *__pyx_pf_5Board_5Board_6check_cell(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_pos, PyObject *__pyx_v_row_pos) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3052,7 +3288,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_6check_cell(CYTHON_UNUSED PyObje
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("check_cell", 0);
 
-  /* "Boardcpython.pyx":76
+  /* "Board.pyx":79
  * 
  *     def check_cell(self, column_pos, row_pos):
  *         return self.board[column_pos + row_pos].cell_status()             # <<<<<<<<<<<<<<
@@ -3060,15 +3296,15 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_6check_cell(CYTHON_UNUSED PyObje
  *         if 1 <= column_index <=15 and 1<= row_index <= 15:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyNumber_Add(__pyx_v_column_pos, __pyx_v_row_pos); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Add(__pyx_v_column_pos, __pyx_v_row_pos); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_GetItem(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_4 = PyObject_GetItem(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_cell_status); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_cell_status); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -3082,10 +3318,10 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_6check_cell(CYTHON_UNUSED PyObje
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3093,7 +3329,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_6check_cell(CYTHON_UNUSED PyObje
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "Boardcpython.pyx":75
+  /* "Board.pyx":78
  * 
  * 
  *     def check_cell(self, column_pos, row_pos):             # <<<<<<<<<<<<<<
@@ -3107,7 +3343,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_6check_cell(CYTHON_UNUSED PyObje
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("Boardcpython.Board.check_cell", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.check_cell", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3115,7 +3351,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_6check_cell(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":77
+/* "Board.pyx":80
  *     def check_cell(self, column_pos, row_pos):
  *         return self.board[column_pos + row_pos].cell_status()
  *     def cell_exists(self,column_index,row_index):             # <<<<<<<<<<<<<<
@@ -3124,9 +3360,9 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_6check_cell(CYTHON_UNUSED PyObje
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_9cell_exists(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_9cell_exists = {"cell_exists", (PyCFunction)__pyx_pw_12Boardcpython_5Board_9cell_exists, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_9cell_exists(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5Board_5Board_9cell_exists(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_9cell_exists = {"cell_exists", (PyCFunction)__pyx_pw_5Board_5Board_9cell_exists, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5Board_5Board_9cell_exists(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   CYTHON_UNUSED PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_column_index = 0;
   PyObject *__pyx_v_row_index = 0;
@@ -3158,17 +3394,17 @@ static PyObject *__pyx_pw_12Boardcpython_5Board_9cell_exists(PyObject *__pyx_sel
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_column_index)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("cell_exists", 1, 3, 3, 1); __PYX_ERR(0, 77, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("cell_exists", 1, 3, 3, 1); __PYX_ERR(0, 80, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_row_index)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("cell_exists", 1, 3, 3, 2); __PYX_ERR(0, 77, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("cell_exists", 1, 3, 3, 2); __PYX_ERR(0, 80, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "cell_exists") < 0)) __PYX_ERR(0, 77, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "cell_exists") < 0)) __PYX_ERR(0, 80, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -3183,20 +3419,20 @@ static PyObject *__pyx_pw_12Boardcpython_5Board_9cell_exists(PyObject *__pyx_sel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("cell_exists", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 77, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("cell_exists", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 80, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("Boardcpython.Board.cell_exists", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.cell_exists", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12Boardcpython_5Board_8cell_exists(__pyx_self, __pyx_v_self, __pyx_v_column_index, __pyx_v_row_index);
+  __pyx_r = __pyx_pf_5Board_5Board_8cell_exists(__pyx_self, __pyx_v_self, __pyx_v_column_index, __pyx_v_row_index);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board_8cell_exists(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_column_index, PyObject *__pyx_v_row_index) {
+static PyObject *__pyx_pf_5Board_5Board_8cell_exists(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_column_index, PyObject *__pyx_v_row_index) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -3204,37 +3440,37 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_8cell_exists(CYTHON_UNUSED PyObj
   int __pyx_t_3;
   __Pyx_RefNannySetupContext("cell_exists", 0);
 
-  /* "Boardcpython.pyx":78
+  /* "Board.pyx":81
  *         return self.board[column_pos + row_pos].cell_status()
  *     def cell_exists(self,column_index,row_index):
  *         if 1 <= column_index <=15 and 1<= row_index <= 15:             # <<<<<<<<<<<<<<
  *             return True
  *         else:
  */
-  __pyx_t_2 = PyObject_RichCompare(__pyx_int_1, __pyx_v_column_index, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_int_1, __pyx_v_column_index, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
   if (__Pyx_PyObject_IsTrue(__pyx_t_2)) {
     __Pyx_DECREF(__pyx_t_2);
-    __pyx_t_2 = PyObject_RichCompare(__pyx_v_column_index, __pyx_int_15, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_t_2 = PyObject_RichCompare(__pyx_v_column_index, __pyx_int_15, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
   }
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 81, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
   } else {
     __pyx_t_1 = __pyx_t_3;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_2 = PyObject_RichCompare(__pyx_int_1, __pyx_v_row_index, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_int_1, __pyx_v_row_index, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
   if (__Pyx_PyObject_IsTrue(__pyx_t_2)) {
     __Pyx_DECREF(__pyx_t_2);
-    __pyx_t_2 = PyObject_RichCompare(__pyx_v_row_index, __pyx_int_15, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
+    __pyx_t_2 = PyObject_RichCompare(__pyx_v_row_index, __pyx_int_15, Py_LE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
   }
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 81, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_1 = __pyx_t_3;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "Boardcpython.pyx":79
+    /* "Board.pyx":82
  *     def cell_exists(self,column_index,row_index):
  *         if 1 <= column_index <=15 and 1<= row_index <= 15:
  *             return True             # <<<<<<<<<<<<<<
@@ -3246,7 +3482,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_8cell_exists(CYTHON_UNUSED PyObj
     __pyx_r = Py_True;
     goto __pyx_L0;
 
-    /* "Boardcpython.pyx":78
+    /* "Board.pyx":81
  *         return self.board[column_pos + row_pos].cell_status()
  *     def cell_exists(self,column_index,row_index):
  *         if 1 <= column_index <=15 and 1<= row_index <= 15:             # <<<<<<<<<<<<<<
@@ -3255,7 +3491,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_8cell_exists(CYTHON_UNUSED PyObj
  */
   }
 
-  /* "Boardcpython.pyx":81
+  /* "Board.pyx":84
  *             return True
  *         else:
  *             return False             # <<<<<<<<<<<<<<
@@ -3269,7 +3505,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_8cell_exists(CYTHON_UNUSED PyObj
     goto __pyx_L0;
   }
 
-  /* "Boardcpython.pyx":77
+  /* "Board.pyx":80
  *     def check_cell(self, column_pos, row_pos):
  *         return self.board[column_pos + row_pos].cell_status()
  *     def cell_exists(self,column_index,row_index):             # <<<<<<<<<<<<<<
@@ -3280,7 +3516,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_8cell_exists(CYTHON_UNUSED PyObj
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("Boardcpython.Board.cell_exists", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.cell_exists", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3288,7 +3524,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_8cell_exists(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":82
+/* "Board.pyx":85
  *         else:
  *             return False
  *     def get_cell(self,column_index,row_index):             # <<<<<<<<<<<<<<
@@ -3297,9 +3533,9 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_8cell_exists(CYTHON_UNUSED PyObj
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_11get_cell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_11get_cell = {"get_cell", (PyCFunction)__pyx_pw_12Boardcpython_5Board_11get_cell, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_11get_cell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5Board_5Board_11get_cell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_11get_cell = {"get_cell", (PyCFunction)__pyx_pw_5Board_5Board_11get_cell, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5Board_5Board_11get_cell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_column_index = 0;
   PyObject *__pyx_v_row_index = 0;
@@ -3331,17 +3567,17 @@ static PyObject *__pyx_pw_12Boardcpython_5Board_11get_cell(PyObject *__pyx_self,
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_column_index)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_cell", 1, 3, 3, 1); __PYX_ERR(0, 82, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_cell", 1, 3, 3, 1); __PYX_ERR(0, 85, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_row_index)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_cell", 1, 3, 3, 2); __PYX_ERR(0, 82, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_cell", 1, 3, 3, 2); __PYX_ERR(0, 85, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_cell") < 0)) __PYX_ERR(0, 82, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_cell") < 0)) __PYX_ERR(0, 85, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -3356,20 +3592,20 @@ static PyObject *__pyx_pw_12Boardcpython_5Board_11get_cell(PyObject *__pyx_self,
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_cell", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 82, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_cell", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 85, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("Boardcpython.Board.get_cell", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.get_cell", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12Boardcpython_5Board_10get_cell(__pyx_self, __pyx_v_self, __pyx_v_column_index, __pyx_v_row_index);
+  __pyx_r = __pyx_pf_5Board_5Board_10get_cell(__pyx_self, __pyx_v_self, __pyx_v_column_index, __pyx_v_row_index);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_index, PyObject *__pyx_v_row_index) {
+static PyObject *__pyx_pf_5Board_5Board_10get_cell(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_index, PyObject *__pyx_v_row_index) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3381,14 +3617,14 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObjec
   PyObject *__pyx_t_7 = NULL;
   __Pyx_RefNannySetupContext("get_cell", 0);
 
-  /* "Boardcpython.pyx":83
+  /* "Board.pyx":86
  *             return False
  *     def get_cell(self,column_index,row_index):
  *         if self.cell_exists(column_index,row_index):             # <<<<<<<<<<<<<<
  *             return self.board[self.columns_pos[column_index-1]+self.rows_pos[row_index-1]]
  *         else:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_cell_exists); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 83, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_cell_exists); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -3405,7 +3641,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObjec
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_column_index, __pyx_v_row_index};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -3413,13 +3649,13 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObjec
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_column_index, __pyx_v_row_index};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 83, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -3430,16 +3666,16 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObjec
     __Pyx_INCREF(__pyx_v_row_index);
     __Pyx_GIVEREF(__pyx_v_row_index);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_row_index);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 83, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 86, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "Boardcpython.pyx":84
+    /* "Board.pyx":87
  *     def get_cell(self,column_index,row_index):
  *         if self.cell_exists(column_index,row_index):
  *             return self.board[self.columns_pos[column_index-1]+self.rows_pos[row_index-1]]             # <<<<<<<<<<<<<<
@@ -3447,29 +3683,29 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObjec
  *             print("requested cell doesn't exist, boundaries out of board")
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = __Pyx_PyInt_SubtractObjC(__pyx_v_column_index, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_SubtractObjC(__pyx_v_column_index, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = PyObject_GetItem(__pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __pyx_t_3 = PyObject_GetItem(__pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_rows_pos); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_rows_pos); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_v_row_index, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_v_row_index, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = PyObject_GetItem(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __pyx_t_7 = PyObject_GetItem(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyNumber_Add(__pyx_t_3, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __pyx_t_2 = PyNumber_Add(__pyx_t_3, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = PyObject_GetItem(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __pyx_t_7 = PyObject_GetItem(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 87, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -3477,7 +3713,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObjec
     __pyx_t_7 = 0;
     goto __pyx_L0;
 
-    /* "Boardcpython.pyx":83
+    /* "Board.pyx":86
  *             return False
  *     def get_cell(self,column_index,row_index):
  *         if self.cell_exists(column_index,row_index):             # <<<<<<<<<<<<<<
@@ -3486,7 +3722,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "Boardcpython.pyx":86
+  /* "Board.pyx":89
  *             return self.board[self.columns_pos[column_index-1]+self.rows_pos[row_index-1]]
  *         else:
  *             print("requested cell doesn't exist, boundaries out of board")             # <<<<<<<<<<<<<<
@@ -3494,11 +3730,11 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObjec
  * 
  */
   /*else*/ {
-    __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__3, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 89, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "Boardcpython.pyx":87
+    /* "Board.pyx":90
  *         else:
  *             print("requested cell doesn't exist, boundaries out of board")
  *             return             # <<<<<<<<<<<<<<
@@ -3510,7 +3746,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObjec
     goto __pyx_L0;
   }
 
-  /* "Boardcpython.pyx":82
+  /* "Board.pyx":85
  *         else:
  *             return False
  *     def get_cell(self,column_index,row_index):             # <<<<<<<<<<<<<<
@@ -3525,7 +3761,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObjec
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("Boardcpython.Board.get_cell", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.get_cell", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3533,7 +3769,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":89
+/* "Board.pyx":92
  *             return
  * 
  *     def get_filled_coordinates(self):             # <<<<<<<<<<<<<<
@@ -3542,20 +3778,20 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_10get_cell(CYTHON_UNUSED PyObjec
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_13get_filled_coordinates(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_13get_filled_coordinates = {"get_filled_coordinates", (PyCFunction)__pyx_pw_12Boardcpython_5Board_13get_filled_coordinates, METH_O, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_13get_filled_coordinates(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5Board_5Board_13get_filled_coordinates(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_13get_filled_coordinates = {"get_filled_coordinates", (PyCFunction)__pyx_pw_5Board_5Board_13get_filled_coordinates, METH_O, 0};
+static PyObject *__pyx_pw_5Board_5Board_13get_filled_coordinates(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("get_filled_coordinates (wrapper)", 0);
-  __pyx_r = __pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5Board_5Board_12get_filled_coordinates(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_5Board_5Board_12get_filled_coordinates(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_coords = NULL;
   PyObject *__pyx_v_i = NULL;
   PyObject *__pyx_v_j = NULL;
@@ -3579,34 +3815,34 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
   int __pyx_t_12;
   __Pyx_RefNannySetupContext("get_filled_coordinates", 0);
 
-  /* "Boardcpython.pyx":90
+  /* "Board.pyx":93
  * 
  *     def get_filled_coordinates(self):
  *         coords = []             # <<<<<<<<<<<<<<
  *         for i in self.columns_pos:
  *             for j in self.rows_pos:
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_coords = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":91
+  /* "Board.pyx":94
  *     def get_filled_coordinates(self):
  *         coords = []
  *         for i in self.columns_pos:             # <<<<<<<<<<<<<<
  *             for j in self.rows_pos:
  *                 color = self.board[i + j].color
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
     __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2); __pyx_t_3 = 0;
     __pyx_t_4 = NULL;
   } else {
-    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
+    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 94, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+    __pyx_t_4 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -3614,17 +3850,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 91, __pyx_L1_error)
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 94, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       } else {
         if (__pyx_t_3 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 91, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 94, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       }
@@ -3634,7 +3870,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 91, __pyx_L1_error)
+          else __PYX_ERR(0, 94, __pyx_L1_error)
         }
         break;
       }
@@ -3643,22 +3879,22 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "Boardcpython.pyx":92
+    /* "Board.pyx":95
  *         coords = []
  *         for i in self.columns_pos:
  *             for j in self.rows_pos:             # <<<<<<<<<<<<<<
  *                 color = self.board[i + j].color
  *                 if color != "empty":
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_rows_pos); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_rows_pos); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
       __pyx_t_5 = __pyx_t_1; __Pyx_INCREF(__pyx_t_5); __pyx_t_6 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 92, __pyx_L1_error)
+      __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 95, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_7 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 92, __pyx_L1_error)
+      __pyx_t_7 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 95, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     for (;;) {
@@ -3666,17 +3902,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
         if (likely(PyList_CheckExact(__pyx_t_5))) {
           if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 92, __pyx_L1_error)
+          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 95, __pyx_L1_error)
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           #endif
         } else {
           if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 92, __pyx_L1_error)
+          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 95, __pyx_L1_error)
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           #endif
         }
@@ -3686,7 +3922,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 92, __pyx_L1_error)
+            else __PYX_ERR(0, 95, __pyx_L1_error)
           }
           break;
         }
@@ -3695,47 +3931,47 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "Boardcpython.pyx":93
+      /* "Board.pyx":96
  *         for i in self.columns_pos:
  *             for j in self.rows_pos:
  *                 color = self.board[i + j].color             # <<<<<<<<<<<<<<
  *                 if color != "empty":
  *                     x = self.columns_pos.index(i)
  */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_8 = PyNumber_Add(__pyx_v_i, __pyx_v_j); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 93, __pyx_L1_error)
+      __pyx_t_8 = PyNumber_Add(__pyx_v_i, __pyx_v_j); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 96, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_9 = PyObject_GetItem(__pyx_t_1, __pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 93, __pyx_L1_error)
+      __pyx_t_9 = PyObject_GetItem(__pyx_t_1, __pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 96, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_color); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 93, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_color); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 96, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_XDECREF_SET(__pyx_v_color, __pyx_t_8);
       __pyx_t_8 = 0;
 
-      /* "Boardcpython.pyx":94
+      /* "Board.pyx":97
  *             for j in self.rows_pos:
  *                 color = self.board[i + j].color
  *                 if color != "empty":             # <<<<<<<<<<<<<<
  *                     x = self.columns_pos.index(i)
  *                     y = self.rows_pos.index(j)
  */
-      __pyx_t_10 = (__Pyx_PyUnicode_Equals(__pyx_v_color, __pyx_n_u_empty, Py_NE)); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 94, __pyx_L1_error)
+      __pyx_t_10 = (__Pyx_PyUnicode_Equals(__pyx_v_color, __pyx_n_u_empty, Py_NE)); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 97, __pyx_L1_error)
       if (__pyx_t_10) {
 
-        /* "Boardcpython.pyx":95
+        /* "Board.pyx":98
  *                 color = self.board[i + j].color
  *                 if color != "empty":
  *                     x = self.columns_pos.index(i)             # <<<<<<<<<<<<<<
  *                     y = self.rows_pos.index(j)
  *                     a = (x+1,y+1)
  */
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 95, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 98, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_index); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __pyx_t_9 = NULL;
@@ -3749,13 +3985,13 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
           }
         }
         if (!__pyx_t_9) {
-          __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_i); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 95, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_i); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 98, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
         } else {
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_1)) {
             PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_v_i};
-            __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 95, __pyx_L1_error)
+            __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 98, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
             __Pyx_GOTREF(__pyx_t_8);
           } else
@@ -3763,19 +3999,19 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
             PyObject *__pyx_temp[2] = {__pyx_t_9, __pyx_v_i};
-            __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 95, __pyx_L1_error)
+            __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 98, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
             __Pyx_GOTREF(__pyx_t_8);
           } else
           #endif
           {
-            __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 95, __pyx_L1_error)
+            __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 98, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_11);
             __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_9); __pyx_t_9 = NULL;
             __Pyx_INCREF(__pyx_v_i);
             __Pyx_GIVEREF(__pyx_v_i);
             PyTuple_SET_ITEM(__pyx_t_11, 0+1, __pyx_v_i);
-            __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_11, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 95, __pyx_L1_error)
+            __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_11, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 98, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_8);
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           }
@@ -3784,16 +4020,16 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
         __Pyx_XDECREF_SET(__pyx_v_x, __pyx_t_8);
         __pyx_t_8 = 0;
 
-        /* "Boardcpython.pyx":96
+        /* "Board.pyx":99
  *                 if color != "empty":
  *                     x = self.columns_pos.index(i)
  *                     y = self.rows_pos.index(j)             # <<<<<<<<<<<<<<
  *                     a = (x+1,y+1)
  *                     coords.append(a)
  */
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_rows_pos); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_rows_pos); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_index); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 96, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_index); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 99, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __pyx_t_1 = NULL;
@@ -3807,13 +4043,13 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
           }
         }
         if (!__pyx_t_1) {
-          __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_v_j); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 96, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_v_j); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 99, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
         } else {
           #if CYTHON_FAST_PYCALL
           if (PyFunction_Check(__pyx_t_11)) {
             PyObject *__pyx_temp[2] = {__pyx_t_1, __pyx_v_j};
-            __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 96, __pyx_L1_error)
+            __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 99, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_GOTREF(__pyx_t_8);
           } else
@@ -3821,19 +4057,19 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
           #if CYTHON_FAST_PYCCALL
           if (__Pyx_PyFastCFunction_Check(__pyx_t_11)) {
             PyObject *__pyx_temp[2] = {__pyx_t_1, __pyx_v_j};
-            __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 96, __pyx_L1_error)
+            __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 99, __pyx_L1_error)
             __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_GOTREF(__pyx_t_8);
           } else
           #endif
           {
-            __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 96, __pyx_L1_error)
+            __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 99, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_9);
             __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_1); __pyx_t_1 = NULL;
             __Pyx_INCREF(__pyx_v_j);
             __Pyx_GIVEREF(__pyx_v_j);
             PyTuple_SET_ITEM(__pyx_t_9, 0+1, __pyx_v_j);
-            __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 96, __pyx_L1_error)
+            __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 99, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_8);
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           }
@@ -3842,18 +4078,18 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
         __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_8);
         __pyx_t_8 = 0;
 
-        /* "Boardcpython.pyx":97
+        /* "Board.pyx":100
  *                     x = self.columns_pos.index(i)
  *                     y = self.rows_pos.index(j)
  *                     a = (x+1,y+1)             # <<<<<<<<<<<<<<
  *                     coords.append(a)
  *         return coords
  */
-        __pyx_t_8 = __Pyx_PyInt_AddObjC(__pyx_v_x, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 97, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyInt_AddObjC(__pyx_v_x, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 100, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_11 = __Pyx_PyInt_AddObjC(__pyx_v_y, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 97, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyInt_AddObjC(__pyx_v_y, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 100, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 97, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 100, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_GIVEREF(__pyx_t_8);
         PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_8);
@@ -3864,16 +4100,16 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
         __Pyx_XDECREF_SET(__pyx_v_a, ((PyObject*)__pyx_t_9));
         __pyx_t_9 = 0;
 
-        /* "Boardcpython.pyx":98
+        /* "Board.pyx":101
  *                     y = self.rows_pos.index(j)
  *                     a = (x+1,y+1)
  *                     coords.append(a)             # <<<<<<<<<<<<<<
  *         return coords
  * 
  */
-        __pyx_t_12 = __Pyx_PyList_Append(__pyx_v_coords, __pyx_v_a); if (unlikely(__pyx_t_12 == -1)) __PYX_ERR(0, 98, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyList_Append(__pyx_v_coords, __pyx_v_a); if (unlikely(__pyx_t_12 == -1)) __PYX_ERR(0, 101, __pyx_L1_error)
 
-        /* "Boardcpython.pyx":94
+        /* "Board.pyx":97
  *             for j in self.rows_pos:
  *                 color = self.board[i + j].color
  *                 if color != "empty":             # <<<<<<<<<<<<<<
@@ -3882,7 +4118,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
  */
       }
 
-      /* "Boardcpython.pyx":92
+      /* "Board.pyx":95
  *         coords = []
  *         for i in self.columns_pos:
  *             for j in self.rows_pos:             # <<<<<<<<<<<<<<
@@ -3892,7 +4128,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "Boardcpython.pyx":91
+    /* "Board.pyx":94
  *     def get_filled_coordinates(self):
  *         coords = []
  *         for i in self.columns_pos:             # <<<<<<<<<<<<<<
@@ -3902,7 +4138,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":99
+  /* "Board.pyx":102
  *                     a = (x+1,y+1)
  *                     coords.append(a)
  *         return coords             # <<<<<<<<<<<<<<
@@ -3914,7 +4150,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
   __pyx_r = __pyx_v_coords;
   goto __pyx_L0;
 
-  /* "Boardcpython.pyx":89
+  /* "Board.pyx":92
  *             return
  * 
  *     def get_filled_coordinates(self):             # <<<<<<<<<<<<<<
@@ -3930,7 +4166,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("Boardcpython.Board.get_filled_coordinates", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.get_filled_coordinates", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_coords);
@@ -3945,7 +4181,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":101
+/* "Board.pyx":104
  *         return coords
  * 
  *     def is_full(self):             # <<<<<<<<<<<<<<
@@ -3954,20 +4190,20 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_12get_filled_coordinates(CYTHON_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_15is_full(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_15is_full = {"is_full", (PyCFunction)__pyx_pw_12Boardcpython_5Board_15is_full, METH_O, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_15is_full(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5Board_5Board_15is_full(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_15is_full = {"is_full", (PyCFunction)__pyx_pw_5Board_5Board_15is_full, METH_O, 0};
+static PyObject *__pyx_pw_5Board_5Board_15is_full(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("is_full (wrapper)", 0);
-  __pyx_r = __pyx_pf_12Boardcpython_5Board_14is_full(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5Board_5Board_14is_full(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board_14is_full(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_5Board_5Board_14is_full(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3976,25 +4212,25 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_14is_full(CYTHON_UNUSED PyObject
   int __pyx_t_4;
   __Pyx_RefNannySetupContext("is_full", 0);
 
-  /* "Boardcpython.pyx":102
+  /* "Board.pyx":105
  * 
  *     def is_full(self):
  *         if self.number_filled_cells >= self.number_total_cells:             # <<<<<<<<<<<<<<
  *             return True
  *         else:
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_total_cells); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 102, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_total_cells); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 102, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 105, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_4) {
 
-    /* "Boardcpython.pyx":103
+    /* "Board.pyx":106
  *     def is_full(self):
  *         if self.number_filled_cells >= self.number_total_cells:
  *             return True             # <<<<<<<<<<<<<<
@@ -4006,7 +4242,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_14is_full(CYTHON_UNUSED PyObject
     __pyx_r = Py_True;
     goto __pyx_L0;
 
-    /* "Boardcpython.pyx":102
+    /* "Board.pyx":105
  * 
  *     def is_full(self):
  *         if self.number_filled_cells >= self.number_total_cells:             # <<<<<<<<<<<<<<
@@ -4015,7 +4251,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_14is_full(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "Boardcpython.pyx":105
+  /* "Board.pyx":108
  *             return True
  *         else:
  *             return False             # <<<<<<<<<<<<<<
@@ -4029,7 +4265,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_14is_full(CYTHON_UNUSED PyObject
     goto __pyx_L0;
   }
 
-  /* "Boardcpython.pyx":101
+  /* "Board.pyx":104
  *         return coords
  * 
  *     def is_full(self):             # <<<<<<<<<<<<<<
@@ -4042,7 +4278,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_14is_full(CYTHON_UNUSED PyObject
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("Boardcpython.Board.is_full", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.is_full", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4050,7 +4286,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_14is_full(CYTHON_UNUSED PyObject
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":108
+/* "Board.pyx":111
  * 
  * 
  *     def check_terminal_state(self):             # <<<<<<<<<<<<<<
@@ -4059,20 +4295,20 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_14is_full(CYTHON_UNUSED PyObject
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_17check_terminal_state(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_17check_terminal_state = {"check_terminal_state", (PyCFunction)__pyx_pw_12Boardcpython_5Board_17check_terminal_state, METH_O, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_17check_terminal_state(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5Board_5Board_17check_terminal_state(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_17check_terminal_state = {"check_terminal_state", (PyCFunction)__pyx_pw_5Board_5Board_17check_terminal_state, METH_O, 0};
+static PyObject *__pyx_pw_5Board_5Board_17check_terminal_state(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("check_terminal_state (wrapper)", 0);
-  __pyx_r = __pyx_pf_12Boardcpython_5Board_16check_terminal_state(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5Board_5Board_16check_terminal_state(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_5Board_5Board_16check_terminal_state(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_x = NULL;
   PyObject *__pyx_v_y = NULL;
   int __pyx_v_win;
@@ -4114,19 +4350,19 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
   PyObject *__pyx_t_19 = NULL;
   __Pyx_RefNannySetupContext("check_terminal_state", 0);
 
-  /* "Boardcpython.pyx":111
+  /* "Board.pyx":114
  * 
  *         #board = self.board
  *         for x in range(1,self.width+1):             # <<<<<<<<<<<<<<
  *             for y in range(1,self.height+1):
  *                 win = False
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_width); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_width); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_t_1, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_t_1, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -4134,16 +4370,16 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
     __pyx_t_1 = __pyx_t_2; __Pyx_INCREF(__pyx_t_1); __pyx_t_3 = 0;
     __pyx_t_4 = NULL;
   } else {
-    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
+    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L1_error)
+    __pyx_t_4 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   for (;;) {
@@ -4151,17 +4387,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 111, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 114, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         if (__pyx_t_3 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 111, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 114, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -4171,7 +4407,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 111, __pyx_L1_error)
+          else __PYX_ERR(0, 114, __pyx_L1_error)
         }
         break;
       }
@@ -4180,19 +4416,19 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
     __Pyx_XDECREF_SET(__pyx_v_x, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "Boardcpython.pyx":112
+    /* "Board.pyx":115
  *         #board = self.board
  *         for x in range(1,self.width+1):
  *             for y in range(1,self.height+1):             # <<<<<<<<<<<<<<
  *                 win = False
  *                 if self.get_cell(x,y).color != "empty":
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_height); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 112, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_height); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 115, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 112, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 115, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 112, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 115, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_int_1);
     __Pyx_GIVEREF(__pyx_int_1);
@@ -4200,16 +4436,16 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
     __Pyx_GIVEREF(__pyx_t_5);
     PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_5);
     __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 112, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 115, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (likely(PyList_CheckExact(__pyx_t_5)) || PyTuple_CheckExact(__pyx_t_5)) {
       __pyx_t_2 = __pyx_t_5; __Pyx_INCREF(__pyx_t_2); __pyx_t_6 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_6 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 112, __pyx_L1_error)
+      __pyx_t_6 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 115, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_7 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 112, __pyx_L1_error)
+      __pyx_t_7 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 115, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     for (;;) {
@@ -4217,17 +4453,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
         if (likely(PyList_CheckExact(__pyx_t_2))) {
           if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_5 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 112, __pyx_L1_error)
+          __pyx_t_5 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 115, __pyx_L1_error)
           #else
-          __pyx_t_5 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 112, __pyx_L1_error)
+          __pyx_t_5 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 115, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           #endif
         } else {
           if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 112, __pyx_L1_error)
+          __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 115, __pyx_L1_error)
           #else
-          __pyx_t_5 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 112, __pyx_L1_error)
+          __pyx_t_5 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 115, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           #endif
         }
@@ -4237,7 +4473,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 112, __pyx_L1_error)
+            else __PYX_ERR(0, 115, __pyx_L1_error)
           }
           break;
         }
@@ -4246,7 +4482,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
       __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "Boardcpython.pyx":113
+      /* "Board.pyx":116
  *         for x in range(1,self.width+1):
  *             for y in range(1,self.height+1):
  *                 win = False             # <<<<<<<<<<<<<<
@@ -4255,14 +4491,14 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
       __pyx_v_win = 0;
 
-      /* "Boardcpython.pyx":114
+      /* "Board.pyx":117
  *             for y in range(1,self.height+1):
  *                 win = False
  *                 if self.get_cell(x,y).color != "empty":             # <<<<<<<<<<<<<<
  *                     this_color = self.get_cell(x,y).color
  *                     #print("here")
  */
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 114, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 117, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_9 = NULL;
       __pyx_t_10 = 0;
@@ -4279,7 +4515,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_8)) {
         PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_v_x, __pyx_v_y};
-        __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 117, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_GOTREF(__pyx_t_5);
       } else
@@ -4287,13 +4523,13 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
         PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_v_x, __pyx_v_y};
-        __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 117, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_GOTREF(__pyx_t_5);
       } else
       #endif
       {
-        __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 114, __pyx_L1_error)
+        __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 117, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         if (__pyx_t_9) {
           __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -4304,26 +4540,26 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
         __Pyx_INCREF(__pyx_v_y);
         __Pyx_GIVEREF(__pyx_v_y);
         PyTuple_SET_ITEM(__pyx_t_11, 1+__pyx_t_10, __pyx_v_y);
-        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 114, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 117, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       }
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_color); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 114, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_color); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 117, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_12 = (__Pyx_PyUnicode_Equals(__pyx_t_8, __pyx_n_u_empty, Py_NE)); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 114, __pyx_L1_error)
+      __pyx_t_12 = (__Pyx_PyUnicode_Equals(__pyx_t_8, __pyx_n_u_empty, Py_NE)); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 117, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       if (__pyx_t_12) {
 
-        /* "Boardcpython.pyx":115
+        /* "Board.pyx":118
  *                 win = False
  *                 if self.get_cell(x,y).color != "empty":
  *                     this_color = self.get_cell(x,y).color             # <<<<<<<<<<<<<<
  *                     #print("here")
  *                     # Are these boundaries computed right??
  */
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 115, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __pyx_t_11 = NULL;
         __pyx_t_10 = 0;
@@ -4340,7 +4576,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_11, __pyx_v_x, __pyx_v_y};
-          __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 115, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 118, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_GOTREF(__pyx_t_8);
         } else
@@ -4348,13 +4584,13 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
           PyObject *__pyx_temp[3] = {__pyx_t_11, __pyx_v_x, __pyx_v_y};
-          __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 115, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 118, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_GOTREF(__pyx_t_8);
         } else
         #endif
         {
-          __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 115, __pyx_L1_error)
+          __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 118, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           if (__pyx_t_11) {
             __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_11); __pyx_t_11 = NULL;
@@ -4365,75 +4601,75 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
           __Pyx_INCREF(__pyx_v_y);
           __Pyx_GIVEREF(__pyx_v_y);
           PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_10, __pyx_v_y);
-          __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 115, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 118, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 115, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_XDECREF_SET(__pyx_v_this_color, __pyx_t_5);
         __pyx_t_5 = 0;
 
-        /* "Boardcpython.pyx":118
+        /* "Board.pyx":121
  *                     #print("here")
  *                     # Are these boundaries computed right??
  *                     x_fits_on_board = ( x + self.length_to_win < self.width )             # <<<<<<<<<<<<<<
  *                     y_fits_on_board = ( y + self.length_to_win < self.height )
  *                     diagf_fits_on_board = ( x + self.length_to_win < self.width ) and ( y + self.length_to_win < self.height )
  */
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_8 = PyNumber_Add(__pyx_v_x, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 118, __pyx_L1_error)
+        __pyx_t_8 = PyNumber_Add(__pyx_v_x, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 121, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_width); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_width); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_9 = PyObject_RichCompare(__pyx_t_8, __pyx_t_5, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 118, __pyx_L1_error)
+        __pyx_t_9 = PyObject_RichCompare(__pyx_t_8, __pyx_t_5, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 121, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_XDECREF_SET(__pyx_v_x_fits_on_board, __pyx_t_9);
         __pyx_t_9 = 0;
 
-        /* "Boardcpython.pyx":119
+        /* "Board.pyx":122
  *                     # Are these boundaries computed right??
  *                     x_fits_on_board = ( x + self.length_to_win < self.width )
  *                     y_fits_on_board = ( y + self.length_to_win < self.height )             # <<<<<<<<<<<<<<
  *                     diagf_fits_on_board = ( x + self.length_to_win < self.width ) and ( y + self.length_to_win < self.height )
  *                     diagb_fits_on_board = ( x + self.length_to_win < self.width ) and ( y - self.length_to_win > 0 )
  */
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 119, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 122, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_5 = PyNumber_Add(__pyx_v_y, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 119, __pyx_L1_error)
+        __pyx_t_5 = PyNumber_Add(__pyx_v_y, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 122, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_height); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 119, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_height); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 122, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_8 = PyObject_RichCompare(__pyx_t_5, __pyx_t_9, Py_LT); __Pyx_XGOTREF(__pyx_t_8); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 119, __pyx_L1_error)
+        __pyx_t_8 = PyObject_RichCompare(__pyx_t_5, __pyx_t_9, Py_LT); __Pyx_XGOTREF(__pyx_t_8); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 122, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_XDECREF_SET(__pyx_v_y_fits_on_board, __pyx_t_8);
         __pyx_t_8 = 0;
 
-        /* "Boardcpython.pyx":120
+        /* "Board.pyx":123
  *                     x_fits_on_board = ( x + self.length_to_win < self.width )
  *                     y_fits_on_board = ( y + self.length_to_win < self.height )
  *                     diagf_fits_on_board = ( x + self.length_to_win < self.width ) and ( y + self.length_to_win < self.height )             # <<<<<<<<<<<<<<
  *                     diagb_fits_on_board = ( x + self.length_to_win < self.width ) and ( y - self.length_to_win > 0 )
  * 
  */
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 120, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 123, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_5 = PyNumber_Add(__pyx_v_x, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 120, __pyx_L1_error)
+        __pyx_t_5 = PyNumber_Add(__pyx_v_x, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 123, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_width); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 120, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_width); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 123, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_11 = PyObject_RichCompare(__pyx_t_5, __pyx_t_9, Py_LT); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 120, __pyx_L1_error)
+        __pyx_t_11 = PyObject_RichCompare(__pyx_t_5, __pyx_t_9, Py_LT); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 123, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 120, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 123, __pyx_L1_error)
         if (__pyx_t_12) {
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         } else {
@@ -4442,14 +4678,14 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           goto __pyx_L8_bool_binop_done;
         }
-        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 120, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 123, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_9 = PyNumber_Add(__pyx_v_y, __pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 120, __pyx_L1_error)
+        __pyx_t_9 = PyNumber_Add(__pyx_v_y, __pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 123, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_height); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 120, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_height); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 123, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_5 = PyObject_RichCompare(__pyx_t_9, __pyx_t_11, Py_LT); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 120, __pyx_L1_error)
+        __pyx_t_5 = PyObject_RichCompare(__pyx_t_9, __pyx_t_11, Py_LT); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 123, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_INCREF(__pyx_t_5);
@@ -4459,24 +4695,24 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
         __Pyx_XDECREF_SET(__pyx_v_diagf_fits_on_board, __pyx_t_8);
         __pyx_t_8 = 0;
 
-        /* "Boardcpython.pyx":121
+        /* "Board.pyx":124
  *                     y_fits_on_board = ( y + self.length_to_win < self.height )
  *                     diagf_fits_on_board = ( x + self.length_to_win < self.width ) and ( y + self.length_to_win < self.height )
  *                     diagb_fits_on_board = ( x + self.length_to_win < self.width ) and ( y - self.length_to_win > 0 )             # <<<<<<<<<<<<<<
  * 
  *                     # Generate lists of pieces on board
  */
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 124, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_11 = PyNumber_Add(__pyx_v_x, __pyx_t_5); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 121, __pyx_L1_error)
+        __pyx_t_11 = PyNumber_Add(__pyx_v_x, __pyx_t_5); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 124, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_width); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_width); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 124, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_9 = PyObject_RichCompare(__pyx_t_11, __pyx_t_5, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 121, __pyx_L1_error)
+        __pyx_t_9 = PyObject_RichCompare(__pyx_t_11, __pyx_t_5, Py_LT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 124, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 121, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 124, __pyx_L1_error)
         if (__pyx_t_12) {
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         } else {
@@ -4485,12 +4721,12 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           goto __pyx_L10_bool_binop_done;
         }
-        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 121, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 124, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_5 = PyNumber_Subtract(__pyx_v_y, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 121, __pyx_L1_error)
+        __pyx_t_5 = PyNumber_Subtract(__pyx_v_y, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 124, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-        __pyx_t_9 = PyObject_RichCompare(__pyx_t_5, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 121, __pyx_L1_error)
+        __pyx_t_9 = PyObject_RichCompare(__pyx_t_5, __pyx_int_0, Py_GT); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 124, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_INCREF(__pyx_t_9);
         __pyx_t_8 = __pyx_t_9;
@@ -4499,7 +4735,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
         __Pyx_XDECREF_SET(__pyx_v_diagb_fits_on_board, __pyx_t_8);
         __pyx_t_8 = 0;
 
-        /* "Boardcpython.pyx":124
+        /* "Board.pyx":127
  * 
  *                     # Generate lists of pieces on board
  *                     c = 0             # <<<<<<<<<<<<<<
@@ -4508,17 +4744,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
         __pyx_v_c = 0;
 
-        /* "Boardcpython.pyx":125
+        /* "Board.pyx":128
  *                     # Generate lists of pieces on board
  *                     c = 0
  *                     if x_fits_on_board:             # <<<<<<<<<<<<<<
  *                         x_set = list(set([self.get_cell(x + delta,y) for delta in range(self.length_to_win)]))
  *                         win = True
  */
-        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_v_x_fits_on_board); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 125, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_v_x_fits_on_board); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 128, __pyx_L1_error)
         if (__pyx_t_12) {
 
-          /* "Boardcpython.pyx":126
+          /* "Board.pyx":129
  *                     c = 0
  *                     if x_fits_on_board:
  *                         x_set = list(set([self.get_cell(x + delta,y) for delta in range(self.length_to_win)]))             # <<<<<<<<<<<<<<
@@ -4526,25 +4762,25 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  *                         for i in range(len(x_set)):
  */
           { /* enter inner scope */
-            __pyx_t_8 = PyList_New(0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 126, __pyx_L15_error)
+            __pyx_t_8 = PyList_New(0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 129, __pyx_L15_error)
             __Pyx_GOTREF(__pyx_t_8);
-            __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 126, __pyx_L15_error)
+            __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 129, __pyx_L15_error)
             __Pyx_GOTREF(__pyx_t_9);
-            __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 126, __pyx_L15_error)
+            __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 129, __pyx_L15_error)
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_GIVEREF(__pyx_t_9);
             PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_9);
             __pyx_t_9 = 0;
-            __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_5, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 126, __pyx_L15_error)
+            __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_5, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 129, __pyx_L15_error)
             __Pyx_GOTREF(__pyx_t_9);
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
             if (likely(PyList_CheckExact(__pyx_t_9)) || PyTuple_CheckExact(__pyx_t_9)) {
               __pyx_t_5 = __pyx_t_9; __Pyx_INCREF(__pyx_t_5); __pyx_t_13 = 0;
               __pyx_t_14 = NULL;
             } else {
-              __pyx_t_13 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 126, __pyx_L15_error)
+              __pyx_t_13 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 129, __pyx_L15_error)
               __Pyx_GOTREF(__pyx_t_5);
-              __pyx_t_14 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 126, __pyx_L15_error)
+              __pyx_t_14 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 129, __pyx_L15_error)
             }
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
             for (;;) {
@@ -4552,17 +4788,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
                 if (likely(PyList_CheckExact(__pyx_t_5))) {
                   if (__pyx_t_13 >= PyList_GET_SIZE(__pyx_t_5)) break;
                   #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-                  __pyx_t_9 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_13); __Pyx_INCREF(__pyx_t_9); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 126, __pyx_L15_error)
+                  __pyx_t_9 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_13); __Pyx_INCREF(__pyx_t_9); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 129, __pyx_L15_error)
                   #else
-                  __pyx_t_9 = PySequence_ITEM(__pyx_t_5, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 126, __pyx_L15_error)
+                  __pyx_t_9 = PySequence_ITEM(__pyx_t_5, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 129, __pyx_L15_error)
                   __Pyx_GOTREF(__pyx_t_9);
                   #endif
                 } else {
                   if (__pyx_t_13 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
                   #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-                  __pyx_t_9 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_13); __Pyx_INCREF(__pyx_t_9); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 126, __pyx_L15_error)
+                  __pyx_t_9 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_13); __Pyx_INCREF(__pyx_t_9); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 129, __pyx_L15_error)
                   #else
-                  __pyx_t_9 = PySequence_ITEM(__pyx_t_5, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 126, __pyx_L15_error)
+                  __pyx_t_9 = PySequence_ITEM(__pyx_t_5, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 129, __pyx_L15_error)
                   __Pyx_GOTREF(__pyx_t_9);
                   #endif
                 }
@@ -4572,7 +4808,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
                   PyObject* exc_type = PyErr_Occurred();
                   if (exc_type) {
                     if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-                    else __PYX_ERR(0, 126, __pyx_L15_error)
+                    else __PYX_ERR(0, 129, __pyx_L15_error)
                   }
                   break;
                 }
@@ -4580,9 +4816,9 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               }
               __Pyx_XDECREF_SET(__pyx_7genexpr__pyx_v_delta, __pyx_t_9);
               __pyx_t_9 = 0;
-              __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 126, __pyx_L15_error)
+              __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 129, __pyx_L15_error)
               __Pyx_GOTREF(__pyx_t_11);
-              __pyx_t_15 = PyNumber_Add(__pyx_v_x, __pyx_7genexpr__pyx_v_delta); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 126, __pyx_L15_error)
+              __pyx_t_15 = PyNumber_Add(__pyx_v_x, __pyx_7genexpr__pyx_v_delta); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 129, __pyx_L15_error)
               __Pyx_GOTREF(__pyx_t_15);
               __pyx_t_16 = NULL;
               __pyx_t_10 = 0;
@@ -4599,7 +4835,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               #if CYTHON_FAST_PYCALL
               if (PyFunction_Check(__pyx_t_11)) {
                 PyObject *__pyx_temp[3] = {__pyx_t_16, __pyx_t_15, __pyx_v_y};
-                __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 126, __pyx_L15_error)
+                __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 129, __pyx_L15_error)
                 __Pyx_XDECREF(__pyx_t_16); __pyx_t_16 = 0;
                 __Pyx_GOTREF(__pyx_t_9);
                 __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
@@ -4608,14 +4844,14 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               #if CYTHON_FAST_PYCCALL
               if (__Pyx_PyFastCFunction_Check(__pyx_t_11)) {
                 PyObject *__pyx_temp[3] = {__pyx_t_16, __pyx_t_15, __pyx_v_y};
-                __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 126, __pyx_L15_error)
+                __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 129, __pyx_L15_error)
                 __Pyx_XDECREF(__pyx_t_16); __pyx_t_16 = 0;
                 __Pyx_GOTREF(__pyx_t_9);
                 __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
               } else
               #endif
               {
-                __pyx_t_17 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 126, __pyx_L15_error)
+                __pyx_t_17 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 129, __pyx_L15_error)
                 __Pyx_GOTREF(__pyx_t_17);
                 if (__pyx_t_16) {
                   __Pyx_GIVEREF(__pyx_t_16); PyTuple_SET_ITEM(__pyx_t_17, 0, __pyx_t_16); __pyx_t_16 = NULL;
@@ -4626,12 +4862,12 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
                 __Pyx_GIVEREF(__pyx_v_y);
                 PyTuple_SET_ITEM(__pyx_t_17, 1+__pyx_t_10, __pyx_v_y);
                 __pyx_t_15 = 0;
-                __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_17, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 126, __pyx_L15_error)
+                __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_17, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 129, __pyx_L15_error)
                 __Pyx_GOTREF(__pyx_t_9);
                 __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
               }
               __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-              if (unlikely(__Pyx_ListComp_Append(__pyx_t_8, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 126, __pyx_L15_error)
+              if (unlikely(__Pyx_ListComp_Append(__pyx_t_8, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 129, __pyx_L15_error)
               __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
             }
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -4642,16 +4878,16 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             goto __pyx_L1_error;
             __pyx_L18_exit_scope:;
           } /* exit inner scope */
-          __pyx_t_5 = PySet_New(__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 126, __pyx_L1_error)
+          __pyx_t_5 = PySet_New(__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 129, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __pyx_t_8 = PySequence_List(__pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 126, __pyx_L1_error)
+          __pyx_t_8 = PySequence_List(__pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 129, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_XDECREF_SET(__pyx_v_x_set, ((PyObject*)__pyx_t_8));
           __pyx_t_8 = 0;
 
-          /* "Boardcpython.pyx":127
+          /* "Board.pyx":130
  *                     if x_fits_on_board:
  *                         x_set = list(set([self.get_cell(x + delta,y) for delta in range(self.length_to_win)]))
  *                         win = True             # <<<<<<<<<<<<<<
@@ -4660,36 +4896,36 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
           __pyx_v_win = 1;
 
-          /* "Boardcpython.pyx":128
+          /* "Board.pyx":131
  *                         x_set = list(set([self.get_cell(x + delta,y) for delta in range(self.length_to_win)]))
  *                         win = True
  *                         for i in range(len(x_set)):             # <<<<<<<<<<<<<<
  *                             #print("i: ",x_set[i].color)
  *                             if this_color != x_set[i].color:
  */
-          __pyx_t_13 = PyList_GET_SIZE(__pyx_v_x_set); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 128, __pyx_L1_error)
+          __pyx_t_13 = PyList_GET_SIZE(__pyx_v_x_set); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 131, __pyx_L1_error)
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_13; __pyx_t_18+=1) {
             __pyx_v_i = __pyx_t_18;
 
-            /* "Boardcpython.pyx":130
+            /* "Board.pyx":133
  *                         for i in range(len(x_set)):
  *                             #print("i: ",x_set[i].color)
  *                             if this_color != x_set[i].color:             # <<<<<<<<<<<<<<
  *                                 win = False
  *                     if win:
  */
-            __pyx_t_8 = __Pyx_GetItemInt_List(__pyx_v_x_set, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 130, __pyx_L1_error)
+            __pyx_t_8 = __Pyx_GetItemInt_List(__pyx_v_x_set, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 133, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_8);
-            __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 130, __pyx_L1_error)
+            __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 133, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-            __pyx_t_8 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_5, Py_NE); __Pyx_XGOTREF(__pyx_t_8); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 130, __pyx_L1_error)
+            __pyx_t_8 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_5, Py_NE); __Pyx_XGOTREF(__pyx_t_8); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 133, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-            __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 130, __pyx_L1_error)
+            __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 133, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
             if (__pyx_t_12) {
 
-              /* "Boardcpython.pyx":131
+              /* "Board.pyx":134
  *                             #print("i: ",x_set[i].color)
  *                             if this_color != x_set[i].color:
  *                                 win = False             # <<<<<<<<<<<<<<
@@ -4698,7 +4934,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
               __pyx_v_win = 0;
 
-              /* "Boardcpython.pyx":130
+              /* "Board.pyx":133
  *                         for i in range(len(x_set)):
  *                             #print("i: ",x_set[i].color)
  *                             if this_color != x_set[i].color:             # <<<<<<<<<<<<<<
@@ -4708,7 +4944,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             }
           }
 
-          /* "Boardcpython.pyx":125
+          /* "Board.pyx":128
  *                     # Generate lists of pieces on board
  *                     c = 0
  *                     if x_fits_on_board:             # <<<<<<<<<<<<<<
@@ -4717,7 +4953,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
         }
 
-        /* "Boardcpython.pyx":132
+        /* "Board.pyx":135
  *                             if this_color != x_set[i].color:
  *                                 win = False
  *                     if win:             # <<<<<<<<<<<<<<
@@ -4727,22 +4963,22 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
         __pyx_t_12 = (__pyx_v_win != 0);
         if (__pyx_t_12) {
 
-          /* "Boardcpython.pyx":133
+          /* "Board.pyx":136
  *                                 win = False
  *                     if win:
  *                         if this_color == self.our_color:             # <<<<<<<<<<<<<<
  *                             return 100
  *                         else:
  */
-          __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 133, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 136, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
-          __pyx_t_5 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 133, __pyx_L1_error)
+          __pyx_t_5 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 136, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 133, __pyx_L1_error)
+          __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 136, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           if (__pyx_t_12) {
 
-            /* "Boardcpython.pyx":134
+            /* "Board.pyx":137
  *                     if win:
  *                         if this_color == self.our_color:
  *                             return 100             # <<<<<<<<<<<<<<
@@ -4756,7 +4992,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
             goto __pyx_L0;
 
-            /* "Boardcpython.pyx":133
+            /* "Board.pyx":136
  *                                 win = False
  *                     if win:
  *                         if this_color == self.our_color:             # <<<<<<<<<<<<<<
@@ -4765,7 +5001,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
           }
 
-          /* "Boardcpython.pyx":136
+          /* "Board.pyx":139
  *                             return 100
  *                         else:
  *                             return -100             # <<<<<<<<<<<<<<
@@ -4781,7 +5017,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             goto __pyx_L0;
           }
 
-          /* "Boardcpython.pyx":132
+          /* "Board.pyx":135
  *                             if this_color != x_set[i].color:
  *                                 win = False
  *                     if win:             # <<<<<<<<<<<<<<
@@ -4790,17 +5026,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
         }
 
-        /* "Boardcpython.pyx":139
+        /* "Board.pyx":142
  * 
  * 
  *                     if y_fits_on_board:             # <<<<<<<<<<<<<<
  *                         y_set = list(set([self.get_cell(x,y + delta) for delta in range(self.length_to_win)]))
  *                         win = True
  */
-        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_v_y_fits_on_board); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 139, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_v_y_fits_on_board); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 142, __pyx_L1_error)
         if (__pyx_t_12) {
 
-          /* "Boardcpython.pyx":140
+          /* "Board.pyx":143
  * 
  *                     if y_fits_on_board:
  *                         y_set = list(set([self.get_cell(x,y + delta) for delta in range(self.length_to_win)]))             # <<<<<<<<<<<<<<
@@ -4808,25 +5044,25 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  *                         for i in range(len(y_set)):
  */
           { /* enter inner scope */
-            __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 140, __pyx_L27_error)
+            __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L27_error)
             __Pyx_GOTREF(__pyx_t_5);
-            __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 140, __pyx_L27_error)
+            __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 143, __pyx_L27_error)
             __Pyx_GOTREF(__pyx_t_8);
-            __pyx_t_9 = PyTuple_New(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 140, __pyx_L27_error)
+            __pyx_t_9 = PyTuple_New(1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 143, __pyx_L27_error)
             __Pyx_GOTREF(__pyx_t_9);
             __Pyx_GIVEREF(__pyx_t_8);
             PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_8);
             __pyx_t_8 = 0;
-            __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 140, __pyx_L27_error)
+            __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 143, __pyx_L27_error)
             __Pyx_GOTREF(__pyx_t_8);
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
             if (likely(PyList_CheckExact(__pyx_t_8)) || PyTuple_CheckExact(__pyx_t_8)) {
               __pyx_t_9 = __pyx_t_8; __Pyx_INCREF(__pyx_t_9); __pyx_t_13 = 0;
               __pyx_t_14 = NULL;
             } else {
-              __pyx_t_13 = -1; __pyx_t_9 = PyObject_GetIter(__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 140, __pyx_L27_error)
+              __pyx_t_13 = -1; __pyx_t_9 = PyObject_GetIter(__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 143, __pyx_L27_error)
               __Pyx_GOTREF(__pyx_t_9);
-              __pyx_t_14 = Py_TYPE(__pyx_t_9)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 140, __pyx_L27_error)
+              __pyx_t_14 = Py_TYPE(__pyx_t_9)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 143, __pyx_L27_error)
             }
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
             for (;;) {
@@ -4834,17 +5070,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
                 if (likely(PyList_CheckExact(__pyx_t_9))) {
                   if (__pyx_t_13 >= PyList_GET_SIZE(__pyx_t_9)) break;
                   #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-                  __pyx_t_8 = PyList_GET_ITEM(__pyx_t_9, __pyx_t_13); __Pyx_INCREF(__pyx_t_8); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 140, __pyx_L27_error)
+                  __pyx_t_8 = PyList_GET_ITEM(__pyx_t_9, __pyx_t_13); __Pyx_INCREF(__pyx_t_8); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 143, __pyx_L27_error)
                   #else
-                  __pyx_t_8 = PySequence_ITEM(__pyx_t_9, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 140, __pyx_L27_error)
+                  __pyx_t_8 = PySequence_ITEM(__pyx_t_9, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 143, __pyx_L27_error)
                   __Pyx_GOTREF(__pyx_t_8);
                   #endif
                 } else {
                   if (__pyx_t_13 >= PyTuple_GET_SIZE(__pyx_t_9)) break;
                   #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-                  __pyx_t_8 = PyTuple_GET_ITEM(__pyx_t_9, __pyx_t_13); __Pyx_INCREF(__pyx_t_8); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 140, __pyx_L27_error)
+                  __pyx_t_8 = PyTuple_GET_ITEM(__pyx_t_9, __pyx_t_13); __Pyx_INCREF(__pyx_t_8); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 143, __pyx_L27_error)
                   #else
-                  __pyx_t_8 = PySequence_ITEM(__pyx_t_9, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 140, __pyx_L27_error)
+                  __pyx_t_8 = PySequence_ITEM(__pyx_t_9, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 143, __pyx_L27_error)
                   __Pyx_GOTREF(__pyx_t_8);
                   #endif
                 }
@@ -4854,7 +5090,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
                   PyObject* exc_type = PyErr_Occurred();
                   if (exc_type) {
                     if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-                    else __PYX_ERR(0, 140, __pyx_L27_error)
+                    else __PYX_ERR(0, 143, __pyx_L27_error)
                   }
                   break;
                 }
@@ -4862,9 +5098,9 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               }
               __Pyx_XDECREF_SET(__pyx_8genexpr1__pyx_v_delta, __pyx_t_8);
               __pyx_t_8 = 0;
-              __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 140, __pyx_L27_error)
+              __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 143, __pyx_L27_error)
               __Pyx_GOTREF(__pyx_t_11);
-              __pyx_t_17 = PyNumber_Add(__pyx_v_y, __pyx_8genexpr1__pyx_v_delta); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 140, __pyx_L27_error)
+              __pyx_t_17 = PyNumber_Add(__pyx_v_y, __pyx_8genexpr1__pyx_v_delta); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 143, __pyx_L27_error)
               __Pyx_GOTREF(__pyx_t_17);
               __pyx_t_15 = NULL;
               __pyx_t_10 = 0;
@@ -4881,7 +5117,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               #if CYTHON_FAST_PYCALL
               if (PyFunction_Check(__pyx_t_11)) {
                 PyObject *__pyx_temp[3] = {__pyx_t_15, __pyx_v_x, __pyx_t_17};
-                __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 140, __pyx_L27_error)
+                __pyx_t_8 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 143, __pyx_L27_error)
                 __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
                 __Pyx_GOTREF(__pyx_t_8);
                 __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
@@ -4890,14 +5126,14 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               #if CYTHON_FAST_PYCCALL
               if (__Pyx_PyFastCFunction_Check(__pyx_t_11)) {
                 PyObject *__pyx_temp[3] = {__pyx_t_15, __pyx_v_x, __pyx_t_17};
-                __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 140, __pyx_L27_error)
+                __pyx_t_8 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 143, __pyx_L27_error)
                 __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
                 __Pyx_GOTREF(__pyx_t_8);
                 __Pyx_DECREF(__pyx_t_17); __pyx_t_17 = 0;
               } else
               #endif
               {
-                __pyx_t_16 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 140, __pyx_L27_error)
+                __pyx_t_16 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 143, __pyx_L27_error)
                 __Pyx_GOTREF(__pyx_t_16);
                 if (__pyx_t_15) {
                   __Pyx_GIVEREF(__pyx_t_15); PyTuple_SET_ITEM(__pyx_t_16, 0, __pyx_t_15); __pyx_t_15 = NULL;
@@ -4908,12 +5144,12 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
                 __Pyx_GIVEREF(__pyx_t_17);
                 PyTuple_SET_ITEM(__pyx_t_16, 1+__pyx_t_10, __pyx_t_17);
                 __pyx_t_17 = 0;
-                __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_16, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 140, __pyx_L27_error)
+                __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_16, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 143, __pyx_L27_error)
                 __Pyx_GOTREF(__pyx_t_8);
                 __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
               }
               __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-              if (unlikely(__Pyx_ListComp_Append(__pyx_t_5, (PyObject*)__pyx_t_8))) __PYX_ERR(0, 140, __pyx_L27_error)
+              if (unlikely(__Pyx_ListComp_Append(__pyx_t_5, (PyObject*)__pyx_t_8))) __PYX_ERR(0, 143, __pyx_L27_error)
               __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
             }
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -4924,16 +5160,16 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             goto __pyx_L1_error;
             __pyx_L30_exit_scope:;
           } /* exit inner scope */
-          __pyx_t_9 = PySet_New(__pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 140, __pyx_L1_error)
+          __pyx_t_9 = PySet_New(__pyx_t_5); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 143, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_5 = PySequence_List(__pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 140, __pyx_L1_error)
+          __pyx_t_5 = PySequence_List(__pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 143, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_XDECREF_SET(__pyx_v_y_set, ((PyObject*)__pyx_t_5));
           __pyx_t_5 = 0;
 
-          /* "Boardcpython.pyx":141
+          /* "Board.pyx":144
  *                     if y_fits_on_board:
  *                         y_set = list(set([self.get_cell(x,y + delta) for delta in range(self.length_to_win)]))
  *                         win = True             # <<<<<<<<<<<<<<
@@ -4942,36 +5178,36 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
           __pyx_v_win = 1;
 
-          /* "Boardcpython.pyx":142
+          /* "Board.pyx":145
  *                         y_set = list(set([self.get_cell(x,y + delta) for delta in range(self.length_to_win)]))
  *                         win = True
  *                         for i in range(len(y_set)):             # <<<<<<<<<<<<<<
  *                             #print("i: ",y_set[i].color)
  *                             if this_color != y_set[i].color:
  */
-          __pyx_t_13 = PyList_GET_SIZE(__pyx_v_y_set); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 142, __pyx_L1_error)
+          __pyx_t_13 = PyList_GET_SIZE(__pyx_v_y_set); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 145, __pyx_L1_error)
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_13; __pyx_t_18+=1) {
             __pyx_v_i = __pyx_t_18;
 
-            /* "Boardcpython.pyx":144
+            /* "Board.pyx":147
  *                         for i in range(len(y_set)):
  *                             #print("i: ",y_set[i].color)
  *                             if this_color != y_set[i].color:             # <<<<<<<<<<<<<<
  *                                 win = False
  *                     if win:
  */
-            __pyx_t_5 = __Pyx_GetItemInt_List(__pyx_v_y_set, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 144, __pyx_L1_error)
+            __pyx_t_5 = __Pyx_GetItemInt_List(__pyx_v_y_set, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 147, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_5);
-            __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_color); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 144, __pyx_L1_error)
+            __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_color); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 147, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_9);
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-            __pyx_t_5 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_9, Py_NE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 144, __pyx_L1_error)
+            __pyx_t_5 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_9, Py_NE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 147, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-            __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 144, __pyx_L1_error)
+            __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 147, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
             if (__pyx_t_12) {
 
-              /* "Boardcpython.pyx":145
+              /* "Board.pyx":148
  *                             #print("i: ",y_set[i].color)
  *                             if this_color != y_set[i].color:
  *                                 win = False             # <<<<<<<<<<<<<<
@@ -4980,7 +5216,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
               __pyx_v_win = 0;
 
-              /* "Boardcpython.pyx":144
+              /* "Board.pyx":147
  *                         for i in range(len(y_set)):
  *                             #print("i: ",y_set[i].color)
  *                             if this_color != y_set[i].color:             # <<<<<<<<<<<<<<
@@ -4990,7 +5226,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             }
           }
 
-          /* "Boardcpython.pyx":139
+          /* "Board.pyx":142
  * 
  * 
  *                     if y_fits_on_board:             # <<<<<<<<<<<<<<
@@ -4999,7 +5235,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
         }
 
-        /* "Boardcpython.pyx":146
+        /* "Board.pyx":149
  *                             if this_color != y_set[i].color:
  *                                 win = False
  *                     if win:             # <<<<<<<<<<<<<<
@@ -5009,22 +5245,22 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
         __pyx_t_12 = (__pyx_v_win != 0);
         if (__pyx_t_12) {
 
-          /* "Boardcpython.pyx":147
+          /* "Board.pyx":150
  *                                 win = False
  *                     if win:
  *                         if this_color == self.our_color:             # <<<<<<<<<<<<<<
  *                             return 100
  *                         else:
  */
-          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 147, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 150, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
-          __pyx_t_9 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 147, __pyx_L1_error)
+          __pyx_t_9 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 150, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 147, __pyx_L1_error)
+          __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 150, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           if (__pyx_t_12) {
 
-            /* "Boardcpython.pyx":148
+            /* "Board.pyx":151
  *                     if win:
  *                         if this_color == self.our_color:
  *                             return 100             # <<<<<<<<<<<<<<
@@ -5038,7 +5274,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
             goto __pyx_L0;
 
-            /* "Boardcpython.pyx":147
+            /* "Board.pyx":150
  *                                 win = False
  *                     if win:
  *                         if this_color == self.our_color:             # <<<<<<<<<<<<<<
@@ -5047,7 +5283,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
           }
 
-          /* "Boardcpython.pyx":150
+          /* "Board.pyx":153
  *                             return 100
  *                         else:
  *                             return -100             # <<<<<<<<<<<<<<
@@ -5063,7 +5299,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             goto __pyx_L0;
           }
 
-          /* "Boardcpython.pyx":146
+          /* "Board.pyx":149
  *                             if this_color != y_set[i].color:
  *                                 win = False
  *                     if win:             # <<<<<<<<<<<<<<
@@ -5072,17 +5308,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
         }
 
-        /* "Boardcpython.pyx":152
+        /* "Board.pyx":155
  *                             return -100
  * 
  *                     if diagf_fits_on_board:             # <<<<<<<<<<<<<<
  *                         diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(self.length_to_win)]))
  *                         win = True
  */
-        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_v_diagf_fits_on_board); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 152, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_v_diagf_fits_on_board); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 155, __pyx_L1_error)
         if (__pyx_t_12) {
 
-          /* "Boardcpython.pyx":153
+          /* "Board.pyx":156
  * 
  *                     if diagf_fits_on_board:
  *                         diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(self.length_to_win)]))             # <<<<<<<<<<<<<<
@@ -5090,25 +5326,25 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  *                         for i in range(len(diagf_set)):
  */
           { /* enter inner scope */
-            __pyx_t_9 = PyList_New(0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 153, __pyx_L39_error)
+            __pyx_t_9 = PyList_New(0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 156, __pyx_L39_error)
             __Pyx_GOTREF(__pyx_t_9);
-            __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 153, __pyx_L39_error)
+            __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 156, __pyx_L39_error)
             __Pyx_GOTREF(__pyx_t_5);
-            __pyx_t_8 = PyTuple_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 153, __pyx_L39_error)
+            __pyx_t_8 = PyTuple_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 156, __pyx_L39_error)
             __Pyx_GOTREF(__pyx_t_8);
             __Pyx_GIVEREF(__pyx_t_5);
             PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_5);
             __pyx_t_5 = 0;
-            __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 153, __pyx_L39_error)
+            __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 156, __pyx_L39_error)
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
             if (likely(PyList_CheckExact(__pyx_t_5)) || PyTuple_CheckExact(__pyx_t_5)) {
               __pyx_t_8 = __pyx_t_5; __Pyx_INCREF(__pyx_t_8); __pyx_t_13 = 0;
               __pyx_t_14 = NULL;
             } else {
-              __pyx_t_13 = -1; __pyx_t_8 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 153, __pyx_L39_error)
+              __pyx_t_13 = -1; __pyx_t_8 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 156, __pyx_L39_error)
               __Pyx_GOTREF(__pyx_t_8);
-              __pyx_t_14 = Py_TYPE(__pyx_t_8)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 153, __pyx_L39_error)
+              __pyx_t_14 = Py_TYPE(__pyx_t_8)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 156, __pyx_L39_error)
             }
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
             for (;;) {
@@ -5116,17 +5352,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
                 if (likely(PyList_CheckExact(__pyx_t_8))) {
                   if (__pyx_t_13 >= PyList_GET_SIZE(__pyx_t_8)) break;
                   #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-                  __pyx_t_5 = PyList_GET_ITEM(__pyx_t_8, __pyx_t_13); __Pyx_INCREF(__pyx_t_5); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 153, __pyx_L39_error)
+                  __pyx_t_5 = PyList_GET_ITEM(__pyx_t_8, __pyx_t_13); __Pyx_INCREF(__pyx_t_5); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 156, __pyx_L39_error)
                   #else
-                  __pyx_t_5 = PySequence_ITEM(__pyx_t_8, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 153, __pyx_L39_error)
+                  __pyx_t_5 = PySequence_ITEM(__pyx_t_8, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 156, __pyx_L39_error)
                   __Pyx_GOTREF(__pyx_t_5);
                   #endif
                 } else {
                   if (__pyx_t_13 >= PyTuple_GET_SIZE(__pyx_t_8)) break;
                   #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-                  __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_8, __pyx_t_13); __Pyx_INCREF(__pyx_t_5); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 153, __pyx_L39_error)
+                  __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_8, __pyx_t_13); __Pyx_INCREF(__pyx_t_5); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 156, __pyx_L39_error)
                   #else
-                  __pyx_t_5 = PySequence_ITEM(__pyx_t_8, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 153, __pyx_L39_error)
+                  __pyx_t_5 = PySequence_ITEM(__pyx_t_8, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 156, __pyx_L39_error)
                   __Pyx_GOTREF(__pyx_t_5);
                   #endif
                 }
@@ -5136,7 +5372,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
                   PyObject* exc_type = PyErr_Occurred();
                   if (exc_type) {
                     if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-                    else __PYX_ERR(0, 153, __pyx_L39_error)
+                    else __PYX_ERR(0, 156, __pyx_L39_error)
                   }
                   break;
                 }
@@ -5144,11 +5380,11 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               }
               __Pyx_XDECREF_SET(__pyx_8genexpr2__pyx_v_delta, __pyx_t_5);
               __pyx_t_5 = 0;
-              __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 153, __pyx_L39_error)
+              __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 156, __pyx_L39_error)
               __Pyx_GOTREF(__pyx_t_11);
-              __pyx_t_16 = PyNumber_Add(__pyx_v_x, __pyx_8genexpr2__pyx_v_delta); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 153, __pyx_L39_error)
+              __pyx_t_16 = PyNumber_Add(__pyx_v_x, __pyx_8genexpr2__pyx_v_delta); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 156, __pyx_L39_error)
               __Pyx_GOTREF(__pyx_t_16);
-              __pyx_t_17 = PyNumber_Add(__pyx_v_y, __pyx_8genexpr2__pyx_v_delta); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 153, __pyx_L39_error)
+              __pyx_t_17 = PyNumber_Add(__pyx_v_y, __pyx_8genexpr2__pyx_v_delta); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 156, __pyx_L39_error)
               __Pyx_GOTREF(__pyx_t_17);
               __pyx_t_15 = NULL;
               __pyx_t_10 = 0;
@@ -5165,7 +5401,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               #if CYTHON_FAST_PYCALL
               if (PyFunction_Check(__pyx_t_11)) {
                 PyObject *__pyx_temp[3] = {__pyx_t_15, __pyx_t_16, __pyx_t_17};
-                __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 153, __pyx_L39_error)
+                __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 156, __pyx_L39_error)
                 __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
                 __Pyx_GOTREF(__pyx_t_5);
                 __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
@@ -5175,7 +5411,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               #if CYTHON_FAST_PYCCALL
               if (__Pyx_PyFastCFunction_Check(__pyx_t_11)) {
                 PyObject *__pyx_temp[3] = {__pyx_t_15, __pyx_t_16, __pyx_t_17};
-                __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 153, __pyx_L39_error)
+                __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 156, __pyx_L39_error)
                 __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
                 __Pyx_GOTREF(__pyx_t_5);
                 __Pyx_DECREF(__pyx_t_16); __pyx_t_16 = 0;
@@ -5183,7 +5419,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               } else
               #endif
               {
-                __pyx_t_19 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 153, __pyx_L39_error)
+                __pyx_t_19 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 156, __pyx_L39_error)
                 __Pyx_GOTREF(__pyx_t_19);
                 if (__pyx_t_15) {
                   __Pyx_GIVEREF(__pyx_t_15); PyTuple_SET_ITEM(__pyx_t_19, 0, __pyx_t_15); __pyx_t_15 = NULL;
@@ -5194,12 +5430,12 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
                 PyTuple_SET_ITEM(__pyx_t_19, 1+__pyx_t_10, __pyx_t_17);
                 __pyx_t_16 = 0;
                 __pyx_t_17 = 0;
-                __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_19, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 153, __pyx_L39_error)
+                __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_19, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 156, __pyx_L39_error)
                 __Pyx_GOTREF(__pyx_t_5);
                 __Pyx_DECREF(__pyx_t_19); __pyx_t_19 = 0;
               }
               __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-              if (unlikely(__Pyx_ListComp_Append(__pyx_t_9, (PyObject*)__pyx_t_5))) __PYX_ERR(0, 153, __pyx_L39_error)
+              if (unlikely(__Pyx_ListComp_Append(__pyx_t_9, (PyObject*)__pyx_t_5))) __PYX_ERR(0, 156, __pyx_L39_error)
               __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
             }
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -5210,16 +5446,16 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             goto __pyx_L1_error;
             __pyx_L42_exit_scope:;
           } /* exit inner scope */
-          __pyx_t_8 = PySet_New(__pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 153, __pyx_L1_error)
+          __pyx_t_8 = PySet_New(__pyx_t_9); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 156, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __pyx_t_9 = PySequence_List(__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 153, __pyx_L1_error)
+          __pyx_t_9 = PySequence_List(__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 156, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_XDECREF_SET(__pyx_v_diagf_set, ((PyObject*)__pyx_t_9));
           __pyx_t_9 = 0;
 
-          /* "Boardcpython.pyx":154
+          /* "Board.pyx":157
  *                     if diagf_fits_on_board:
  *                         diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(self.length_to_win)]))
  *                         win = True             # <<<<<<<<<<<<<<
@@ -5228,36 +5464,36 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
           __pyx_v_win = 1;
 
-          /* "Boardcpython.pyx":155
+          /* "Board.pyx":158
  *                         diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(self.length_to_win)]))
  *                         win = True
  *                         for i in range(len(diagf_set)):             # <<<<<<<<<<<<<<
  *                             #print("i: ",diagf_set[i].color)
  *                             if this_color != diagf_set[i].color:
  */
-          __pyx_t_13 = PyList_GET_SIZE(__pyx_v_diagf_set); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 155, __pyx_L1_error)
+          __pyx_t_13 = PyList_GET_SIZE(__pyx_v_diagf_set); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 158, __pyx_L1_error)
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_13; __pyx_t_18+=1) {
             __pyx_v_i = __pyx_t_18;
 
-            /* "Boardcpython.pyx":157
+            /* "Board.pyx":160
  *                         for i in range(len(diagf_set)):
  *                             #print("i: ",diagf_set[i].color)
  *                             if this_color != diagf_set[i].color:             # <<<<<<<<<<<<<<
  *                                 win = False
  *                     if win:
  */
-            __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_diagf_set, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 157, __pyx_L1_error)
+            __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_diagf_set, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 160, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_9);
-            __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_color); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 157, __pyx_L1_error)
+            __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_color); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 160, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_8);
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-            __pyx_t_9 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_8, Py_NE); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 157, __pyx_L1_error)
+            __pyx_t_9 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_8, Py_NE); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 160, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-            __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 157, __pyx_L1_error)
+            __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 160, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
             if (__pyx_t_12) {
 
-              /* "Boardcpython.pyx":158
+              /* "Board.pyx":161
  *                             #print("i: ",diagf_set[i].color)
  *                             if this_color != diagf_set[i].color:
  *                                 win = False             # <<<<<<<<<<<<<<
@@ -5266,7 +5502,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
               __pyx_v_win = 0;
 
-              /* "Boardcpython.pyx":157
+              /* "Board.pyx":160
  *                         for i in range(len(diagf_set)):
  *                             #print("i: ",diagf_set[i].color)
  *                             if this_color != diagf_set[i].color:             # <<<<<<<<<<<<<<
@@ -5276,7 +5512,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             }
           }
 
-          /* "Boardcpython.pyx":152
+          /* "Board.pyx":155
  *                             return -100
  * 
  *                     if diagf_fits_on_board:             # <<<<<<<<<<<<<<
@@ -5285,7 +5521,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
         }
 
-        /* "Boardcpython.pyx":159
+        /* "Board.pyx":162
  *                             if this_color != diagf_set[i].color:
  *                                 win = False
  *                     if win:             # <<<<<<<<<<<<<<
@@ -5295,22 +5531,22 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
         __pyx_t_12 = (__pyx_v_win != 0);
         if (__pyx_t_12) {
 
-          /* "Boardcpython.pyx":160
+          /* "Board.pyx":163
  *                                 win = False
  *                     if win:
  *                         if this_color == self.our_color:             # <<<<<<<<<<<<<<
  *                             return 100
  *                         else:
  */
-          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 160, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 163, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_8 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_9, Py_EQ); __Pyx_XGOTREF(__pyx_t_8); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 160, __pyx_L1_error)
+          __pyx_t_8 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_9, Py_EQ); __Pyx_XGOTREF(__pyx_t_8); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 163, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-          __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 160, __pyx_L1_error)
+          __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 163, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           if (__pyx_t_12) {
 
-            /* "Boardcpython.pyx":161
+            /* "Board.pyx":164
  *                     if win:
  *                         if this_color == self.our_color:
  *                             return 100             # <<<<<<<<<<<<<<
@@ -5324,7 +5560,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
             goto __pyx_L0;
 
-            /* "Boardcpython.pyx":160
+            /* "Board.pyx":163
  *                                 win = False
  *                     if win:
  *                         if this_color == self.our_color:             # <<<<<<<<<<<<<<
@@ -5333,7 +5569,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
           }
 
-          /* "Boardcpython.pyx":163
+          /* "Board.pyx":166
  *                             return 100
  *                         else:
  *                             return -100             # <<<<<<<<<<<<<<
@@ -5349,7 +5585,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             goto __pyx_L0;
           }
 
-          /* "Boardcpython.pyx":159
+          /* "Board.pyx":162
  *                             if this_color != diagf_set[i].color:
  *                                 win = False
  *                     if win:             # <<<<<<<<<<<<<<
@@ -5358,17 +5594,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
         }
 
-        /* "Boardcpython.pyx":167
+        /* "Board.pyx":170
  * 
  * 
  *                     if diagb_fits_on_board:             # <<<<<<<<<<<<<<
  *                         diagb_set = list(set([self.get_cell(x + delta,y - delta) for delta in range(self.length_to_win)]))
  *                         win = True
  */
-        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_v_diagb_fits_on_board); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 167, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_v_diagb_fits_on_board); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 170, __pyx_L1_error)
         if (__pyx_t_12) {
 
-          /* "Boardcpython.pyx":168
+          /* "Board.pyx":171
  * 
  *                     if diagb_fits_on_board:
  *                         diagb_set = list(set([self.get_cell(x + delta,y - delta) for delta in range(self.length_to_win)]))             # <<<<<<<<<<<<<<
@@ -5376,25 +5612,25 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  *                         for i in range(len(diagb_set)):
  */
           { /* enter inner scope */
-            __pyx_t_8 = PyList_New(0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 168, __pyx_L51_error)
+            __pyx_t_8 = PyList_New(0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 171, __pyx_L51_error)
             __Pyx_GOTREF(__pyx_t_8);
-            __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L51_error)
+            __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_length_to_win); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 171, __pyx_L51_error)
             __Pyx_GOTREF(__pyx_t_9);
-            __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L51_error)
+            __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 171, __pyx_L51_error)
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_GIVEREF(__pyx_t_9);
             PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_9);
             __pyx_t_9 = 0;
-            __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_5, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L51_error)
+            __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_5, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 171, __pyx_L51_error)
             __Pyx_GOTREF(__pyx_t_9);
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
             if (likely(PyList_CheckExact(__pyx_t_9)) || PyTuple_CheckExact(__pyx_t_9)) {
               __pyx_t_5 = __pyx_t_9; __Pyx_INCREF(__pyx_t_5); __pyx_t_13 = 0;
               __pyx_t_14 = NULL;
             } else {
-              __pyx_t_13 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L51_error)
+              __pyx_t_13 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 171, __pyx_L51_error)
               __Pyx_GOTREF(__pyx_t_5);
-              __pyx_t_14 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 168, __pyx_L51_error)
+              __pyx_t_14 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 171, __pyx_L51_error)
             }
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
             for (;;) {
@@ -5402,17 +5638,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
                 if (likely(PyList_CheckExact(__pyx_t_5))) {
                   if (__pyx_t_13 >= PyList_GET_SIZE(__pyx_t_5)) break;
                   #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-                  __pyx_t_9 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_13); __Pyx_INCREF(__pyx_t_9); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 168, __pyx_L51_error)
+                  __pyx_t_9 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_13); __Pyx_INCREF(__pyx_t_9); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 171, __pyx_L51_error)
                   #else
-                  __pyx_t_9 = PySequence_ITEM(__pyx_t_5, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L51_error)
+                  __pyx_t_9 = PySequence_ITEM(__pyx_t_5, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 171, __pyx_L51_error)
                   __Pyx_GOTREF(__pyx_t_9);
                   #endif
                 } else {
                   if (__pyx_t_13 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
                   #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-                  __pyx_t_9 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_13); __Pyx_INCREF(__pyx_t_9); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 168, __pyx_L51_error)
+                  __pyx_t_9 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_13); __Pyx_INCREF(__pyx_t_9); __pyx_t_13++; if (unlikely(0 < 0)) __PYX_ERR(0, 171, __pyx_L51_error)
                   #else
-                  __pyx_t_9 = PySequence_ITEM(__pyx_t_5, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L51_error)
+                  __pyx_t_9 = PySequence_ITEM(__pyx_t_5, __pyx_t_13); __pyx_t_13++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 171, __pyx_L51_error)
                   __Pyx_GOTREF(__pyx_t_9);
                   #endif
                 }
@@ -5422,7 +5658,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
                   PyObject* exc_type = PyErr_Occurred();
                   if (exc_type) {
                     if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-                    else __PYX_ERR(0, 168, __pyx_L51_error)
+                    else __PYX_ERR(0, 171, __pyx_L51_error)
                   }
                   break;
                 }
@@ -5430,11 +5666,11 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               }
               __Pyx_XDECREF_SET(__pyx_8genexpr3__pyx_v_delta, __pyx_t_9);
               __pyx_t_9 = 0;
-              __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 168, __pyx_L51_error)
+              __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 171, __pyx_L51_error)
               __Pyx_GOTREF(__pyx_t_11);
-              __pyx_t_19 = PyNumber_Add(__pyx_v_x, __pyx_8genexpr3__pyx_v_delta); if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 168, __pyx_L51_error)
+              __pyx_t_19 = PyNumber_Add(__pyx_v_x, __pyx_8genexpr3__pyx_v_delta); if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 171, __pyx_L51_error)
               __Pyx_GOTREF(__pyx_t_19);
-              __pyx_t_17 = PyNumber_Subtract(__pyx_v_y, __pyx_8genexpr3__pyx_v_delta); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 168, __pyx_L51_error)
+              __pyx_t_17 = PyNumber_Subtract(__pyx_v_y, __pyx_8genexpr3__pyx_v_delta); if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 171, __pyx_L51_error)
               __Pyx_GOTREF(__pyx_t_17);
               __pyx_t_16 = NULL;
               __pyx_t_10 = 0;
@@ -5451,7 +5687,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               #if CYTHON_FAST_PYCALL
               if (PyFunction_Check(__pyx_t_11)) {
                 PyObject *__pyx_temp[3] = {__pyx_t_16, __pyx_t_19, __pyx_t_17};
-                __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L51_error)
+                __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 171, __pyx_L51_error)
                 __Pyx_XDECREF(__pyx_t_16); __pyx_t_16 = 0;
                 __Pyx_GOTREF(__pyx_t_9);
                 __Pyx_DECREF(__pyx_t_19); __pyx_t_19 = 0;
@@ -5461,7 +5697,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               #if CYTHON_FAST_PYCCALL
               if (__Pyx_PyFastCFunction_Check(__pyx_t_11)) {
                 PyObject *__pyx_temp[3] = {__pyx_t_16, __pyx_t_19, __pyx_t_17};
-                __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L51_error)
+                __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_11, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 171, __pyx_L51_error)
                 __Pyx_XDECREF(__pyx_t_16); __pyx_t_16 = 0;
                 __Pyx_GOTREF(__pyx_t_9);
                 __Pyx_DECREF(__pyx_t_19); __pyx_t_19 = 0;
@@ -5469,7 +5705,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
               } else
               #endif
               {
-                __pyx_t_15 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 168, __pyx_L51_error)
+                __pyx_t_15 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 171, __pyx_L51_error)
                 __Pyx_GOTREF(__pyx_t_15);
                 if (__pyx_t_16) {
                   __Pyx_GIVEREF(__pyx_t_16); PyTuple_SET_ITEM(__pyx_t_15, 0, __pyx_t_16); __pyx_t_16 = NULL;
@@ -5480,12 +5716,12 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
                 PyTuple_SET_ITEM(__pyx_t_15, 1+__pyx_t_10, __pyx_t_17);
                 __pyx_t_19 = 0;
                 __pyx_t_17 = 0;
-                __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_15, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 168, __pyx_L51_error)
+                __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_15, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 171, __pyx_L51_error)
                 __Pyx_GOTREF(__pyx_t_9);
                 __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
               }
               __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-              if (unlikely(__Pyx_ListComp_Append(__pyx_t_8, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 168, __pyx_L51_error)
+              if (unlikely(__Pyx_ListComp_Append(__pyx_t_8, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 171, __pyx_L51_error)
               __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
             }
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -5496,16 +5732,16 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             goto __pyx_L1_error;
             __pyx_L54_exit_scope:;
           } /* exit inner scope */
-          __pyx_t_5 = PySet_New(__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 168, __pyx_L1_error)
+          __pyx_t_5 = PySet_New(__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 171, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __pyx_t_8 = PySequence_List(__pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 168, __pyx_L1_error)
+          __pyx_t_8 = PySequence_List(__pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 171, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_XDECREF_SET(__pyx_v_diagb_set, ((PyObject*)__pyx_t_8));
           __pyx_t_8 = 0;
 
-          /* "Boardcpython.pyx":169
+          /* "Board.pyx":172
  *                     if diagb_fits_on_board:
  *                         diagb_set = list(set([self.get_cell(x + delta,y - delta) for delta in range(self.length_to_win)]))
  *                         win = True             # <<<<<<<<<<<<<<
@@ -5514,36 +5750,36 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
           __pyx_v_win = 1;
 
-          /* "Boardcpython.pyx":170
+          /* "Board.pyx":173
  *                         diagb_set = list(set([self.get_cell(x + delta,y - delta) for delta in range(self.length_to_win)]))
  *                         win = True
  *                         for i in range(len(diagb_set)):             # <<<<<<<<<<<<<<
  *                             #print("i: ",diagb_set[i].color)
  *                             if this_color != diagb_set[i].color:
  */
-          __pyx_t_13 = PyList_GET_SIZE(__pyx_v_diagb_set); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 170, __pyx_L1_error)
+          __pyx_t_13 = PyList_GET_SIZE(__pyx_v_diagb_set); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 173, __pyx_L1_error)
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_13; __pyx_t_18+=1) {
             __pyx_v_i = __pyx_t_18;
 
-            /* "Boardcpython.pyx":172
+            /* "Board.pyx":175
  *                         for i in range(len(diagb_set)):
  *                             #print("i: ",diagb_set[i].color)
  *                             if this_color != diagb_set[i].color:             # <<<<<<<<<<<<<<
  *                                 win = False
  *                     if win:
  */
-            __pyx_t_8 = __Pyx_GetItemInt_List(__pyx_v_diagb_set, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 172, __pyx_L1_error)
+            __pyx_t_8 = __Pyx_GetItemInt_List(__pyx_v_diagb_set, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 175, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_8);
-            __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 172, __pyx_L1_error)
+            __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 175, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-            __pyx_t_8 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_5, Py_NE); __Pyx_XGOTREF(__pyx_t_8); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 172, __pyx_L1_error)
+            __pyx_t_8 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_5, Py_NE); __Pyx_XGOTREF(__pyx_t_8); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 175, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-            __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 172, __pyx_L1_error)
+            __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_8); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 175, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
             if (__pyx_t_12) {
 
-              /* "Boardcpython.pyx":173
+              /* "Board.pyx":176
  *                             #print("i: ",diagb_set[i].color)
  *                             if this_color != diagb_set[i].color:
  *                                 win = False             # <<<<<<<<<<<<<<
@@ -5552,7 +5788,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
               __pyx_v_win = 0;
 
-              /* "Boardcpython.pyx":172
+              /* "Board.pyx":175
  *                         for i in range(len(diagb_set)):
  *                             #print("i: ",diagb_set[i].color)
  *                             if this_color != diagb_set[i].color:             # <<<<<<<<<<<<<<
@@ -5562,7 +5798,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             }
           }
 
-          /* "Boardcpython.pyx":167
+          /* "Board.pyx":170
  * 
  * 
  *                     if diagb_fits_on_board:             # <<<<<<<<<<<<<<
@@ -5571,7 +5807,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
         }
 
-        /* "Boardcpython.pyx":174
+        /* "Board.pyx":177
  *                             if this_color != diagb_set[i].color:
  *                                 win = False
  *                     if win:             # <<<<<<<<<<<<<<
@@ -5581,22 +5817,22 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
         __pyx_t_12 = (__pyx_v_win != 0);
         if (__pyx_t_12) {
 
-          /* "Boardcpython.pyx":175
+          /* "Board.pyx":178
  *                                 win = False
  *                     if win:
  *                         if this_color == self.our_color:             # <<<<<<<<<<<<<<
  *                             return 100
  *                         else:
  */
-          __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 175, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 178, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
-          __pyx_t_5 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 175, __pyx_L1_error)
+          __pyx_t_5 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_8, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 178, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 175, __pyx_L1_error)
+          __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 178, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           if (__pyx_t_12) {
 
-            /* "Boardcpython.pyx":176
+            /* "Board.pyx":179
  *                     if win:
  *                         if this_color == self.our_color:
  *                             return 100             # <<<<<<<<<<<<<<
@@ -5610,7 +5846,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
             goto __pyx_L0;
 
-            /* "Boardcpython.pyx":175
+            /* "Board.pyx":178
  *                                 win = False
  *                     if win:
  *                         if this_color == self.our_color:             # <<<<<<<<<<<<<<
@@ -5619,7 +5855,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
           }
 
-          /* "Boardcpython.pyx":178
+          /* "Board.pyx":181
  *                             return 100
  *                         else:
  *                             return -100             # <<<<<<<<<<<<<<
@@ -5635,7 +5871,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
             goto __pyx_L0;
           }
 
-          /* "Boardcpython.pyx":174
+          /* "Board.pyx":177
  *                             if this_color != diagb_set[i].color:
  *                                 win = False
  *                     if win:             # <<<<<<<<<<<<<<
@@ -5644,7 +5880,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
         }
 
-        /* "Boardcpython.pyx":114
+        /* "Board.pyx":117
  *             for y in range(1,self.height+1):
  *                 win = False
  *                 if self.get_cell(x,y).color != "empty":             # <<<<<<<<<<<<<<
@@ -5653,7 +5889,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
       }
 
-      /* "Boardcpython.pyx":112
+      /* "Board.pyx":115
  *         #board = self.board
  *         for x in range(1,self.width+1):
  *             for y in range(1,self.height+1):             # <<<<<<<<<<<<<<
@@ -5663,7 +5899,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Boardcpython.pyx":111
+    /* "Board.pyx":114
  * 
  *         #board = self.board
  *         for x in range(1,self.width+1):             # <<<<<<<<<<<<<<
@@ -5673,14 +5909,14 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":181
+  /* "Board.pyx":184
  *                     #print("win: ",win)
  * 
  *         if self.is_full():             # <<<<<<<<<<<<<<
  *             print("board is full")
  *             return "tie"
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_is_full); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_is_full); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -5693,29 +5929,29 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
     }
   }
   if (__pyx_t_5) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 184, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_12) {
 
-    /* "Boardcpython.pyx":182
+    /* "Board.pyx":185
  * 
  *         if self.is_full():
  *             print("board is full")             # <<<<<<<<<<<<<<
  *             return "tie"
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 182, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 185, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "Boardcpython.pyx":183
+    /* "Board.pyx":186
  *         if self.is_full():
  *             print("board is full")
  *             return "tie"             # <<<<<<<<<<<<<<
@@ -5727,7 +5963,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
     __pyx_r = __pyx_n_u_tie;
     goto __pyx_L0;
 
-    /* "Boardcpython.pyx":181
+    /* "Board.pyx":184
  *                     #print("win: ",win)
  * 
  *         if self.is_full():             # <<<<<<<<<<<<<<
@@ -5736,19 +5972,19 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
  */
   }
 
-  /* "Boardcpython.pyx":185
+  /* "Board.pyx":188
  *             return "tie"
  * 
  *         return False             # <<<<<<<<<<<<<<
  * 
- *     def print_board(self):
+ *     def check_terminal_move(self,column_index,row_index):
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(Py_False);
   __pyx_r = Py_False;
   goto __pyx_L0;
 
-  /* "Boardcpython.pyx":108
+  /* "Board.pyx":111
  * 
  * 
  *     def check_terminal_state(self):             # <<<<<<<<<<<<<<
@@ -5768,7 +6004,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
   __Pyx_XDECREF(__pyx_t_16);
   __Pyx_XDECREF(__pyx_t_17);
   __Pyx_XDECREF(__pyx_t_19);
-  __Pyx_AddTraceback("Boardcpython.Board.check_terminal_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.check_terminal_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_x);
@@ -5791,29 +6027,2387 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_16check_terminal_state(CYTHON_UN
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":187
+/* "Board.pyx":190
  *         return False
  * 
- *     def print_board(self):             # <<<<<<<<<<<<<<
- *         for i in ["  "] + self.columns_pos:
- *             print(i,end="  ")
+ *     def check_terminal_move(self,column_index,row_index):             # <<<<<<<<<<<<<<
+ *         x = column_index
+ *         y = row_index
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_19print_board(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_19print_board = {"print_board", (PyCFunction)__pyx_pw_12Boardcpython_5Board_19print_board, METH_O, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_19print_board(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5Board_5Board_19check_terminal_move(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_19check_terminal_move = {"check_terminal_move", (PyCFunction)__pyx_pw_5Board_5Board_19check_terminal_move, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5Board_5Board_19check_terminal_move(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_self = 0;
+  PyObject *__pyx_v_column_index = 0;
+  PyObject *__pyx_v_row_index = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("print_board (wrapper)", 0);
-  __pyx_r = __pyx_pf_12Boardcpython_5Board_18print_board(__pyx_self, ((PyObject *)__pyx_v_self));
+  __Pyx_RefNannySetupContext("check_terminal_move (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_column_index,&__pyx_n_s_row_index,0};
+    PyObject* values[3] = {0,0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+        CYTHON_FALLTHROUGH;
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_self)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_column_index)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("check_terminal_move", 1, 3, 3, 1); __PYX_ERR(0, 190, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  2:
+        if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_row_index)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("check_terminal_move", 1, 3, 3, 2); __PYX_ERR(0, 190, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "check_terminal_move") < 0)) __PYX_ERR(0, 190, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
+    }
+    __pyx_v_self = values[0];
+    __pyx_v_column_index = values[1];
+    __pyx_v_row_index = values[2];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("check_terminal_move", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 190, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("Board.Board.check_terminal_move", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_5Board_5Board_18check_terminal_move(__pyx_self, __pyx_v_self, __pyx_v_column_index, __pyx_v_row_index);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_5Board_5Board_18check_terminal_move(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column_index, PyObject *__pyx_v_row_index) {
+  PyObject *__pyx_v_x = NULL;
+  PyObject *__pyx_v_y = NULL;
+  PyObject *__pyx_v_this_color = NULL;
+  CYTHON_UNUSED int __pyx_v_win;
+  PyObject *__pyx_v_xlow = NULL;
+  PyObject *__pyx_v_xhigh = NULL;
+  PyObject *__pyx_v_x_set = NULL;
+  PyObject *__pyx_v_i = NULL;
+  PyObject *__pyx_v_c1 = NULL;
+  PyObject *__pyx_v_ylow = NULL;
+  PyObject *__pyx_v_yhigh = NULL;
+  PyObject *__pyx_v_y_set = NULL;
+  PyObject *__pyx_v_j = NULL;
+  PyObject *__pyx_v_c2 = NULL;
+  PyObject *__pyx_v_diag1xlow = NULL;
+  PyObject *__pyx_v_diag1ylow = NULL;
+  PyObject *__pyx_v_diag1xhigh = NULL;
+  PyObject *__pyx_v_diag1yhigh = NULL;
+  PyObject *__pyx_v_diagf_set = NULL;
+  PyObject *__pyx_v_c3 = NULL;
+  PyObject *__pyx_v_diag2xlow = NULL;
+  PyObject *__pyx_v_diag2ylow = NULL;
+  PyObject *__pyx_v_diag2xhigh = NULL;
+  PyObject *__pyx_v_diag2yhigh = NULL;
+  PyObject *__pyx_v_diagb_set = NULL;
+  PyObject *__pyx_v_c4 = NULL;
+  PyObject *__pyx_v_ylist = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_4;
+  PyObject *__pyx_t_5 = NULL;
+  int __pyx_t_6;
+  Py_ssize_t __pyx_t_7;
+  PyObject *(*__pyx_t_8)(PyObject *);
+  PyObject *__pyx_t_9 = NULL;
+  int __pyx_t_10;
+  long __pyx_t_11;
+  PyObject *__pyx_t_12 = NULL;
+  PyObject *__pyx_t_13 = NULL;
+  __Pyx_RefNannySetupContext("check_terminal_move", 0);
+
+  /* "Board.pyx":191
+ * 
+ *     def check_terminal_move(self,column_index,row_index):
+ *         x = column_index             # <<<<<<<<<<<<<<
+ *         y = row_index
+ *         this_color = self.get_cell(x,y).color
+ */
+  __Pyx_INCREF(__pyx_v_column_index);
+  __pyx_v_x = __pyx_v_column_index;
+
+  /* "Board.pyx":192
+ *     def check_terminal_move(self,column_index,row_index):
+ *         x = column_index
+ *         y = row_index             # <<<<<<<<<<<<<<
+ *         this_color = self.get_cell(x,y).color
+ *         #print("checking for x,y: ",x,y)
+ */
+  __Pyx_INCREF(__pyx_v_row_index);
+  __pyx_v_y = __pyx_v_row_index;
+
+  /* "Board.pyx":193
+ *         x = column_index
+ *         y = row_index
+ *         this_color = self.get_cell(x,y).color             # <<<<<<<<<<<<<<
+ *         #print("checking for x,y: ",x,y)
+ * 
+ */
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  __pyx_t_4 = 0;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+      __pyx_t_4 = 1;
+    }
+  }
+  #if CYTHON_FAST_PYCALL
+  if (PyFunction_Check(__pyx_t_2)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_x, __pyx_v_y};
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  #if CYTHON_FAST_PYCCALL
+  if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
+    PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_x, __pyx_v_y};
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_GOTREF(__pyx_t_1);
+  } else
+  #endif
+  {
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 193, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (__pyx_t_3) {
+      __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
+    }
+    __Pyx_INCREF(__pyx_v_x);
+    __Pyx_GIVEREF(__pyx_v_x);
+    PyTuple_SET_ITEM(__pyx_t_5, 0+__pyx_t_4, __pyx_v_x);
+    __Pyx_INCREF(__pyx_v_y);
+    __Pyx_GIVEREF(__pyx_v_y);
+    PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_y);
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_color); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v_this_color = __pyx_t_2;
+  __pyx_t_2 = 0;
+
+  /* "Board.pyx":202
+ * 
+ *         # Generate lists of pieces on board
+ *         win = False             # <<<<<<<<<<<<<<
+ *         #if x_fits_on_board:
+ *         xlow = x - 4
+ */
+  __pyx_v_win = 0;
+
+  /* "Board.pyx":204
+ *         win = False
+ *         #if x_fits_on_board:
+ *         xlow = x - 4             # <<<<<<<<<<<<<<
+ *         xhigh = x + 4
+ *         if xlow < 1:
+ */
+  __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_v_x, __pyx_int_4, 4, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_v_xlow = __pyx_t_2;
+  __pyx_t_2 = 0;
+
+  /* "Board.pyx":205
+ *         #if x_fits_on_board:
+ *         xlow = x - 4
+ *         xhigh = x + 4             # <<<<<<<<<<<<<<
+ *         if xlow < 1:
+ *             xlow = 1
+ */
+  __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_v_x, __pyx_int_4, 4, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_v_xhigh = __pyx_t_2;
+  __pyx_t_2 = 0;
+
+  /* "Board.pyx":206
+ *         xlow = x - 4
+ *         xhigh = x + 4
+ *         if xlow < 1:             # <<<<<<<<<<<<<<
+ *             xlow = 1
+ *         if xhigh > 15:
+ */
+  __pyx_t_2 = PyObject_RichCompare(__pyx_v_xlow, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 206, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 206, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__pyx_t_6) {
+
+    /* "Board.pyx":207
+ *         xhigh = x + 4
+ *         if xlow < 1:
+ *             xlow = 1             # <<<<<<<<<<<<<<
+ *         if xhigh > 15:
+ *             xhigh = 15
+ */
+    __Pyx_INCREF(__pyx_int_1);
+    __Pyx_DECREF_SET(__pyx_v_xlow, __pyx_int_1);
+
+    /* "Board.pyx":206
+ *         xlow = x - 4
+ *         xhigh = x + 4
+ *         if xlow < 1:             # <<<<<<<<<<<<<<
+ *             xlow = 1
+ *         if xhigh > 15:
+ */
+  }
+
+  /* "Board.pyx":208
+ *         if xlow < 1:
+ *             xlow = 1
+ *         if xhigh > 15:             # <<<<<<<<<<<<<<
+ *             xhigh = 15
+ *         #x_set = list(set([self.get_cell(x + delta,y) for delta in range(xlow-x,xhigh+1-x)]))
+ */
+  __pyx_t_2 = PyObject_RichCompare(__pyx_v_xhigh, __pyx_int_15, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 208, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 208, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__pyx_t_6) {
+
+    /* "Board.pyx":209
+ *             xlow = 1
+ *         if xhigh > 15:
+ *             xhigh = 15             # <<<<<<<<<<<<<<
+ *         #x_set = list(set([self.get_cell(x + delta,y) for delta in range(xlow-x,xhigh+1-x)]))
+ *         x_set = []
+ */
+    __Pyx_INCREF(__pyx_int_15);
+    __Pyx_DECREF_SET(__pyx_v_xhigh, __pyx_int_15);
+
+    /* "Board.pyx":208
+ *         if xlow < 1:
+ *             xlow = 1
+ *         if xhigh > 15:             # <<<<<<<<<<<<<<
+ *             xhigh = 15
+ *         #x_set = list(set([self.get_cell(x + delta,y) for delta in range(xlow-x,xhigh+1-x)]))
+ */
+  }
+
+  /* "Board.pyx":211
+ *             xhigh = 15
+ *         #x_set = list(set([self.get_cell(x + delta,y) for delta in range(xlow-x,xhigh+1-x)]))
+ *         x_set = []             # <<<<<<<<<<<<<<
+ *         for i in range(xlow,xhigh+1):
+ *             x_set.append(self.get_cell(i,y))
+ */
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 211, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_v_x_set = ((PyObject*)__pyx_t_2);
+  __pyx_t_2 = 0;
+
+  /* "Board.pyx":212
+ *         #x_set = list(set([self.get_cell(x + delta,y) for delta in range(xlow-x,xhigh+1-x)]))
+ *         x_set = []
+ *         for i in range(xlow,xhigh+1):             # <<<<<<<<<<<<<<
+ *             x_set.append(self.get_cell(i,y))
+ *         win = True
+ */
+  __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_v_xhigh, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_v_xlow);
+  __Pyx_GIVEREF(__pyx_v_xlow);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_xlow);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_2);
+  __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
+    __pyx_t_1 = __pyx_t_2; __Pyx_INCREF(__pyx_t_1); __pyx_t_7 = 0;
+    __pyx_t_8 = NULL;
+  } else {
+    __pyx_t_7 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_8 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 212, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_8)) {
+      if (likely(PyList_CheckExact(__pyx_t_1))) {
+        if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_1)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_7); __Pyx_INCREF(__pyx_t_2); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 212, __pyx_L1_error)
+        #else
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 212, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        #endif
+      } else {
+        if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_7); __Pyx_INCREF(__pyx_t_2); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 212, __pyx_L1_error)
+        #else
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 212, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        #endif
+      }
+    } else {
+      __pyx_t_2 = __pyx_t_8(__pyx_t_1);
+      if (unlikely(!__pyx_t_2)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 212, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_2);
+    __pyx_t_2 = 0;
+
+    /* "Board.pyx":213
+ *         x_set = []
+ *         for i in range(xlow,xhigh+1):
+ *             x_set.append(self.get_cell(i,y))             # <<<<<<<<<<<<<<
+ *         win = True
+ *         c1 = 0
+ */
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 213, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_3 = NULL;
+    __pyx_t_4 = 0;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_5);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_5, function);
+        __pyx_t_4 = 1;
+      }
+    }
+    #if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(__pyx_t_5)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_i, __pyx_v_y};
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 213, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_GOTREF(__pyx_t_2);
+    } else
+    #endif
+    #if CYTHON_FAST_PYCCALL
+    if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_i, __pyx_v_y};
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 213, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_GOTREF(__pyx_t_2);
+    } else
+    #endif
+    {
+      __pyx_t_9 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 213, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_9);
+      if (__pyx_t_3) {
+        __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_3); __pyx_t_3 = NULL;
+      }
+      __Pyx_INCREF(__pyx_v_i);
+      __Pyx_GIVEREF(__pyx_v_i);
+      PyTuple_SET_ITEM(__pyx_t_9, 0+__pyx_t_4, __pyx_v_i);
+      __Pyx_INCREF(__pyx_v_y);
+      __Pyx_GIVEREF(__pyx_v_y);
+      PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_4, __pyx_v_y);
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 213, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_10 = __Pyx_PyList_Append(__pyx_v_x_set, __pyx_t_2); if (unlikely(__pyx_t_10 == -1)) __PYX_ERR(0, 213, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+    /* "Board.pyx":212
+ *         #x_set = list(set([self.get_cell(x + delta,y) for delta in range(xlow-x,xhigh+1-x)]))
+ *         x_set = []
+ *         for i in range(xlow,xhigh+1):             # <<<<<<<<<<<<<<
+ *             x_set.append(self.get_cell(i,y))
+ *         win = True
+ */
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "Board.pyx":214
+ *         for i in range(xlow,xhigh+1):
+ *             x_set.append(self.get_cell(i,y))
+ *         win = True             # <<<<<<<<<<<<<<
+ *         c1 = 0
+ *         for i in range(len(x_set)):
+ */
+  __pyx_v_win = 1;
+
+  /* "Board.pyx":215
+ *             x_set.append(self.get_cell(i,y))
+ *         win = True
+ *         c1 = 0             # <<<<<<<<<<<<<<
+ *         for i in range(len(x_set)):
+ *             #print("column i: ",x_set[i].color)
+ */
+  __Pyx_INCREF(__pyx_int_0);
+  __pyx_v_c1 = __pyx_int_0;
+
+  /* "Board.pyx":216
+ *         win = True
+ *         c1 = 0
+ *         for i in range(len(x_set)):             # <<<<<<<<<<<<<<
+ *             #print("column i: ",x_set[i].color)
+ *             c1+=1
+ */
+  __pyx_t_7 = PyList_GET_SIZE(__pyx_v_x_set); if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
+    __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2); __pyx_t_7 = 0;
+    __pyx_t_8 = NULL;
+  } else {
+    __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 216, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_8)) {
+      if (likely(PyList_CheckExact(__pyx_t_2))) {
+        if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_2)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_1); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 216, __pyx_L1_error)
+        #else
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        #endif
+      } else {
+        if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_1); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 216, __pyx_L1_error)
+        #else
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        #endif
+      }
+    } else {
+      __pyx_t_1 = __pyx_t_8(__pyx_t_2);
+      if (unlikely(!__pyx_t_1)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 216, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_1);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "Board.pyx":218
+ *         for i in range(len(x_set)):
+ *             #print("column i: ",x_set[i].color)
+ *             c1+=1             # <<<<<<<<<<<<<<
+ *             if this_color != x_set[i].color:
+ *                 c1 = 0
+ */
+    __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_c1, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 218, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF_SET(__pyx_v_c1, __pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "Board.pyx":219
+ *             #print("column i: ",x_set[i].color)
+ *             c1+=1
+ *             if this_color != x_set[i].color:             # <<<<<<<<<<<<<<
+ *                 c1 = 0
+ *                 win = False
+ */
+    __pyx_t_1 = PyObject_GetItem(__pyx_v_x_set, __pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 219, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_5, Py_NE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 219, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__pyx_t_6) {
+
+      /* "Board.pyx":220
+ *             c1+=1
+ *             if this_color != x_set[i].color:
+ *                 c1 = 0             # <<<<<<<<<<<<<<
+ *                 win = False
+ *             if c1 >= 5:
+ */
+      __Pyx_INCREF(__pyx_int_0);
+      __Pyx_DECREF_SET(__pyx_v_c1, __pyx_int_0);
+
+      /* "Board.pyx":221
+ *             if this_color != x_set[i].color:
+ *                 c1 = 0
+ *                 win = False             # <<<<<<<<<<<<<<
+ *             if c1 >= 5:
+ *                 if this_color == self.our_color:
+ */
+      __pyx_v_win = 0;
+
+      /* "Board.pyx":219
+ *             #print("column i: ",x_set[i].color)
+ *             c1+=1
+ *             if this_color != x_set[i].color:             # <<<<<<<<<<<<<<
+ *                 c1 = 0
+ *                 win = False
+ */
+    }
+
+    /* "Board.pyx":222
+ *                 c1 = 0
+ *                 win = False
+ *             if c1 >= 5:             # <<<<<<<<<<<<<<
+ *                 if this_color == self.our_color:
+ *                     return 100
+ */
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_c1, __pyx_int_5, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 222, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__pyx_t_6) {
+
+      /* "Board.pyx":223
+ *                 win = False
+ *             if c1 >= 5:
+ *                 if this_color == self.our_color:             # <<<<<<<<<<<<<<
+ *                     return 100
+ *                 else:
+ */
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __pyx_t_5 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 223, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 223, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      if (__pyx_t_6) {
+
+        /* "Board.pyx":224
+ *             if c1 >= 5:
+ *                 if this_color == self.our_color:
+ *                     return 100             # <<<<<<<<<<<<<<
+ *                 else:
+ *                     return -100
+ */
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_INCREF(__pyx_int_100);
+        __pyx_r = __pyx_int_100;
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        goto __pyx_L0;
+
+        /* "Board.pyx":223
+ *                 win = False
+ *             if c1 >= 5:
+ *                 if this_color == self.our_color:             # <<<<<<<<<<<<<<
+ *                     return 100
+ *                 else:
+ */
+      }
+
+      /* "Board.pyx":226
+ *                     return 100
+ *                 else:
+ *                     return -100             # <<<<<<<<<<<<<<
+ * 
+ *         ylow = y - 4
+ */
+      /*else*/ {
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_INCREF(__pyx_int_neg_100);
+        __pyx_r = __pyx_int_neg_100;
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        goto __pyx_L0;
+      }
+
+      /* "Board.pyx":222
+ *                 c1 = 0
+ *                 win = False
+ *             if c1 >= 5:             # <<<<<<<<<<<<<<
+ *                 if this_color == self.our_color:
+ *                     return 100
+ */
+    }
+
+    /* "Board.pyx":216
+ *         win = True
+ *         c1 = 0
+ *         for i in range(len(x_set)):             # <<<<<<<<<<<<<<
+ *             #print("column i: ",x_set[i].color)
+ *             c1+=1
+ */
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "Board.pyx":228
+ *                     return -100
+ * 
+ *         ylow = y - 4             # <<<<<<<<<<<<<<
+ *         yhigh = y + 4
+ *         if ylow < 1:
+ */
+  __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_v_y, __pyx_int_4, 4, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_v_ylow = __pyx_t_2;
+  __pyx_t_2 = 0;
+
+  /* "Board.pyx":229
+ * 
+ *         ylow = y - 4
+ *         yhigh = y + 4             # <<<<<<<<<<<<<<
+ *         if ylow < 1:
+ *             ylow = 1
+ */
+  __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_v_y, __pyx_int_4, 4, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 229, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_v_yhigh = __pyx_t_2;
+  __pyx_t_2 = 0;
+
+  /* "Board.pyx":230
+ *         ylow = y - 4
+ *         yhigh = y + 4
+ *         if ylow < 1:             # <<<<<<<<<<<<<<
+ *             ylow = 1
+ *         if yhigh > 15:
+ */
+  __pyx_t_2 = PyObject_RichCompare(__pyx_v_ylow, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__pyx_t_6) {
+
+    /* "Board.pyx":231
+ *         yhigh = y + 4
+ *         if ylow < 1:
+ *             ylow = 1             # <<<<<<<<<<<<<<
+ *         if yhigh > 15:
+ *             yhigh = 15
+ */
+    __Pyx_INCREF(__pyx_int_1);
+    __Pyx_DECREF_SET(__pyx_v_ylow, __pyx_int_1);
+
+    /* "Board.pyx":230
+ *         ylow = y - 4
+ *         yhigh = y + 4
+ *         if ylow < 1:             # <<<<<<<<<<<<<<
+ *             ylow = 1
+ *         if yhigh > 15:
+ */
+  }
+
+  /* "Board.pyx":232
+ *         if ylow < 1:
+ *             ylow = 1
+ *         if yhigh > 15:             # <<<<<<<<<<<<<<
+ *             yhigh = 15
+ *         #if y_fits_on_board:
+ */
+  __pyx_t_2 = PyObject_RichCompare(__pyx_v_yhigh, __pyx_int_15, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__pyx_t_6) {
+
+    /* "Board.pyx":233
+ *             ylow = 1
+ *         if yhigh > 15:
+ *             yhigh = 15             # <<<<<<<<<<<<<<
+ *         #if y_fits_on_board:
+ *         #y_set = list(set([self.get_cell(x,y + delta) for delta in range(ylow-y,yhigh+1-y)]))
+ */
+    __Pyx_INCREF(__pyx_int_15);
+    __Pyx_DECREF_SET(__pyx_v_yhigh, __pyx_int_15);
+
+    /* "Board.pyx":232
+ *         if ylow < 1:
+ *             ylow = 1
+ *         if yhigh > 15:             # <<<<<<<<<<<<<<
+ *             yhigh = 15
+ *         #if y_fits_on_board:
+ */
+  }
+
+  /* "Board.pyx":236
+ *         #if y_fits_on_board:
+ *         #y_set = list(set([self.get_cell(x,y + delta) for delta in range(ylow-y,yhigh+1-y)]))
+ *         y_set = []             # <<<<<<<<<<<<<<
+ *         for j in range(ylow,yhigh+1):
+ *             y_set.append(self.get_cell(x,j))
+ */
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_v_y_set = ((PyObject*)__pyx_t_2);
+  __pyx_t_2 = 0;
+
+  /* "Board.pyx":237
+ *         #y_set = list(set([self.get_cell(x,y + delta) for delta in range(ylow-y,yhigh+1-y)]))
+ *         y_set = []
+ *         for j in range(ylow,yhigh+1):             # <<<<<<<<<<<<<<
+ *             y_set.append(self.get_cell(x,j))
+ *         win = True
+ */
+  __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_v_yhigh, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_INCREF(__pyx_v_ylow);
+  __Pyx_GIVEREF(__pyx_v_ylow);
+  PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_ylow);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_2);
+  __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
+    __pyx_t_5 = __pyx_t_2; __Pyx_INCREF(__pyx_t_5); __pyx_t_7 = 0;
+    __pyx_t_8 = NULL;
+  } else {
+    __pyx_t_7 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 237, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_8 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 237, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_8)) {
+      if (likely(PyList_CheckExact(__pyx_t_5))) {
+        if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_5)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_7); __Pyx_INCREF(__pyx_t_2); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 237, __pyx_L1_error)
+        #else
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        #endif
+      } else {
+        if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_7); __Pyx_INCREF(__pyx_t_2); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 237, __pyx_L1_error)
+        #else
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_5, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_2);
+        #endif
+      }
+    } else {
+      __pyx_t_2 = __pyx_t_8(__pyx_t_5);
+      if (unlikely(!__pyx_t_2)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 237, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_2);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_2);
+    __pyx_t_2 = 0;
+
+    /* "Board.pyx":238
+ *         y_set = []
+ *         for j in range(ylow,yhigh+1):
+ *             y_set.append(self.get_cell(x,j))             # <<<<<<<<<<<<<<
+ *         win = True
+ *         c2 = 0
+ */
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 238, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_9 = NULL;
+    __pyx_t_4 = 0;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+      __pyx_t_9 = PyMethod_GET_SELF(__pyx_t_1);
+      if (likely(__pyx_t_9)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+        __Pyx_INCREF(__pyx_t_9);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_1, function);
+        __pyx_t_4 = 1;
+      }
+    }
+    #if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(__pyx_t_1)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_v_x, __pyx_v_j};
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 238, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+      __Pyx_GOTREF(__pyx_t_2);
+    } else
+    #endif
+    #if CYTHON_FAST_PYCCALL
+    if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_v_x, __pyx_v_j};
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 238, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
+      __Pyx_GOTREF(__pyx_t_2);
+    } else
+    #endif
+    {
+      __pyx_t_3 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 238, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      if (__pyx_t_9) {
+        __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_9); __pyx_t_9 = NULL;
+      }
+      __Pyx_INCREF(__pyx_v_x);
+      __Pyx_GIVEREF(__pyx_v_x);
+      PyTuple_SET_ITEM(__pyx_t_3, 0+__pyx_t_4, __pyx_v_x);
+      __Pyx_INCREF(__pyx_v_j);
+      __Pyx_GIVEREF(__pyx_v_j);
+      PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_4, __pyx_v_j);
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 238, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_10 = __Pyx_PyList_Append(__pyx_v_y_set, __pyx_t_2); if (unlikely(__pyx_t_10 == -1)) __PYX_ERR(0, 238, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+    /* "Board.pyx":237
+ *         #y_set = list(set([self.get_cell(x,y + delta) for delta in range(ylow-y,yhigh+1-y)]))
+ *         y_set = []
+ *         for j in range(ylow,yhigh+1):             # <<<<<<<<<<<<<<
+ *             y_set.append(self.get_cell(x,j))
+ *         win = True
+ */
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "Board.pyx":239
+ *         for j in range(ylow,yhigh+1):
+ *             y_set.append(self.get_cell(x,j))
+ *         win = True             # <<<<<<<<<<<<<<
+ *         c2 = 0
+ *         for i in range(len(y_set)):
+ */
+  __pyx_v_win = 1;
+
+  /* "Board.pyx":240
+ *             y_set.append(self.get_cell(x,j))
+ *         win = True
+ *         c2 = 0             # <<<<<<<<<<<<<<
+ *         for i in range(len(y_set)):
+ *             #print("row i: ",y_set[i].color)
+ */
+  __Pyx_INCREF(__pyx_int_0);
+  __pyx_v_c2 = __pyx_int_0;
+
+  /* "Board.pyx":241
+ *         win = True
+ *         c2 = 0
+ *         for i in range(len(y_set)):             # <<<<<<<<<<<<<<
+ *             #print("row i: ",y_set[i].color)
+ *             c2+=1
+ */
+  __pyx_t_7 = PyList_GET_SIZE(__pyx_v_y_set); if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __pyx_t_5 = PyInt_FromSsize_t(__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_5);
+  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_5);
+  __pyx_t_5 = 0;
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (likely(PyList_CheckExact(__pyx_t_5)) || PyTuple_CheckExact(__pyx_t_5)) {
+    __pyx_t_2 = __pyx_t_5; __Pyx_INCREF(__pyx_t_2); __pyx_t_7 = 0;
+    __pyx_t_8 = NULL;
+  } else {
+    __pyx_t_7 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 241, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_8 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 241, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_8)) {
+      if (likely(PyList_CheckExact(__pyx_t_2))) {
+        if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_2)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_5 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_5); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 241, __pyx_L1_error)
+        #else
+        __pyx_t_5 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 241, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        #endif
+      } else {
+        if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_7); __Pyx_INCREF(__pyx_t_5); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 241, __pyx_L1_error)
+        #else
+        __pyx_t_5 = PySequence_ITEM(__pyx_t_2, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 241, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        #endif
+      }
+    } else {
+      __pyx_t_5 = __pyx_t_8(__pyx_t_2);
+      if (unlikely(!__pyx_t_5)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 241, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_5);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_5);
+    __pyx_t_5 = 0;
+
+    /* "Board.pyx":243
+ *         for i in range(len(y_set)):
+ *             #print("row i: ",y_set[i].color)
+ *             c2+=1             # <<<<<<<<<<<<<<
+ *             if this_color != y_set[i].color:
+ *                 c2 = 0
+ */
+    __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_v_c2, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 243, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF_SET(__pyx_v_c2, __pyx_t_5);
+    __pyx_t_5 = 0;
+
+    /* "Board.pyx":244
+ *             #print("row i: ",y_set[i].color)
+ *             c2+=1
+ *             if this_color != y_set[i].color:             # <<<<<<<<<<<<<<
+ *                 c2 = 0
+ *                 win = False
+ */
+    __pyx_t_5 = PyObject_GetItem(__pyx_v_y_set, __pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 244, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_color); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 244, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_1, Py_NE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 244, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 244, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (__pyx_t_6) {
+
+      /* "Board.pyx":245
+ *             c2+=1
+ *             if this_color != y_set[i].color:
+ *                 c2 = 0             # <<<<<<<<<<<<<<
+ *                 win = False
+ *             if c2 >=5:
+ */
+      __Pyx_INCREF(__pyx_int_0);
+      __Pyx_DECREF_SET(__pyx_v_c2, __pyx_int_0);
+
+      /* "Board.pyx":246
+ *             if this_color != y_set[i].color:
+ *                 c2 = 0
+ *                 win = False             # <<<<<<<<<<<<<<
+ *             if c2 >=5:
+ *                 if this_color == self.our_color:
+ */
+      __pyx_v_win = 0;
+
+      /* "Board.pyx":244
+ *             #print("row i: ",y_set[i].color)
+ *             c2+=1
+ *             if this_color != y_set[i].color:             # <<<<<<<<<<<<<<
+ *                 c2 = 0
+ *                 win = False
+ */
+    }
+
+    /* "Board.pyx":247
+ *                 c2 = 0
+ *                 win = False
+ *             if c2 >=5:             # <<<<<<<<<<<<<<
+ *                 if this_color == self.our_color:
+ *                     return 100
+ */
+    __pyx_t_5 = PyObject_RichCompare(__pyx_v_c2, __pyx_int_5, Py_GE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 247, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 247, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (__pyx_t_6) {
+
+      /* "Board.pyx":248
+ *                 win = False
+ *             if c2 >=5:
+ *                 if this_color == self.our_color:             # <<<<<<<<<<<<<<
+ *                     return 100
+ *                 else:
+ */
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 248, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __pyx_t_1 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_5, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 248, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      if (__pyx_t_6) {
+
+        /* "Board.pyx":249
+ *             if c2 >=5:
+ *                 if this_color == self.our_color:
+ *                     return 100             # <<<<<<<<<<<<<<
+ *                 else:
+ *                     return -100
+ */
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_INCREF(__pyx_int_100);
+        __pyx_r = __pyx_int_100;
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        goto __pyx_L0;
+
+        /* "Board.pyx":248
+ *                 win = False
+ *             if c2 >=5:
+ *                 if this_color == self.our_color:             # <<<<<<<<<<<<<<
+ *                     return 100
+ *                 else:
+ */
+      }
+
+      /* "Board.pyx":251
+ *                     return 100
+ *                 else:
+ *                     return -100             # <<<<<<<<<<<<<<
+ * 
+ *         #if diagf_fits_on_board:
+ */
+      /*else*/ {
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_INCREF(__pyx_int_neg_100);
+        __pyx_r = __pyx_int_neg_100;
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        goto __pyx_L0;
+      }
+
+      /* "Board.pyx":247
+ *                 c2 = 0
+ *                 win = False
+ *             if c2 >=5:             # <<<<<<<<<<<<<<
+ *                 if this_color == self.our_color:
+ *                     return 100
+ */
+    }
+
+    /* "Board.pyx":241
+ *         win = True
+ *         c2 = 0
+ *         for i in range(len(y_set)):             # <<<<<<<<<<<<<<
+ *             #print("row i: ",y_set[i].color)
+ *             c2+=1
+ */
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "Board.pyx":254
+ * 
+ *         #if diagf_fits_on_board:
+ *         diag1xlow = x - (min(x,y)-1)             # <<<<<<<<<<<<<<
+ *         diag1ylow = y - (min(x,y)-1)
+ *         diag1xhigh = x + min(15-max(x,y),4)
+ */
+  __Pyx_INCREF(__pyx_v_y);
+  __pyx_t_2 = __pyx_v_y;
+  __Pyx_INCREF(__pyx_v_x);
+  __pyx_t_1 = __pyx_v_x;
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_2, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 254, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 254, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (__pyx_t_6) {
+    __Pyx_INCREF(__pyx_t_2);
+    __pyx_t_5 = __pyx_t_2;
+  } else {
+    __Pyx_INCREF(__pyx_t_1);
+    __pyx_t_5 = __pyx_t_1;
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyInt_SubtractObjC(__pyx_t_5, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 254, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = PyNumber_Subtract(__pyx_v_x, __pyx_t_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 254, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_v_diag1xlow = __pyx_t_5;
+  __pyx_t_5 = 0;
+
+  /* "Board.pyx":255
+ *         #if diagf_fits_on_board:
+ *         diag1xlow = x - (min(x,y)-1)
+ *         diag1ylow = y - (min(x,y)-1)             # <<<<<<<<<<<<<<
+ *         diag1xhigh = x + min(15-max(x,y),4)
+ *         diag1yhigh = y + min(15-max(x,y),4)
+ */
+  __Pyx_INCREF(__pyx_v_y);
+  __pyx_t_5 = __pyx_v_y;
+  __Pyx_INCREF(__pyx_v_x);
+  __pyx_t_2 = __pyx_v_x;
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_2, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (__pyx_t_6) {
+    __Pyx_INCREF(__pyx_t_5);
+    __pyx_t_1 = __pyx_t_5;
+  } else {
+    __Pyx_INCREF(__pyx_t_2);
+    __pyx_t_1 = __pyx_t_2;
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = __Pyx_PyInt_SubtractObjC(__pyx_t_1, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyNumber_Subtract(__pyx_v_y, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_v_diag1ylow = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "Board.pyx":256
+ *         diag1xlow = x - (min(x,y)-1)
+ *         diag1ylow = y - (min(x,y)-1)
+ *         diag1xhigh = x + min(15-max(x,y),4)             # <<<<<<<<<<<<<<
+ *         diag1yhigh = y + min(15-max(x,y),4)
+ *         #print(diag1xlow,diag1ylow,diag1xhigh,diag1yhigh)
+ */
+  __pyx_t_11 = 4;
+  __Pyx_INCREF(__pyx_v_y);
+  __pyx_t_1 = __pyx_v_y;
+  __Pyx_INCREF(__pyx_v_x);
+  __pyx_t_5 = __pyx_v_x;
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (__pyx_t_6) {
+    __Pyx_INCREF(__pyx_t_1);
+    __pyx_t_2 = __pyx_t_1;
+  } else {
+    __Pyx_INCREF(__pyx_t_5);
+    __pyx_t_2 = __pyx_t_5;
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyInt_SubtractCObj(__pyx_int_15, __pyx_t_2, 15, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_5 = __Pyx_PyInt_From_long(__pyx_t_11); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (__pyx_t_6) {
+    __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_2 = __pyx_t_3;
+    __pyx_t_3 = 0;
+  } else {
+    __Pyx_INCREF(__pyx_t_1);
+    __pyx_t_2 = __pyx_t_1;
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyNumber_Add(__pyx_v_x, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_v_diag1xhigh = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "Board.pyx":257
+ *         diag1ylow = y - (min(x,y)-1)
+ *         diag1xhigh = x + min(15-max(x,y),4)
+ *         diag1yhigh = y + min(15-max(x,y),4)             # <<<<<<<<<<<<<<
+ *         #print(diag1xlow,diag1ylow,diag1xhigh,diag1yhigh)
+ *         ##diag1high = min(xhigh,yhigh)
+ */
+  __pyx_t_11 = 4;
+  __Pyx_INCREF(__pyx_v_y);
+  __pyx_t_1 = __pyx_v_y;
+  __Pyx_INCREF(__pyx_v_x);
+  __pyx_t_2 = __pyx_v_x;
+  __pyx_t_5 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_GT); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (__pyx_t_6) {
+    __Pyx_INCREF(__pyx_t_1);
+    __pyx_t_3 = __pyx_t_1;
+  } else {
+    __Pyx_INCREF(__pyx_t_2);
+    __pyx_t_3 = __pyx_t_2;
+  }
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyInt_SubtractCObj(__pyx_int_15, __pyx_t_3, 15, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_t_11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_5 = PyObject_RichCompare(__pyx_t_2, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (__pyx_t_6) {
+    __pyx_t_5 = __Pyx_PyInt_From_long(__pyx_t_11); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_3 = __pyx_t_5;
+    __pyx_t_5 = 0;
+  } else {
+    __Pyx_INCREF(__pyx_t_1);
+    __pyx_t_3 = __pyx_t_1;
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyNumber_Add(__pyx_v_y, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_v_diag1yhigh = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "Board.pyx":262
+ *         #diag1r1 = min(x,y)
+ *         #print(diag1low,diag1high,diag1r1)
+ *         diagf_set = []             # <<<<<<<<<<<<<<
+ *         c3 = 0
+ *         #print("ylistb: ",list(range(diag1ylow,diag1yhigh+1)))
+ */
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_v_diagf_set = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "Board.pyx":263
+ *         #print(diag1low,diag1high,diag1r1)
+ *         diagf_set = []
+ *         c3 = 0             # <<<<<<<<<<<<<<
+ *         #print("ylistb: ",list(range(diag1ylow,diag1yhigh+1)))
+ *         #print("xlistb: ",list(range(diag1xlow,diag1xhigh+1)))
+ */
+  __Pyx_INCREF(__pyx_int_0);
+  __pyx_v_c3 = __pyx_int_0;
+
+  /* "Board.pyx":266
+ *         #print("ylistb: ",list(range(diag1ylow,diag1yhigh+1)))
+ *         #print("xlistb: ",list(range(diag1xlow,diag1xhigh+1)))
+ *         for i in range(len(range(diag1xlow,diag1xhigh+1))):             # <<<<<<<<<<<<<<
+ *             diagf_set.append(self.get_cell(list(range(diag1xlow,diag1xhigh+1))[i],list(range(diag1ylow,diag1yhigh+1))[i]))
+ *         #diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(diag1low-diag1r1,diag1high+1-diag1r1)]))
+ */
+  __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_diag1xhigh, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_INCREF(__pyx_v_diag1xlow);
+  __Pyx_GIVEREF(__pyx_v_diag1xlow);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_diag1xlow);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_7 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
+    __pyx_t_3 = __pyx_t_1; __Pyx_INCREF(__pyx_t_3); __pyx_t_7 = 0;
+    __pyx_t_8 = NULL;
+  } else {
+    __pyx_t_7 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_8 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 266, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_8)) {
+      if (likely(PyList_CheckExact(__pyx_t_3))) {
+        if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_3)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_7); __Pyx_INCREF(__pyx_t_1); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 266, __pyx_L1_error)
+        #else
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        #endif
+      } else {
+        if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_7); __Pyx_INCREF(__pyx_t_1); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 266, __pyx_L1_error)
+        #else
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_3, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 266, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        #endif
+      }
+    } else {
+      __pyx_t_1 = __pyx_t_8(__pyx_t_3);
+      if (unlikely(!__pyx_t_1)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 266, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_1);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "Board.pyx":267
+ *         #print("xlistb: ",list(range(diag1xlow,diag1xhigh+1)))
+ *         for i in range(len(range(diag1xlow,diag1xhigh+1))):
+ *             diagf_set.append(self.get_cell(list(range(diag1xlow,diag1xhigh+1))[i],list(range(diag1ylow,diag1yhigh+1))[i]))             # <<<<<<<<<<<<<<
+ *         #diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(diag1low-diag1r1,diag1high+1-diag1r1)]))
+ *         win = True
+ */
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 267, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_2 = __Pyx_PyInt_AddObjC(__pyx_v_diag1xhigh, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 267, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 267, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    __Pyx_INCREF(__pyx_v_diag1xlow);
+    __Pyx_GIVEREF(__pyx_v_diag1xlow);
+    PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_v_diag1xlow);
+    __Pyx_GIVEREF(__pyx_t_2);
+    PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_2);
+    __pyx_t_2 = 0;
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 267, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    __pyx_t_9 = PySequence_List(__pyx_t_2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 267, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_2 = PyObject_GetItem(__pyx_t_9, __pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 267, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    __pyx_t_9 = __Pyx_PyInt_AddObjC(__pyx_v_diag1yhigh, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 267, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 267, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_12);
+    __Pyx_INCREF(__pyx_v_diag1ylow);
+    __Pyx_GIVEREF(__pyx_v_diag1ylow);
+    PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_v_diag1ylow);
+    __Pyx_GIVEREF(__pyx_t_9);
+    PyTuple_SET_ITEM(__pyx_t_12, 1, __pyx_t_9);
+    __pyx_t_9 = 0;
+    __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_12, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 267, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
+    __pyx_t_12 = PySequence_List(__pyx_t_9); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 267, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_12);
+    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    __pyx_t_9 = PyObject_GetItem(__pyx_t_12, __pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 267, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
+    __pyx_t_12 = NULL;
+    __pyx_t_4 = 0;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
+      __pyx_t_12 = PyMethod_GET_SELF(__pyx_t_5);
+      if (likely(__pyx_t_12)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_12);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_5, function);
+        __pyx_t_4 = 1;
+      }
+    }
+    #if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(__pyx_t_5)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_12, __pyx_t_2, __pyx_t_9};
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 267, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    } else
+    #endif
+    #if CYTHON_FAST_PYCCALL
+    if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_12, __pyx_t_2, __pyx_t_9};
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 267, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    } else
+    #endif
+    {
+      __pyx_t_13 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 267, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_13);
+      if (__pyx_t_12) {
+        __Pyx_GIVEREF(__pyx_t_12); PyTuple_SET_ITEM(__pyx_t_13, 0, __pyx_t_12); __pyx_t_12 = NULL;
+      }
+      __Pyx_GIVEREF(__pyx_t_2);
+      PyTuple_SET_ITEM(__pyx_t_13, 0+__pyx_t_4, __pyx_t_2);
+      __Pyx_GIVEREF(__pyx_t_9);
+      PyTuple_SET_ITEM(__pyx_t_13, 1+__pyx_t_4, __pyx_t_9);
+      __pyx_t_2 = 0;
+      __pyx_t_9 = 0;
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_13, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 267, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_10 = __Pyx_PyList_Append(__pyx_v_diagf_set, __pyx_t_1); if (unlikely(__pyx_t_10 == -1)) __PYX_ERR(0, 267, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+    /* "Board.pyx":266
+ *         #print("ylistb: ",list(range(diag1ylow,diag1yhigh+1)))
+ *         #print("xlistb: ",list(range(diag1xlow,diag1xhigh+1)))
+ *         for i in range(len(range(diag1xlow,diag1xhigh+1))):             # <<<<<<<<<<<<<<
+ *             diagf_set.append(self.get_cell(list(range(diag1xlow,diag1xhigh+1))[i],list(range(diag1ylow,diag1yhigh+1))[i]))
+ *         #diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(diag1low-diag1r1,diag1high+1-diag1r1)]))
+ */
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+
+  /* "Board.pyx":269
+ *             diagf_set.append(self.get_cell(list(range(diag1xlow,diag1xhigh+1))[i],list(range(diag1ylow,diag1yhigh+1))[i]))
+ *         #diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(diag1low-diag1r1,diag1high+1-diag1r1)]))
+ *         win = True             # <<<<<<<<<<<<<<
+ *         for i in range(len(diagf_set)):
+ *             #print("diagf i: ",diagf_set[i].color)
+ */
+  __pyx_v_win = 1;
+
+  /* "Board.pyx":270
+ *         #diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(diag1low-diag1r1,diag1high+1-diag1r1)]))
+ *         win = True
+ *         for i in range(len(diagf_set)):             # <<<<<<<<<<<<<<
+ *             #print("diagf i: ",diagf_set[i].color)
+ *             c3+=1
+ */
+  __pyx_t_7 = PyList_GET_SIZE(__pyx_v_diagf_set); if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_3 = PyInt_FromSsize_t(__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
+  __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
+    __pyx_t_1 = __pyx_t_3; __Pyx_INCREF(__pyx_t_1); __pyx_t_7 = 0;
+    __pyx_t_8 = NULL;
+  } else {
+    __pyx_t_7 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_8 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 270, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_8)) {
+      if (likely(PyList_CheckExact(__pyx_t_1))) {
+        if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_1)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 270, __pyx_L1_error)
+        #else
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        #endif
+      } else {
+        if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_7); __Pyx_INCREF(__pyx_t_3); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 270, __pyx_L1_error)
+        #else
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        #endif
+      }
+    } else {
+      __pyx_t_3 = __pyx_t_8(__pyx_t_1);
+      if (unlikely(!__pyx_t_3)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 270, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_3);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_3);
+    __pyx_t_3 = 0;
+
+    /* "Board.pyx":272
+ *         for i in range(len(diagf_set)):
+ *             #print("diagf i: ",diagf_set[i].color)
+ *             c3+=1             # <<<<<<<<<<<<<<
+ *             if this_color != diagf_set[i].color:
+ *                 c3 = 0
+ */
+    __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_v_c3, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 272, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF_SET(__pyx_v_c3, __pyx_t_3);
+    __pyx_t_3 = 0;
+
+    /* "Board.pyx":273
+ *             #print("diagf i: ",diagf_set[i].color)
+ *             c3+=1
+ *             if this_color != diagf_set[i].color:             # <<<<<<<<<<<<<<
+ *                 c3 = 0
+ *                 win = False
+ */
+    __pyx_t_3 = PyObject_GetItem(__pyx_v_diagf_set, __pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 273, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_color); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 273, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_5, Py_NE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 273, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 273, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (__pyx_t_6) {
+
+      /* "Board.pyx":274
+ *             c3+=1
+ *             if this_color != diagf_set[i].color:
+ *                 c3 = 0             # <<<<<<<<<<<<<<
+ *                 win = False
+ *             if c3 >=5:
+ */
+      __Pyx_INCREF(__pyx_int_0);
+      __Pyx_DECREF_SET(__pyx_v_c3, __pyx_int_0);
+
+      /* "Board.pyx":275
+ *             if this_color != diagf_set[i].color:
+ *                 c3 = 0
+ *                 win = False             # <<<<<<<<<<<<<<
+ *             if c3 >=5:
+ *                 if this_color == self.our_color:
+ */
+      __pyx_v_win = 0;
+
+      /* "Board.pyx":273
+ *             #print("diagf i: ",diagf_set[i].color)
+ *             c3+=1
+ *             if this_color != diagf_set[i].color:             # <<<<<<<<<<<<<<
+ *                 c3 = 0
+ *                 win = False
+ */
+    }
+
+    /* "Board.pyx":276
+ *                 c3 = 0
+ *                 win = False
+ *             if c3 >=5:             # <<<<<<<<<<<<<<
+ *                 if this_color == self.our_color:
+ *                     return 100
+ */
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_c3, __pyx_int_5, Py_GE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 276, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 276, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (__pyx_t_6) {
+
+      /* "Board.pyx":277
+ *                 win = False
+ *             if c3 >=5:
+ *                 if this_color == self.our_color:             # <<<<<<<<<<<<<<
+ *                     return 100
+ *                 else:
+ */
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 277, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __pyx_t_5 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 277, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 277, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      if (__pyx_t_6) {
+
+        /* "Board.pyx":278
+ *             if c3 >=5:
+ *                 if this_color == self.our_color:
+ *                     return 100             # <<<<<<<<<<<<<<
+ *                 else:
+ *                     return -100
+ */
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_INCREF(__pyx_int_100);
+        __pyx_r = __pyx_int_100;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+
+        /* "Board.pyx":277
+ *                 win = False
+ *             if c3 >=5:
+ *                 if this_color == self.our_color:             # <<<<<<<<<<<<<<
+ *                     return 100
+ *                 else:
+ */
+      }
+
+      /* "Board.pyx":280
+ *                     return 100
+ *                 else:
+ *                     return -100             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+      /*else*/ {
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_INCREF(__pyx_int_neg_100);
+        __pyx_r = __pyx_int_neg_100;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+
+      /* "Board.pyx":276
+ *                 c3 = 0
+ *                 win = False
+ *             if c3 >=5:             # <<<<<<<<<<<<<<
+ *                 if this_color == self.our_color:
+ *                     return 100
+ */
+    }
+
+    /* "Board.pyx":270
+ *         #diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(diag1low-diag1r1,diag1high+1-diag1r1)]))
+ *         win = True
+ *         for i in range(len(diagf_set)):             # <<<<<<<<<<<<<<
+ *             #print("diagf i: ",diagf_set[i].color)
+ *             c3+=1
+ */
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "Board.pyx":285
+ * 
+ *         #if diagb_fits_on_board:
+ *         diag2xlow = x - min(15-y,x-1)             # <<<<<<<<<<<<<<
+ *         diag2ylow = y - min(15-x,y-1)
+ *         diag2xhigh = x + min(y-1,15-x)
+ */
+  __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_x, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_5 = __Pyx_PyInt_SubtractCObj(__pyx_int_15, __pyx_v_y, 15, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_13 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_LT); __Pyx_XGOTREF(__pyx_t_13); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_13); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+  if (__pyx_t_6) {
+    __Pyx_INCREF(__pyx_t_1);
+    __pyx_t_3 = __pyx_t_1;
+  } else {
+    __Pyx_INCREF(__pyx_t_5);
+    __pyx_t_3 = __pyx_t_5;
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyNumber_Subtract(__pyx_v_x, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_v_diag2xlow = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "Board.pyx":286
+ *         #if diagb_fits_on_board:
+ *         diag2xlow = x - min(15-y,x-1)
+ *         diag2ylow = y - min(15-x,y-1)             # <<<<<<<<<<<<<<
+ *         diag2xhigh = x + min(y-1,15-x)
+ *         diag2yhigh = y + min(x-1,15-y)
+ */
+  __pyx_t_1 = __Pyx_PyInt_SubtractObjC(__pyx_v_y, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyInt_SubtractCObj(__pyx_int_15, __pyx_v_x, 15, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_13 = PyObject_RichCompare(__pyx_t_1, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_13); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_13); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+  if (__pyx_t_6) {
+    __Pyx_INCREF(__pyx_t_1);
+    __pyx_t_5 = __pyx_t_1;
+  } else {
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_5 = __pyx_t_3;
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyNumber_Subtract(__pyx_v_y, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_v_diag2ylow = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "Board.pyx":287
+ *         diag2xlow = x - min(15-y,x-1)
+ *         diag2ylow = y - min(15-x,y-1)
+ *         diag2xhigh = x + min(y-1,15-x)             # <<<<<<<<<<<<<<
+ *         diag2yhigh = y + min(x-1,15-y)
+ *         #diagb_set = list(set([self.get_cell(x + delta,y - delta) for delta in range(diag1low-diag1r1,diag1high+1-diag1r1)]))
+ */
+  __pyx_t_1 = __Pyx_PyInt_SubtractCObj(__pyx_int_15, __pyx_v_x, 15, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_5 = __Pyx_PyInt_SubtractObjC(__pyx_v_y, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_13 = PyObject_RichCompare(__pyx_t_1, __pyx_t_5, Py_LT); __Pyx_XGOTREF(__pyx_t_13); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_13); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+  if (__pyx_t_6) {
+    __Pyx_INCREF(__pyx_t_1);
+    __pyx_t_3 = __pyx_t_1;
+  } else {
+    __Pyx_INCREF(__pyx_t_5);
+    __pyx_t_3 = __pyx_t_5;
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyNumber_Add(__pyx_v_x, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_v_diag2xhigh = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "Board.pyx":288
+ *         diag2ylow = y - min(15-x,y-1)
+ *         diag2xhigh = x + min(y-1,15-x)
+ *         diag2yhigh = y + min(x-1,15-y)             # <<<<<<<<<<<<<<
+ *         #diagb_set = list(set([self.get_cell(x + delta,y - delta) for delta in range(diag1low-diag1r1,diag1high+1-diag1r1)]))
+ *         diagb_set = []
+ */
+  __pyx_t_1 = __Pyx_PyInt_SubtractCObj(__pyx_int_15, __pyx_v_y, 15, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyInt_SubtractObjC(__pyx_v_x, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_13 = PyObject_RichCompare(__pyx_t_1, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_13); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_13); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+  if (__pyx_t_6) {
+    __Pyx_INCREF(__pyx_t_1);
+    __pyx_t_5 = __pyx_t_1;
+  } else {
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_5 = __pyx_t_3;
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyNumber_Add(__pyx_v_y, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 288, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_v_diag2yhigh = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "Board.pyx":290
+ *         diag2yhigh = y + min(x-1,15-y)
+ *         #diagb_set = list(set([self.get_cell(x + delta,y - delta) for delta in range(diag1low-diag1r1,diag1high+1-diag1r1)]))
+ *         diagb_set = []             # <<<<<<<<<<<<<<
+ *         c4 = 0
+ *         ylist = list(range(diag2ylow,diag2yhigh+1))
+ */
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 290, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_v_diagb_set = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "Board.pyx":291
+ *         #diagb_set = list(set([self.get_cell(x + delta,y - delta) for delta in range(diag1low-diag1r1,diag1high+1-diag1r1)]))
+ *         diagb_set = []
+ *         c4 = 0             # <<<<<<<<<<<<<<
+ *         ylist = list(range(diag2ylow,diag2yhigh+1))
+ *         ylist.reverse()
+ */
+  __Pyx_INCREF(__pyx_int_0);
+  __pyx_v_c4 = __pyx_int_0;
+
+  /* "Board.pyx":292
+ *         diagb_set = []
+ *         c4 = 0
+ *         ylist = list(range(diag2ylow,diag2yhigh+1))             # <<<<<<<<<<<<<<
+ *         ylist.reverse()
+ *         #print("ylistb: ",ylist)
+ */
+  __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_diag2yhigh, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_INCREF(__pyx_v_diag2ylow);
+  __Pyx_GIVEREF(__pyx_v_diag2ylow);
+  PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_diag2ylow);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v_ylist = ((PyObject*)__pyx_t_5);
+  __pyx_t_5 = 0;
+
+  /* "Board.pyx":293
+ *         c4 = 0
+ *         ylist = list(range(diag2ylow,diag2yhigh+1))
+ *         ylist.reverse()             # <<<<<<<<<<<<<<
+ *         #print("ylistb: ",ylist)
+ *         #print("xlistb: ",list(range(xlow,xhigh+1)))
+ */
+  __pyx_t_10 = PyList_Reverse(__pyx_v_ylist); if (unlikely(__pyx_t_10 == -1)) __PYX_ERR(0, 293, __pyx_L1_error)
+
+  /* "Board.pyx":297
+ *         #print("xlistb: ",list(range(xlow,xhigh+1)))
+ *         #for i in range(xlow,xhigh+1),ylist:
+ *         for i in range(len(range(diag2xlow,diag2xhigh+1))):             # <<<<<<<<<<<<<<
+ *             diagb_set.append(self.get_cell(list(range(diag2xlow,diag2xhigh+1))[i],ylist[i]))
+ *         win = True
+ */
+  __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_v_diag2xhigh, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_v_diag2xlow);
+  __Pyx_GIVEREF(__pyx_v_diag2xlow);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_diag2xlow);
+  __Pyx_GIVEREF(__pyx_t_5);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_5);
+  __pyx_t_5 = 0;
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_1, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_7 = PyObject_Length(__pyx_t_5); if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = PyInt_FromSsize_t(__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_5);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_5);
+  __pyx_t_5 = 0;
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_1, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (likely(PyList_CheckExact(__pyx_t_5)) || PyTuple_CheckExact(__pyx_t_5)) {
+    __pyx_t_1 = __pyx_t_5; __Pyx_INCREF(__pyx_t_1); __pyx_t_7 = 0;
+    __pyx_t_8 = NULL;
+  } else {
+    __pyx_t_7 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_8 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 297, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_8)) {
+      if (likely(PyList_CheckExact(__pyx_t_1))) {
+        if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_1)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_5 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_7); __Pyx_INCREF(__pyx_t_5); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 297, __pyx_L1_error)
+        #else
+        __pyx_t_5 = PySequence_ITEM(__pyx_t_1, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 297, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        #endif
+      } else {
+        if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_7); __Pyx_INCREF(__pyx_t_5); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 297, __pyx_L1_error)
+        #else
+        __pyx_t_5 = PySequence_ITEM(__pyx_t_1, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 297, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        #endif
+      }
+    } else {
+      __pyx_t_5 = __pyx_t_8(__pyx_t_1);
+      if (unlikely(!__pyx_t_5)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 297, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_5);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_5);
+    __pyx_t_5 = 0;
+
+    /* "Board.pyx":298
+ *         #for i in range(xlow,xhigh+1),ylist:
+ *         for i in range(len(range(diag2xlow,diag2xhigh+1))):
+ *             diagb_set.append(self.get_cell(list(range(diag2xlow,diag2xhigh+1))[i],ylist[i]))             # <<<<<<<<<<<<<<
+ *         win = True
+ *         for i in range(len(diagb_set)):
+ */
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_get_cell); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 298, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_13 = __Pyx_PyInt_AddObjC(__pyx_v_diag2xhigh, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 298, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_13);
+    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 298, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    __Pyx_INCREF(__pyx_v_diag2xlow);
+    __Pyx_GIVEREF(__pyx_v_diag2xlow);
+    PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_v_diag2xlow);
+    __Pyx_GIVEREF(__pyx_t_13);
+    PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_13);
+    __pyx_t_13 = 0;
+    __pyx_t_13 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_9, NULL); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 298, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_13);
+    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    __pyx_t_9 = PySequence_List(__pyx_t_13); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 298, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+    __pyx_t_13 = PyObject_GetItem(__pyx_t_9, __pyx_v_i); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 298, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_13);
+    __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    __pyx_t_9 = PyObject_GetItem(__pyx_v_ylist, __pyx_v_i); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 298, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_9);
+    __pyx_t_2 = NULL;
+    __pyx_t_4 = 0;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
+      if (likely(__pyx_t_2)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_2);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_3, function);
+        __pyx_t_4 = 1;
+      }
+    }
+    #if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(__pyx_t_3)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_13, __pyx_t_9};
+      __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 298, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    } else
+    #endif
+    #if CYTHON_FAST_PYCCALL
+    if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_t_13, __pyx_t_9};
+      __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 298, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
+      __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
+    } else
+    #endif
+    {
+      __pyx_t_12 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 298, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_12);
+      if (__pyx_t_2) {
+        __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_2); __pyx_t_2 = NULL;
+      }
+      __Pyx_GIVEREF(__pyx_t_13);
+      PyTuple_SET_ITEM(__pyx_t_12, 0+__pyx_t_4, __pyx_t_13);
+      __Pyx_GIVEREF(__pyx_t_9);
+      PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_4, __pyx_t_9);
+      __pyx_t_13 = 0;
+      __pyx_t_9 = 0;
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_12, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 298, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_10 = __Pyx_PyList_Append(__pyx_v_diagb_set, __pyx_t_5); if (unlikely(__pyx_t_10 == -1)) __PYX_ERR(0, 298, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+    /* "Board.pyx":297
+ *         #print("xlistb: ",list(range(xlow,xhigh+1)))
+ *         #for i in range(xlow,xhigh+1),ylist:
+ *         for i in range(len(range(diag2xlow,diag2xhigh+1))):             # <<<<<<<<<<<<<<
+ *             diagb_set.append(self.get_cell(list(range(diag2xlow,diag2xhigh+1))[i],ylist[i]))
+ *         win = True
+ */
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "Board.pyx":299
+ *         for i in range(len(range(diag2xlow,diag2xhigh+1))):
+ *             diagb_set.append(self.get_cell(list(range(diag2xlow,diag2xhigh+1))[i],ylist[i]))
+ *         win = True             # <<<<<<<<<<<<<<
+ *         for i in range(len(diagb_set)):
+ *             #print("diagb i: ",diagb_set[i].color)
+ */
+  __pyx_v_win = 1;
+
+  /* "Board.pyx":300
+ *             diagb_set.append(self.get_cell(list(range(diag2xlow,diag2xhigh+1))[i],ylist[i]))
+ *         win = True
+ *         for i in range(len(diagb_set)):             # <<<<<<<<<<<<<<
+ *             #print("diagb i: ",diagb_set[i].color)
+ *             c4+=1
+ */
+  __pyx_t_7 = PyList_GET_SIZE(__pyx_v_diagb_set); if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 300, __pyx_L1_error)
+  __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 300, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 300, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 300, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
+    __pyx_t_5 = __pyx_t_1; __Pyx_INCREF(__pyx_t_5); __pyx_t_7 = 0;
+    __pyx_t_8 = NULL;
+  } else {
+    __pyx_t_7 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 300, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_8 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 300, __pyx_L1_error)
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  for (;;) {
+    if (likely(!__pyx_t_8)) {
+      if (likely(PyList_CheckExact(__pyx_t_5))) {
+        if (__pyx_t_7 >= PyList_GET_SIZE(__pyx_t_5)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_7); __Pyx_INCREF(__pyx_t_1); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 300, __pyx_L1_error)
+        #else
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 300, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        #endif
+      } else {
+        if (__pyx_t_7 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_7); __Pyx_INCREF(__pyx_t_1); __pyx_t_7++; if (unlikely(0 < 0)) __PYX_ERR(0, 300, __pyx_L1_error)
+        #else
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_7); __pyx_t_7++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 300, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_1);
+        #endif
+      }
+    } else {
+      __pyx_t_1 = __pyx_t_8(__pyx_t_5);
+      if (unlikely(!__pyx_t_1)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(0, 300, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_1);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "Board.pyx":302
+ *         for i in range(len(diagb_set)):
+ *             #print("diagb i: ",diagb_set[i].color)
+ *             c4+=1             # <<<<<<<<<<<<<<
+ *             if this_color != diagb_set[i].color:
+ *                 c4 = 0
+ */
+    __pyx_t_1 = __Pyx_PyInt_AddObjC(__pyx_v_c4, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 302, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF_SET(__pyx_v_c4, __pyx_t_1);
+    __pyx_t_1 = 0;
+
+    /* "Board.pyx":303
+ *             #print("diagb i: ",diagb_set[i].color)
+ *             c4+=1
+ *             if this_color != diagb_set[i].color:             # <<<<<<<<<<<<<<
+ *                 c4 = 0
+ *                 win = False
+ */
+    __pyx_t_1 = PyObject_GetItem(__pyx_v_diagb_set, __pyx_v_i); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_color); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 303, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 303, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__pyx_t_6) {
+
+      /* "Board.pyx":304
+ *             c4+=1
+ *             if this_color != diagb_set[i].color:
+ *                 c4 = 0             # <<<<<<<<<<<<<<
+ *                 win = False
+ *             if c4>=5:
+ */
+      __Pyx_INCREF(__pyx_int_0);
+      __Pyx_DECREF_SET(__pyx_v_c4, __pyx_int_0);
+
+      /* "Board.pyx":305
+ *             if this_color != diagb_set[i].color:
+ *                 c4 = 0
+ *                 win = False             # <<<<<<<<<<<<<<
+ *             if c4>=5:
+ *                 if this_color == self.our_color:
+ */
+      __pyx_v_win = 0;
+
+      /* "Board.pyx":303
+ *             #print("diagb i: ",diagb_set[i].color)
+ *             c4+=1
+ *             if this_color != diagb_set[i].color:             # <<<<<<<<<<<<<<
+ *                 c4 = 0
+ *                 win = False
+ */
+    }
+
+    /* "Board.pyx":306
+ *                 c4 = 0
+ *                 win = False
+ *             if c4>=5:             # <<<<<<<<<<<<<<
+ *                 if this_color == self.our_color:
+ *                     return 100
+ */
+    __pyx_t_1 = PyObject_RichCompare(__pyx_v_c4, __pyx_int_5, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 306, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 306, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__pyx_t_6) {
+
+      /* "Board.pyx":307
+ *                 win = False
+ *             if c4>=5:
+ *                 if this_color == self.our_color:             # <<<<<<<<<<<<<<
+ *                     return 100
+ *                 else:
+ */
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 307, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __pyx_t_3 = PyObject_RichCompare(__pyx_v_this_color, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 307, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 307, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (__pyx_t_6) {
+
+        /* "Board.pyx":308
+ *             if c4>=5:
+ *                 if this_color == self.our_color:
+ *                     return 100             # <<<<<<<<<<<<<<
+ *                 else:
+ *                     return -100
+ */
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_INCREF(__pyx_int_100);
+        __pyx_r = __pyx_int_100;
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        goto __pyx_L0;
+
+        /* "Board.pyx":307
+ *                 win = False
+ *             if c4>=5:
+ *                 if this_color == self.our_color:             # <<<<<<<<<<<<<<
+ *                     return 100
+ *                 else:
+ */
+      }
+
+      /* "Board.pyx":310
+ *                     return 100
+ *                 else:
+ *                     return -100             # <<<<<<<<<<<<<<
+ * 
+ *         if self.is_full():
+ */
+      /*else*/ {
+        __Pyx_XDECREF(__pyx_r);
+        __Pyx_INCREF(__pyx_int_neg_100);
+        __pyx_r = __pyx_int_neg_100;
+        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+        goto __pyx_L0;
+      }
+
+      /* "Board.pyx":306
+ *                 c4 = 0
+ *                 win = False
+ *             if c4>=5:             # <<<<<<<<<<<<<<
+ *                 if this_color == self.our_color:
+ *                     return 100
+ */
+    }
+
+    /* "Board.pyx":300
+ *             diagb_set.append(self.get_cell(list(range(diag2xlow,diag2xhigh+1))[i],ylist[i]))
+ *         win = True
+ *         for i in range(len(diagb_set)):             # <<<<<<<<<<<<<<
+ *             #print("diagb i: ",diagb_set[i].color)
+ *             c4+=1
+ */
+  }
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+
+  /* "Board.pyx":312
+ *                     return -100
+ * 
+ *         if self.is_full():             # <<<<<<<<<<<<<<
+ *             return "tie"
+ *         return False
+ */
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_is_full); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_1 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_1)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_1);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_3, function);
+    }
+  }
+  if (__pyx_t_1) {
+    __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 312, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  } else {
+    __pyx_t_5 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 312, __pyx_L1_error)
+  }
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 312, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (__pyx_t_6) {
+
+    /* "Board.pyx":313
+ * 
+ *         if self.is_full():
+ *             return "tie"             # <<<<<<<<<<<<<<
+ *         return False
+ * 
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_INCREF(__pyx_n_u_tie);
+    __pyx_r = __pyx_n_u_tie;
+    goto __pyx_L0;
+
+    /* "Board.pyx":312
+ *                     return -100
+ * 
+ *         if self.is_full():             # <<<<<<<<<<<<<<
+ *             return "tie"
+ *         return False
+ */
+  }
+
+  /* "Board.pyx":314
+ *         if self.is_full():
+ *             return "tie"
+ *         return False             # <<<<<<<<<<<<<<
+ * 
+ *     def print_board(self):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __Pyx_INCREF(Py_False);
+  __pyx_r = Py_False;
+  goto __pyx_L0;
+
+  /* "Board.pyx":190
+ *         return False
+ * 
+ *     def check_terminal_move(self,column_index,row_index):             # <<<<<<<<<<<<<<
+ *         x = column_index
+ *         y = row_index
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_9);
+  __Pyx_XDECREF(__pyx_t_12);
+  __Pyx_XDECREF(__pyx_t_13);
+  __Pyx_AddTraceback("Board.Board.check_terminal_move", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_x);
+  __Pyx_XDECREF(__pyx_v_y);
+  __Pyx_XDECREF(__pyx_v_this_color);
+  __Pyx_XDECREF(__pyx_v_xlow);
+  __Pyx_XDECREF(__pyx_v_xhigh);
+  __Pyx_XDECREF(__pyx_v_x_set);
+  __Pyx_XDECREF(__pyx_v_i);
+  __Pyx_XDECREF(__pyx_v_c1);
+  __Pyx_XDECREF(__pyx_v_ylow);
+  __Pyx_XDECREF(__pyx_v_yhigh);
+  __Pyx_XDECREF(__pyx_v_y_set);
+  __Pyx_XDECREF(__pyx_v_j);
+  __Pyx_XDECREF(__pyx_v_c2);
+  __Pyx_XDECREF(__pyx_v_diag1xlow);
+  __Pyx_XDECREF(__pyx_v_diag1ylow);
+  __Pyx_XDECREF(__pyx_v_diag1xhigh);
+  __Pyx_XDECREF(__pyx_v_diag1yhigh);
+  __Pyx_XDECREF(__pyx_v_diagf_set);
+  __Pyx_XDECREF(__pyx_v_c3);
+  __Pyx_XDECREF(__pyx_v_diag2xlow);
+  __Pyx_XDECREF(__pyx_v_diag2ylow);
+  __Pyx_XDECREF(__pyx_v_diag2xhigh);
+  __Pyx_XDECREF(__pyx_v_diag2yhigh);
+  __Pyx_XDECREF(__pyx_v_diagb_set);
+  __Pyx_XDECREF(__pyx_v_c4);
+  __Pyx_XDECREF(__pyx_v_ylist);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "Board.pyx":316
+ *         return False
+ * 
+ *     def print_board(self):             # <<<<<<<<<<<<<<
+ *         for i in ["   "] + self.columns_pos:
+ *             print(i,end=" ")
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_5Board_5Board_21print_board(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_21print_board = {"print_board", (PyCFunction)__pyx_pw_5Board_5Board_21print_board, METH_O, 0};
+static PyObject *__pyx_pw_5Board_5Board_21print_board(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("print_board (wrapper)", 0);
+  __pyx_r = __pyx_pf_5Board_5Board_20print_board(__pyx_self, ((PyObject *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_5Board_5Board_20print_board(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_i = NULL;
   PyObject *__pyx_v_j = NULL;
   PyObject *__pyx_v_end1 = NULL;
@@ -5834,21 +8428,21 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
   PyObject *__pyx_t_10 = NULL;
   __Pyx_RefNannySetupContext("print_board", 0);
 
-  /* "Boardcpython.pyx":188
+  /* "Board.pyx":317
  * 
  *     def print_board(self):
- *         for i in ["  "] + self.columns_pos:             # <<<<<<<<<<<<<<
- *             print(i,end="  ")
+ *         for i in ["   "] + self.columns_pos:             # <<<<<<<<<<<<<<
+ *             print(i,end=" ")
  *         print("")
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_kp_u__6);
-  __Pyx_GIVEREF(__pyx_kp_u__6);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_kp_u__6);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __Pyx_INCREF(__pyx_kp_u__5);
+  __Pyx_GIVEREF(__pyx_kp_u__5);
+  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_kp_u__5);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyNumber_Add(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_t_3 = PyNumber_Add(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 317, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -5856,9 +8450,9 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
     __pyx_t_2 = __pyx_t_3; __Pyx_INCREF(__pyx_t_2); __pyx_t_4 = 0;
     __pyx_t_5 = NULL;
   } else {
-    __pyx_t_4 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
+    __pyx_t_4 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 317, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 188, __pyx_L1_error)
+    __pyx_t_5 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 317, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   for (;;) {
@@ -5866,17 +8460,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_3); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 188, __pyx_L1_error)
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_3); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 317, __pyx_L1_error)
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 188, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       } else {
         if (__pyx_t_4 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_3); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 188, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_3); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 317, __pyx_L1_error)
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 188, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 317, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       }
@@ -5886,7 +8480,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 188, __pyx_L1_error)
+          else __PYX_ERR(0, 317, __pyx_L1_error)
         }
         break;
       }
@@ -5895,64 +8489,64 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "Boardcpython.pyx":189
+    /* "Board.pyx":318
  *     def print_board(self):
- *         for i in ["  "] + self.columns_pos:
- *             print(i,end="  ")             # <<<<<<<<<<<<<<
+ *         for i in ["   "] + self.columns_pos:
+ *             print(i,end=" ")             # <<<<<<<<<<<<<<
  *         print("")
  *         for j in self.rows_pos:
  */
-    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 189, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 318, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_v_i);
     __Pyx_GIVEREF(__pyx_v_i);
     PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_i);
-    __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_u__6) < 0) __PYX_ERR(0, 189, __pyx_L1_error)
-    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 189, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_u__6) < 0) __PYX_ERR(0, 318, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 318, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "Boardcpython.pyx":188
+    /* "Board.pyx":317
  * 
  *     def print_board(self):
- *         for i in ["  "] + self.columns_pos:             # <<<<<<<<<<<<<<
- *             print(i,end="  ")
+ *         for i in ["   "] + self.columns_pos:             # <<<<<<<<<<<<<<
+ *             print(i,end=" ")
  *         print("")
  */
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":190
- *         for i in ["  "] + self.columns_pos:
- *             print(i,end="  ")
+  /* "Board.pyx":319
+ *         for i in ["   "] + self.columns_pos:
+ *             print(i,end=" ")
  *         print("")             # <<<<<<<<<<<<<<
  *         for j in self.rows_pos:
  *             if int(j) < 10:
  */
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":191
- *             print(i,end="  ")
+  /* "Board.pyx":320
+ *             print(i,end=" ")
  *         print("")
  *         for j in self.rows_pos:             # <<<<<<<<<<<<<<
  *             if int(j) < 10:
  *                 end1 = "  "
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_rows_pos); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_rows_pos); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 320, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
     __pyx_t_6 = __pyx_t_2; __Pyx_INCREF(__pyx_t_6); __pyx_t_4 = 0;
     __pyx_t_5 = NULL;
   } else {
-    __pyx_t_4 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 191, __pyx_L1_error)
+    __pyx_t_4 = -1; __pyx_t_6 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 320, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_5 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 191, __pyx_L1_error)
+    __pyx_t_5 = Py_TYPE(__pyx_t_6)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 320, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   for (;;) {
@@ -5960,17 +8554,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
       if (likely(PyList_CheckExact(__pyx_t_6))) {
         if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_6)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_4); __Pyx_INCREF(__pyx_t_2); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 191, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_4); __Pyx_INCREF(__pyx_t_2); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 320, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_6, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_6, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 320, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         if (__pyx_t_4 >= PyTuple_GET_SIZE(__pyx_t_6)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_4); __Pyx_INCREF(__pyx_t_2); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 191, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_6, __pyx_t_4); __Pyx_INCREF(__pyx_t_2); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 320, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_6, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_6, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 320, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -5980,7 +8574,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 191, __pyx_L1_error)
+          else __PYX_ERR(0, 320, __pyx_L1_error)
         }
         break;
       }
@@ -5989,32 +8583,32 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
     __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "Boardcpython.pyx":192
+    /* "Board.pyx":321
  *         print("")
  *         for j in self.rows_pos:
  *             if int(j) < 10:             # <<<<<<<<<<<<<<
  *                 end1 = "  "
  *             else:
  */
-    __pyx_t_2 = __Pyx_PyNumber_Int(__pyx_v_j); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyNumber_Int(__pyx_v_j); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 321, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_int_10, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_t_2, __pyx_int_10, Py_LT); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 321, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 321, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_7) {
 
-      /* "Boardcpython.pyx":193
+      /* "Board.pyx":322
  *         for j in self.rows_pos:
  *             if int(j) < 10:
  *                 end1 = "  "             # <<<<<<<<<<<<<<
  *             else:
  *                 end1 = " "
  */
-      __Pyx_INCREF(__pyx_kp_u__6);
-      __Pyx_XDECREF_SET(__pyx_v_end1, __pyx_kp_u__6);
+      __Pyx_INCREF(__pyx_kp_u__9);
+      __Pyx_XDECREF_SET(__pyx_v_end1, __pyx_kp_u__9);
 
-      /* "Boardcpython.pyx":192
+      /* "Board.pyx":321
  *         print("")
  *         for j in self.rows_pos:
  *             if int(j) < 10:             # <<<<<<<<<<<<<<
@@ -6024,7 +8618,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
       goto __pyx_L7;
     }
 
-    /* "Boardcpython.pyx":195
+    /* "Board.pyx":324
  *                 end1 = "  "
  *             else:
  *                 end1 = " "             # <<<<<<<<<<<<<<
@@ -6032,19 +8626,19 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
  *             for k in self.columns_pos:
  */
     /*else*/ {
-      __Pyx_INCREF(__pyx_kp_u__9);
-      __Pyx_XDECREF_SET(__pyx_v_end1, __pyx_kp_u__9);
+      __Pyx_INCREF(__pyx_kp_u__6);
+      __Pyx_XDECREF_SET(__pyx_v_end1, __pyx_kp_u__6);
     }
     __pyx_L7:;
 
-    /* "Boardcpython.pyx":196
+    /* "Board.pyx":325
  *             else:
  *                 end1 = " "
  *             print(j,"",end=end1)             # <<<<<<<<<<<<<<
  *             for k in self.columns_pos:
  *                 color = self.board[k+j].color
  */
-    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 325, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_v_j);
     __Pyx_GIVEREF(__pyx_v_j);
@@ -6052,31 +8646,31 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
     __Pyx_INCREF(__pyx_kp_u__7);
     __Pyx_GIVEREF(__pyx_kp_u__7);
     PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_kp_u__7);
-    __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 325, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_v_end1) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 196, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_end, __pyx_v_end1) < 0) __PYX_ERR(0, 325, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 325, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "Boardcpython.pyx":197
+    /* "Board.pyx":326
  *                 end1 = " "
  *             print(j,"",end=end1)
  *             for k in self.columns_pos:             # <<<<<<<<<<<<<<
  *                 color = self.board[k+j].color
  *                 if color == "white":
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 197, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 326, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
       __pyx_t_2 = __pyx_t_3; __Pyx_INCREF(__pyx_t_2); __pyx_t_8 = 0;
       __pyx_t_9 = NULL;
     } else {
-      __pyx_t_8 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 197, __pyx_L1_error)
+      __pyx_t_8 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_9 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 197, __pyx_L1_error)
+      __pyx_t_9 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 326, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     for (;;) {
@@ -6084,17 +8678,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
         if (likely(PyList_CheckExact(__pyx_t_2))) {
           if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 197, __pyx_L1_error)
+          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 326, __pyx_L1_error)
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 197, __pyx_L1_error)
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 326, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         } else {
           if (__pyx_t_8 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 197, __pyx_L1_error)
+          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 326, __pyx_L1_error)
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 197, __pyx_L1_error)
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 326, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         }
@@ -6104,7 +8698,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 197, __pyx_L1_error)
+            else __PYX_ERR(0, 326, __pyx_L1_error)
           }
           break;
         }
@@ -6113,38 +8707,38 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
       __Pyx_XDECREF_SET(__pyx_v_k, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "Boardcpython.pyx":198
+      /* "Board.pyx":327
  *             print(j,"",end=end1)
  *             for k in self.columns_pos:
  *                 color = self.board[k+j].color             # <<<<<<<<<<<<<<
  *                 if color == "white":
  *                     symbol = "X"
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 198, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 327, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_1 = PyNumber_Add(__pyx_v_k, __pyx_v_j); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
+      __pyx_t_1 = PyNumber_Add(__pyx_v_k, __pyx_v_j); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_10 = PyObject_GetItem(__pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 198, __pyx_L1_error)
+      __pyx_t_10 = PyObject_GetItem(__pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 327, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_color); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_color); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __Pyx_XDECREF_SET(__pyx_v_color, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "Boardcpython.pyx":199
+      /* "Board.pyx":328
  *             for k in self.columns_pos:
  *                 color = self.board[k+j].color
  *                 if color == "white":             # <<<<<<<<<<<<<<
  *                     symbol = "X"
  *                 elif color == "black":
  */
-      __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_v_color, __pyx_n_u_white, Py_EQ)); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 199, __pyx_L1_error)
+      __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_v_color, __pyx_n_u_white, Py_EQ)); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 328, __pyx_L1_error)
       if (__pyx_t_7) {
 
-        /* "Boardcpython.pyx":200
+        /* "Board.pyx":329
  *                 color = self.board[k+j].color
  *                 if color == "white":
  *                     symbol = "X"             # <<<<<<<<<<<<<<
@@ -6154,7 +8748,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
         __Pyx_INCREF(__pyx_n_u_X);
         __Pyx_XDECREF_SET(__pyx_v_symbol, __pyx_n_u_X);
 
-        /* "Boardcpython.pyx":199
+        /* "Board.pyx":328
  *             for k in self.columns_pos:
  *                 color = self.board[k+j].color
  *                 if color == "white":             # <<<<<<<<<<<<<<
@@ -6164,17 +8758,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
         goto __pyx_L10;
       }
 
-      /* "Boardcpython.pyx":201
+      /* "Board.pyx":330
  *                 if color == "white":
  *                     symbol = "X"
  *                 elif color == "black":             # <<<<<<<<<<<<<<
  *                     symbol = "O"
  *                 else:
  */
-      __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_v_color, __pyx_n_u_black, Py_EQ)); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 201, __pyx_L1_error)
+      __pyx_t_7 = (__Pyx_PyUnicode_Equals(__pyx_v_color, __pyx_n_u_black, Py_EQ)); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 330, __pyx_L1_error)
       if (__pyx_t_7) {
 
-        /* "Boardcpython.pyx":202
+        /* "Board.pyx":331
  *                     symbol = "X"
  *                 elif color == "black":
  *                     symbol = "O"             # <<<<<<<<<<<<<<
@@ -6184,7 +8778,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
         __Pyx_INCREF(__pyx_n_u_O);
         __Pyx_XDECREF_SET(__pyx_v_symbol, __pyx_n_u_O);
 
-        /* "Boardcpython.pyx":201
+        /* "Board.pyx":330
  *                 if color == "white":
  *                     symbol = "X"
  *                 elif color == "black":             # <<<<<<<<<<<<<<
@@ -6194,11 +8788,11 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
         goto __pyx_L10;
       }
 
-      /* "Boardcpython.pyx":204
+      /* "Board.pyx":333
  *                     symbol = "O"
  *                 else:
  *                     symbol = "_"             # <<<<<<<<<<<<<<
- *                 print(symbol + " ",end = " ")
+ *                 print(symbol + "",end = " ")
  *             print("")
  */
       /*else*/ {
@@ -6207,30 +8801,30 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
       }
       __pyx_L10:;
 
-      /* "Boardcpython.pyx":205
+      /* "Board.pyx":334
  *                 else:
  *                     symbol = "_"
- *                 print(symbol + " ",end = " ")             # <<<<<<<<<<<<<<
+ *                 print(symbol + "",end = " ")             # <<<<<<<<<<<<<<
  *             print("")
  * 
  */
-      __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_v_symbol, __pyx_kp_u__9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyUnicode_Concat(__pyx_v_symbol, __pyx_kp_u__7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_10 = PyTuple_New(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 205, __pyx_L1_error)
+      __pyx_t_10 = PyTuple_New(1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 334, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_GIVEREF(__pyx_t_1);
       PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_1);
       __pyx_t_1 = 0;
-      __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_u__9) < 0) __PYX_ERR(0, 205, __pyx_L1_error)
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_10, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 205, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_end, __pyx_kp_u__6) < 0) __PYX_ERR(0, 334, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_10, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 334, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "Boardcpython.pyx":197
+      /* "Board.pyx":326
  *                 end1 = " "
  *             print(j,"",end=end1)
  *             for k in self.columns_pos:             # <<<<<<<<<<<<<<
@@ -6240,19 +8834,19 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Boardcpython.pyx":206
+    /* "Board.pyx":335
  *                     symbol = "_"
- *                 print(symbol + " ",end = " ")
+ *                 print(symbol + "",end = " ")
  *             print("")             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 206, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 335, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "Boardcpython.pyx":191
- *             print(i,end="  ")
+    /* "Board.pyx":320
+ *             print(i,end=" ")
  *         print("")
  *         for j in self.rows_pos:             # <<<<<<<<<<<<<<
  *             if int(j) < 10:
@@ -6261,12 +8855,12 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
   }
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "Boardcpython.pyx":187
+  /* "Board.pyx":316
  *         return False
  * 
  *     def print_board(self):             # <<<<<<<<<<<<<<
- *         for i in ["  "] + self.columns_pos:
- *             print(i,end="  ")
+ *         for i in ["   "] + self.columns_pos:
+ *             print(i,end=" ")
  */
 
   /* function exit code */
@@ -6278,7 +8872,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("Boardcpython.Board.print_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.print_board", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_i);
@@ -6292,7 +8886,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":211
+/* "Board.pyx":340
  *         #for key, value in self.board.items():
  *         #    print(key, value.color)
  *     def board_status(self):             # <<<<<<<<<<<<<<
@@ -6301,36 +8895,36 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_18print_board(CYTHON_UNUSED PyOb
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_21board_status(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_21board_status = {"board_status", (PyCFunction)__pyx_pw_12Boardcpython_5Board_21board_status, METH_O, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_21board_status(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5Board_5Board_23board_status(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_23board_status = {"board_status", (PyCFunction)__pyx_pw_5Board_5Board_23board_status, METH_O, 0};
+static PyObject *__pyx_pw_5Board_5Board_23board_status(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("board_status (wrapper)", 0);
-  __pyx_r = __pyx_pf_12Boardcpython_5Board_20board_status(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5Board_5Board_22board_status(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board_20board_status(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_5Board_5Board_22board_status(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
   __Pyx_RefNannySetupContext("board_status", 0);
 
-  /* "Boardcpython.pyx":212
+  /* "Board.pyx":341
  *         #    print(key, value.color)
  *     def board_status(self):
  *         print("number of filled cells: ",self.number_filled_cells)             # <<<<<<<<<<<<<<
  *         print("number of empty cells: ",self.number_empty_cells)
  *         print("number of white-filled cells: ",self.number_white_moves)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_kp_u_number_of_filled_cells);
   __Pyx_GIVEREF(__pyx_kp_u_number_of_filled_cells);
@@ -6338,21 +8932,21 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_20board_status(CYTHON_UNUSED PyO
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 212, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":213
+  /* "Board.pyx":342
  *     def board_status(self):
  *         print("number of filled cells: ",self.number_filled_cells)
  *         print("number of empty cells: ",self.number_empty_cells)             # <<<<<<<<<<<<<<
  *         print("number of white-filled cells: ",self.number_white_moves)
  *         print("number of black cells: ",self.number_black_moves)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_empty_cells); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 213, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_empty_cells); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 213, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_kp_u_number_of_empty_cells);
   __Pyx_GIVEREF(__pyx_kp_u_number_of_empty_cells);
@@ -6360,21 +8954,21 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_20board_status(CYTHON_UNUSED PyO
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 213, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":214
+  /* "Board.pyx":343
  *         print("number of filled cells: ",self.number_filled_cells)
  *         print("number of empty cells: ",self.number_empty_cells)
  *         print("number of white-filled cells: ",self.number_white_moves)             # <<<<<<<<<<<<<<
  *         print("number of black cells: ",self.number_black_moves)
  *         print("color of this player's turn: ",self.color_turn)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_white_moves); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 214, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_white_moves); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 214, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_kp_u_number_of_white_filled_cells);
   __Pyx_GIVEREF(__pyx_kp_u_number_of_white_filled_cells);
@@ -6382,21 +8976,21 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_20board_status(CYTHON_UNUSED PyO
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 214, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":215
+  /* "Board.pyx":344
  *         print("number of empty cells: ",self.number_empty_cells)
  *         print("number of white-filled cells: ",self.number_white_moves)
  *         print("number of black cells: ",self.number_black_moves)             # <<<<<<<<<<<<<<
  *         print("color of this player's turn: ",self.color_turn)
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_black_moves); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_black_moves); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_kp_u_number_of_black_cells);
   __Pyx_GIVEREF(__pyx_kp_u_number_of_black_cells);
@@ -6404,21 +8998,21 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_20board_status(CYTHON_UNUSED PyO
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":216
+  /* "Board.pyx":345
  *         print("number of white-filled cells: ",self.number_white_moves)
  *         print("number of black cells: ",self.number_black_moves)
  *         print("color of this player's turn: ",self.color_turn)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_kp_u_color_of_this_player_s_turn);
   __Pyx_GIVEREF(__pyx_kp_u_color_of_this_player_s_turn);
@@ -6426,12 +9020,12 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_20board_status(CYTHON_UNUSED PyO
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 216, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":211
+  /* "Board.pyx":340
  *         #for key, value in self.board.items():
  *         #    print(key, value.color)
  *     def board_status(self):             # <<<<<<<<<<<<<<
@@ -6445,7 +9039,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_20board_status(CYTHON_UNUSED PyO
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("Boardcpython.Board.board_status", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.board_status", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6453,7 +9047,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_20board_status(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":219
+/* "Board.pyx":348
  * 
  * 
  *     def get_player_turn(self):             # <<<<<<<<<<<<<<
@@ -6462,26 +9056,26 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_20board_status(CYTHON_UNUSED PyO
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_23get_player_turn(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_23get_player_turn = {"get_player_turn", (PyCFunction)__pyx_pw_12Boardcpython_5Board_23get_player_turn, METH_O, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_23get_player_turn(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5Board_5Board_25get_player_turn(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_25get_player_turn = {"get_player_turn", (PyCFunction)__pyx_pw_5Board_5Board_25get_player_turn, METH_O, 0};
+static PyObject *__pyx_pw_5Board_5Board_25get_player_turn(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("get_player_turn (wrapper)", 0);
-  __pyx_r = __pyx_pf_12Boardcpython_5Board_22get_player_turn(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5Board_5Board_24get_player_turn(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board_22get_player_turn(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_5Board_5Board_24get_player_turn(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("get_player_turn", 0);
 
-  /* "Boardcpython.pyx":220
+  /* "Board.pyx":349
  * 
  *     def get_player_turn(self):
  *         return self.color_turn             # <<<<<<<<<<<<<<
@@ -6489,13 +9083,13 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_22get_player_turn(CYTHON_UNUSED 
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color_turn); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "Boardcpython.pyx":219
+  /* "Board.pyx":348
  * 
  * 
  *     def get_player_turn(self):             # <<<<<<<<<<<<<<
@@ -6506,7 +9100,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_22get_player_turn(CYTHON_UNUSED 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("Boardcpython.Board.get_player_turn", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.get_player_turn", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6514,7 +9108,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_22get_player_turn(CYTHON_UNUSED 
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":223
+/* "Board.pyx":352
  * 
  * 
  *     def copy(self):             # <<<<<<<<<<<<<<
@@ -6523,20 +9117,20 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_22get_player_turn(CYTHON_UNUSED 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_5Board_25copy(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_5Board_25copy = {"copy", (PyCFunction)__pyx_pw_12Boardcpython_5Board_25copy, METH_O, 0};
-static PyObject *__pyx_pw_12Boardcpython_5Board_25copy(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5Board_5Board_27copy(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_5Board_27copy = {"copy", (PyCFunction)__pyx_pw_5Board_5Board_27copy, METH_O, 0};
+static PyObject *__pyx_pw_5Board_5Board_27copy(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("copy (wrapper)", 0);
-  __pyx_r = __pyx_pf_12Boardcpython_5Board_24copy(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5Board_5Board_26copy(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_5Board_5Board_26copy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_new_board = NULL;
   PyObject *__pyx_v_i = NULL;
   PyObject *__pyx_v_j = NULL;
@@ -6554,16 +9148,16 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
   PyObject *__pyx_t_10 = NULL;
   __Pyx_RefNannySetupContext("copy", 0);
 
-  /* "Boardcpython.pyx":224
+  /* "Board.pyx":353
  * 
  *     def copy(self):
  *         new_board = Board(self.our_color)             # <<<<<<<<<<<<<<
  *         for i in new_board.columns_pos:
  *             for j in new_board.rows_pos:
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 353, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 224, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_our_color); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 353, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -6576,14 +9170,14 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
     }
   }
   if (!__pyx_t_4) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 353, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else {
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[2] = {__pyx_t_4, __pyx_t_3};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 353, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -6592,20 +9186,20 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[2] = {__pyx_t_4, __pyx_t_3};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 353, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else
     #endif
     {
-      __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 224, __pyx_L1_error)
+      __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 353, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
       __Pyx_GIVEREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_t_3);
       __pyx_t_3 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 224, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 353, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
@@ -6614,22 +9208,22 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
   __pyx_v_new_board = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":225
+  /* "Board.pyx":354
  *     def copy(self):
  *         new_board = Board(self.our_color)
  *         for i in new_board.columns_pos:             # <<<<<<<<<<<<<<
  *             for j in new_board.rows_pos:
  *                 new_board.board[i + j] = self.board[i + j].copy()
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_new_board, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 225, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_new_board, __pyx_n_s_columns_pos); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
     __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2); __pyx_t_6 = 0;
     __pyx_t_7 = NULL;
   } else {
-    __pyx_t_6 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 225, __pyx_L1_error)
+    __pyx_t_6 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 354, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 225, __pyx_L1_error)
+    __pyx_t_7 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 354, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -6637,17 +9231,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 225, __pyx_L1_error)
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 354, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 225, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       } else {
         if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 225, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 354, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 225, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       }
@@ -6657,7 +9251,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 225, __pyx_L1_error)
+          else __PYX_ERR(0, 354, __pyx_L1_error)
         }
         break;
       }
@@ -6666,22 +9260,22 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "Boardcpython.pyx":226
+    /* "Board.pyx":355
  *         new_board = Board(self.our_color)
  *         for i in new_board.columns_pos:
  *             for j in new_board.rows_pos:             # <<<<<<<<<<<<<<
  *                 new_board.board[i + j] = self.board[i + j].copy()
  *         new_board.number_filled_cells = self.number_filled_cells
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_new_board, __pyx_n_s_rows_pos); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_new_board, __pyx_n_s_rows_pos); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 355, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
       __pyx_t_5 = __pyx_t_1; __Pyx_INCREF(__pyx_t_5); __pyx_t_8 = 0;
       __pyx_t_9 = NULL;
     } else {
-      __pyx_t_8 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 226, __pyx_L1_error)
+      __pyx_t_8 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 355, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_9 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 226, __pyx_L1_error)
+      __pyx_t_9 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 355, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     for (;;) {
@@ -6689,17 +9283,17 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
         if (likely(PyList_CheckExact(__pyx_t_5))) {
           if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_1); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 226, __pyx_L1_error)
+          __pyx_t_1 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_1); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 355, __pyx_L1_error)
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 355, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           #endif
         } else {
           if (__pyx_t_8 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_1); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 226, __pyx_L1_error)
+          __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_1); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 355, __pyx_L1_error)
           #else
-          __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
+          __pyx_t_1 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 355, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           #endif
         }
@@ -6709,7 +9303,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 226, __pyx_L1_error)
+            else __PYX_ERR(0, 355, __pyx_L1_error)
           }
           break;
         }
@@ -6718,22 +9312,22 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
       __Pyx_XDECREF_SET(__pyx_v_j, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "Boardcpython.pyx":227
+      /* "Board.pyx":356
  *         for i in new_board.columns_pos:
  *             for j in new_board.rows_pos:
  *                 new_board.board[i + j] = self.board[i + j].copy()             # <<<<<<<<<<<<<<
  *         new_board.number_filled_cells = self.number_filled_cells
  *         new_board.number_empty_cells = self.number_empty_cells
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 227, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 356, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_4 = PyNumber_Add(__pyx_v_i, __pyx_v_j); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 227, __pyx_L1_error)
+      __pyx_t_4 = PyNumber_Add(__pyx_v_i, __pyx_v_j); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 356, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_10 = PyObject_GetItem(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 227, __pyx_L1_error)
+      __pyx_t_10 = PyObject_GetItem(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 356, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_copy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 227, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_copy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 356, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __pyx_t_10 = NULL;
@@ -6747,23 +9341,23 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
         }
       }
       if (__pyx_t_10) {
-        __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 356, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       } else {
-        __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 227, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 356, __pyx_L1_error)
       }
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_new_board, __pyx_n_s_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 227, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_new_board, __pyx_n_s_board); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 356, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_10 = PyNumber_Add(__pyx_v_i, __pyx_v_j); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 227, __pyx_L1_error)
+      __pyx_t_10 = PyNumber_Add(__pyx_v_i, __pyx_v_j); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 356, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      if (unlikely(PyObject_SetItem(__pyx_t_4, __pyx_t_10, __pyx_t_1) < 0)) __PYX_ERR(0, 227, __pyx_L1_error)
+      if (unlikely(PyObject_SetItem(__pyx_t_4, __pyx_t_10, __pyx_t_1) < 0)) __PYX_ERR(0, 356, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "Boardcpython.pyx":226
+      /* "Board.pyx":355
  *         new_board = Board(self.our_color)
  *         for i in new_board.columns_pos:
  *             for j in new_board.rows_pos:             # <<<<<<<<<<<<<<
@@ -6773,7 +9367,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "Boardcpython.pyx":225
+    /* "Board.pyx":354
  *     def copy(self):
  *         new_board = Board(self.our_color)
  *         for i in new_board.columns_pos:             # <<<<<<<<<<<<<<
@@ -6783,91 +9377,91 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":228
+  /* "Board.pyx":357
  *             for j in new_board.rows_pos:
  *                 new_board.board[i + j] = self.board[i + j].copy()
  *         new_board.number_filled_cells = self.number_filled_cells             # <<<<<<<<<<<<<<
  *         new_board.number_empty_cells = self.number_empty_cells
  *         new_board.number_filled_cells = self.number_filled_cells
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 357, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_number_filled_cells, __pyx_t_2) < 0) __PYX_ERR(0, 228, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_number_filled_cells, __pyx_t_2) < 0) __PYX_ERR(0, 357, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":229
+  /* "Board.pyx":358
  *                 new_board.board[i + j] = self.board[i + j].copy()
  *         new_board.number_filled_cells = self.number_filled_cells
  *         new_board.number_empty_cells = self.number_empty_cells             # <<<<<<<<<<<<<<
  *         new_board.number_filled_cells = self.number_filled_cells
  *         new_board.number_black_moves = self.number_black_moves
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_empty_cells); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 229, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_empty_cells); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 358, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_number_empty_cells, __pyx_t_2) < 0) __PYX_ERR(0, 229, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_number_empty_cells, __pyx_t_2) < 0) __PYX_ERR(0, 358, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":230
+  /* "Board.pyx":359
  *         new_board.number_filled_cells = self.number_filled_cells
  *         new_board.number_empty_cells = self.number_empty_cells
  *         new_board.number_filled_cells = self.number_filled_cells             # <<<<<<<<<<<<<<
  *         new_board.number_black_moves = self.number_black_moves
  *         new_board.number_white_moves = self.number_white_moves
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_filled_cells); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 359, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_number_filled_cells, __pyx_t_2) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_number_filled_cells, __pyx_t_2) < 0) __PYX_ERR(0, 359, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":231
+  /* "Board.pyx":360
  *         new_board.number_empty_cells = self.number_empty_cells
  *         new_board.number_filled_cells = self.number_filled_cells
  *         new_board.number_black_moves = self.number_black_moves             # <<<<<<<<<<<<<<
  *         new_board.number_white_moves = self.number_white_moves
  *         new_board.color_turn = self.color_turn
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_black_moves); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 231, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_black_moves); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 360, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_number_black_moves, __pyx_t_2) < 0) __PYX_ERR(0, 231, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_number_black_moves, __pyx_t_2) < 0) __PYX_ERR(0, 360, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":232
+  /* "Board.pyx":361
  *         new_board.number_filled_cells = self.number_filled_cells
  *         new_board.number_black_moves = self.number_black_moves
  *         new_board.number_white_moves = self.number_white_moves             # <<<<<<<<<<<<<<
  *         new_board.color_turn = self.color_turn
  *         new_board.color_next_turn = self.color_next_turn
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_white_moves); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_number_white_moves); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 361, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_number_white_moves, __pyx_t_2) < 0) __PYX_ERR(0, 232, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_number_white_moves, __pyx_t_2) < 0) __PYX_ERR(0, 361, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":233
+  /* "Board.pyx":362
  *         new_board.number_black_moves = self.number_black_moves
  *         new_board.number_white_moves = self.number_white_moves
  *         new_board.color_turn = self.color_turn             # <<<<<<<<<<<<<<
  *         new_board.color_next_turn = self.color_next_turn
  *         return new_board
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color_turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color_turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 362, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_color_turn, __pyx_t_2) < 0) __PYX_ERR(0, 233, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_color_turn, __pyx_t_2) < 0) __PYX_ERR(0, 362, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":234
+  /* "Board.pyx":363
  *         new_board.number_white_moves = self.number_white_moves
  *         new_board.color_turn = self.color_turn
  *         new_board.color_next_turn = self.color_next_turn             # <<<<<<<<<<<<<<
  *         return new_board
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color_next_turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 234, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color_next_turn); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 363, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_color_next_turn, __pyx_t_2) < 0) __PYX_ERR(0, 234, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_new_board, __pyx_n_s_color_next_turn, __pyx_t_2) < 0) __PYX_ERR(0, 363, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":235
+  /* "Board.pyx":364
  *         new_board.color_turn = self.color_turn
  *         new_board.color_next_turn = self.color_next_turn
  *         return new_board             # <<<<<<<<<<<<<<
@@ -6879,7 +9473,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
   __pyx_r = __pyx_v_new_board;
   goto __pyx_L0;
 
-  /* "Boardcpython.pyx":223
+  /* "Board.pyx":352
  * 
  * 
  *     def copy(self):             # <<<<<<<<<<<<<<
@@ -6895,7 +9489,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("Boardcpython.Board.copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board.copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_new_board);
@@ -6906,7 +9500,7 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":239
+/* "Board.pyx":368
  * 
  * class Board_Cell:
  *     def __init__(self, column, row, is_empty=True, color="empty"):             # <<<<<<<<<<<<<<
@@ -6915,9 +9509,9 @@ static PyObject *__pyx_pf_12Boardcpython_5Board_24copy(CYTHON_UNUSED PyObject *_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_10Board_Cell_1__init__ = {"__init__", (PyCFunction)__pyx_pw_12Boardcpython_10Board_Cell_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5Board_10Board_Cell_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_10Board_Cell_1__init__ = {"__init__", (PyCFunction)__pyx_pw_5Board_10Board_Cell_1__init__, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5Board_10Board_Cell_1__init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_column = 0;
   PyObject *__pyx_v_row = 0;
@@ -6957,13 +9551,13 @@ static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_1__init__(PyObject *__pyx_
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_column)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 0, 3, 5, 1); __PYX_ERR(0, 239, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 0, 3, 5, 1); __PYX_ERR(0, 368, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_row)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 0, 3, 5, 2); __PYX_ERR(0, 239, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 0, 3, 5, 2); __PYX_ERR(0, 368, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
@@ -6979,7 +9573,7 @@ static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_1__init__(PyObject *__pyx_
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 239, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 368, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -7002,20 +9596,20 @@ static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_1__init__(PyObject *__pyx_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 3, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 239, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 3, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 368, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("Boardcpython.Board_Cell.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board_Cell.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12Boardcpython_10Board_Cell___init__(__pyx_self, __pyx_v_self, __pyx_v_column, __pyx_v_row, __pyx_v_is_empty, __pyx_v_color);
+  __pyx_r = __pyx_pf_5Board_10Board_Cell___init__(__pyx_self, __pyx_v_self, __pyx_v_column, __pyx_v_row, __pyx_v_is_empty, __pyx_v_color);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_10Board_Cell___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column, PyObject *__pyx_v_row, PyObject *__pyx_v_is_empty, PyObject *__pyx_v_color) {
+static PyObject *__pyx_pf_5Board_10Board_Cell___init__(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_column, PyObject *__pyx_v_row, PyObject *__pyx_v_is_empty, PyObject *__pyx_v_color) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7026,14 +9620,14 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell___init__(CYTHON_UNUSED PyO
   int __pyx_t_6;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "Boardcpython.pyx":240
+  /* "Board.pyx":369
  * class Board_Cell:
  *     def __init__(self, column, row, is_empty=True, color="empty"):
  *         if self.check_valid(column, row):             # <<<<<<<<<<<<<<
  *             self.column = column
  *             self.row = row
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_check_valid); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_check_valid); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -7050,7 +9644,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell___init__(CYTHON_UNUSED PyO
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_column, __pyx_v_row};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -7058,13 +9652,13 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell___init__(CYTHON_UNUSED PyO
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_column, __pyx_v_row};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 369, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -7075,52 +9669,52 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell___init__(CYTHON_UNUSED PyO
     __Pyx_INCREF(__pyx_v_row);
     __Pyx_GIVEREF(__pyx_v_row);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_row);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 240, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "Boardcpython.pyx":241
+    /* "Board.pyx":370
  *     def __init__(self, column, row, is_empty=True, color="empty"):
  *         if self.check_valid(column, row):
  *             self.column = column             # <<<<<<<<<<<<<<
  *             self.row = row
  *             self.is_empty = is_empty
  */
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_column, __pyx_v_column) < 0) __PYX_ERR(0, 241, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_column, __pyx_v_column) < 0) __PYX_ERR(0, 370, __pyx_L1_error)
 
-    /* "Boardcpython.pyx":242
+    /* "Board.pyx":371
  *         if self.check_valid(column, row):
  *             self.column = column
  *             self.row = row             # <<<<<<<<<<<<<<
  *             self.is_empty = is_empty
  *             self.color = color
  */
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_row, __pyx_v_row) < 0) __PYX_ERR(0, 242, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_row, __pyx_v_row) < 0) __PYX_ERR(0, 371, __pyx_L1_error)
 
-    /* "Boardcpython.pyx":243
+    /* "Board.pyx":372
  *             self.column = column
  *             self.row = row
  *             self.is_empty = is_empty             # <<<<<<<<<<<<<<
  *             self.color = color
  *             #self.checker = checker
  */
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_is_empty, __pyx_v_is_empty) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_is_empty, __pyx_v_is_empty) < 0) __PYX_ERR(0, 372, __pyx_L1_error)
 
-    /* "Boardcpython.pyx":244
+    /* "Board.pyx":373
  *             self.row = row
  *             self.is_empty = is_empty
  *             self.color = color             # <<<<<<<<<<<<<<
  *             #self.checker = checker
  *         else:
  */
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_color, __pyx_v_color) < 0) __PYX_ERR(0, 244, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_color, __pyx_v_color) < 0) __PYX_ERR(0, 373, __pyx_L1_error)
 
-    /* "Boardcpython.pyx":240
+    /* "Board.pyx":369
  * class Board_Cell:
  *     def __init__(self, column, row, is_empty=True, color="empty"):
  *         if self.check_valid(column, row):             # <<<<<<<<<<<<<<
@@ -7130,7 +9724,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell___init__(CYTHON_UNUSED PyO
     goto __pyx_L3;
   }
 
-  /* "Boardcpython.pyx":247
+  /* "Board.pyx":376
  *             #self.checker = checker
  *         else:
  *             print("invalid input(s), leaving constructor")             # <<<<<<<<<<<<<<
@@ -7138,13 +9732,13 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell___init__(CYTHON_UNUSED PyO
  *     def play_on_cell(self, color, second_move1=False):
  */
   /*else*/ {
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__12, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 247, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__12, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 376, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __pyx_L3:;
 
-  /* "Boardcpython.pyx":239
+  /* "Board.pyx":368
  * 
  * class Board_Cell:
  *     def __init__(self, column, row, is_empty=True, color="empty"):             # <<<<<<<<<<<<<<
@@ -7160,7 +9754,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell___init__(CYTHON_UNUSED PyO
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("Boardcpython.Board_Cell.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board_Cell.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -7168,7 +9762,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell___init__(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":249
+/* "Board.pyx":378
  *             print("invalid input(s), leaving constructor")
  * 
  *     def play_on_cell(self, color, second_move1=False):             # <<<<<<<<<<<<<<
@@ -7177,9 +9771,9 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell___init__(CYTHON_UNUSED PyO
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_3play_on_cell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_10Board_Cell_3play_on_cell = {"play_on_cell", (PyCFunction)__pyx_pw_12Boardcpython_10Board_Cell_3play_on_cell, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_3play_on_cell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5Board_10Board_Cell_3play_on_cell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_10Board_Cell_3play_on_cell = {"play_on_cell", (PyCFunction)__pyx_pw_5Board_10Board_Cell_3play_on_cell, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5Board_10Board_Cell_3play_on_cell(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_color = 0;
   PyObject *__pyx_v_second_move1 = 0;
@@ -7212,7 +9806,7 @@ static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_3play_on_cell(PyObject *__
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_color)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("play_on_cell", 0, 2, 3, 1); __PYX_ERR(0, 249, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("play_on_cell", 0, 2, 3, 1); __PYX_ERR(0, 378, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -7222,7 +9816,7 @@ static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_3play_on_cell(PyObject *__
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "play_on_cell") < 0)) __PYX_ERR(0, 249, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "play_on_cell") < 0)) __PYX_ERR(0, 378, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -7240,20 +9834,20 @@ static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_3play_on_cell(PyObject *__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("play_on_cell", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 249, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("play_on_cell", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 378, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("Boardcpython.Board_Cell.play_on_cell", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board_Cell.play_on_cell", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12Boardcpython_10Board_Cell_2play_on_cell(__pyx_self, __pyx_v_self, __pyx_v_color, __pyx_v_second_move1);
+  __pyx_r = __pyx_pf_5Board_10Board_Cell_2play_on_cell(__pyx_self, __pyx_v_self, __pyx_v_color, __pyx_v_second_move1);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_2play_on_cell(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_color, PyObject *__pyx_v_second_move1) {
+static PyObject *__pyx_pf_5Board_10Board_Cell_2play_on_cell(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_color, PyObject *__pyx_v_second_move1) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -7263,7 +9857,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_2play_on_cell(CYTHON_UNUSE
   PyObject *__pyx_t_5 = NULL;
   __Pyx_RefNannySetupContext("play_on_cell", 0);
 
-  /* "Boardcpython.pyx":250
+  /* "Board.pyx":379
  * 
  *     def play_on_cell(self, color, second_move1=False):
  *         if isinstance(color, str):             # <<<<<<<<<<<<<<
@@ -7274,38 +9868,38 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_2play_on_cell(CYTHON_UNUSE
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "Boardcpython.pyx":251
+    /* "Board.pyx":380
  *     def play_on_cell(self, color, second_move1=False):
  *         if isinstance(color, str):
  *             if self.is_empty:             # <<<<<<<<<<<<<<
  *                 self.is_empty = False
  *                 #self.checker = checker
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_is_empty); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_is_empty); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 380, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 380, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_2) {
 
-      /* "Boardcpython.pyx":252
+      /* "Board.pyx":381
  *         if isinstance(color, str):
  *             if self.is_empty:
  *                 self.is_empty = False             # <<<<<<<<<<<<<<
  *                 #self.checker = checker
  *                 self.color = color
  */
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_is_empty, Py_False) < 0) __PYX_ERR(0, 252, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_is_empty, Py_False) < 0) __PYX_ERR(0, 381, __pyx_L1_error)
 
-      /* "Boardcpython.pyx":254
+      /* "Board.pyx":383
  *                 self.is_empty = False
  *                 #self.checker = checker
  *                 self.color = color             # <<<<<<<<<<<<<<
  *                 #print("played on this cell: ", self.column + self.row)
  *             elif (not self.is_empty) and second_move1 == True:
  */
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_color, __pyx_v_color) < 0) __PYX_ERR(0, 254, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_color, __pyx_v_color) < 0) __PYX_ERR(0, 383, __pyx_L1_error)
 
-      /* "Boardcpython.pyx":251
+      /* "Board.pyx":380
  *     def play_on_cell(self, color, second_move1=False):
  *         if isinstance(color, str):
  *             if self.is_empty:             # <<<<<<<<<<<<<<
@@ -7315,16 +9909,16 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_2play_on_cell(CYTHON_UNUSE
       goto __pyx_L4;
     }
 
-    /* "Boardcpython.pyx":256
+    /* "Board.pyx":385
  *                 self.color = color
  *                 #print("played on this cell: ", self.column + self.row)
  *             elif (not self.is_empty) and second_move1 == True:             # <<<<<<<<<<<<<<
  *                 print("second move of the game, overwrites the move of the first player")
  *                 self.is_empty = False
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_is_empty); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_is_empty); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 385, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 256, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 385, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_4 = ((!__pyx_t_1) != 0);
     if (__pyx_t_4) {
@@ -7332,63 +9926,74 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_2play_on_cell(CYTHON_UNUSE
       __pyx_t_2 = __pyx_t_4;
       goto __pyx_L5_bool_binop_done;
     }
-    __pyx_t_3 = PyObject_RichCompare(__pyx_v_second_move1, Py_True, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 256, __pyx_L1_error)
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 256, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_v_second_move1, Py_True, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 385, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 385, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_2 = __pyx_t_4;
     __pyx_L5_bool_binop_done:;
     if (__pyx_t_2) {
 
-      /* "Boardcpython.pyx":257
+      /* "Board.pyx":386
  *                 #print("played on this cell: ", self.column + self.row)
  *             elif (not self.is_empty) and second_move1 == True:
  *                 print("second move of the game, overwrites the move of the first player")             # <<<<<<<<<<<<<<
  *                 self.is_empty = False
  *                 #self.checker = checker
  */
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 257, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 386, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "Boardcpython.pyx":258
+      /* "Board.pyx":387
  *             elif (not self.is_empty) and second_move1 == True:
  *                 print("second move of the game, overwrites the move of the first player")
  *                 self.is_empty = False             # <<<<<<<<<<<<<<
  *                 #self.checker = checker
  *                 self.color = color
  */
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_is_empty, Py_False) < 0) __PYX_ERR(0, 258, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_is_empty, Py_False) < 0) __PYX_ERR(0, 387, __pyx_L1_error)
 
-      /* "Boardcpython.pyx":260
+      /* "Board.pyx":389
  *                 self.is_empty = False
  *                 #self.checker = checker
  *                 self.color = color             # <<<<<<<<<<<<<<
+ *                 return 1
+ *             else:
+ */
+      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_color, __pyx_v_color) < 0) __PYX_ERR(0, 389, __pyx_L1_error)
+
+      /* "Board.pyx":390
+ *                 #self.checker = checker
+ *                 self.color = color
+ *                 return 1             # <<<<<<<<<<<<<<
  *             else:
  *                 print("cannot play on this cell, it is occupied by color: ", self.color)
  */
-      if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_color, __pyx_v_color) < 0) __PYX_ERR(0, 260, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_r);
+      __Pyx_INCREF(__pyx_int_1);
+      __pyx_r = __pyx_int_1;
+      goto __pyx_L0;
 
-      /* "Boardcpython.pyx":256
+      /* "Board.pyx":385
  *                 self.color = color
  *                 #print("played on this cell: ", self.column + self.row)
  *             elif (not self.is_empty) and second_move1 == True:             # <<<<<<<<<<<<<<
  *                 print("second move of the game, overwrites the move of the first player")
  *                 self.is_empty = False
  */
-      goto __pyx_L4;
     }
 
-    /* "Boardcpython.pyx":262
- *                 self.color = color
+    /* "Board.pyx":392
+ *                 return 1
  *             else:
  *                 print("cannot play on this cell, it is occupied by color: ", self.color)             # <<<<<<<<<<<<<<
  * 
  *     def copy(self):
  */
     /*else*/ {
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 262, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 392, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 262, __pyx_L1_error)
+      __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 392, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_INCREF(__pyx_kp_u_cannot_play_on_this_cell_it_is_o);
       __Pyx_GIVEREF(__pyx_kp_u_cannot_play_on_this_cell_it_is_o);
@@ -7396,14 +10001,14 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_2play_on_cell(CYTHON_UNUSE
       __Pyx_GIVEREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_3);
       __pyx_t_3 = 0;
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 262, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 392, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     }
     __pyx_L4:;
 
-    /* "Boardcpython.pyx":250
+    /* "Board.pyx":379
  * 
  *     def play_on_cell(self, color, second_move1=False):
  *         if isinstance(color, str):             # <<<<<<<<<<<<<<
@@ -7412,7 +10017,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_2play_on_cell(CYTHON_UNUSE
  */
   }
 
-  /* "Boardcpython.pyx":249
+  /* "Board.pyx":378
  *             print("invalid input(s), leaving constructor")
  * 
  *     def play_on_cell(self, color, second_move1=False):             # <<<<<<<<<<<<<<
@@ -7426,7 +10031,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_2play_on_cell(CYTHON_UNUSE
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("Boardcpython.Board_Cell.play_on_cell", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board_Cell.play_on_cell", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -7434,7 +10039,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_2play_on_cell(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":264
+/* "Board.pyx":394
  *                 print("cannot play on this cell, it is occupied by color: ", self.color)
  * 
  *     def copy(self):             # <<<<<<<<<<<<<<
@@ -7443,20 +10048,20 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_2play_on_cell(CYTHON_UNUSE
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_5copy(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_10Board_Cell_5copy = {"copy", (PyCFunction)__pyx_pw_12Boardcpython_10Board_Cell_5copy, METH_O, 0};
-static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_5copy(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5Board_10Board_Cell_5copy(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_10Board_Cell_5copy = {"copy", (PyCFunction)__pyx_pw_5Board_10Board_Cell_5copy, METH_O, 0};
+static PyObject *__pyx_pw_5Board_10Board_Cell_5copy(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("copy (wrapper)", 0);
-  __pyx_r = __pyx_pf_12Boardcpython_10Board_Cell_4copy(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5Board_10Board_Cell_4copy(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_4copy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_5Board_10Board_Cell_4copy(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_new_cell = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -7471,30 +10076,30 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_4copy(CYTHON_UNUSED PyObje
   PyObject *__pyx_t_9 = NULL;
   __Pyx_RefNannySetupContext("copy", 0);
 
-  /* "Boardcpython.pyx":265
+  /* "Board.pyx":395
  * 
  *     def copy(self):
  *         new_cell = Board_Cell(self.column, self.row,             # <<<<<<<<<<<<<<
  *                               self.is_empty, self.color)
  *         return new_cell
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Board_Cell); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Board_Cell); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 395, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_column); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_column); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 395, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_row); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_row); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 395, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
 
-  /* "Boardcpython.pyx":266
+  /* "Board.pyx":396
  *     def copy(self):
  *         new_cell = Board_Cell(self.column, self.row,
  *                               self.is_empty, self.color)             # <<<<<<<<<<<<<<
  *         return new_cell
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_is_empty); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_is_empty); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 266, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 396, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_7 = NULL;
   __pyx_t_8 = 0;
@@ -7511,7 +10116,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_4copy(CYTHON_UNUSED PyObje
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[5] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_8, 4+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_8, 4+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 395, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -7523,7 +10128,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_4copy(CYTHON_UNUSED PyObje
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[5] = {__pyx_t_7, __pyx_t_3, __pyx_t_4, __pyx_t_5, __pyx_t_6};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_8, 4+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_8, 4+__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 395, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -7533,7 +10138,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_4copy(CYTHON_UNUSED PyObje
   } else
   #endif
   {
-    __pyx_t_9 = PyTuple_New(4+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 265, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(4+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 395, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     if (__pyx_t_7) {
       __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -7550,7 +10155,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_4copy(CYTHON_UNUSED PyObje
     __pyx_t_4 = 0;
     __pyx_t_5 = 0;
     __pyx_t_6 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_9, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 395, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   }
@@ -7558,7 +10163,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_4copy(CYTHON_UNUSED PyObje
   __pyx_v_new_cell = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":267
+  /* "Board.pyx":397
  *         new_cell = Board_Cell(self.column, self.row,
  *                               self.is_empty, self.color)
  *         return new_cell             # <<<<<<<<<<<<<<
@@ -7570,7 +10175,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_4copy(CYTHON_UNUSED PyObje
   __pyx_r = __pyx_v_new_cell;
   goto __pyx_L0;
 
-  /* "Boardcpython.pyx":264
+  /* "Board.pyx":394
  *                 print("cannot play on this cell, it is occupied by color: ", self.color)
  * 
  *     def copy(self):             # <<<<<<<<<<<<<<
@@ -7588,7 +10193,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_4copy(CYTHON_UNUSED PyObje
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("Boardcpython.Board_Cell.copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board_Cell.copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_new_cell);
@@ -7597,7 +10202,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_4copy(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":269
+/* "Board.pyx":399
  *         return new_cell
  * 
  *     def cell_status(self):             # <<<<<<<<<<<<<<
@@ -7606,20 +10211,20 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_4copy(CYTHON_UNUSED PyObje
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_7cell_status(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_10Board_Cell_7cell_status = {"cell_status", (PyCFunction)__pyx_pw_12Boardcpython_10Board_Cell_7cell_status, METH_O, 0};
-static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_7cell_status(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_5Board_10Board_Cell_7cell_status(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_10Board_Cell_7cell_status = {"cell_status", (PyCFunction)__pyx_pw_5Board_10Board_Cell_7cell_status, METH_O, 0};
+static PyObject *__pyx_pw_5Board_10Board_Cell_7cell_status(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("cell_status (wrapper)", 0);
-  __pyx_r = __pyx_pf_12Boardcpython_10Board_Cell_6cell_status(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_5Board_10Board_Cell_6cell_status(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_6cell_status(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_5Board_10Board_Cell_6cell_status(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7627,31 +10232,31 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_6cell_status(CYTHON_UNUSED
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("cell_status", 0);
 
-  /* "Boardcpython.pyx":270
+  /* "Board.pyx":400
  * 
  *     def cell_status(self):
  *         if self.is_empty:             # <<<<<<<<<<<<<<
  *             print("cell is empty")
  *             return "empty"
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_is_empty); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_is_empty); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 400, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 400, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "Boardcpython.pyx":271
+    /* "Board.pyx":401
  *     def cell_status(self):
  *         if self.is_empty:
  *             print("cell is empty")             # <<<<<<<<<<<<<<
  *             return "empty"
  *         else:
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 401, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "Boardcpython.pyx":272
+    /* "Board.pyx":402
  *         if self.is_empty:
  *             print("cell is empty")
  *             return "empty"             # <<<<<<<<<<<<<<
@@ -7663,7 +10268,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_6cell_status(CYTHON_UNUSED
     __pyx_r = __pyx_n_u_empty;
     goto __pyx_L0;
 
-    /* "Boardcpython.pyx":270
+    /* "Board.pyx":400
  * 
  *     def cell_status(self):
  *         if self.is_empty:             # <<<<<<<<<<<<<<
@@ -7672,7 +10277,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_6cell_status(CYTHON_UNUSED
  */
   }
 
-  /* "Boardcpython.pyx":274
+  /* "Board.pyx":404
  *             return "empty"
  *         else:
  *             print("cell is occupied by one checker of color: ", self.checker.color)             # <<<<<<<<<<<<<<
@@ -7680,12 +10285,12 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_6cell_status(CYTHON_UNUSED
  * 
  */
   /*else*/ {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_checker); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_checker); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 404, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_color); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 274, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_color); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 404, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 274, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 404, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_kp_u_cell_is_occupied_by_one_checker);
     __Pyx_GIVEREF(__pyx_kp_u_cell_is_occupied_by_one_checker);
@@ -7693,12 +10298,12 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_6cell_status(CYTHON_UNUSED
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_3);
     __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 274, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 404, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "Boardcpython.pyx":275
+    /* "Board.pyx":405
  *         else:
  *             print("cell is occupied by one checker of color: ", self.checker.color)
  *             return self.color             # <<<<<<<<<<<<<<
@@ -7706,14 +10311,14 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_6cell_status(CYTHON_UNUSED
  *     def check_valid(self, column, row):
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 275, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_color); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 405, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
   }
 
-  /* "Boardcpython.pyx":269
+  /* "Board.pyx":399
  *         return new_cell
  * 
  *     def cell_status(self):             # <<<<<<<<<<<<<<
@@ -7725,7 +10330,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_6cell_status(CYTHON_UNUSED
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("Boardcpython.Board_Cell.cell_status", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board_Cell.cell_status", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -7733,7 +10338,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_6cell_status(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":277
+/* "Board.pyx":407
  *             return self.color
  * 
  *     def check_valid(self, column, row):             # <<<<<<<<<<<<<<
@@ -7742,9 +10347,9 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_6cell_status(CYTHON_UNUSED
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_9check_valid(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_10Board_Cell_9check_valid = {"check_valid", (PyCFunction)__pyx_pw_12Boardcpython_10Board_Cell_9check_valid, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_9check_valid(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5Board_10Board_Cell_9check_valid(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_10Board_Cell_9check_valid = {"check_valid", (PyCFunction)__pyx_pw_5Board_10Board_Cell_9check_valid, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5Board_10Board_Cell_9check_valid(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   CYTHON_UNUSED PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_column = 0;
   PyObject *__pyx_v_row = 0;
@@ -7776,17 +10381,17 @@ static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_9check_valid(PyObject *__p
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_column)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("check_valid", 1, 3, 3, 1); __PYX_ERR(0, 277, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("check_valid", 1, 3, 3, 1); __PYX_ERR(0, 407, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_row)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("check_valid", 1, 3, 3, 2); __PYX_ERR(0, 277, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("check_valid", 1, 3, 3, 2); __PYX_ERR(0, 407, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "check_valid") < 0)) __PYX_ERR(0, 277, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "check_valid") < 0)) __PYX_ERR(0, 407, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -7801,20 +10406,20 @@ static PyObject *__pyx_pw_12Boardcpython_10Board_Cell_9check_valid(PyObject *__p
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("check_valid", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 277, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("check_valid", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 407, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("Boardcpython.Board_Cell.check_valid", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board_Cell.check_valid", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_12Boardcpython_10Board_Cell_8check_valid(__pyx_self, __pyx_v_self, __pyx_v_column, __pyx_v_row);
+  __pyx_r = __pyx_pf_5Board_10Board_Cell_8check_valid(__pyx_self, __pyx_v_self, __pyx_v_column, __pyx_v_row);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_column, PyObject *__pyx_v_row) {
+static PyObject *__pyx_pf_5Board_10Board_Cell_8check_valid(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_column, PyObject *__pyx_v_row) {
   PyObject *__pyx_v_row1 = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -7827,7 +10432,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
   PyObject *__pyx_t_7 = NULL;
   __Pyx_RefNannySetupContext("check_valid", 0);
 
-  /* "Boardcpython.pyx":278
+  /* "Board.pyx":408
  * 
  *     def check_valid(self, column, row):
  *         if isinstance(column, str) and isinstance(row, str):             # <<<<<<<<<<<<<<
@@ -7847,14 +10452,14 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "Boardcpython.pyx":279
+    /* "Board.pyx":409
  *     def check_valid(self, column, row):
  *         if isinstance(column, str) and isinstance(row, str):
  *             if is_integer(row):             # <<<<<<<<<<<<<<
  *                 row1 = int(row)
  *                 if row1 <= 15 and row1 >= 1 and (column in ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"]):
  */
-    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_is_integer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 279, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_is_integer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 409, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
@@ -7867,13 +10472,13 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
       }
     }
     if (!__pyx_t_6) {
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_row); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 279, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_row); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 409, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     } else {
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_5)) {
         PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_v_row};
-        __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 279, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 409, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_GOTREF(__pyx_t_4);
       } else
@@ -7881,57 +10486,57 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
         PyObject *__pyx_temp[2] = {__pyx_t_6, __pyx_v_row};
-        __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 279, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 409, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_GOTREF(__pyx_t_4);
       } else
       #endif
       {
-        __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 279, __pyx_L1_error)
+        __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 409, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_6); __pyx_t_6 = NULL;
         __Pyx_INCREF(__pyx_v_row);
         __Pyx_GIVEREF(__pyx_v_row);
         PyTuple_SET_ITEM(__pyx_t_7, 0+1, __pyx_v_row);
-        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_7, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 279, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_7, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 409, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       }
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 279, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 409, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_1) {
 
-      /* "Boardcpython.pyx":280
+      /* "Board.pyx":410
  *         if isinstance(column, str) and isinstance(row, str):
  *             if is_integer(row):
  *                 row1 = int(row)             # <<<<<<<<<<<<<<
  *                 if row1 <= 15 and row1 >= 1 and (column in ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"]):
  *                     #print("valid cell position")
  */
-      __pyx_t_4 = __Pyx_PyNumber_Int(__pyx_v_row); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 280, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyNumber_Int(__pyx_v_row); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 410, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_v_row1 = __pyx_t_4;
       __pyx_t_4 = 0;
 
-      /* "Boardcpython.pyx":281
+      /* "Board.pyx":411
  *             if is_integer(row):
  *                 row1 = int(row)
  *                 if row1 <= 15 and row1 >= 1 and (column in ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"]):             # <<<<<<<<<<<<<<
  *                     #print("valid cell position")
  *                     return True
  */
-      __pyx_t_4 = PyObject_RichCompare(__pyx_v_row1, __pyx_int_15, Py_LE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 281, __pyx_L1_error)
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_v_row1, __pyx_int_15, Py_LE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 411, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_2) {
       } else {
         __pyx_t_1 = __pyx_t_2;
         goto __pyx_L8_bool_binop_done;
       }
-      __pyx_t_4 = PyObject_RichCompare(__pyx_v_row1, __pyx_int_1, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 281, __pyx_L1_error)
-      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_v_row1, __pyx_int_1, Py_GE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 411, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_2) {
       } else {
@@ -7940,91 +10545,91 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
       }
       __Pyx_INCREF(__pyx_v_column);
       __pyx_t_4 = __pyx_v_column;
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_A, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_A, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_B, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_B, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_C, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_C, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_D, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_D, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_E, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_E, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_F, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_F, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_G, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_G, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_H, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_H, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_I, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_I, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_J, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_J, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_K, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_K, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_L, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_L, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_M, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_M, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_N, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_N, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       if (!__pyx_t_3) {
       } else {
         __pyx_t_2 = __pyx_t_3;
         goto __pyx_L11_bool_binop_done;
       }
-      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_O, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
+      __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_4, __pyx_n_u_O, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 411, __pyx_L1_error)
       __pyx_t_2 = __pyx_t_3;
       __pyx_L11_bool_binop_done:;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -8033,7 +10638,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
       __pyx_L8_bool_binop_done:;
       if (__pyx_t_1) {
 
-        /* "Boardcpython.pyx":283
+        /* "Board.pyx":413
  *                 if row1 <= 15 and row1 >= 1 and (column in ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"]):
  *                     #print("valid cell position")
  *                     return True             # <<<<<<<<<<<<<<
@@ -8045,7 +10650,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
         __pyx_r = Py_True;
         goto __pyx_L0;
 
-        /* "Boardcpython.pyx":281
+        /* "Board.pyx":411
  *             if is_integer(row):
  *                 row1 = int(row)
  *                 if row1 <= 15 and row1 >= 1 and (column in ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O"]):             # <<<<<<<<<<<<<<
@@ -8054,7 +10659,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
  */
       }
 
-      /* "Boardcpython.pyx":285
+      /* "Board.pyx":415
  *                     return True
  *                 else:
  *                     print(             # <<<<<<<<<<<<<<
@@ -8062,11 +10667,11 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
  *                     return False
  */
       /*else*/ {
-        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__15, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 285, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__15, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 415, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "Boardcpython.pyx":287
+        /* "Board.pyx":417
  *                     print(
  *                         "expecting an numeric string(integer) from 1 to 15 and a string-letter from A to O")
  *                     return False             # <<<<<<<<<<<<<<
@@ -8079,7 +10684,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
         goto __pyx_L0;
       }
 
-      /* "Boardcpython.pyx":279
+      /* "Board.pyx":409
  *     def check_valid(self, column, row):
  *         if isinstance(column, str) and isinstance(row, str):
  *             if is_integer(row):             # <<<<<<<<<<<<<<
@@ -8088,7 +10693,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
  */
     }
 
-    /* "Boardcpython.pyx":289
+    /* "Board.pyx":419
  *                     return False
  *             else:
  *                 print("error, expects numeric string as row")             # <<<<<<<<<<<<<<
@@ -8096,11 +10701,11 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
  *         else:
  */
     /*else*/ {
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__16, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 289, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__16, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 419, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "Boardcpython.pyx":290
+      /* "Board.pyx":420
  *             else:
  *                 print("error, expects numeric string as row")
  *                 return False             # <<<<<<<<<<<<<<
@@ -8113,7 +10718,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
       goto __pyx_L0;
     }
 
-    /* "Boardcpython.pyx":278
+    /* "Board.pyx":408
  * 
  *     def check_valid(self, column, row):
  *         if isinstance(column, str) and isinstance(row, str):             # <<<<<<<<<<<<<<
@@ -8122,7 +10727,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
  */
   }
 
-  /* "Boardcpython.pyx":292
+  /* "Board.pyx":422
  *                 return False
  *         else:
  *             print("error, constructor expects 2 strings")             # <<<<<<<<<<<<<<
@@ -8130,11 +10735,11 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
  * 
  */
   /*else*/ {
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 292, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 422, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "Boardcpython.pyx":293
+    /* "Board.pyx":423
  *         else:
  *             print("error, constructor expects 2 strings")
  *             return False             # <<<<<<<<<<<<<<
@@ -8147,7 +10752,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
     goto __pyx_L0;
   }
 
-  /* "Boardcpython.pyx":277
+  /* "Board.pyx":407
  *             return self.color
  * 
  *     def check_valid(self, column, row):             # <<<<<<<<<<<<<<
@@ -8161,7 +10766,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("Boardcpython.Board_Cell.check_valid", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.Board_Cell.check_valid", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_row1);
@@ -8170,7 +10775,7 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "Boardcpython.pyx":315
+/* "Board.pyx":445
  * 
  * '''
  * def is_integer(s):             # <<<<<<<<<<<<<<
@@ -8179,20 +10784,20 @@ static PyObject *__pyx_pf_12Boardcpython_10Board_Cell_8check_valid(CYTHON_UNUSED
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_12Boardcpython_1is_integer(PyObject *__pyx_self, PyObject *__pyx_v_s); /*proto*/
-static PyMethodDef __pyx_mdef_12Boardcpython_1is_integer = {"is_integer", (PyCFunction)__pyx_pw_12Boardcpython_1is_integer, METH_O, 0};
-static PyObject *__pyx_pw_12Boardcpython_1is_integer(PyObject *__pyx_self, PyObject *__pyx_v_s) {
+static PyObject *__pyx_pw_5Board_1is_integer(PyObject *__pyx_self, PyObject *__pyx_v_s); /*proto*/
+static PyMethodDef __pyx_mdef_5Board_1is_integer = {"is_integer", (PyCFunction)__pyx_pw_5Board_1is_integer, METH_O, 0};
+static PyObject *__pyx_pw_5Board_1is_integer(PyObject *__pyx_self, PyObject *__pyx_v_s) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("is_integer (wrapper)", 0);
-  __pyx_r = __pyx_pf_12Boardcpython_is_integer(__pyx_self, ((PyObject *)__pyx_v_s));
+  __pyx_r = __pyx_pf_5Board_is_integer(__pyx_self, ((PyObject *)__pyx_v_s));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_12Boardcpython_is_integer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_s) {
+static PyObject *__pyx_pf_5Board_is_integer(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_s) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -8202,7 +10807,7 @@ static PyObject *__pyx_pf_12Boardcpython_is_integer(CYTHON_UNUSED PyObject *__py
   int __pyx_t_5;
   __Pyx_RefNannySetupContext("is_integer", 0);
 
-  /* "Boardcpython.pyx":316
+  /* "Board.pyx":446
  * '''
  * def is_integer(s):
  *     try:             # <<<<<<<<<<<<<<
@@ -8218,18 +10823,18 @@ static PyObject *__pyx_pf_12Boardcpython_is_integer(CYTHON_UNUSED PyObject *__py
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "Boardcpython.pyx":317
+      /* "Board.pyx":447
  * def is_integer(s):
  *     try:
  *         int(s)             # <<<<<<<<<<<<<<
  *         return True
  *     except ValueError:
  */
-      __pyx_t_4 = __Pyx_PyNumber_Int(__pyx_v_s); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 317, __pyx_L3_error)
+      __pyx_t_4 = __Pyx_PyNumber_Int(__pyx_v_s); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 447, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "Boardcpython.pyx":318
+      /* "Board.pyx":448
  *     try:
  *         int(s)
  *         return True             # <<<<<<<<<<<<<<
@@ -8241,7 +10846,7 @@ static PyObject *__pyx_pf_12Boardcpython_is_integer(CYTHON_UNUSED PyObject *__py
       __pyx_r = Py_True;
       goto __pyx_L7_try_return;
 
-      /* "Boardcpython.pyx":316
+      /* "Board.pyx":446
  * '''
  * def is_integer(s):
  *     try:             # <<<<<<<<<<<<<<
@@ -8252,7 +10857,7 @@ static PyObject *__pyx_pf_12Boardcpython_is_integer(CYTHON_UNUSED PyObject *__py
     __pyx_L3_error:;
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "Boardcpython.pyx":319
+    /* "Board.pyx":449
  *         int(s)
  *         return True
  *     except ValueError:             # <<<<<<<<<<<<<<
@@ -8267,7 +10872,7 @@ static PyObject *__pyx_pf_12Boardcpython_is_integer(CYTHON_UNUSED PyObject *__py
     goto __pyx_L5_except_error;
     __pyx_L5_except_error:;
 
-    /* "Boardcpython.pyx":316
+    /* "Board.pyx":446
  * '''
  * def is_integer(s):
  *     try:             # <<<<<<<<<<<<<<
@@ -8292,7 +10897,7 @@ static PyObject *__pyx_pf_12Boardcpython_is_integer(CYTHON_UNUSED PyObject *__py
     __Pyx_ExceptionReset(__pyx_t_1, __pyx_t_2, __pyx_t_3);
   }
 
-  /* "Boardcpython.pyx":315
+  /* "Board.pyx":445
  * 
  * '''
  * def is_integer(s):             # <<<<<<<<<<<<<<
@@ -8305,7 +10910,7 @@ static PyObject *__pyx_pf_12Boardcpython_is_integer(CYTHON_UNUSED PyObject *__py
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("Boardcpython.is_integer", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Board.is_integer", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -8320,17 +10925,17 @@ static PyMethodDef __pyx_methods[] = {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_Boardcpython(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_Board(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_Boardcpython},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_Board},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "Boardcpython",
+    "Board",
     0, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
@@ -8366,7 +10971,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_u_8, __pyx_k_8, sizeof(__pyx_k_8), 0, 1, 0, 0},
   {&__pyx_kp_u_9, __pyx_k_9, sizeof(__pyx_k_9), 0, 1, 0, 0},
   {&__pyx_n_u_A, __pyx_k_A, sizeof(__pyx_k_A), 0, 1, 0, 1},
-  {&__pyx_n_u_A2, __pyx_k_A2, sizeof(__pyx_k_A2), 0, 1, 0, 1},
   {&__pyx_n_u_B, __pyx_k_B, sizeof(__pyx_k_B), 0, 1, 0, 1},
   {&__pyx_n_s_Board, __pyx_k_Board, sizeof(__pyx_k_Board), 0, 0, 1, 1},
   {&__pyx_n_s_Board_Cell, __pyx_k_Board_Cell, sizeof(__pyx_k_Board_Cell), 0, 0, 1, 1},
@@ -8379,6 +10983,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_Board_board_status, __pyx_k_Board_board_status, sizeof(__pyx_k_Board_board_status), 0, 0, 1, 1},
   {&__pyx_n_s_Board_cell_exists, __pyx_k_Board_cell_exists, sizeof(__pyx_k_Board_cell_exists), 0, 0, 1, 1},
   {&__pyx_n_s_Board_check_cell, __pyx_k_Board_check_cell, sizeof(__pyx_k_Board_check_cell), 0, 0, 1, 1},
+  {&__pyx_n_s_Board_check_terminal_move, __pyx_k_Board_check_terminal_move, sizeof(__pyx_k_Board_check_terminal_move), 0, 0, 1, 1},
   {&__pyx_n_s_Board_check_terminal_state, __pyx_k_Board_check_terminal_state, sizeof(__pyx_k_Board_check_terminal_state), 0, 0, 1, 1},
   {&__pyx_n_s_Board_copy, __pyx_k_Board_copy, sizeof(__pyx_k_Board_copy), 0, 0, 1, 1},
   {&__pyx_n_s_Board_get_cell, __pyx_k_Board_get_cell, sizeof(__pyx_k_Board_get_cell), 0, 0, 1, 1},
@@ -8388,8 +10993,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_Board_is_full, __pyx_k_Board_is_full, sizeof(__pyx_k_Board_is_full), 0, 0, 1, 1},
   {&__pyx_n_s_Board_make_move, __pyx_k_Board_make_move, sizeof(__pyx_k_Board_make_move), 0, 0, 1, 1},
   {&__pyx_n_s_Board_print_board, __pyx_k_Board_print_board, sizeof(__pyx_k_Board_print_board), 0, 0, 1, 1},
-  {&__pyx_n_s_Boardcpython, __pyx_k_Boardcpython, sizeof(__pyx_k_Boardcpython), 0, 0, 1, 1},
-  {&__pyx_kp_s_Boardcpython_pyx, __pyx_k_Boardcpython_pyx, sizeof(__pyx_k_Boardcpython_pyx), 0, 0, 1, 0},
+  {&__pyx_kp_s_Board_pyx, __pyx_k_Board_pyx, sizeof(__pyx_k_Board_pyx), 0, 0, 1, 0},
   {&__pyx_n_u_C, __pyx_k_C, sizeof(__pyx_k_C), 0, 1, 0, 1},
   {&__pyx_n_u_D, __pyx_k_D, sizeof(__pyx_k_D), 0, 1, 0, 1},
   {&__pyx_n_u_E, __pyx_k_E, sizeof(__pyx_k_E), 0, 1, 0, 1},
@@ -8407,22 +11011,27 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
   {&__pyx_n_u_X, __pyx_k_X, sizeof(__pyx_k_X), 0, 1, 0, 1},
   {&__pyx_n_u__10, __pyx_k__10, sizeof(__pyx_k__10), 0, 1, 0, 1},
+  {&__pyx_kp_u__5, __pyx_k__5, sizeof(__pyx_k__5), 0, 1, 0, 0},
   {&__pyx_kp_u__6, __pyx_k__6, sizeof(__pyx_k__6), 0, 1, 0, 0},
   {&__pyx_kp_u__7, __pyx_k__7, sizeof(__pyx_k__7), 0, 1, 0, 0},
   {&__pyx_kp_u__9, __pyx_k__9, sizeof(__pyx_k__9), 0, 1, 0, 0},
   {&__pyx_n_s_a, __pyx_k_a, sizeof(__pyx_k_a), 0, 0, 1, 1},
-  {&__pyx_n_s_b1, __pyx_k_b1, sizeof(__pyx_k_b1), 0, 0, 1, 1},
   {&__pyx_n_u_black, __pyx_k_black, sizeof(__pyx_k_black), 0, 1, 0, 1},
   {&__pyx_n_s_board, __pyx_k_board, sizeof(__pyx_k_board), 0, 0, 1, 1},
   {&__pyx_kp_u_board_is_full, __pyx_k_board_is_full, sizeof(__pyx_k_board_is_full), 0, 1, 0, 0},
   {&__pyx_n_s_board_status, __pyx_k_board_status, sizeof(__pyx_k_board_status), 0, 0, 1, 1},
   {&__pyx_n_s_c, __pyx_k_c, sizeof(__pyx_k_c), 0, 0, 1, 1},
+  {&__pyx_n_s_c1, __pyx_k_c1, sizeof(__pyx_k_c1), 0, 0, 1, 1},
+  {&__pyx_n_s_c2, __pyx_k_c2, sizeof(__pyx_k_c2), 0, 0, 1, 1},
+  {&__pyx_n_s_c3, __pyx_k_c3, sizeof(__pyx_k_c3), 0, 0, 1, 1},
+  {&__pyx_n_s_c4, __pyx_k_c4, sizeof(__pyx_k_c4), 0, 0, 1, 1},
   {&__pyx_kp_u_cannot_play_on_this_cell_it_is_o, __pyx_k_cannot_play_on_this_cell_it_is_o, sizeof(__pyx_k_cannot_play_on_this_cell_it_is_o), 0, 1, 0, 0},
   {&__pyx_n_s_cell_exists, __pyx_k_cell_exists, sizeof(__pyx_k_cell_exists), 0, 0, 1, 1},
   {&__pyx_kp_u_cell_is_empty, __pyx_k_cell_is_empty, sizeof(__pyx_k_cell_is_empty), 0, 1, 0, 0},
   {&__pyx_kp_u_cell_is_occupied_by_one_checker, __pyx_k_cell_is_occupied_by_one_checker, sizeof(__pyx_k_cell_is_occupied_by_one_checker), 0, 1, 0, 0},
   {&__pyx_n_s_cell_status, __pyx_k_cell_status, sizeof(__pyx_k_cell_status), 0, 0, 1, 1},
   {&__pyx_n_s_check_cell, __pyx_k_check_cell, sizeof(__pyx_k_check_cell), 0, 0, 1, 1},
+  {&__pyx_n_s_check_terminal_move, __pyx_k_check_terminal_move, sizeof(__pyx_k_check_terminal_move), 0, 0, 1, 1},
   {&__pyx_n_s_check_terminal_state, __pyx_k_check_terminal_state, sizeof(__pyx_k_check_terminal_state), 0, 0, 1, 1},
   {&__pyx_n_s_check_valid, __pyx_k_check_valid, sizeof(__pyx_k_check_valid), 0, 0, 1, 1},
   {&__pyx_n_s_checker, __pyx_k_checker, sizeof(__pyx_k_checker), 0, 0, 1, 1},
@@ -8438,9 +11047,18 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_column_index, __pyx_k_column_index, sizeof(__pyx_k_column_index), 0, 0, 1, 1},
   {&__pyx_n_s_column_pos, __pyx_k_column_pos, sizeof(__pyx_k_column_pos), 0, 0, 1, 1},
   {&__pyx_n_s_columns_pos, __pyx_k_columns_pos, sizeof(__pyx_k_columns_pos), 0, 0, 1, 1},
+  {&__pyx_n_s_connect, __pyx_k_connect, sizeof(__pyx_k_connect), 0, 0, 1, 1},
   {&__pyx_n_s_coords, __pyx_k_coords, sizeof(__pyx_k_coords), 0, 0, 1, 1},
   {&__pyx_n_s_copy, __pyx_k_copy, sizeof(__pyx_k_copy), 0, 0, 1, 1},
   {&__pyx_n_s_delta, __pyx_k_delta, sizeof(__pyx_k_delta), 0, 0, 1, 1},
+  {&__pyx_n_s_diag1xhigh, __pyx_k_diag1xhigh, sizeof(__pyx_k_diag1xhigh), 0, 0, 1, 1},
+  {&__pyx_n_s_diag1xlow, __pyx_k_diag1xlow, sizeof(__pyx_k_diag1xlow), 0, 0, 1, 1},
+  {&__pyx_n_s_diag1yhigh, __pyx_k_diag1yhigh, sizeof(__pyx_k_diag1yhigh), 0, 0, 1, 1},
+  {&__pyx_n_s_diag1ylow, __pyx_k_diag1ylow, sizeof(__pyx_k_diag1ylow), 0, 0, 1, 1},
+  {&__pyx_n_s_diag2xhigh, __pyx_k_diag2xhigh, sizeof(__pyx_k_diag2xhigh), 0, 0, 1, 1},
+  {&__pyx_n_s_diag2xlow, __pyx_k_diag2xlow, sizeof(__pyx_k_diag2xlow), 0, 0, 1, 1},
+  {&__pyx_n_s_diag2yhigh, __pyx_k_diag2yhigh, sizeof(__pyx_k_diag2yhigh), 0, 0, 1, 1},
+  {&__pyx_n_s_diag2ylow, __pyx_k_diag2ylow, sizeof(__pyx_k_diag2ylow), 0, 0, 1, 1},
   {&__pyx_n_s_diagb_fits_on_board, __pyx_k_diagb_fits_on_board, sizeof(__pyx_k_diagb_fits_on_board), 0, 0, 1, 1},
   {&__pyx_n_s_diagb_set, __pyx_k_diagb_set, sizeof(__pyx_k_diagb_set), 0, 0, 1, 1},
   {&__pyx_n_s_diagf_fits_on_board, __pyx_k_diagf_fits_on_board, sizeof(__pyx_k_diagf_fits_on_board), 0, 0, 1, 1},
@@ -8478,7 +11096,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_new_board, __pyx_k_new_board, sizeof(__pyx_k_new_board), 0, 0, 1, 1},
   {&__pyx_n_s_new_board_cell, __pyx_k_new_board_cell, sizeof(__pyx_k_new_board_cell), 0, 0, 1, 1},
   {&__pyx_n_s_new_cell, __pyx_k_new_cell, sizeof(__pyx_k_new_cell), 0, 0, 1, 1},
-  {&__pyx_kp_u_normally_not_this_color_s_turn, __pyx_k_normally_not_this_color_s_turn, sizeof(__pyx_k_normally_not_this_color_s_turn), 0, 1, 0, 0},
   {&__pyx_n_s_number_black_moves, __pyx_k_number_black_moves, sizeof(__pyx_k_number_black_moves), 0, 0, 1, 1},
   {&__pyx_n_s_number_empty_cells, __pyx_k_number_empty_cells, sizeof(__pyx_k_number_empty_cells), 0, 0, 1, 1},
   {&__pyx_n_s_number_filled_cells, __pyx_k_number_filled_cells, sizeof(__pyx_k_number_filled_cells), 0, 0, 1, 1},
@@ -8507,12 +11124,13 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_second_move1, __pyx_k_second_move1, sizeof(__pyx_k_second_move1), 0, 0, 1, 1},
   {&__pyx_kp_u_second_move_of_the_game_overwrit, __pyx_k_second_move_of_the_game_overwrit, sizeof(__pyx_k_second_move_of_the_game_overwrit), 0, 1, 0, 0},
   {&__pyx_n_s_self, __pyx_k_self, sizeof(__pyx_k_self), 0, 0, 1, 1},
-  {&__pyx_n_s_start, __pyx_k_start, sizeof(__pyx_k_start), 0, 0, 1, 1},
   {&__pyx_n_s_symbol, __pyx_k_symbol, sizeof(__pyx_k_symbol), 0, 0, 1, 1},
+  {&__pyx_n_s_t, __pyx_k_t, sizeof(__pyx_k_t), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_this_color, __pyx_k_this_color, sizeof(__pyx_k_this_color), 0, 0, 1, 1},
   {&__pyx_n_u_tie, __pyx_k_tie, sizeof(__pyx_k_tie), 0, 1, 0, 1},
   {&__pyx_n_s_time, __pyx_k_time, sizeof(__pyx_k_time), 0, 0, 1, 1},
+  {&__pyx_n_s_turns, __pyx_k_turns, sizeof(__pyx_k_turns), 0, 0, 1, 1},
   {&__pyx_n_s_value, __pyx_k_value, sizeof(__pyx_k_value), 0, 0, 1, 1},
   {&__pyx_n_u_white, __pyx_k_white, sizeof(__pyx_k_white), 0, 1, 0, 1},
   {&__pyx_n_s_width, __pyx_k_width, sizeof(__pyx_k_width), 0, 0, 1, 1},
@@ -8520,15 +11138,20 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_x, __pyx_k_x, sizeof(__pyx_k_x), 0, 0, 1, 1},
   {&__pyx_n_s_x_fits_on_board, __pyx_k_x_fits_on_board, sizeof(__pyx_k_x_fits_on_board), 0, 0, 1, 1},
   {&__pyx_n_s_x_set, __pyx_k_x_set, sizeof(__pyx_k_x_set), 0, 0, 1, 1},
+  {&__pyx_n_s_xhigh, __pyx_k_xhigh, sizeof(__pyx_k_xhigh), 0, 0, 1, 1},
+  {&__pyx_n_s_xlow, __pyx_k_xlow, sizeof(__pyx_k_xlow), 0, 0, 1, 1},
   {&__pyx_n_s_y, __pyx_k_y, sizeof(__pyx_k_y), 0, 0, 1, 1},
   {&__pyx_n_s_y_fits_on_board, __pyx_k_y_fits_on_board, sizeof(__pyx_k_y_fits_on_board), 0, 0, 1, 1},
   {&__pyx_n_s_y_set, __pyx_k_y_set, sizeof(__pyx_k_y_set), 0, 0, 1, 1},
+  {&__pyx_n_s_yhigh, __pyx_k_yhigh, sizeof(__pyx_k_yhigh), 0, 0, 1, 1},
+  {&__pyx_n_s_ylist, __pyx_k_ylist, sizeof(__pyx_k_ylist), 0, 0, 1, 1},
+  {&__pyx_n_s_ylow, __pyx_k_ylow, sizeof(__pyx_k_ylow), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 350, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 111, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 319, __pyx_L1_error)
+  __pyx_builtin_print = __Pyx_GetBuiltinName(__pyx_n_s_print); if (!__pyx_builtin_print) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 449, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -8538,550 +11161,386 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "Boardcpython.pyx":46
- *                 #self.color_turn = "white"
- *             else:
- *                 print("normally not this color's turn ")             # <<<<<<<<<<<<<<
- *                 if color == "white":
- *                     self.number_white_moves+=1
- */
-  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_u_normally_not_this_color_s_turn); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 46, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple_);
-  __Pyx_GIVEREF(__pyx_tuple_);
-
-  /* "Boardcpython.pyx":53
+  /* "Board.pyx":53
  *                 #return
  *         else:
  *             print("invalid color")             # <<<<<<<<<<<<<<
- *         self.board[column_pos +
- *                    row_pos].play_on_cell(color, second_move1=second_move)
+ *         a = self.board[column_pos + row_pos].play_on_cell(color, second_move1=second_move)
+ *         if a != 1:
  */
-  __pyx_tuple__2 = PyTuple_Pack(1, __pyx_kp_u_invalid_color); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 53, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__2);
-  __Pyx_GIVEREF(__pyx_tuple__2);
+  __pyx_tuple_ = PyTuple_Pack(1, __pyx_kp_u_invalid_color); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple_);
+  __Pyx_GIVEREF(__pyx_tuple_);
 
-  /* "Boardcpython.pyx":70
+  /* "Board.pyx":73
  *             if value.color == "empty":
  *                 child_board = self.copy()
  *                 child_board.make_move(key[0],key[1:])             # <<<<<<<<<<<<<<
  *                 children.append(child_board)
  *         return children
  */
-  __pyx_slice__3 = PySlice_New(__pyx_int_1, Py_None, Py_None); if (unlikely(!__pyx_slice__3)) __PYX_ERR(0, 70, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_slice__3);
-  __Pyx_GIVEREF(__pyx_slice__3);
+  __pyx_slice__2 = PySlice_New(__pyx_int_1, Py_None, Py_None); if (unlikely(!__pyx_slice__2)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_slice__2);
+  __Pyx_GIVEREF(__pyx_slice__2);
 
-  /* "Boardcpython.pyx":86
+  /* "Board.pyx":89
  *             return self.board[self.columns_pos[column_index-1]+self.rows_pos[row_index-1]]
  *         else:
  *             print("requested cell doesn't exist, boundaries out of board")             # <<<<<<<<<<<<<<
  *             return
  * 
  */
-  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_u_requested_cell_doesn_t_exist_bou); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__4);
-  __Pyx_GIVEREF(__pyx_tuple__4);
+  __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_u_requested_cell_doesn_t_exist_bou); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__3);
+  __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "Boardcpython.pyx":182
+  /* "Board.pyx":185
  * 
  *         if self.is_full():
  *             print("board is full")             # <<<<<<<<<<<<<<
  *             return "tie"
  * 
  */
-  __pyx_tuple__5 = PyTuple_Pack(1, __pyx_kp_u_board_is_full); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 182, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__5);
-  __Pyx_GIVEREF(__pyx_tuple__5);
+  __pyx_tuple__4 = PyTuple_Pack(1, __pyx_kp_u_board_is_full); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 185, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__4);
+  __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "Boardcpython.pyx":190
- *         for i in ["  "] + self.columns_pos:
- *             print(i,end="  ")
+  /* "Board.pyx":319
+ *         for i in ["   "] + self.columns_pos:
+ *             print(i,end=" ")
  *         print("")             # <<<<<<<<<<<<<<
  *         for j in self.rows_pos:
  *             if int(j) < 10:
  */
-  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_u__7); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_u__7); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 319, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
-  /* "Boardcpython.pyx":206
+  /* "Board.pyx":335
  *                     symbol = "_"
- *                 print(symbol + " ",end = " ")
+ *                 print(symbol + "",end = " ")
  *             print("")             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_kp_u__7); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 206, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_kp_u__7); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 335, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
 
-  /* "Boardcpython.pyx":247
+  /* "Board.pyx":376
  *             #self.checker = checker
  *         else:
  *             print("invalid input(s), leaving constructor")             # <<<<<<<<<<<<<<
  * 
  *     def play_on_cell(self, color, second_move1=False):
  */
-  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_kp_u_invalid_input_s_leaving_construc); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 247, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_kp_u_invalid_input_s_leaving_construc); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 376, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
 
-  /* "Boardcpython.pyx":257
+  /* "Board.pyx":386
  *                 #print("played on this cell: ", self.column + self.row)
  *             elif (not self.is_empty) and second_move1 == True:
  *                 print("second move of the game, overwrites the move of the first player")             # <<<<<<<<<<<<<<
  *                 self.is_empty = False
  *                 #self.checker = checker
  */
-  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_kp_u_second_move_of_the_game_overwrit); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 257, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_kp_u_second_move_of_the_game_overwrit); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
 
-  /* "Boardcpython.pyx":271
+  /* "Board.pyx":401
  *     def cell_status(self):
  *         if self.is_empty:
  *             print("cell is empty")             # <<<<<<<<<<<<<<
  *             return "empty"
  *         else:
  */
-  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_u_cell_is_empty); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 271, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_u_cell_is_empty); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 401, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
 
-  /* "Boardcpython.pyx":285
+  /* "Board.pyx":415
  *                     return True
  *                 else:
  *                     print(             # <<<<<<<<<<<<<<
  *                         "expecting an numeric string(integer) from 1 to 15 and a string-letter from A to O")
  *                     return False
  */
-  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_kp_u_expecting_an_numeric_string_inte); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 285, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_kp_u_expecting_an_numeric_string_inte); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 415, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
 
-  /* "Boardcpython.pyx":289
+  /* "Board.pyx":419
  *                     return False
  *             else:
  *                 print("error, expects numeric string as row")             # <<<<<<<<<<<<<<
  *                 return False
  *         else:
  */
-  __pyx_tuple__16 = PyTuple_Pack(1, __pyx_kp_u_error_expects_numeric_string_as); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 289, __pyx_L1_error)
+  __pyx_tuple__16 = PyTuple_Pack(1, __pyx_kp_u_error_expects_numeric_string_as); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 419, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__16);
   __Pyx_GIVEREF(__pyx_tuple__16);
 
-  /* "Boardcpython.pyx":292
+  /* "Board.pyx":422
  *                 return False
  *         else:
  *             print("error, constructor expects 2 strings")             # <<<<<<<<<<<<<<
  *             return False
  * 
  */
-  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_kp_u_error_constructor_expects_2_stri); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_kp_u_error_constructor_expects_2_stri); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 422, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
 
-  /* "Boardcpython.pyx":9
+  /* "Board.pyx":8
  * 
  * class Board:
  *     def __init__(self,our_color):             # <<<<<<<<<<<<<<
  *         self.rows_pos = ["1", "2", "3", "4", "5", "6", "7",
  *                          "8", "9", "10", "11", "12", "13", "14", "15"]
  */
-  __pyx_tuple__18 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_our_color, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_new_board_cell); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_our_color, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_new_board_cell); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(2, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_init, 9, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(2, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_init, 8, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 8, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":33
+  /* "Board.pyx":33
  *                 self.board[i + j] = new_board_cell
  * 
  *     def make_move(self, column_pos, row_pos, color = "sample",second_move=False):             # <<<<<<<<<<<<<<
  *         #print("making move")
  *         #self.board_status()
  */
-  __pyx_tuple__20 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_column_pos, __pyx_n_s_row_pos, __pyx_n_s_color, __pyx_n_s_second_move); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_tuple__20 = PyTuple_Pack(7, __pyx_n_s_self, __pyx_n_s_column_pos, __pyx_n_s_row_pos, __pyx_n_s_color, __pyx_n_s_second_move, __pyx_n_s_a, __pyx_n_s_t); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
-  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_make_move, 33, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(5, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_make_move, 33, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 33, __pyx_L1_error)
   __pyx_tuple__22 = PyTuple_Pack(2, ((PyObject*)__pyx_n_u_sample), ((PyObject *)Py_False)); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__22);
   __Pyx_GIVEREF(__pyx_tuple__22);
 
-  /* "Boardcpython.pyx":65
+  /* "Board.pyx":68
  * 
  * 
  *     def get_children(self):             # <<<<<<<<<<<<<<
  *         children = []
  *         for key, value in self.board.items():
  */
-  __pyx_tuple__23 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_children, __pyx_n_s_key, __pyx_n_s_value, __pyx_n_s_child_board); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_tuple__23 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_children, __pyx_n_s_key, __pyx_n_s_value, __pyx_n_s_child_board); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__23);
   __Pyx_GIVEREF(__pyx_tuple__23);
-  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_get_children, 65, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_get_children, 68, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 68, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":75
+  /* "Board.pyx":78
  * 
  * 
  *     def check_cell(self, column_pos, row_pos):             # <<<<<<<<<<<<<<
  *         return self.board[column_pos + row_pos].cell_status()
  *     def cell_exists(self,column_index,row_index):
  */
-  __pyx_tuple__25 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_column_pos, __pyx_n_s_row_pos); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_tuple__25 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_column_pos, __pyx_n_s_row_pos); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__25);
   __Pyx_GIVEREF(__pyx_tuple__25);
-  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_check_cell, 75, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_check_cell, 78, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 78, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":77
+  /* "Board.pyx":80
  *     def check_cell(self, column_pos, row_pos):
  *         return self.board[column_pos + row_pos].cell_status()
  *     def cell_exists(self,column_index,row_index):             # <<<<<<<<<<<<<<
  *         if 1 <= column_index <=15 and 1<= row_index <= 15:
  *             return True
  */
-  __pyx_tuple__27 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_column_index, __pyx_n_s_row_index); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_tuple__27 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_column_index, __pyx_n_s_row_index); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__27);
   __Pyx_GIVEREF(__pyx_tuple__27);
-  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_cell_exists, 77, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_cell_exists, 80, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 80, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":82
+  /* "Board.pyx":85
  *         else:
  *             return False
  *     def get_cell(self,column_index,row_index):             # <<<<<<<<<<<<<<
  *         if self.cell_exists(column_index,row_index):
  *             return self.board[self.columns_pos[column_index-1]+self.rows_pos[row_index-1]]
  */
-  __pyx_tuple__29 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_column_index, __pyx_n_s_row_index); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_tuple__29 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_column_index, __pyx_n_s_row_index); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__29);
   __Pyx_GIVEREF(__pyx_tuple__29);
-  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_get_cell, 82, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_get_cell, 85, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 85, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":89
+  /* "Board.pyx":92
  *             return
  * 
  *     def get_filled_coordinates(self):             # <<<<<<<<<<<<<<
  *         coords = []
  *         for i in self.columns_pos:
  */
-  __pyx_tuple__31 = PyTuple_Pack(8, __pyx_n_s_self, __pyx_n_s_coords, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_color, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_a); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_tuple__31 = PyTuple_Pack(8, __pyx_n_s_self, __pyx_n_s_coords, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_color, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_a); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__31);
   __Pyx_GIVEREF(__pyx_tuple__31);
-  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_get_filled_coordinates, 89, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_get_filled_coordinates, 92, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 92, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":101
+  /* "Board.pyx":104
  *         return coords
  * 
  *     def is_full(self):             # <<<<<<<<<<<<<<
  *         if self.number_filled_cells >= self.number_total_cells:
  *             return True
  */
-  __pyx_tuple__33 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_tuple__33 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__33);
   __Pyx_GIVEREF(__pyx_tuple__33);
-  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_is_full, 101, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_is_full, 104, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 104, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":108
+  /* "Board.pyx":111
  * 
  * 
  *     def check_terminal_state(self):             # <<<<<<<<<<<<<<
  * 
  *         #board = self.board
  */
-  __pyx_tuple__35 = PyTuple_Pack(19, __pyx_n_s_self, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_win, __pyx_n_s_this_color, __pyx_n_s_x_fits_on_board, __pyx_n_s_y_fits_on_board, __pyx_n_s_diagf_fits_on_board, __pyx_n_s_diagb_fits_on_board, __pyx_n_s_c, __pyx_n_s_x_set, __pyx_n_s_i, __pyx_n_s_y_set, __pyx_n_s_diagf_set, __pyx_n_s_diagb_set, __pyx_n_s_delta, __pyx_n_s_delta, __pyx_n_s_delta, __pyx_n_s_delta); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_tuple__35 = PyTuple_Pack(19, __pyx_n_s_self, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_win, __pyx_n_s_this_color, __pyx_n_s_x_fits_on_board, __pyx_n_s_y_fits_on_board, __pyx_n_s_diagf_fits_on_board, __pyx_n_s_diagb_fits_on_board, __pyx_n_s_c, __pyx_n_s_x_set, __pyx_n_s_i, __pyx_n_s_y_set, __pyx_n_s_diagf_set, __pyx_n_s_diagb_set, __pyx_n_s_delta, __pyx_n_s_delta, __pyx_n_s_delta, __pyx_n_s_delta); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__35);
   __Pyx_GIVEREF(__pyx_tuple__35);
-  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(1, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_check_terminal_state, 108, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(1, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_check_terminal_state, 111, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 111, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":187
+  /* "Board.pyx":190
+ *         return False
+ * 
+ *     def check_terminal_move(self,column_index,row_index):             # <<<<<<<<<<<<<<
+ *         x = column_index
+ *         y = row_index
+ */
+  __pyx_tuple__37 = PyTuple_Pack(30, __pyx_n_s_self, __pyx_n_s_column_index, __pyx_n_s_row_index, __pyx_n_s_x, __pyx_n_s_y, __pyx_n_s_this_color, __pyx_n_s_win, __pyx_n_s_xlow, __pyx_n_s_xhigh, __pyx_n_s_x_set, __pyx_n_s_i, __pyx_n_s_c1, __pyx_n_s_ylow, __pyx_n_s_yhigh, __pyx_n_s_y_set, __pyx_n_s_j, __pyx_n_s_c2, __pyx_n_s_diag1xlow, __pyx_n_s_diag1ylow, __pyx_n_s_diag1xhigh, __pyx_n_s_diag1yhigh, __pyx_n_s_diagf_set, __pyx_n_s_c3, __pyx_n_s_diag2xlow, __pyx_n_s_diag2ylow, __pyx_n_s_diag2xhigh, __pyx_n_s_diag2yhigh, __pyx_n_s_diagb_set, __pyx_n_s_c4, __pyx_n_s_ylist); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__37);
+  __Pyx_GIVEREF(__pyx_tuple__37);
+  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(3, 0, 30, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_check_terminal_move, 190, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 190, __pyx_L1_error)
+
+  /* "Board.pyx":316
  *         return False
  * 
  *     def print_board(self):             # <<<<<<<<<<<<<<
- *         for i in ["  "] + self.columns_pos:
- *             print(i,end="  ")
+ *         for i in ["   "] + self.columns_pos:
+ *             print(i,end=" ")
  */
-  __pyx_tuple__37 = PyTuple_Pack(7, __pyx_n_s_self, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_end1, __pyx_n_s_k, __pyx_n_s_color, __pyx_n_s_symbol); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 187, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__37);
-  __Pyx_GIVEREF(__pyx_tuple__37);
-  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(1, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_print_board, 187, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_tuple__39 = PyTuple_Pack(7, __pyx_n_s_self, __pyx_n_s_i, __pyx_n_s_j, __pyx_n_s_end1, __pyx_n_s_k, __pyx_n_s_color, __pyx_n_s_symbol); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 316, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__39);
+  __Pyx_GIVEREF(__pyx_tuple__39);
+  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(1, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_print_board, 316, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 316, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":211
+  /* "Board.pyx":340
  *         #for key, value in self.board.items():
  *         #    print(key, value.color)
  *     def board_status(self):             # <<<<<<<<<<<<<<
  *         print("number of filled cells: ",self.number_filled_cells)
  *         print("number of empty cells: ",self.number_empty_cells)
  */
-  __pyx_tuple__39 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 211, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__39);
-  __Pyx_GIVEREF(__pyx_tuple__39);
-  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_board_status, 211, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 211, __pyx_L1_error)
+  __pyx_tuple__41 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__41);
+  __Pyx_GIVEREF(__pyx_tuple__41);
+  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_board_status, 340, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 340, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":219
+  /* "Board.pyx":348
  * 
  * 
  *     def get_player_turn(self):             # <<<<<<<<<<<<<<
  *         return self.color_turn
  * 
  */
-  __pyx_tuple__41 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 219, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__41);
-  __Pyx_GIVEREF(__pyx_tuple__41);
-  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_get_player_turn, 219, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_tuple__43 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__43);
+  __Pyx_GIVEREF(__pyx_tuple__43);
+  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_get_player_turn, 348, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 348, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":223
+  /* "Board.pyx":352
  * 
  * 
  *     def copy(self):             # <<<<<<<<<<<<<<
  *         new_board = Board(self.our_color)
  *         for i in new_board.columns_pos:
  */
-  __pyx_tuple__43 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_new_board, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 223, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__43);
-  __Pyx_GIVEREF(__pyx_tuple__43);
-  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_copy, 223, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_tuple__45 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_new_board, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 352, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__45);
+  __Pyx_GIVEREF(__pyx_tuple__45);
+  __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_copy, 352, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(0, 352, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":239
+  /* "Board.pyx":368
  * 
  * class Board_Cell:
  *     def __init__(self, column, row, is_empty=True, color="empty"):             # <<<<<<<<<<<<<<
  *         if self.check_valid(column, row):
  *             self.column = column
  */
-  __pyx_tuple__45 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_column, __pyx_n_s_row, __pyx_n_s_is_empty, __pyx_n_s_color); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 239, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__45);
-  __Pyx_GIVEREF(__pyx_tuple__45);
-  __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_init, 239, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(0, 239, __pyx_L1_error)
-  __pyx_tuple__47 = PyTuple_Pack(2, ((PyObject *)Py_True), ((PyObject*)__pyx_n_u_empty)); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_tuple__47 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_column, __pyx_n_s_row, __pyx_n_s_is_empty, __pyx_n_s_color); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__47);
   __Pyx_GIVEREF(__pyx_tuple__47);
+  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__47, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_init, 368, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(0, 368, __pyx_L1_error)
+  __pyx_tuple__49 = PyTuple_Pack(2, ((PyObject *)Py_True), ((PyObject*)__pyx_n_u_empty)); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 368, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__49);
+  __Pyx_GIVEREF(__pyx_tuple__49);
 
-  /* "Boardcpython.pyx":249
+  /* "Board.pyx":378
  *             print("invalid input(s), leaving constructor")
  * 
  *     def play_on_cell(self, color, second_move1=False):             # <<<<<<<<<<<<<<
  *         if isinstance(color, str):
  *             if self.is_empty:
  */
-  __pyx_tuple__48 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_color, __pyx_n_s_second_move1); if (unlikely(!__pyx_tuple__48)) __PYX_ERR(0, 249, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__48);
-  __Pyx_GIVEREF(__pyx_tuple__48);
-  __pyx_codeobj__49 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__48, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_play_on_cell, 249, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__49)) __PYX_ERR(0, 249, __pyx_L1_error)
-  __pyx_tuple__50 = PyTuple_Pack(1, ((PyObject *)Py_False)); if (unlikely(!__pyx_tuple__50)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __pyx_tuple__50 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_color, __pyx_n_s_second_move1); if (unlikely(!__pyx_tuple__50)) __PYX_ERR(0, 378, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__50);
   __Pyx_GIVEREF(__pyx_tuple__50);
+  __pyx_codeobj__51 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__50, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_play_on_cell, 378, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__51)) __PYX_ERR(0, 378, __pyx_L1_error)
+  __pyx_tuple__52 = PyTuple_Pack(1, ((PyObject *)Py_False)); if (unlikely(!__pyx_tuple__52)) __PYX_ERR(0, 378, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__52);
+  __Pyx_GIVEREF(__pyx_tuple__52);
 
-  /* "Boardcpython.pyx":264
+  /* "Board.pyx":394
  *                 print("cannot play on this cell, it is occupied by color: ", self.color)
  * 
  *     def copy(self):             # <<<<<<<<<<<<<<
  *         new_cell = Board_Cell(self.column, self.row,
  *                               self.is_empty, self.color)
  */
-  __pyx_tuple__51 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_new_cell); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__51);
-  __Pyx_GIVEREF(__pyx_tuple__51);
-  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_copy, 264, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_tuple__53 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_new_cell); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(0, 394, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__53);
+  __Pyx_GIVEREF(__pyx_tuple__53);
+  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_copy, 394, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(0, 394, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":269
+  /* "Board.pyx":399
  *         return new_cell
  * 
  *     def cell_status(self):             # <<<<<<<<<<<<<<
  *         if self.is_empty:
  *             print("cell is empty")
  */
-  __pyx_tuple__53 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(0, 269, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__53);
-  __Pyx_GIVEREF(__pyx_tuple__53);
-  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_cell_status, 269, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_tuple__55 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 399, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__55);
+  __Pyx_GIVEREF(__pyx_tuple__55);
+  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_cell_status, 399, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 399, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":277
+  /* "Board.pyx":407
  *             return self.color
  * 
  *     def check_valid(self, column, row):             # <<<<<<<<<<<<<<
  *         if isinstance(column, str) and isinstance(row, str):
  *             if is_integer(row):
  */
-  __pyx_tuple__55 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_column, __pyx_n_s_row, __pyx_n_s_row1); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 277, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__55);
-  __Pyx_GIVEREF(__pyx_tuple__55);
-  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_check_valid, 277, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 277, __pyx_L1_error)
+  __pyx_tuple__57 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_column, __pyx_n_s_row, __pyx_n_s_row1); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 407, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__57);
+  __Pyx_GIVEREF(__pyx_tuple__57);
+  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_check_valid, 407, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 407, __pyx_L1_error)
 
-  /* "Boardcpython.pyx":315
+  /* "Board.pyx":445
  * 
  * '''
  * def is_integer(s):             # <<<<<<<<<<<<<<
  *     try:
  *         int(s)
  */
-  __pyx_tuple__57 = PyTuple_Pack(1, __pyx_n_s_s); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 315, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__57);
-  __Pyx_GIVEREF(__pyx_tuple__57);
-  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Boardcpython_pyx, __pyx_n_s_is_integer, 315, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 315, __pyx_L1_error)
-
-  /* "Boardcpython.pyx":322
- *         pass
- * 
- * b1 = Board("black")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("A","1")
- */
-  __pyx_tuple__59 = PyTuple_Pack(1, __pyx_n_u_black); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 322, __pyx_L1_error)
+  __pyx_tuple__59 = PyTuple_Pack(1, __pyx_n_s_s); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 445, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__59);
   __Pyx_GIVEREF(__pyx_tuple__59);
-
-  /* "Boardcpython.pyx":324
- * b1 = Board("black")
- * 
- * b1.make_move("A","1")             # <<<<<<<<<<<<<<
- * b1.make_move("A","2")
- * 
- */
-  __pyx_tuple__60 = PyTuple_Pack(2, __pyx_n_u_A, __pyx_kp_u_1); if (unlikely(!__pyx_tuple__60)) __PYX_ERR(0, 324, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__60);
-  __Pyx_GIVEREF(__pyx_tuple__60);
-
-  /* "Boardcpython.pyx":325
- * 
- * b1.make_move("A","1")
- * b1.make_move("A","2")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("A","3")
- */
-  __pyx_tuple__61 = PyTuple_Pack(2, __pyx_n_u_A, __pyx_kp_u_2); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 325, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__61);
-  __Pyx_GIVEREF(__pyx_tuple__61);
-
-  /* "Boardcpython.pyx":327
- * b1.make_move("A","2")
- * 
- * b1.make_move("A","3")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("A","4")
- */
-  __pyx_tuple__62 = PyTuple_Pack(2, __pyx_n_u_A, __pyx_kp_u_3); if (unlikely(!__pyx_tuple__62)) __PYX_ERR(0, 327, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__62);
-  __Pyx_GIVEREF(__pyx_tuple__62);
-
-  /* "Boardcpython.pyx":329
- * b1.make_move("A","3")
- * 
- * b1.make_move("A","4")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("A","5")
- */
-  __pyx_tuple__63 = PyTuple_Pack(2, __pyx_n_u_A, __pyx_kp_u_4); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(0, 329, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__63);
-  __Pyx_GIVEREF(__pyx_tuple__63);
-
-  /* "Boardcpython.pyx":331
- * b1.make_move("A","4")
- * 
- * b1.make_move("A","5")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("B","2")
- */
-  __pyx_tuple__64 = PyTuple_Pack(2, __pyx_n_u_A, __pyx_kp_u_5); if (unlikely(!__pyx_tuple__64)) __PYX_ERR(0, 331, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__64);
-  __Pyx_GIVEREF(__pyx_tuple__64);
-
-  /* "Boardcpython.pyx":333
- * b1.make_move("A","5")
- * 
- * b1.make_move("B","2")             # <<<<<<<<<<<<<<
- * b1.make_move("C","3")
- * b1.make_move("D","4")
- */
-  __pyx_tuple__65 = PyTuple_Pack(2, __pyx_n_u_B, __pyx_kp_u_2); if (unlikely(!__pyx_tuple__65)) __PYX_ERR(0, 333, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__65);
-  __Pyx_GIVEREF(__pyx_tuple__65);
-
-  /* "Boardcpython.pyx":334
- * 
- * b1.make_move("B","2")
- * b1.make_move("C","3")             # <<<<<<<<<<<<<<
- * b1.make_move("D","4")
- * b1.make_move("D","5")
- */
-  __pyx_tuple__66 = PyTuple_Pack(2, __pyx_n_u_C, __pyx_kp_u_3); if (unlikely(!__pyx_tuple__66)) __PYX_ERR(0, 334, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__66);
-  __Pyx_GIVEREF(__pyx_tuple__66);
-
-  /* "Boardcpython.pyx":335
- * b1.make_move("B","2")
- * b1.make_move("C","3")
- * b1.make_move("D","4")             # <<<<<<<<<<<<<<
- * b1.make_move("D","5")
- * 
- */
-  __pyx_tuple__67 = PyTuple_Pack(2, __pyx_n_u_D, __pyx_kp_u_4); if (unlikely(!__pyx_tuple__67)) __PYX_ERR(0, 335, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__67);
-  __Pyx_GIVEREF(__pyx_tuple__67);
-
-  /* "Boardcpython.pyx":336
- * b1.make_move("C","3")
- * b1.make_move("D","4")
- * b1.make_move("D","5")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("D","6")
- */
-  __pyx_tuple__68 = PyTuple_Pack(2, __pyx_n_u_D, __pyx_kp_u_5); if (unlikely(!__pyx_tuple__68)) __PYX_ERR(0, 336, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__68);
-  __Pyx_GIVEREF(__pyx_tuple__68);
-
-  /* "Boardcpython.pyx":338
- * b1.make_move("D","5")
- * 
- * b1.make_move("D","6")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("D","7")
- */
-  __pyx_tuple__69 = PyTuple_Pack(2, __pyx_n_u_D, __pyx_kp_u_6); if (unlikely(!__pyx_tuple__69)) __PYX_ERR(0, 338, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__69);
-  __Pyx_GIVEREF(__pyx_tuple__69);
-
-  /* "Boardcpython.pyx":340
- * b1.make_move("D","6")
- * 
- * b1.make_move("D","7")             # <<<<<<<<<<<<<<
- * b1.make_move("D","8")
- * 
- */
-  __pyx_tuple__70 = PyTuple_Pack(2, __pyx_n_u_D, __pyx_kp_u_7); if (unlikely(!__pyx_tuple__70)) __PYX_ERR(0, 340, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__70);
-  __Pyx_GIVEREF(__pyx_tuple__70);
-
-  /* "Boardcpython.pyx":341
- * 
- * b1.make_move("D","7")
- * b1.make_move("D","8")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("E","5")
- */
-  __pyx_tuple__71 = PyTuple_Pack(2, __pyx_n_u_D, __pyx_kp_u_8); if (unlikely(!__pyx_tuple__71)) __PYX_ERR(0, 341, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__71);
-  __Pyx_GIVEREF(__pyx_tuple__71);
-
-  /* "Boardcpython.pyx":343
- * b1.make_move("D","8")
- * 
- * b1.make_move("E","5")             # <<<<<<<<<<<<<<
- * b1.make_move("F","6")
- * 
- */
-  __pyx_tuple__72 = PyTuple_Pack(2, __pyx_n_u_E, __pyx_kp_u_5); if (unlikely(!__pyx_tuple__72)) __PYX_ERR(0, 343, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__72);
-  __Pyx_GIVEREF(__pyx_tuple__72);
-
-  /* "Boardcpython.pyx":344
- * 
- * b1.make_move("E","5")
- * b1.make_move("F","6")             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __pyx_tuple__73 = PyTuple_Pack(2, __pyx_n_u_F, __pyx_kp_u_6); if (unlikely(!__pyx_tuple__73)) __PYX_ERR(0, 344, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__73);
-  __Pyx_GIVEREF(__pyx_tuple__73);
+  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Board_pyx, __pyx_n_s_is_integer, 445, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 445, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -9093,6 +11552,7 @@ static int __Pyx_InitGlobals(void) {
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   __pyx_int_0 = PyInt_FromLong(0); if (unlikely(!__pyx_int_0)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1 = PyInt_FromLong(1); if (unlikely(!__pyx_int_1)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_4 = PyInt_FromLong(4); if (unlikely(!__pyx_int_4)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_5 = PyInt_FromLong(5); if (unlikely(!__pyx_int_5)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_10 = PyInt_FromLong(10); if (unlikely(!__pyx_int_10)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_15 = PyInt_FromLong(15); if (unlikely(!__pyx_int_15)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -9104,11 +11564,11 @@ static int __Pyx_InitGlobals(void) {
 }
 
 #if PY_MAJOR_VERSION < 3
-PyMODINIT_FUNC initBoardcpython(void); /*proto*/
-PyMODINIT_FUNC initBoardcpython(void)
+PyMODINIT_FUNC initBoard(void); /*proto*/
+PyMODINIT_FUNC initBoard(void)
 #else
-PyMODINIT_FUNC PyInit_Boardcpython(void); /*proto*/
-PyMODINIT_FUNC PyInit_Boardcpython(void)
+PyMODINIT_FUNC PyInit_Board(void); /*proto*/
+PyMODINIT_FUNC PyInit_Board(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -9146,13 +11606,12 @@ bad:
 }
 
 
-static int __pyx_pymod_exec_Boardcpython(PyObject *__pyx_pyinit_module)
+static int __pyx_pymod_exec_Board(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannyDeclarations
   #if CYTHON_REFNANNY
   __Pyx_RefNanny = __Pyx_RefNannyImportAPI("refnanny");
@@ -9163,7 +11622,7 @@ static int __pyx_pymod_exec_Boardcpython(PyObject *__pyx_pyinit_module)
           Py_FatalError("failed to import 'refnanny' module");
   }
   #endif
-  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_Boardcpython(void)", 0);
+  __Pyx_RefNannySetupContext("PyMODINIT_FUNC PyInit_Board(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_tuple = PyTuple_New(0); if (unlikely(!__pyx_empty_tuple)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_empty_bytes = PyBytes_FromStringAndSize("", 0); if (unlikely(!__pyx_empty_bytes)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -9199,7 +11658,7 @@ static int __pyx_pymod_exec_Boardcpython(PyObject *__pyx_pyinit_module)
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("Boardcpython", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("Board", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -9218,14 +11677,14 @@ static int __pyx_pymod_exec_Boardcpython(PyObject *__pyx_pyinit_module)
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_Boardcpython) {
+  if (__pyx_module_is_main_Board) {
     if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "Boardcpython")) {
-      if (unlikely(PyDict_SetItemString(modules, "Boardcpython", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "Board")) {
+      if (unlikely(PyDict_SetItemString(modules, "Board", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -9245,12 +11704,12 @@ static int __pyx_pymod_exec_Boardcpython(PyObject *__pyx_pyinit_module)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "Boardcpython.pyx":3
+  /* "Board.pyx":3
  * #!python
  * #cython: language_level=3, boundscheck=False
  * from collections import OrderedDict             # <<<<<<<<<<<<<<
  * import time
- * 
+ * #import math
  */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -9266,11 +11725,11 @@ static int __pyx_pymod_exec_Boardcpython(PyObject *__pyx_pyinit_module)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":4
+  /* "Board.pyx":4
  * #cython: language_level=3, boundscheck=False
  * from collections import OrderedDict
  * import time             # <<<<<<<<<<<<<<
- * 
+ * #import math
  * 
  */
   __pyx_t_2 = __Pyx_Import(__pyx_n_s_time, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
@@ -9278,759 +11737,296 @@ static int __pyx_pymod_exec_Boardcpython(PyObject *__pyx_pyinit_module)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_time, __pyx_t_2) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":8
- * 
+  /* "Board.pyx":7
+ * #import math
  * 
  * class Board:             # <<<<<<<<<<<<<<
  *     def __init__(self,our_color):
  *         self.rows_pos = ["1", "2", "3", "4", "5", "6", "7",
  */
-  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_Board, __pyx_n_s_Board, (PyObject *) NULL, __pyx_n_s_Boardcpython, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_Board, __pyx_n_s_Board, (PyObject *) NULL, __pyx_n_s_Board, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "Boardcpython.pyx":9
+  /* "Board.pyx":8
  * 
  * class Board:
  *     def __init__(self,our_color):             # <<<<<<<<<<<<<<
  *         self.rows_pos = ["1", "2", "3", "4", "5", "6", "7",
  *                          "8", "9", "10", "11", "12", "13", "14", "15"]
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_1__init__, 0, __pyx_n_s_Board___init, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_1__init__, 0, __pyx_n_s_Board___init, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_init, __pyx_t_1) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_init, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":33
+  /* "Board.pyx":33
  *                 self.board[i + j] = new_board_cell
  * 
  *     def make_move(self, column_pos, row_pos, color = "sample",second_move=False):             # <<<<<<<<<<<<<<
  *         #print("making move")
  *         #self.board_status()
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_3make_move, 0, __pyx_n_s_Board_make_move, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_3make_move, 0, __pyx_n_s_Board_make_move, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_1, __pyx_tuple__22);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_make_move, __pyx_t_1) < 0) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":65
+  /* "Board.pyx":68
  * 
  * 
  *     def get_children(self):             # <<<<<<<<<<<<<<
  *         children = []
  *         for key, value in self.board.items():
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_5get_children, 0, __pyx_n_s_Board_get_children, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_5get_children, 0, __pyx_n_s_Board_get_children, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_get_children, __pyx_t_1) < 0) __PYX_ERR(0, 65, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_get_children, __pyx_t_1) < 0) __PYX_ERR(0, 68, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":75
+  /* "Board.pyx":78
  * 
  * 
  *     def check_cell(self, column_pos, row_pos):             # <<<<<<<<<<<<<<
  *         return self.board[column_pos + row_pos].cell_status()
  *     def cell_exists(self,column_index,row_index):
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_7check_cell, 0, __pyx_n_s_Board_check_cell, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_7check_cell, 0, __pyx_n_s_Board_check_cell, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_check_cell, __pyx_t_1) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_check_cell, __pyx_t_1) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":77
+  /* "Board.pyx":80
  *     def check_cell(self, column_pos, row_pos):
  *         return self.board[column_pos + row_pos].cell_status()
  *     def cell_exists(self,column_index,row_index):             # <<<<<<<<<<<<<<
  *         if 1 <= column_index <=15 and 1<= row_index <= 15:
  *             return True
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_9cell_exists, 0, __pyx_n_s_Board_cell_exists, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_9cell_exists, 0, __pyx_n_s_Board_cell_exists, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_cell_exists, __pyx_t_1) < 0) __PYX_ERR(0, 77, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_cell_exists, __pyx_t_1) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":82
+  /* "Board.pyx":85
  *         else:
  *             return False
  *     def get_cell(self,column_index,row_index):             # <<<<<<<<<<<<<<
  *         if self.cell_exists(column_index,row_index):
  *             return self.board[self.columns_pos[column_index-1]+self.rows_pos[row_index-1]]
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_11get_cell, 0, __pyx_n_s_Board_get_cell, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_11get_cell, 0, __pyx_n_s_Board_get_cell, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_get_cell, __pyx_t_1) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_get_cell, __pyx_t_1) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":89
+  /* "Board.pyx":92
  *             return
  * 
  *     def get_filled_coordinates(self):             # <<<<<<<<<<<<<<
  *         coords = []
  *         for i in self.columns_pos:
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_13get_filled_coordinates, 0, __pyx_n_s_Board_get_filled_coordinates, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__32)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_13get_filled_coordinates, 0, __pyx_n_s_Board_get_filled_coordinates, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__32)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_get_filled_coordinates, __pyx_t_1) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_get_filled_coordinates, __pyx_t_1) < 0) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":101
+  /* "Board.pyx":104
  *         return coords
  * 
  *     def is_full(self):             # <<<<<<<<<<<<<<
  *         if self.number_filled_cells >= self.number_total_cells:
  *             return True
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_15is_full, 0, __pyx_n_s_Board_is_full, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__34)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_15is_full, 0, __pyx_n_s_Board_is_full, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__34)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_is_full, __pyx_t_1) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_is_full, __pyx_t_1) < 0) __PYX_ERR(0, 104, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":108
+  /* "Board.pyx":111
  * 
  * 
  *     def check_terminal_state(self):             # <<<<<<<<<<<<<<
  * 
  *         #board = self.board
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_17check_terminal_state, 0, __pyx_n_s_Board_check_terminal_state, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__36)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_17check_terminal_state, 0, __pyx_n_s_Board_check_terminal_state, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__36)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_check_terminal_state, __pyx_t_1) < 0) __PYX_ERR(0, 108, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_check_terminal_state, __pyx_t_1) < 0) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":187
+  /* "Board.pyx":190
+ *         return False
+ * 
+ *     def check_terminal_move(self,column_index,row_index):             # <<<<<<<<<<<<<<
+ *         x = column_index
+ *         y = row_index
+ */
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_19check_terminal_move, 0, __pyx_n_s_Board_check_terminal_move, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__38)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_check_terminal_move, __pyx_t_1) < 0) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "Board.pyx":316
  *         return False
  * 
  *     def print_board(self):             # <<<<<<<<<<<<<<
- *         for i in ["  "] + self.columns_pos:
- *             print(i,end="  ")
+ *         for i in ["   "] + self.columns_pos:
+ *             print(i,end=" ")
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_19print_board, 0, __pyx_n_s_Board_print_board, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__38)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_21print_board, 0, __pyx_n_s_Board_print_board, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__40)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 316, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_print_board, __pyx_t_1) < 0) __PYX_ERR(0, 187, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_print_board, __pyx_t_1) < 0) __PYX_ERR(0, 316, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":211
+  /* "Board.pyx":340
  *         #for key, value in self.board.items():
  *         #    print(key, value.color)
  *     def board_status(self):             # <<<<<<<<<<<<<<
  *         print("number of filled cells: ",self.number_filled_cells)
  *         print("number of empty cells: ",self.number_empty_cells)
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_21board_status, 0, __pyx_n_s_Board_board_status, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__40)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 211, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_23board_status, 0, __pyx_n_s_Board_board_status, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__42)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_board_status, __pyx_t_1) < 0) __PYX_ERR(0, 211, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_board_status, __pyx_t_1) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":219
+  /* "Board.pyx":348
  * 
  * 
  *     def get_player_turn(self):             # <<<<<<<<<<<<<<
  *         return self.color_turn
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_23get_player_turn, 0, __pyx_n_s_Board_get_player_turn, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__42)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_25get_player_turn, 0, __pyx_n_s_Board_get_player_turn, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__44)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_get_player_turn, __pyx_t_1) < 0) __PYX_ERR(0, 219, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_get_player_turn, __pyx_t_1) < 0) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":223
+  /* "Board.pyx":352
  * 
  * 
  *     def copy(self):             # <<<<<<<<<<<<<<
  *         new_board = Board(self.our_color)
  *         for i in new_board.columns_pos:
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_5Board_25copy, 0, __pyx_n_s_Board_copy, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__44)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_5Board_27copy, 0, __pyx_n_s_Board_copy, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__46)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 352, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_copy, __pyx_t_1) < 0) __PYX_ERR(0, 223, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_copy, __pyx_t_1) < 0) __PYX_ERR(0, 352, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":8
- * 
+  /* "Board.pyx":7
+ * #import math
  * 
  * class Board:             # <<<<<<<<<<<<<<
  *     def __init__(self,our_color):
  *         self.rows_pos = ["1", "2", "3", "4", "5", "6", "7",
  */
-  __pyx_t_1 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_Board, __pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_Board, __pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Board, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Board, __pyx_t_1) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":238
+  /* "Board.pyx":367
  * 
  * 
  * class Board_Cell:             # <<<<<<<<<<<<<<
  *     def __init__(self, column, row, is_empty=True, color="empty"):
  *         if self.check_valid(column, row):
  */
-  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_Board_Cell, __pyx_n_s_Board_Cell, (PyObject *) NULL, __pyx_n_s_Boardcpython, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 238, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_Board_Cell, __pyx_n_s_Board_Cell, (PyObject *) NULL, __pyx_n_s_Board, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 367, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "Boardcpython.pyx":239
+  /* "Board.pyx":368
  * 
  * class Board_Cell:
  *     def __init__(self, column, row, is_empty=True, color="empty"):             # <<<<<<<<<<<<<<
  *         if self.check_valid(column, row):
  *             self.column = column
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_10Board_Cell_1__init__, 0, __pyx_n_s_Board_Cell___init, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__46)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_10Board_Cell_1__init__, 0, __pyx_n_s_Board_Cell___init, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__48)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_1, __pyx_tuple__47);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_init, __pyx_t_1) < 0) __PYX_ERR(0, 239, __pyx_L1_error)
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_1, __pyx_tuple__49);
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_init, __pyx_t_1) < 0) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":249
+  /* "Board.pyx":378
  *             print("invalid input(s), leaving constructor")
  * 
  *     def play_on_cell(self, color, second_move1=False):             # <<<<<<<<<<<<<<
  *         if isinstance(color, str):
  *             if self.is_empty:
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_10Board_Cell_3play_on_cell, 0, __pyx_n_s_Board_Cell_play_on_cell, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__49)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_10Board_Cell_3play_on_cell, 0, __pyx_n_s_Board_Cell_play_on_cell, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__51)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 378, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_1, __pyx_tuple__50);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_play_on_cell, __pyx_t_1) < 0) __PYX_ERR(0, 249, __pyx_L1_error)
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_1, __pyx_tuple__52);
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_play_on_cell, __pyx_t_1) < 0) __PYX_ERR(0, 378, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":264
+  /* "Board.pyx":394
  *                 print("cannot play on this cell, it is occupied by color: ", self.color)
  * 
  *     def copy(self):             # <<<<<<<<<<<<<<
  *         new_cell = Board_Cell(self.column, self.row,
  *                               self.is_empty, self.color)
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_10Board_Cell_5copy, 0, __pyx_n_s_Board_Cell_copy, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__52)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_10Board_Cell_5copy, 0, __pyx_n_s_Board_Cell_copy, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__54)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 394, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_copy, __pyx_t_1) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_copy, __pyx_t_1) < 0) __PYX_ERR(0, 394, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":269
+  /* "Board.pyx":399
  *         return new_cell
  * 
  *     def cell_status(self):             # <<<<<<<<<<<<<<
  *         if self.is_empty:
  *             print("cell is empty")
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_10Board_Cell_7cell_status, 0, __pyx_n_s_Board_Cell_cell_status, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__54)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 269, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_10Board_Cell_7cell_status, 0, __pyx_n_s_Board_Cell_cell_status, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__56)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 399, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_cell_status, __pyx_t_1) < 0) __PYX_ERR(0, 269, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_cell_status, __pyx_t_1) < 0) __PYX_ERR(0, 399, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":277
+  /* "Board.pyx":407
  *             return self.color
  * 
  *     def check_valid(self, column, row):             # <<<<<<<<<<<<<<
  *         if isinstance(column, str) and isinstance(row, str):
  *             if is_integer(row):
  */
-  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_12Boardcpython_10Board_Cell_9check_valid, 0, __pyx_n_s_Board_Cell_check_valid, NULL, __pyx_n_s_Boardcpython, __pyx_d, ((PyObject *)__pyx_codeobj__56)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 277, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_NewEx(&__pyx_mdef_5Board_10Board_Cell_9check_valid, 0, __pyx_n_s_Board_Cell_check_valid, NULL, __pyx_n_s_Board, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 407, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_check_valid, __pyx_t_1) < 0) __PYX_ERR(0, 277, __pyx_L1_error)
+  if (PyObject_SetItem(__pyx_t_2, __pyx_n_s_check_valid, __pyx_t_1) < 0) __PYX_ERR(0, 407, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "Boardcpython.pyx":238
+  /* "Board.pyx":367
  * 
  * 
  * class Board_Cell:             # <<<<<<<<<<<<<<
  *     def __init__(self, column, row, is_empty=True, color="empty"):
  *         if self.check_valid(column, row):
  */
-  __pyx_t_1 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_Board_Cell, __pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 238, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_Board_Cell, __pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 367, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Board_Cell, __pyx_t_1) < 0) __PYX_ERR(0, 238, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Board_Cell, __pyx_t_1) < 0) __PYX_ERR(0, 367, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":315
+  /* "Board.pyx":445
  * 
  * '''
  * def is_integer(s):             # <<<<<<<<<<<<<<
  *     try:
  *         int(s)
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_12Boardcpython_1is_integer, NULL, __pyx_n_s_Boardcpython); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 315, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_5Board_1is_integer, NULL, __pyx_n_s_Board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 445, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_is_integer, __pyx_t_2) < 0) __PYX_ERR(0, 315, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_is_integer, __pyx_t_2) < 0) __PYX_ERR(0, 445, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "Boardcpython.pyx":322
- *         pass
- * 
- * b1 = Board("black")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("A","1")
- */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Board); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 322, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__59, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 322, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_b1, __pyx_t_1) < 0) __PYX_ERR(0, 322, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":324
- * b1 = Board("black")
- * 
- * b1.make_move("A","1")             # <<<<<<<<<<<<<<
- * b1.make_move("A","2")
- * 
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 324, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__60, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":325
- * 
- * b1.make_move("A","1")
- * b1.make_move("A","2")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("A","3")
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 325, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 325, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__61, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 325, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":327
- * b1.make_move("A","2")
- * 
- * b1.make_move("A","3")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("A","4")
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 327, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__62, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 327, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":329
- * b1.make_move("A","3")
- * 
- * b1.make_move("A","4")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("A","5")
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 329, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 329, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__63, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 329, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":331
- * b1.make_move("A","4")
- * 
- * b1.make_move("A","5")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("B","2")
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 331, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 331, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__64, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 331, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":333
- * b1.make_move("A","5")
- * 
- * b1.make_move("B","2")             # <<<<<<<<<<<<<<
- * b1.make_move("C","3")
- * b1.make_move("D","4")
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 333, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 333, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__65, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 333, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":334
- * 
- * b1.make_move("B","2")
- * b1.make_move("C","3")             # <<<<<<<<<<<<<<
- * b1.make_move("D","4")
- * b1.make_move("D","5")
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 334, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__66, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":335
- * b1.make_move("B","2")
- * b1.make_move("C","3")
- * b1.make_move("D","4")             # <<<<<<<<<<<<<<
- * b1.make_move("D","5")
- * 
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 335, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 335, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__67, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 335, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":336
- * b1.make_move("C","3")
- * b1.make_move("D","4")
- * b1.make_move("D","5")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("D","6")
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 336, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__68, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":338
- * b1.make_move("D","5")
- * 
- * b1.make_move("D","6")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("D","7")
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 338, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 338, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__69, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 338, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":340
- * b1.make_move("D","6")
- * 
- * b1.make_move("D","7")             # <<<<<<<<<<<<<<
- * b1.make_move("D","8")
- * 
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__70, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":341
- * 
- * b1.make_move("D","7")
- * b1.make_move("D","8")             # <<<<<<<<<<<<<<
- * 
- * b1.make_move("E","5")
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__71, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 341, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":343
- * b1.make_move("D","8")
- * 
- * b1.make_move("E","5")             # <<<<<<<<<<<<<<
- * b1.make_move("F","6")
- * 
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 343, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__72, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":344
- * 
- * b1.make_move("E","5")
- * b1.make_move("F","6")             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_make_move); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__73, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":348
- * 
- * #b1.print_board()
- * start = time.time()             # <<<<<<<<<<<<<<
- * b1.board["A2"].color
- * print(b1.check_terminal_state())
- */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_2);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
-    }
-  }
-  if (__pyx_t_2) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
-  }
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_start, __pyx_t_1) < 0) __PYX_ERR(0, 348, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "Boardcpython.pyx":349
- * #b1.print_board()
- * start = time.time()
- * b1.board["A2"].color             # <<<<<<<<<<<<<<
- * print(b1.check_terminal_state())
- * print(b1.get_filled_coordinates())
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 349, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_board); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 349, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_GetItem(__pyx_t_3, __pyx_n_u_A2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 349, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_color); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 349, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "Boardcpython.pyx":350
- * start = time.time()
- * b1.board["A2"].color
- * print(b1.check_terminal_state())             # <<<<<<<<<<<<<<
- * print(b1.get_filled_coordinates())
- * #c = b1.get_children()
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 350, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_check_terminal_state); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_1)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_1);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-    }
-  }
-  if (__pyx_t_1) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 350, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 350, __pyx_L1_error)
-  }
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3);
-  __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 350, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "Boardcpython.pyx":351
- * b1.board["A2"].color
- * print(b1.check_terminal_state())
- * print(b1.get_filled_coordinates())             # <<<<<<<<<<<<<<
- * #c = b1.get_children()
- * #c[-1].print_board()
- */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 351, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_get_filled_coordinates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 351, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_1);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-      __Pyx_INCREF(__pyx_t_2);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_1, function);
-    }
-  }
-  if (__pyx_t_2) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 351, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 351, __pyx_L1_error)
-  }
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 351, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
-  __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 351, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "Boardcpython.pyx":354
- * #c = b1.get_children()
- * #c[-1].print_board()
- * b1.board_status()             # <<<<<<<<<<<<<<
- * end = time.time()
- * print(end - start)
- */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_b1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_board_status); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 354, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_1)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_1);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-    }
-  }
-  if (__pyx_t_1) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 354, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 354, __pyx_L1_error)
-  }
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "Boardcpython.pyx":355
- * #c[-1].print_board()
- * b1.board_status()
- * end = time.time()             # <<<<<<<<<<<<<<
- * print(end - start)
- * 
- */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 355, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 355, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_1);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-      __Pyx_INCREF(__pyx_t_2);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_1, function);
-    }
-  }
-  if (__pyx_t_2) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 355, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 355, __pyx_L1_error)
-  }
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_end, __pyx_t_3) < 0) __PYX_ERR(0, 355, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-  /* "Boardcpython.pyx":356
- * b1.board_status()
- * end = time.time()
- * print(end - start)             # <<<<<<<<<<<<<<
- * 
- */
-  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_end); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 356, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 356, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_Subtract(__pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 356, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 356, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2);
-  __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_print, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 356, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "Boardcpython.pyx":1
+  /* "Board.pyx":1
  * #!python             # <<<<<<<<<<<<<<
  * #cython: language_level=3, boundscheck=False
  * from collections import OrderedDict
@@ -10046,14 +12042,13 @@ static int __pyx_pymod_exec_Boardcpython(PyObject *__pyx_pyinit_module)
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init Boardcpython", 0, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init Board", 0, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init Boardcpython");
+    PyErr_SetString(PyExc_ImportError, "init Board");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -11326,6 +13321,122 @@ static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Fast(PyObject *o, Py_ssize_t i, 
 bad:
     return NULL;
 }
+
+/* PyIntBinop */
+    #if !CYTHON_COMPILING_IN_PYPY
+static PyObject* __Pyx_PyInt_SubtractCObj(PyObject *op1, PyObject *op2, CYTHON_UNUSED long intval, CYTHON_UNUSED int inplace) {
+    #if PY_MAJOR_VERSION < 3
+    if (likely(PyInt_CheckExact(op2))) {
+        const long a = intval;
+        long x;
+        long b = PyInt_AS_LONG(op2);
+            x = (long)((unsigned long)a - b);
+            if (likely((x^a) >= 0 || (x^~b) >= 0))
+                return PyInt_FromLong(x);
+            return PyLong_Type.tp_as_number->nb_subtract(op1, op2);
+    }
+    #endif
+    #if CYTHON_USE_PYLONG_INTERNALS
+    if (likely(PyLong_CheckExact(op2))) {
+        const long a = intval;
+        long b, x;
+#ifdef HAVE_LONG_LONG
+        const PY_LONG_LONG lla = intval;
+        PY_LONG_LONG llb, llx;
+#endif
+        const digit* digits = ((PyLongObject*)op2)->ob_digit;
+        const Py_ssize_t size = Py_SIZE(op2);
+        if (likely(__Pyx_sst_abs(size) <= 1)) {
+            b = likely(size) ? digits[0] : 0;
+            if (size == -1) b = -b;
+        } else {
+            switch (size) {
+                case -2:
+                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                        b = -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
+                        break;
+#ifdef HAVE_LONG_LONG
+                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 2 * PyLong_SHIFT) {
+                        llb = -(PY_LONG_LONG) (((((unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
+                        goto long_long;
+#endif
+                    }
+                case 2:
+                    if (8 * sizeof(long) - 1 > 2 * PyLong_SHIFT) {
+                        b = (long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
+                        break;
+#ifdef HAVE_LONG_LONG
+                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 2 * PyLong_SHIFT) {
+                        llb = (PY_LONG_LONG) (((((unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
+                        goto long_long;
+#endif
+                    }
+                case -3:
+                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                        b = -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
+                        break;
+#ifdef HAVE_LONG_LONG
+                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 3 * PyLong_SHIFT) {
+                        llb = -(PY_LONG_LONG) (((((((unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
+                        goto long_long;
+#endif
+                    }
+                case 3:
+                    if (8 * sizeof(long) - 1 > 3 * PyLong_SHIFT) {
+                        b = (long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
+                        break;
+#ifdef HAVE_LONG_LONG
+                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 3 * PyLong_SHIFT) {
+                        llb = (PY_LONG_LONG) (((((((unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
+                        goto long_long;
+#endif
+                    }
+                case -4:
+                    if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
+                        b = -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
+                        break;
+#ifdef HAVE_LONG_LONG
+                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 4 * PyLong_SHIFT) {
+                        llb = -(PY_LONG_LONG) (((((((((unsigned PY_LONG_LONG)digits[3]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
+                        goto long_long;
+#endif
+                    }
+                case 4:
+                    if (8 * sizeof(long) - 1 > 4 * PyLong_SHIFT) {
+                        b = (long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0]));
+                        break;
+#ifdef HAVE_LONG_LONG
+                    } else if (8 * sizeof(PY_LONG_LONG) - 1 > 4 * PyLong_SHIFT) {
+                        llb = (PY_LONG_LONG) (((((((((unsigned PY_LONG_LONG)digits[3]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[2]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[1]) << PyLong_SHIFT) | (unsigned PY_LONG_LONG)digits[0]));
+                        goto long_long;
+#endif
+                    }
+                default: return PyLong_Type.tp_as_number->nb_subtract(op1, op2);
+            }
+        }
+                x = a - b;
+            return PyLong_FromLong(x);
+#ifdef HAVE_LONG_LONG
+        long_long:
+                llx = lla - llb;
+            return PyLong_FromLongLong(llx);
+#endif
+        
+        
+    }
+    #endif
+    if (PyFloat_CheckExact(op2)) {
+        const long a = intval;
+        double b = PyFloat_AS_DOUBLE(op2);
+            double result;
+            PyFPE_START_PROTECT("subtract", return NULL)
+            result = ((double)a) - (double)b;
+            PyFPE_END_PROTECT(result)
+            return PyFloat_FromDouble(result);
+    }
+    return (inplace ? PyNumber_InPlaceSubtract : PyNumber_Subtract)(op1, op2);
+}
+#endif
 
 /* SaveResetException */
     #if CYTHON_FAST_THREAD_STATE

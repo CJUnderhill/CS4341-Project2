@@ -1,3 +1,6 @@
+#!python
+#cython: language_level=3, boundscheck=False
+
 # CS 4341 Project 2
 # Last updated: 9/26/2017
 # Chad Underhill, Daniel Kim, Spyridon Antonatos
@@ -6,156 +9,128 @@
 #       Contains methods for running the alpha-beta pruning algorithm.
 import math
 import time
-#import Evaluation
+import Evaluation
 import Board
 
 # Depth allowed to run minimax until the evaluation function is used
-MAX_NODES = 20
-minimax_nodes = 0
-depth = 2
+MAX_NODES_VISITED = 10
+nodes_visited = 0
+MAX_DEPTH = 2
+TIME_START = 0
+TIME_STOP = 9
 
-# Checks depth to see if minimax_depth has been reached
-def checkCutOff(current):
-    global minimax_nodes
-    if current >= depth:
-        #print(current)
+# Checks to see if the evaluation function should be used
+def checkCutOff(currentDepth):
+    global nodes_visited, MAX_NODES_VISITED, MAX_DEPTH, TIME_START, TIME_STOP
+    if (currentDepth >= MAX_DEPTH)or (time.time() - TIME_START >= TIME_STOP): #or (nodes_visited >= MAX_NODES_VISITED) or (time.time() - TIME_START >= TIME_STOP):
         return True
     else:
-        #print(minimax_nodes)
         return False
 
 # "Max" in the minimax algorithm
-def maximumValue(state, alpha, beta, m):
-    global minimax_nodes
-    
+def maximumValue(state, alpha, beta, depth):
+    global nodes_visited
+    nodes_visited += 1
+    # Check for terminal states
     result = state.check_terminal_state()
     if result:
         if result == "tie":
             return 0
         else:
             return float(result)
-    if checkCutOff(m):
-        #print("in eval max")
-        #Evaluation.evaluationFunction(state)
-        return 1.0
-    minimax_nodes += 1
+    # Check for time to use evaluation function
+    if checkCutOff(depth):
+        return Evaluation.evaluationFunction(state)[0]
+    # Maximize
     #state.print_board()
     value = -math.inf
     for child in state.get_children():
-        #minimax_nodes += 1
-        value = max(value, minimumValue(child, alpha, beta, m+1))
+        value = max(value, minimumValue(child, alpha, beta, depth+1))
         if value >= beta:
             return value
         alpha = max(alpha, value)
     return value
 
 # "Min" in the minimax algorithm
-def minimumValue(state, alpha, beta, m):
-    global minimax_nodes
+def minimumValue(state, alpha, beta, depth):
+    global nodes_visited
+    nodes_visited += 1
+    # Check for terminal states
     result = state.check_terminal_state()
     if result:
         if result == "tie":
             return 0
         else:
             return float(result)
-    if checkCutOff(m):
-        #print("in eval min")
-        #Evaluation.evaluationFunction(state)
-        return 1.0
-    minimax_nodes += 1
+    # Check for time to use evaluation function
+    if checkCutOff(depth):
+        return Evaluation.evaluationFunction(state)[0]
+    # Minimize
     #state.print_board()
     value = math.inf
     for child in state.get_children():
-        #minimax_nodes += 1
-        value = min(value, maximumValue(child, alpha, beta, m+1))
+        value = min(value, maximumValue(child, alpha, beta, depth+1))
         if value <= alpha:
             return value
         beta = min(beta, value)
     return value
 
-# Alpha-beta pruning algorithm
+# Minimax algorithm with alpha-beta pruning
 def minimaxABPruning(gameBoard):
+    global TIME_START
+    TIME_START = time.time()
+    # Current player
     player = gameBoard.color_turn
     # Make second move
-    if (gameBoard.number_filled_cells == 1 and
-        gameBoard.board["H8"].color == gameBoard.color_next_turn):
-        #replace piece
-        return
-    best_val = -math.inf
+    if (gameBoard.turns == 1 and gameBoard.board["H8"].color == gameBoard.color_next_turn and gameBoard.color_turn == gameBoard.our_color):
+        # Replace middle piece
+        #gameBoard.board["H8"].color = gameBoard.color_turn
+        gameBoard.make_move("H","8",second_move = True)
+        return gameBoard #MOVE
+    elif gameBoard.turns == 0 and gameBoard.color_turn == gameBoard.our_color:
+        gameBoard.make_move("H","8")
+        return gameBoard
+    # Maximize first
+    alpha = -math.inf
     beta = math.inf
     children = gameBoard.get_children()
-    best = None
+    bestMove = None
     for child in children:
-        value = minimumValue(child, best_val, beta, 1)
-        if value > best_val:
-            best_val = value
-            best = child
-    return best
+        # Call minimumValue() to start the recursion
+        value = minimumValue(child, alpha, beta, 1)
+        if value > alpha:
+            alpha = value
+            bestMove = child
+    return bestMove
 
-# TESTING
+
+
 b1 = Board.Board("black")
+b1.make_move("H","7")
+b1.make_move("A","1")
+b1.make_move("B","2")
 
-##b1.make_move("A","1")
-##b1.make_move("A","2")
-##
-##b1.make_move("A","3")
-##
-##b1.make_move("A","4")
-##
-##b1.make_move("A","5")
-##
-##b1.make_move("B","2")
-##b1.make_move("C","3")
-##b1.make_move("D","4")
-##b1.make_move("D","5")
-##
-##b1.make_move("D","6")
-##
-##b1.make_move("D","7")
-##b1.make_move("D","8")
-##
-##b1.make_move("E","5")
-##b1.make_move("F","6")
+b1.make_move("A","3")
 
-for i in range(15):
-    b1.make_move("A", str(i+1))
-for i in range(15):
-    b1.make_move("F", str(i+1))
-b1.make_move("B", "3")
-b1.make_move("B", "2")
-b1.make_move("B", "4")
-b1.make_move("B", "8")
-b1.make_move("B", "5")
-b1.make_move("M", "3")
-b1.make_move("B", "6")
-b1.make_move("B", "9")
-##for i in range(15):
-##    b1.make_move("B", str(i+1))
-##for i in range(15):
-##    b1.make_move("F", str(i+1))
-##for i in range(15):
-##    b1.make_move("C", str(i+1))
-##for i in range(15):
-##    b1.make_move("G", str(i+1))
-##for i in range(15):
-##    b1.make_move("D", str(i+1))
-##for i in range(15):
-##    b1.make_move("K", str(i+1))
-##for i in range(15):
-##    b1.make_move("I", str(i+1))
-##for i in range(15):
-##    b1.make_move("L", str(i+1))
-##for i in range(15):
-##    b1.make_move("J", str(i+1))
-##for i in range(15):
-##    b1.make_move("M", str(i+1))
-##for i in range(15):
-##    b1.make_move("H", str(i+1))
-##for i in range(15):
-##    b1.make_move("N", str(i+1))
-##for i in range(12):
-##    b1.make_move("O", str(i+1))
+b1.make_move("B","3")
+
+b1.make_move("A","4")
+b1.make_move("C","3")
+b1.make_move("B","5")
+b1.make_move("B","6")
+
+
+
+'''
+b1.make_move("B","2","black")
+b1.make_move("C","3","white")
+b1.make_move("D","4","white")
+b1.make_move("E","5","black")
+b1.make_move("F","6","black")
+b1.make_move("G","7","white")
+b1.make_move("B","3","white")
+b1.make_move("D","3","white")
+'''
 b1.print_board()
-b2 = minimaxABPruning(b1)
-print(b2)
-b2.print_board()
+a = minimaxABPruning(b1)
+a.print_board()
