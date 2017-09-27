@@ -147,6 +147,7 @@ def evalFunction(board, position, mode):
 
     return evaluation
 
+
 def evaluatePosition(board, position):
     """
     Evaluates the net value of a given position on the board by finding summing the position's
@@ -202,12 +203,10 @@ def topMoves(board, limit):
     top_list = []
     top_queue = PriorityQueue()
 
-    # For each piece on the board
-    # TODO: This should be all I need
-
     board.print_board()
-    print(board.get_filled_coordinates())
+    # print(board.get_filled_coordinates())
 
+    # For each piece on the board
     for n in board.get_filled_coordinates():
 
         # For each potential connect space within range
@@ -224,17 +223,13 @@ def topMoves(board, limit):
     # Evaluate potential of each spot, and add to queue
     for p in spots:
         top_queue.put((evaluatePosition(board, p) * (-1), p))
-        trackingList.append(str((evaluatePosition(board, p) * (-1), p)))
+        #trackingList.append(str((evaluatePosition(board, p) * (-1), p)))
+
+    # print("\nQueue: " + str(trackingList) + "\n")
 
     for z in range(limit):
         top_list.append(top_queue.get())
 
-    print("Queue: " + str(trackingList))
-
-    for record in top_list:
-        print(str(record))
-
-    # return map(lambda (x, y): (-x, y), top_list)
     return top_list[0]
 
 
