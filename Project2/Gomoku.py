@@ -62,6 +62,4 @@ def pollForTurn(team_go=(groupname + ".go")):
                 return readMoveFile()
     return None
 
-if input("Here:") == "y":
-    print("Main")
 main()
