@@ -13,7 +13,7 @@ onBoard: Returns true if position is within board
 black:  List of all of black's pieces
 white:  List of all of white's pieces
 """
-import Queue
+from queue import *
 import Board as b
 import time
 import random
@@ -78,29 +78,24 @@ def evalFunction(board, position, mode):
     @param:     mode        Positional strategy. True if "attack", false if "defend".
     @returns:   The importance/strategic value of the position.
     """
-    (y0, x0) = position
+    (x0, y0) = position
     evaluation = 0
     opts = ((1, 0), (0, 1), (1, 1), (1, -1))
 
     # Determine how we're weighing the evaluation (for attack or defend)
-    color = board.get_player_turn()
-    
-    if color is "white":
+    color = board.our_color
+    if color == "white":
         not_color = "black"
-        if not mode:
-            not_color = board.get_player_turn()
-            color = "black"
     else:
         not_color = "white"
-        if not mode:
-            not_color = board.get_player_turn()
-            color = "white"
-    
+
+    #print("Color: " + color + ", Not Color: " + not_color)
+
     # Evaluate all neighboring nodes of current position
     for pair in opts:
 
         # Establish the position and instantiate the pathlist
-        (y1, x1) = pair
+        (x1, y1) = pair
         pathlist = ["."]
 
         for j in (1, -1):
@@ -111,6 +106,7 @@ def evalFunction(board, position, mode):
                 x2 = x0 + x1 * i * j
                 x_ol = x2 + x1 * j
                 y_ol = y2 + y1 * j
+                #print("newCoords: " + str(y2) + " " + str(x2) + " " + str(y_ol) + " " + str(x_ol))
 
                 """
                 Check if the projected position is not on the board, is already taken by the opponent,
@@ -122,25 +118,32 @@ def evalFunction(board, position, mode):
                      board.get_cell(x_ol, y_ol).color == color):
                     break
                 elif j > 0:  # Insert at back of list if right of position
-                    pathlist.append(board.get_cell(x2, y2))
+                    pathlist.append(board.get_cell(x2, y2).color)
                 elif j < 0:  # Insert at front of list if left of position
-                    pathlist.insert(0, board.get_cell(x2, y2))
+                    pathlist.insert(0, board.get_cell(x2, y2).color)
 
         # Determine the number of connections that can be formed at the given position
         paths_num = len(pathlist) - board.connect + 1
 
         # Determine the total consecutive score for the given position
         if paths_num > 0:
+            #print("here5" + str(paths_num))
             for i in range(paths_num):
-                consec = pathlist[i:i + board.connect].count(color)
+                if mode:
+                    consec = pathlist[i:i + board.connect].count(color)
+                else:
+                    consec = pathlist[i:i + board.connect].count(not_color)
 
                 if consec != board.connect - 1:
-                    evaluation += consec**5
+                    if consec != 0:
+                        evaluation += 5**consec
                 else:
                     if mode:
-                        evaluation += 100**9
+                        evaluation += 100000
+                        print(color + " " + str(mode))
                     else:
-                        evaluation += 100**8
+                        evaluation += 1000
+                #print("evaluation: " + str(evaluation))
 
     return evaluation
 
@@ -158,7 +161,10 @@ def evaluatePosition(board, position):
     """
     (x, y) = position
     if board.cell_exists(x, y):
-        return evalFunction(board, position, True) + evalFunction(board, position, False)
+        result = evalFunction(board, position, True) + \
+            evalFunction(board, position, False)
+        #print("RESULT: " + str(result))
+        return result
     else:
         return 0
 
@@ -172,16 +178,16 @@ def attackArea(initPair, connect):
     """
     area = []
     opts = ((1, 0), (0, 1), (1, 1), (1, -1))
-    (y, x) = initPair
+    (x, y) = initPair
 
     for pair in opts:
-        (y1, x1) = pair
+        (x1, y1) = pair
 
         for s in (1, -1):
             for i in range(1, connect):
-                y2 = y + y1 * i * s
                 x2 = x + x1 * i * s
-                area.append((y2, x2))
+                y2 = y + y1 * i * s
+                area.append((x2, y2))
 
     return area
 
@@ -195,10 +201,12 @@ def topMoves(board, limit):
     """
     spots = set()
     top_list = []
-    top_queue = Queue.PriorityQueue()
+    top_queue = PriorityQueue()
+
+    board.print_board()
+    # print(board.get_filled_coordinates())
 
     # For each piece on the board
-    # TODO: This should be all I need
     for n in board.get_filled_coordinates():
 
         # For each potential connect space within range
@@ -207,22 +215,22 @@ def topMoves(board, limit):
             (x, y) = m
 
             # If the connect space is on the board, add to list of potential spots
-            if board.cell_exists(x, y):
+            if board.cell_exists(x, y) and m not in board.get_filled_coordinates():
                 spots.add(m)
+
+    trackingList = []
 
     # Evaluate potential of each spot, and add to queue
     for p in spots:
         top_queue.put((evaluatePosition(board, p) * (-1), p))
+        #trackingList.append(str((evaluatePosition(board, p) * (-1), p)))
 
-    # Pull queue into list
-    for x in range(limit):
+    # print("\nQueue: " + str(trackingList) + "\n")
+
+    for z in range(limit):
         top_list.append(top_queue.get())
 
-    print(top_queue)
-    print(top_list)
-    print(map(lambda x, y: (-x, y), top_list))
-    # return map(lambda (x, y): (-x, y), top_list)
-    return map(lambda x, y: (-x, y), top_list)
+    return top_list[0]
 
 
 def evaluationFunction(board):
