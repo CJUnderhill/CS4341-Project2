@@ -79,15 +79,23 @@ def evalFunction(board, position, mode):
     @returns:   The importance/strategic value of the position.
     """
     (y0, x0) = position
-    total_consec = 0
+    evaluation = 0
     opts = ((1, 0), (0, 1), (1, 1), (1, -1))
 
-    # This is basically just simulating minimax?
-    if mode:
-        color = board.getTurn()
+    # Determine how we're weighing the evaluation (for attack or defend)
+    color = board.get_player_turn()
+    
+    if color is "white":
+        not_color = "black"
+        if not mode:
+            not_color = board.get_player_turn()
+            color = "black"
     else:
-        color = board.getTurn.getNot()
-
+        not_color = "white"
+        if not mode:
+            not_color = board.get_player_turn()
+            color = "white"
+    
     # Evaluate all neighboring nodes of current position
     for pair in opts:
 
@@ -109,32 +117,32 @@ def evalFunction(board, position, mode):
                     or if move would form an overline. If yes, then break. Otherwise, check to see
                     where the move is added to the list of paths
                 """
-                if (not board.onBoard((y2, x2)) or board[y2][x2] == color.getNot().symbol) or \
-                    (i + 1 == board.connect and board.onBoard((y_ol, x_ol)) and
-                     board[y_ol][x_ol] == color.symbol):
+                if (not board.cell_exists(x2, y2) or board.get_cell(x2, y2).color == not_color) or \
+                    (i + 1 == board.connect and board.cell_exists(x_ol, y_ol) and
+                     board.get_cell(x_ol, y_ol).color == color):
                     break
                 elif j > 0:  # Insert at back of list if right of position
-                    pathlist.append(board[y2][x2])
+                    pathlist.append(board.get_cell(x2, y2))
                 elif j < 0:  # Insert at front of list if left of position
-                    pathlist.insert(0, board[y2][x2])
+                    pathlist.insert(0, board.get_cell(x2, y2))
 
         # Determine the number of connections that can be formed at the given position
-        paths_num = len(pathlist) - len(board) + 1
+        paths_num = len(pathlist) - board.connect + 1
 
         # Determine the total consecutive score for the given position
         if paths_num > 0:
             for i in range(paths_num):
-                consec = pathlist[i:i + board.connect].count(color.symbol)
+                consec = pathlist[i:i + board.connect].count(color)
 
                 if consec != board.connect - 1:
-                    total_consec += consec**5
+                    evaluation += consec**5
                 else:
                     if mode:
-                        total_consec += 100**9
+                        evaluation += 100**9
                     else:
-                        total_consec += 100**8
+                        evaluation += 100**8
 
-    return total_consec
+    return evaluation
 
 
 def evaluatePosition(board, position):
@@ -148,7 +156,8 @@ def evaluatePosition(board, position):
     @param:     position    Coordinates of a location on the board.
     @returns:   The importance/strategic value of the position.
     """
-    if board.validMove(position):
+    (x, y) = position
+    if board.cell_exists(x, y):
         return evalFunction(board, position, True) + evalFunction(board, position, False)
     else:
         return 0
@@ -189,13 +198,16 @@ def topMoves(board, limit):
     top_queue = Queue.PriorityQueue()
 
     # For each piece on the board
-    for n in board.black + board.white:
+    # TODO: This should be all I need
+    for n in board.get_filled_coordinates():
 
         # For each potential connect space within range
-        for m in attackArea(n, len(board)):
+        for m in attackArea(n, board.connect):
+
+            (x, y) = m
 
             # If the connect space is on the board, add to list of potential spots
-            if board.onBoard(m):
+            if board.cell_exists(x, y):
                 spots.add(m)
 
     # Evaluate potential of each spot, and add to queue
