@@ -139,10 +139,10 @@ def evalFunction(board, position, mode):
                         evaluation += 5**consec
                 else:
                     if mode:
-                        evaluation += 100000
+                        evaluation += 1000000
                         print(color + " " + str(mode))
                     else:
-                        evaluation += 1000
+                        evaluation += 100000
                 #print("evaluation: " + str(evaluation))
 
     return evaluation
