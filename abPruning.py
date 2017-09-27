@@ -6,7 +6,7 @@
 #       Contains methods for running the alpha-beta pruning algorithm.
 import math
 import time
-#import Evaluation
+import Evaluation
 import Board
 
 # Depth allowed to run minimax until the evaluation function is used
@@ -38,8 +38,8 @@ def maximumValue(state, alpha, beta, m):
         else:
             return float(result)
     if checkCutOff(minimax_nodes):
-        #print("in eval max")
-        # Evaluation.evaluationFunction(state)
+        print("in eval max")
+        Evaluation.evaluationFunction(state)
         return 1.0
     minimax_nodes += 1
     # state.print_board()
@@ -64,8 +64,8 @@ def minimumValue(state, alpha, beta, m):
         else:
             return float(result)
     if checkCutOff(minimax_nodes):
-        #print("in eval min")
-        # Evaluation.evaluationFunction(state)
+        print("in eval min")
+        Evaluation.evaluationFunction(state)
         return 1.0
     minimax_nodes += 1
     # state.print_board()
