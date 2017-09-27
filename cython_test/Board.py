@@ -1,6 +1,6 @@
 from collections import OrderedDict
 import time
-#import math
+
 
 class Board:
     def __init__(self,our_color):
@@ -53,10 +53,6 @@ class Board:
         self.number_filled_cells+=1
         self.number_empty_cells-=1
         self.color_turn , self.color_next_turn = self.color_next_turn, self.color_turn 
-        #self.print_board()
-        t = self.check_terminal_move(self.columns_pos.index(column_pos)+1,self.rows_pos.index(row_pos)+1)
-        print("t:",t)
-        return t
         #self.board_status()
         #print("end making move")
  
@@ -185,135 +181,9 @@ class Board:
 
         return False
 
-    def check_terminal_move(self,column_index,row_index):
-        x = column_index
-        y = row_index
-        this_color = self.get_cell(x,y).color
-        #print("checking for x,y: ",x,y)
-
-        #x_fits_on_board = ( x + self.length_to_win < self.width )
-        #y_fits_on_board = ( y + self.length_to_win < self.height )
-        #diagf_fits_on_board = ( x + self.length_to_win < self.width ) and ( y + self.length_to_win < self.height )
-        #diagb_fits_on_board = ( x + self.length_to_win < self.width ) and ( y - self.length_to_win > 0 )
-
-        # Generate lists of pieces on board
-        win = False
-        #if x_fits_on_board:
-        xlow = x - 4
-        xhigh = x + 4
-        if xlow < 1:
-            xlow = 1
-        if xhigh > 15:
-            xhigh = 15
-        #x_set = list(set([self.get_cell(x + delta,y) for delta in range(xlow-x,xhigh+1-x)]))
-        x_set = []
-        for i in range(xlow,xhigh+1):
-            x_set.append(self.get_cell(i,y))
-        win = True
-        c1 = 0
-        for i in range(len(x_set)):
-            #print("column i: ",x_set[i].color)
-            c1+=1
-            if this_color != x_set[i].color:
-                c1 = 0
-                win = False
-            if c1 >= 5:
-                if this_color == self.our_color:
-                    return 100
-                else:
-                    return -100
-
-        ylow = y - 4
-        yhigh = y + 4
-        if ylow < 1:
-            ylow = 1
-        if yhigh > 15:
-            yhigh = 15
-        #if y_fits_on_board:
-        #y_set = list(set([self.get_cell(x,y + delta) for delta in range(ylow-y,yhigh+1-y)]))
-        y_set = []
-        for j in range(ylow,yhigh+1):
-            y_set.append(self.get_cell(x,j))
-        win = True
-        c2 = 0
-        for i in range(len(y_set)):
-            #print("row i: ",y_set[i].color)
-            c2+=1
-            if this_color != y_set[i].color:
-                c2 = 0
-                win = False
-            if c2 >=5:
-                if this_color == self.our_color:
-                    return 100
-                else:
-                    return -100
-
-        #if diagf_fits_on_board:
-        diag1xlow = x - (min(x,y)-1)
-        diag1ylow = y - (min(x,y)-1)
-        diag1xhigh = x + min(15-max(x,y),4)
-        diag1yhigh = y + min(15-max(x,y),4)
-        print(diag1xlow,diag1ylow,diag1xhigh,diag1yhigh)
-        ##diag1high = min(xhigh,yhigh)
-        #diag1r1 = min(x,y)
-        #print(diag1low,diag1high,diag1r1)
-        diagf_set = []
-        c3 = 0
-        #print("ylistb: ",list(range(diag1ylow,diag1yhigh+1)))
-        #print("xlistb: ",list(range(diag1xlow,diag1xhigh+1)))
-        for i in range(len(range(diag1xlow,diag1xhigh+1))):
-            diagf_set.append(self.get_cell(list(range(diag1xlow,diag1xhigh+1))[i],list(range(diag1ylow,diag1yhigh+1))[i]))
-        #diagf_set = list(set([self.get_cell(x + delta,y + delta) for delta in range(diag1low-diag1r1,diag1high+1-diag1r1)]))
-        win = True
-        for i in range(len(diagf_set)):
-            #print("diagf i: ",diagf_set[i].color)
-            c3+=1
-            if this_color != diagf_set[i].color:
-                c3 = 0
-                win = False
-            if c3 >=5:
-                if this_color == self.our_color:
-                    return 100
-                else:
-                    return -100
-
-
-
-        #if diagb_fits_on_board:
-        diag2xlow = x - min(15-y,x-1)
-        diag2ylow = y - min(15-x,y-1)
-        diag2xhigh = x + min(y-1,15-x)
-        diag2yhigh = y + min(x-1,15-y)
-        #diagb_set = list(set([self.get_cell(x + delta,y - delta) for delta in range(diag1low-diag1r1,diag1high+1-diag1r1)]))
-        diagb_set = []
-        c4 = 0
-        ylist = list(range(diag2ylow,diag2yhigh+1))
-        ylist.reverse()
-        #print("ylistb: ",ylist)
-        #print("xlistb: ",list(range(xlow,xhigh+1)))
-        #for i in range(xlow,xhigh+1),ylist:
-        for i in range(len(range(diag2xlow,diag2xhigh+1))):
-            diagb_set.append(self.get_cell(list(range(diag2xlow,diag2xhigh+1))[i],ylist[i]))
-        win = True
-        for i in range(len(diagb_set)):
-            #print("diagb i: ",diagb_set[i].color)
-            c4+=1
-            if this_color != diagb_set[i].color:
-                c4 = 0
-                win = False
-            if c4>=5:
-                if this_color == self.our_color:
-                    return 100
-                else:
-                    return -100
-
-        if self.is_full():
-            return "tie"
-        return False
-
     def print_board(self):
-        for i in ["   "] + self.columns_pos:
-            print(i,end=" ")
+        for i in ["  "] + self.columns_pos:
+            print(i,end="  ")
         print("")
         for j in self.rows_pos:
             if int(j) < 10:
@@ -329,7 +199,7 @@ class Board:
                     symbol = "O"
                 else:
                     symbol = "_"
-                print(symbol + "",end = " ")
+                print(symbol + " ",end = " ")
             print("")
                 
         
@@ -446,48 +316,16 @@ def is_integer(s):
     except ValueError:
         pass
 
-'''
 b1 = Board("black")
 
-b1.make_move("A","1","black")
-b1.make_move("A","2","white")
+b1.make_move("A","1")
+b1.make_move("A","2")
 
-b1.make_move("A","3","black")
+b1.make_move("A","3")
 
-b1.make_move("A","4","white")
+b1.make_move("A","4")
 
-b1.make_move("A","5","white")
-b1.make_move("B","2","black")
-b1.make_move("C","3","white")
-b1.make_move("D","4","white")
-b1.make_move("E","5","black")
-b1.make_move("F","6","black")
-b1.make_move("G","7","white")
-b1.make_move("B","3","white")
-b1.make_move("D","3","white")
-b1.make_move("E","3","black")
-b1.make_move("G","3","white")
-b1.make_move("H","3","white")
-b1.make_move("F","3","white")
-b1.make_move("F","2","white")
-
-b1.make_move("G","1","white")
-b1.make_move("C","5","white")
-b1.make_move("G","6","black")
-b1.make_move("H","6","black")
-b1.make_move("I","6","black")
-b1.make_move("J","6","black")
-b1.make_move("K","6","black")
-
-
-
-
-
-
-
-
-
-
+b1.make_move("A","5")
 
 b1.make_move("B","2")
 b1.make_move("C","3")
@@ -502,15 +340,15 @@ b1.make_move("D","8")
 b1.make_move("E","5")
 b1.make_move("F","6")
 
+
 b1.print_board()
 start = time.time()
 b1.board["A2"].color
-#print(b1.check_terminal_state())
+print(b1.check_terminal_state())
 print(b1.get_filled_coordinates())
 #c = b1.get_children()
 #c[-1].print_board()
 b1.board_status()
 end = time.time()
 print(end - start)
-'''
 
