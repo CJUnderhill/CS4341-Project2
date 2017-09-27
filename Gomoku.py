@@ -7,10 +7,9 @@
 # For polling .go file
 import glob
 import os
-import time
 import Board
-import abPruning
-import FileIO
+from abPruning import *
+from FileIO import *
 
 # Team name
 groupname = "AgentSmith"
@@ -18,19 +17,23 @@ groupname = "AgentSmith"
 
 def main():
     # Have our Agent class do all of the following:
+    board = Board.Board("white")
 
     # Poll for the .go file with our groupname
     move = pollForTurn()
-    if (move == None):
+    if move is None:
         # End game
         return
     else:
         # Store & make move
-        Board.makeMove(move)
-        best_state = abPruning(currentBoard)
+        board.make_move(move.x, move.y, board.our_color)
+        best_state = minimaxABPruning(board)
+
     # Overwrite to the move file
     writeMoveFile(best_state_move)
+
     # Repeat
+    main()
 
 
 def pollForTurn(team_go=(groupname + ".go")):
