@@ -82,6 +82,19 @@ class Board:
         else:
             print("requested cell doesn't exist, boundaries out of board")
             return
+
+    def get_filled_coordinates(self):
+        coords = []
+        for i in self.columns_pos:
+            for j in self.rows_pos:
+                color = self.board[i + j].color
+                if color != "empty":
+                    x = self.columns_pos.index(i)
+                    y = self.rows_pos.index(j)
+                    a = (x+1,y+1)
+                    coords.append(a)
+        return coords
+
     def is_full(self):
         if self.number_filled_cells >= self.number_total_cells:
             return True
@@ -331,6 +344,7 @@ b1.make_move("F","6")
 b1.print_board()
 b1.board["A2"].color
 print(b1.check_terminal_state())
+print(b1.get_filled_coordinates())
 #c = b1.get_children()
 #c[-1].print_board()
 b1.board_status()
