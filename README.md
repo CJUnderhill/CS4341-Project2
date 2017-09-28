@@ -3,9 +3,11 @@
 
 ## Compiling and running the program:
 
+Our group used python35 to write the code for our program.
+
 To compile the program, simply run the following commands:
 
-`
+` Make sure to have python35 installed
 `
 
 Running the program is just as simple. Run the following:
