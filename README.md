@@ -4,16 +4,18 @@
 ## Compiling and running the program:
 
 Our group used python35 to write the code for our program.
+All of our files should be in a folder named 'Project2_AgentSmurf'
 
 To compile the program, simply run the following commands:
 
 ` Make sure to have python35 installed
-`
+` Make sure to have the folder 'Project2_AgentSmurf' in the same directory as the referee.py
 
 Running the program is just as simple. Run the following:
 
-`
-`
+` Open a terminal in the directory of the referee.py
+` Run the command 'cd Project2_AgentSmurf' to go to the directory with our group's files
+` Run the command 'python3 Gomoku.py' to start our program
 
 ## The utility function:
 
@@ -38,8 +40,22 @@ Our heuristics are detailed in the two sections above. Our strategy revolves aro
 ## The results:
 
 # We need to answer these
--describe which tests you ran to try out your program. Did your program play against human players? Did your program play against itself? Did your program play against other programs? How did your program do during those games?
--describe the strengths and the weaknesses of your program.
+
+We tested our alpha beta pruning algorithm with various terminal states to see if it would recognize them.
+Our function to check for terminal states was able to detect terminal states and give the correct value for wins/losses/ties.
+We also tested our program for optimal first/second moves. The program returns the coordinate (h,8) for the first move.
+If the opponent made the first move at (h,8), our program replaces that piece.
+We tested our alpha beta pruning algorithm with various random board states. We could not determine the actual best move for
+all of these tests, but each move made seemed to be an acceptable move that did not only pick the first possible move.
+
+We tested our program against itself. At first there were many internal errors with our program, but we solved many of them.
+We did not get to test against other programs or other humans. However, we believe the program would play reasonably well.
+
+-strengths:
+Our program has a good heuristic evaluation function.
+
+-weaknesses:
+Our minimax algorithm seems to take too long to calculate the next best move.
 
 ## Why we chose our evaluation function and heuristics:
 
