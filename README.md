@@ -9,12 +9,15 @@ All of our files should be in a folder named 'Project2_AgentSmurf'
 To compile the program, simply run the following commands:
 
 ` Make sure to have python35 installed
+` 
 ` Make sure to have the folder 'Project2_AgentSmurf' in the same directory as the referee.py
 
-Running the program is just as simple. Run the following:
+`Running the program is just as simple. Run the following:
 
 ` Open a terminal in the directory of the referee.py
+`
 ` Run the command 'cd Project2_AgentSmurf' to go to the directory with our group's files
+`
 ` Run the command 'python3 Gomoku.py' to start our program
 
 ## The utility function:
