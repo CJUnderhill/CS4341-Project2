@@ -11,8 +11,8 @@ To compile the program, simply run the following commands:
 ` Make sure to have python35 installed
 ` 
 ` Make sure to have the folder 'Project2_AgentSmurf' in the same directory as the referee.py
-
-`Running the program is just as simple. Run the following:
+`
+Running the program is just as simple. Run the following:
 
 ` Open a terminal in the directory of the referee.py
 `
